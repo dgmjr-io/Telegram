@@ -1,0 +1,30 @@
+<!--
+ * Telegram.Bots.Models.csproj
+ * 
+ *   Created: 2023-03-23-08:36:46
+ *   Modified: 2023-03-23-09:47:22
+ * 
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
+ *   
+ *   Copyright © 2022 - 2023 David G. Moore, Jr., All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Dgmjr.Primitives" />
+    <PackageReference Include="Dgmjr.System.Extensions" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants" />
+    <PackageReference Include="System.Text.Json.Usings" />
+    <PackageReference Include="Dgmjr.Identity.Abstractions" />
+    <PackageReference Include="Dgmjr.Identity.Constants" />
+    <PackageReference Include="Dgmjr.Identity.Models" />
+    <PackageReference Include="Dgmjr.Identity.Claims" />
+    <ProjectReference Include="../Abstractions/Telegram.Bots.Abstractions.csproj" />
+    <ProjectReference Include="../../Bot.Extensions/Telegram.Bot.Extensions.csproj" />
+    <ProjectReference Include="../../Constants/Telegram.Constants.csproj" />
+  </ItemGroup>
+</Project>

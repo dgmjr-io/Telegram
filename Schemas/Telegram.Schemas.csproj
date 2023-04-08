@@ -1,0 +1,14 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>net7.0</TargetFramework>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="System.ComponentModel.Usings" />
+    <PackageReference Include="System.Text.Json.Usings" />
+    <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
+    <PackageReference Include="Dgmjr.Abstractions" />
+    <SourceGenerator  Include="Dgmjr.Enumerations.CodeGenerator" />
+    <SourceGenerator  Include="Vogen" />
+    <PackageReference  Include="Dgmjr.System.Extensions" />
+  </ItemGroup>
+</Project>

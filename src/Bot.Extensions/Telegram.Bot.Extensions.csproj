@@ -1,0 +1,33 @@
+<!--
+ * Dgmjr.Telegram.csproj
+ *
+ *   Created: 2022-12-01-11:48:02
+ *   Modified: 2022-12-01-11:48:02
+ *
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
+ *
+ *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+    <!-- <TargetFramework>net7.0</TargetFramework> -->
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" Condition="!$(TargetFramework.Contains('netstandard'))" />
+    <SourceGrnerator Include="Dgmjr.RegexDtoGenerator" />
+    <SourceGenerator Include="Vogen" />
+    <PackageReference Include="Dgmjr.Primitives" />
+    <PackageReference Include="Telegram.Bot" />
+    <PackageReference Include="Humanizer.Core" />
+    <PackageReference Include="Microsoft.AspNetCore.Mvc" />
+    <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Usings" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore" />
+    <PackageReference Include="System.Text.RegularExpressions.Usings" />
+    <PackageReference Include="System.Text.Json.Usings" />
+    <PackageReference Include="System.ComponentModel.Usings" />
+  </ItemGroup>
+</Project>

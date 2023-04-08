@@ -1,0 +1,29 @@
+<!--
+ * Telegram.Identity.csproj
+ * 
+ *   Created: 2022-12-15-11:24:43
+ *   Modified: 2022-12-15-11:24:43
+ * 
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
+ *   
+ *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <SourceGenerator  Include="Dgmjr.Enumerations.CodeGenerator" />
+    <PackageReference Include="Dgmjr.Abstractions" />
+    <PackageReference Include="Dgmjr.Identity.Claims" />
+    <PackageReference Include="System.Security.Claims" />
+    <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
+    <PackageReference Include="Dgmjr.ComponentModel" />
+    <PackageReference Include="System.ComponentModel.Usings" />
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Condition="$(TargetFramework.Contains('netstandard1'))" />
+    <PackageReference Include="System.Console" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" VersionOverride="[4.3.1,)" />
+    <Reference Include="System.Runtime.Numerics" Version="4.3.1" SpecificVersion="true" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
+  </ItemGroup>
+</Project>

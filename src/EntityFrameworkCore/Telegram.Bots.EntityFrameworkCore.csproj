@@ -1,0 +1,33 @@
+<!--
+ * Telegram.Bots.EntityFrameworkCore.csproj
+ * 
+ *   Created: 2023-03-23-06:29:45
+ *   Modified: 2023-03-23-09:47:07
+ * 
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
+ *   
+ *   Copyright © 2022 - 2023 David G. Moore, Jr., All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <SourceGenerator  Include="Dgmjr.InterfaceGenerator" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Abstractions" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Extensions" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants" />
+    <PackageReference Include="Dgmjr.Primitives" />
+    <ProjectReference Include="./Models/Telegram.Bots.Models.csproj" />
+    <ProjectReference Include="./Abstractions/Telegram.Bots.Abstractions.csproj" />
+    <ProjectReference Include="../Constants/Telegram.Constants.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Remove="Models/**/*.cs" />
+    <None Remove="Models/**/*.*" />
+    <Compile Remove="Abstractions/**/*.cs" />
+    <None Remove="Abstractions/**/*.*" />
+  </ItemGroup>
+</Project>

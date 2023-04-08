@@ -1,0 +1,17 @@
+<!--
+ * Telegram.Identity.csproj
+ * 
+ *   Created: 2022-12-15-11:24:43
+ *   Modified: 2022-12-15-11:24:43
+ * 
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
+ *   
+ *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+  <ItemGroup>
+    <Using Include="Telegram.Identity" Alias="TelegramID" />
+  </ItemGroup>
+</Project>

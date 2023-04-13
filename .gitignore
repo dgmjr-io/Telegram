@@ -1152,3 +1152,10 @@ $RECYCLE.BIN/
 *.dll
 */site/*
 *site/*
+Schemas/*
+botme*
+Directory.*
+.github/*
+global.json
+*foo.json
+.vscode/*

@@ -1,29 +1,22 @@
-/* 
+/*
  * Claims.cs
- * 
+ *
  *   Created: 2023-03-19-02:53:23
  *   Modified: 2023-03-23-11:30:12
- * 
+ *
  *   Author: David G. Moore, Jr. <david@dgmjr.io>
- *   
+ *
  *   Copyright © 2022 - 2023 David G. Moore, Jr., All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
- */ 
+ */
 
 namespace Telegram.Identity;
 
-public static partial class ClaimTypeValueUris
+public static partial class StrClaimTypes
 {
-    /// <summary>The base URI for Telegram values- <inheritdoc cref="BaseUri" path="/value" /></summary>
-    /// <value><inheritdoc cref="ClaimTypeUris.Identity" path="/value" />value/</value>
-    public const string BaseUri = ClaimTypeUris.Identity + ClaimTypeUris.Namespaces.Values;
-
-    /// <summary>The URI for the Telegram <inheritdoc cref="ClaimTypeUris.UriFragments.LanguageCode" path="/value" /> claim value type.</summary>
-    /// <value><inheritdoc cref="ClaimTypeUris.LanguageCode"  path="/value" /></value>
-    public const string LanguageCode = BaseUri + ClaimTypeUris.UriFragments.LanguageCode;
-    /// <summary>The URI for the Telegram <inheritdoc cref="ClaimTypeUris.UriFragments.BotApiToken" path="/value" /> claim value type.</summary>
-    /// <value><inheritdoc cref="BaseUri" path="/value" /><inheritdoc cref="ClaimTypeUris.UriFragments.BotApiToken" path="/value" /></value>
-    public const string BotApiToken = BaseUri + ClaimTypeUris.UriFragments.BotApiToken;
+    /// <summary>The URI for the Telegram <inheritdoc cref="UriFragments.BotApiToken" path="/value" /> claim value type.</summary>
+    /// <value><inheritdoc cref="BotApiToken" path="/value" /></value>
+    public const string BotApiToken = Identity + UriFragments.BotApiToken;
 }
 
 // [GenerateEnumerationRecordStruct("ClaimType")]

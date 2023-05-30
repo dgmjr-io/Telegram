@@ -12,14 +12,14 @@
 
 namespace Telegram.Identity;
 
-public static partial class ClaimTypeUris
+public static partial class StrClaimTypes
 {
     public static class Namespaces
     {
         /// <summary>The namespace for Telegram identity.</summary>
         /// <value>identity/</value>
         public const string Identity = "identity/";
-        
+
         /// <summary>The namespace for Telegram claim value types.</summary>
         /// <value>values/</value>
         public const string Values = "values/";

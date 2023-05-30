@@ -1,0 +1,29 @@
+<!--
+ * Telegram.UserBot.csproj
+ * 
+ *   Created: 2023-04-24-09:43:43
+ *   Modified: 2023-04-25-07:05:34
+ * 
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
+ *   
+ *   Copyright © 2022 - 2023 David G. Moore, Jr., All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project Sdk="Microsoft.NET.Sdk">
+    <PropertyGroup>
+        <TargetFramework>net7.0</TargetFramework>
+    </PropertyGroup>
+    <ItemGroup>
+        <FrameworkReference Include="Microsoft.AspNetCore.App" />
+        <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" />
+        <PackageReference Include="Microsoft.AspNetCore.App.Ref"/>
+        <PackageReference Include="WTelegramClient" />
+        <PackageReference Include="Microsoft.Extensions.Options" />
+        <ProjectReference Include="../Config/Telegram.UserBot.Config.csproj" />
+        <SourceGenerator  Include="Dgmjr.InterfaceGenerator" />
+    </ItemGroup>
+    <ItemGroup>
+        <Using Include="WTelegram" Alias="WT" />
+    </ItemGroup>
+</Project>

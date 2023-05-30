@@ -1,0 +1,10 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <SourceGenerator Include="Dgmjr.InterfaceGenerator" />
+    <SourceGenerator Include="Dgmjr.Enumerations.CodeGenerator" />
+    <PackageReference Include="System.Text.Json.Usings" />
+    <PackageReference Include="Dgmjr.Abstractions" />
+    <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
+    <ProjectReference Include="../Store/Telegram.UserBot.Store.csproj" />
+  </ItemGroup>
+</Project>

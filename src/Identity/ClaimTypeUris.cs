@@ -11,7 +11,8 @@
  */
 
 namespace Telegram.Identity;
-public static partial class ClaimTypeUris
+
+public static partial class StrClaimTypes
 {
     // public static class ClaimTypeUris
     // {

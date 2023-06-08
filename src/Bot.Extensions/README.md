@@ -5,12 +5,12 @@ title: README.md
 lastmod: 2023-01-17-12:35:43
 created: 2023-01-17-12:35:43
 license: MIT
-keywords: 
-  - Dgmjr
-tags: 
-  - Dgmjr
-categories: 
-  - Dgmjr
+keywords:
+  - DGMJR-IO
+tags:
+  - DGMJR-IO
+categories:
+  - DGMJR-IO
 ---
 
 # Telegram Bot Extensions

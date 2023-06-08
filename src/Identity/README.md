@@ -1,12 +1,12 @@
 ---
 authors:
-  - dgmjr
+  - DGMJR-IO
 title: Telegram Identity
 lastmod: 2023-04-12T10:47:29.315Z
 created: 2023-03-27-08:50:54
 license: MIT
 keywords:
-  - DGMJR
+  - DGMJR-IO
   - Identity
   - Telegram
 categories:

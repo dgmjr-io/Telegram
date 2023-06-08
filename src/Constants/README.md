@@ -4,10 +4,10 @@ lastmod: 2023-03-23-11:06:58
 created: 2023-03-23-11:06:58
 license: MIT
 tags:
-  - dgmjr
+  - DGMJR-IO
   - telegram
 categories:
-  - dgmjr
+  - DGMJR-IO
   - readme
 type: readme
 slug: telegram-constants

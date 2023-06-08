@@ -6,7 +6,7 @@ lastmod: 2023-04-12T10:49:39.467Z
 type: readme
 tags:
   - telegram
-  - Dgmjr
+  - DGMJR-IO
 slug: telegram
 ---
 

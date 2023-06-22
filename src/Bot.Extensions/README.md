@@ -1,4 +1,5 @@
 ---
+
 author: David G. Moore, Jr.
 author_email: david@dgmjr.io
 title: README.md
@@ -6,12 +7,12 @@ lastmod: 2023-01-17-12:35:43
 created: 2023-01-17-12:35:43
 license: MIT
 keywords:
-  - DGMJR-IO
+- DGMJR-IO
 tags:
-  - DGMJR-IO
+- DGMJR-IO
 categories:
-  - DGMJR-IO
----
+- DGMJR-IO
+----------
 
 # Telegram Bot Extensions
 

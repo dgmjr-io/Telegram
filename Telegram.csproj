@@ -13,15 +13,15 @@
 <Project Sdk="Microsoft.Build.Traversal">
     <Sdk Name="MetapackageSdk" />
     <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
+        <TargetFramework>net8.0</TargetFramework>
         <IsAtRoot>true</IsAtRoot>
     </PropertyGroup>
     <ItemGroup>
         <ProjectReference Include="./src/Constants/Telegram.Constants.csproj" />
         <ProjectReference Include="./src/Converters/Telegram.JsonConverters.csproj" />
         <ProjectReference Include="./src/Identity/Telegram.Identity.csproj" />
-        <ProjectReference Include="./src/EntityFramrworkCore/Telegram.Bots.EntityFrameworkCore.csproj" />
+        <ProjectReference Include="./src/EntityFrameworkCore/Telegram.Bots.EntityFrameworkCore.csproj" />
         <ProjectReference Include="./src/Bot.Extensions/Telegram.Bot.Extensions.csproj" />
-        <ProjectReference Include="./src/Telegram.Bot/src/Telegram.Bot/Telegram.Bot.csproj" />
+        <ProjectReference Include="./lib/Telegram.Bot/src/Telegram.Bot/Telegram.Bot.csproj" />
     </ItemGroup>
 </Project>

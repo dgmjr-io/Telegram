@@ -12,11 +12,11 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard1.3;netstandard2.0</TargetFrameworks>
-    <ImplicitUsings>disable</ImplicitUsings>
+    <TargetFrameworks>netstandard2.0;net8.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
   </PropertyGroup>
   <ItemGroup>
    <!-- <PackageReference Include="System.Console" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" VersionOverride="[4.3.1,)" /> -->
-   <Reference Include="System.Runtime.Numerics" Version="4.3.1" SpecificVersion="true" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
+   <!-- <Reference Include="System.Runtime.Numerics" Version="4.3.1" SpecificVersion="true" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" /> -->
   </ItemGroup>
 </Project>

@@ -12,11 +12,11 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net7.0</TargetFrameworks>
-    <!-- <TargetFramework>net7.0</TargetFramework> -->
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net8.0</TargetFrameworks>
+    <!-- <TargetFramework>net8.0</TargetFramework> -->
   </PropertyGroup>
   <ItemGroup>
-    <FrameworkReference Include="Microsoft.AspNetCore.App" Condition="!$(TargetFramework.Contains('netstandard'))" />
+    <!-- <FrameworkReference Include="Microsoft.AspNetCore.App" Condition="!$(TargetFramework.Contains('netstandard'))" /> -->
     <SourceGrnerator Include="Dgmjr.RegexDtoGenerator" />
     <SourceGenerator Include="Vogen" />
     <PackageReference Include="Dgmjr.Primitives" />
@@ -24,10 +24,9 @@
     <PackageReference Include="Humanizer.Core" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Usings" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore" />
-    <PackageReference Include="System.Text.RegularExpressions.Usings" />
-    <PackageReference Include="System.Text.Json.Usings" />
-    <PackageReference Include="System.ComponentModel.Usings" />
+    <UsingsReference Include="Microsoft.EntityFrameworkCore.Usings" />
+    <UsingsReference Include="System.Text.RegularExpressions.Usings" />
+    <UsingsReference Include="System.Text.Json.Usings" />
+    <UsingsReference Include="System.ComponentModel.Usings" />
   </ItemGroup>
 </Project>

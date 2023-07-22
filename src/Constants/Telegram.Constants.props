@@ -1,0 +1,19 @@
+<!--
+ * Telegram.Constants.csproj
+ *
+ *   Created: 2022-12-19-07:46:56
+ *   Modified: 2022-12-19-07:46:56
+ *
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
+ *
+ *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+-->
+
+<Project>
+  <ItemGroup>
+    <Using Include="Telegram.Constants.DbConstants" />
+    <Using Include="Telegram.Constants" />
+    <Using Include="Telegram.Constants.DbConstants.SchemaNames" Static="true" />
+  </ItemGroup>
+</Project>

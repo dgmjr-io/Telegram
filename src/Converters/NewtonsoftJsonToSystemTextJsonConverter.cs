@@ -1,5 +1,3 @@
-using System.Security.AccessControl;
-using System.Text.Json;
 /*
 * NewtonsoftJsonToSystemTextJsonConverter.cs
 *
@@ -12,18 +10,19 @@ using System.Text.Json;
 *      License: MIT (https://opensource.org/licenses/MIT)
 */
 
-namespace Telegram.JsonConverters;
-using static System.Text.Encoding;
+namespace Telegram.System.Text.Json.Serialization;
+using global::System.Text.Json;
+using static global::System.Text.Encoding;
 
-public class NewtonsoftJsonToSystemTextJsonConverter<T> : System.Text.Json.Serialization.JsonConverter<T>
+public class NewtonsoftJsonToSystemTextJsonConverter<T> : global::System.Text.Json.Serialization.JsonConverter<T>
 {
-    public override T? Read(ref Utf8JsonReader reader, Type typeToConvert, JsonSerializerOptions options)
+    public override T? Read(ref Utf8JsonReader reader, type typeToConvert, JsonSerializerOptions options)
     {
-        return Newtonsoft.Json.JsonConvert.DeserializeObject<T>(UTF8.GetString(reader.ValueSpan.ToArray()));
+        return NSJsonConvert.DeserializeObject<T>(UTF8.GetString(reader.ValueSpan.ToArray()));
     }
 
     public override void Write(Utf8JsonWriter writer, T value, JsonSerializerOptions options)
     {
-        writer.WriteStringValue(Newtonsoft.Json.JsonConvert.SerializeObject(value));
+        writer.WriteStringValue(NSJsonConvert.SerializeObject(value));
     }
 }

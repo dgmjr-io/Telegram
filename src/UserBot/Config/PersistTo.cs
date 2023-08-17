@@ -1,6 +1,6 @@
 namespace Telegram.UserBot;
 
-[GenerateEnumerationRecordStruct("PersistToWhere")]
+// [GenerateEnumerationRecordStruct("PersistToWhere")]
 public enum PersistTo
 {
     Memory = 0,

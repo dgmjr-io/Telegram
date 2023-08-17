@@ -1,17 +1,17 @@
 <!--
- * Telegram.Constants.csproj
- *
- *   Created: 2022-12-19-07:46:56
- *   Modified: 2022-12-19-07:46:56
- *
+ * Telegram.JsonConverters.csproj
+ * 
+ *   Created: 2022-12-09-04:47:26
+ *   Modified: 2022-12-09-04:47:27
+ * 
  *   Author: David G. Moore, Jr. <david@dgmjr.io>
- *
+ *   
  *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
 -->
 
 <Project>
   <ItemGroup>
-    <!-- <Using Remove="@(Using->WithMetadataValue('Alias', 'bigint'))" /> -->
+    <Using Include="Newtonsoft.Json.JsonConvert" Alias="NSJsonConvert" />
   </ItemGroup>
 </Project>

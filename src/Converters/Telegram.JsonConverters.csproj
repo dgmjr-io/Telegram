@@ -12,11 +12,11 @@
 
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
-    <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
+    <UsingsReference Include="System.Text.Json.Usings" />
     <PackageReference Include="Telegram.Bot" />
-    <PackageReference Include="System.Text.Json" />
     <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>
 </Project>

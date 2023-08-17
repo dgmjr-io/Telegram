@@ -1,5 +1,6 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B283EBC2-E01F-412D-9339-FD56EF114549}" 
+# 
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B283EBC2-E01F-412D-9339-FD56EF114549}"
 	ProjectSection(SolutionItems) = preProject
 		..\..\..\..\Packages\Versions.props = ..\..\..\..\Packages\Versions.props
 		..\..\..\..\Packages\Versions.Local.json = ..\..\..\..\Packages\Versions.Local.json
@@ -50,6 +51,8 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\..\..\..\Packages\Versions\PowerShell.props = ..\..\..\..\Packages\Versions\PowerShell.props
 	EndProjectSection
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Bot.Extensions", "Telegram.Bot.Extensions.csproj", "{E4373A8F-7FB6-4921-9843-ED6F3086CD98}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Local|Any CPU = Local|Any CPU
@@ -60,6 +63,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Local|Any CPU.Build.0 = Local|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Production|Any CPU.Build.0 = Local|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4373A8F-7FB6-4921-9843-ED6F3086CD98}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

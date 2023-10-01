@@ -11,23 +11,37 @@
  */
 
 namespace Telegram.Identity;
+
 using System.Linq;
 using System.Security.Claims;
+
 public static class ClaimsPrincipalExtensions
 {
     public static long GetTelegramId(this ClaimsPrincipal principal)
     {
         return principal.Claims
-            .Where(c => c.Type == ClaimTypeNames.UserId)
+            .Where(
+                c =>
+                    c.Type
+                        is ClaimTypes.UserId.UriString
+                            or ClaimTypes.UserId.ShortUriString
+                            or ClaimTypes.UserId.Name
+            )
             .Select(c => long.Parse(c.Value))
             .FirstOrDefault();
     }
 
-    public static long GetTelegramUsername(this ClaimsPrincipal principal)
+    public static string GetTelegramUsername(this ClaimsPrincipal principal)
     {
         return principal.Claims
-            .Where(c => c.Type == ClaimTypeNames.Username)
-            .Select(c => long.Parse(c.Value))
+            .Where(
+                c =>
+                    c.Type
+                        is ClaimTypes.Username.UriString
+                            or ClaimTypes.Username.ShortUriString
+                            or ClaimTypes.Username.Name
+            )
+            .Select(c => c.Value)
             .FirstOrDefault();
     }
 }

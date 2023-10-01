@@ -1,11 +1,11 @@
 <!--
  * Telegram.Identity.csproj
- * 
+ *
  *   Created: 2022-12-15-11:24:43
  *   Modified: 2022-12-15-11:24:43
- * 
+ *
  *   Author: David G. Moore, Jr. <david@dgmjr.io>
- *   
+ *
  *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
 -->
@@ -13,11 +13,14 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0</TargetFrameworks>
+    <Description>This package contains identity classes for Telegram, specifically, the `BotApiToken` claim type and claim value type, and the `Username` and `UserId` claim types.</Description>
   </PropertyGroup>
   <ItemGroup>
     <SourceGenerator  Include="Dgmjr.Enumerations.CodeGenerator" />
     <PackageReference Include="Dgmjr.Abstractions" />
     <PackageReference Include="Dgmjr.Identity.Claims" />
+    <PackageReference Include="Dgmjr.Identity.ClaimValueTypes" />
+    <PackageReference Include="Telegram.Bot.Extensions" />
     <PackageReference Include="System.Security.Claims" />
     <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
     <PackageReference Include="Dgmjr.ComponentModel" />

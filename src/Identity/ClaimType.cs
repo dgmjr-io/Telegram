@@ -12,10 +12,4 @@
 
 namespace Telegram.Identity;
 
-public partial class StrClaimType : Dgmjr.Identity.ClaimType
-{
-    public virtual bool Equals(StrClaimTypes? other)
-    {
-        return base.Equals(other);
-    }
-}
+public partial record class ClaimType : DgmjrId.ClaimType { }

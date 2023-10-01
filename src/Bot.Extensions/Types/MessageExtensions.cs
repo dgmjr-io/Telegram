@@ -11,6 +11,7 @@
  */
 
 namespace Telegram.Bot;
+
 using global::Telegram.Bot.Types;
 using global::Telegram.Bot.Types.Enums;
 using Humanizer;
@@ -27,9 +28,11 @@ public static class MessageExtensions
             MessageType.Photo => $"📸: {message.Caption?.Truncate(maxLength)} ",
             MessageType.Animation => $"🎉: {message.Animation.FileName.Truncate(maxLength)}",
             MessageType.Audio => $"🔊: {message.Caption?.Truncate(maxLength)}",
-            MessageType.Contact => $"👤: {message.Contact.PhoneNumber ?? message.Contact.FirstName ?? message.Contact.LastName ?? message.Contact.UserId?.ToString()}",
+            MessageType.Contact
+                => $"👤: {message.Contact.PhoneNumber ?? message.Contact.FirstName ?? message.Contact.LastName ?? message.Contact.UserId?.ToString()}",
             MessageType.Document => $"📄: {message.Document.FileName.Truncate(maxLength)}",
-            MessageType.Location => $"📍: {message.Location.Latitude.ToString().Truncate((maxLength / 2) - 5)}, {message.Location.Longitude.ToString().Truncate((maxLength / 2) - 5)}",
+            MessageType.Location
+                => $"📍: {message.Location.Latitude.ToString().Truncate((maxLength / 2) - 5)}, {message.Location.Longitude.ToString().Truncate((maxLength / 2) - 5)}",
             MessageType.Dice => $"🎲: {message.Dice.Emoji}",
             MessageType.Voice => $"🗣: {message.Voice.Duration.Seconds()}",
             _ => message.Caption.Truncate(maxLength)

@@ -11,12 +11,18 @@
 */
 
 namespace Telegram.System.Text.Json.Serialization;
+
 using global::System.Text.Json;
 using static global::System.Text.Encoding;
 
-public class NewtonsoftJsonToSystemTextJsonConverter<T> : global::System.Text.Json.Serialization.JsonConverter<T>
+public class NewtonsoftJsonToSystemTextJsonConverter<T>
+    : global::System.Text.Json.Serialization.JsonConverter<T>
 {
-    public override T? Read(ref Utf8JsonReader reader, type typeToConvert, JsonSerializerOptions options)
+    public override T? Read(
+        ref Utf8JsonReader reader,
+        type typeToConvert,
+        JsonSerializerOptions options
+    )
     {
         return NSJsonConvert.DeserializeObject<T>(UTF8.GetString(reader.ValueSpan.ToArray()));
     }

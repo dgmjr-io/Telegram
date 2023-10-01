@@ -25,14 +25,6 @@ public static partial class StrClaimTypes
         /// <value>username/</value>
         public const string Username = "username/";
 
-        // / <summary>A URI fragment for <inheritdoc cref="GivenName" path="/value" /></summary>
-        // / <value>givenname/</value>
-        // public const string GivenName = "givenname/";
-        // /// <summary>A URI fragment for <inheritdoc cref="Surname" path="/value" /></summary>
-        // /// <value>surname/</value>
-        // public const string Surname = "surname/";
-        // /// <summary>A URI fragment for <inheritdoc cref="LanguageCode" path="/value" /></summary>
-        // /// <value>languagecode/</value>
         /// <summary>A URI fragment for <inheritdoc cref="LanguageCode" path="/value" /></summary>
         /// <value>language_code/</value>
         public const string LanguageCode = "language_code/";

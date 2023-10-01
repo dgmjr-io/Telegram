@@ -7,10 +7,12 @@ var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 
-builder.AddTheWorks(new StartupParametersBuilder()
-    .WithAddAzureAppConfig(true)
-    .WithAzureKeyVaultConfigurator(kv => kv.SetCredential(new DefaultCredential()))//(kv => kv.)
-    .Build());
+builder.AddTheWorks(
+    new StartupParametersBuilder()
+        .WithAddAzureAppConfig(true)
+        .WithAzureKeyVaultConfigurator(kv => kv.SetCredential(new DefaultCredential())) //(kv => kv.)
+        .Build()
+);
 builder.AddUserBot();
 
 var app = builder.Build();

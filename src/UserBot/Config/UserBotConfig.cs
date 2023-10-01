@@ -1,6 +1,7 @@
 using System;
 
 namespace Telegram.UserBot.Config;
+
 using Telegram.UserBot.Store.Abstractions;
 using Telegram.UserBot.Store;
 using static Environment;
@@ -45,14 +46,24 @@ public class UserBotConfig
         {
             PersistTo.Memory => new MemoryUserBotStore(),
             PersistTo.File => new FileUserBotStore(SessionPathname),
-            PersistTo.Database => new DbUserBotStore(new UserBotDbContext(new DbContextOptionsBuilder<UserBotDbContext>().UseSqlServer(DbConectionString).Options), SessionPathname),
+            PersistTo.Database
+                => new DbUserBotStore(
+                    new UserBotDbContext(
+                        new DbContextOptionsBuilder<UserBotDbContext>()
+                            .UseSqlServer(DbConectionString)
+                            .Options
+                    ),
+                    SessionPathname
+                ),
             _ => null,
         };
     }
 
     [JProp((persist_to))]
     public PersistTo PersistTo { get; set; } =
-        PersistToWhere.TryParse(GetEnvironmentVariable(persist_to), out var @enum) ? @enum.Value : default;
+        PersistToWhere.TryParse(GetEnvironmentVariable(persist_to), out var @enum)
+            ? @enum.Value
+            : default;
 
     [JProp(db_conection_string)]
     public string DbConectionString { get; set; } = GetEnvironmentVariable(db_conection_string);

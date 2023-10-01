@@ -1,4 +1,5 @@
 namespace Telegram.UserBot.Store;
+
 using Telegram.UserBot.Store.Abstractions;
 
 internal class FileUserBotStore : IUserBotStore

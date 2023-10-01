@@ -11,15 +11,13 @@
  */
 
 namespace Telegram.Bot.Types;
+
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 public class BotApiTokenConverter : ValueConverter<BotApiToken, string>
 {
-    public BotApiTokenConverter() : base(
-        v => v.Value,
-        v => BotApiToken.From(v))
-    {
-    }
+    public BotApiTokenConverter()
+        : base(v => v.Value, v => BotApiToken.From(v)) { }
 }
 
 // public class BotApiTokenJsonConverter : JsonConverter<BotApiToken>

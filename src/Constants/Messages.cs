@@ -17,12 +17,15 @@ public static class Messages
     /// <summary>The minimum length of a message text.</summary>
     /// <value>0</value>
     public const int TextMinLength = 1;
+
     /// <summary>The maximum length of a message text.</summary>
     /// <value>4096</value>
     public const int TextMaxLength = 4096;
+
     /// <summary>The minimum length of a message caption.</summary>
     /// <value>0</value>
     public const int CaptionMinLength = 0;
+
     /// <summary>The maximum length of a message caption.</summary>
     /// <value>1024</value>
     public const int CaptionMaxLength = 1024;

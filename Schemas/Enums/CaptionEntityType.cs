@@ -10,6 +10,7 @@
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
 namespace Telegram.Schema.Enum;
+
 [GenerateEnumerationRecordStruct("CaptionEntityType", "Telegram.Schema")]
 /// <summary>
 /// Type of the entity. Can be “mention” (`@username`), “hashtag” (`#hashtag`), “cashtag”
@@ -20,4 +21,21 @@ namespace Telegram.Schema.Enum;
 /// (for clickable text URLs), “text\_mention” (for users [without
 /// usernames](https://telegram.org/blog/edit#new-mentions))
 /// </summary>
-public enum CaptionEntityType { Bold, BotCommand, Cashtag, Code, Email, Hashtag, Italic, Mention, PhoneNumber, Pre, Strikethrough, TextLink, TextMention, Underline, Url };
+public enum CaptionEntityType
+{
+    Bold,
+    BotCommand,
+    Cashtag,
+    Code,
+    Email,
+    Hashtag,
+    Italic,
+    Mention,
+    PhoneNumber,
+    Pre,
+    Strikethrough,
+    TextLink,
+    TextMention,
+    Underline,
+    Url
+};

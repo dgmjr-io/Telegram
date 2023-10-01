@@ -11,6 +11,7 @@
  */
 
 namespace Telegram.Bot.Types;
+
 using System;
 using System.Runtime.InteropServices;
 using Vogen;
@@ -18,9 +19,18 @@ using Vogen;
 /// <summary>
 /// Represents a Bot API Token, which is a 64-bit integer value with a 35-character alphanumeric string separated by a colon.
 /// </summary>
-[ValueObject(typeof(string), conversions: Conversions.EfCoreValueConverter | Conversions.SystemTextJson | Conversions.TypeConverter)]
+[ValueObject(
+    typeof(string),
+    conversions: Conversions.EfCoreValueConverter
+        | Conversions.SystemTextJson
+        | Conversions.TypeConverter
+)]
 [StructLayout(LayoutKind.Auto)]
-public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiToken>, IComparable<BotApiToken>, IComparable, IEquatable<BotApiToken>
+public partial record struct BotApiToken
+    : IStringWithRegexValueObject<BotApiToken>,
+        IComparable<BotApiToken>,
+        IComparable,
+        IEquatable<BotApiToken>
 {
     /// <summary>
     /// The prefix string for the URI.
@@ -40,12 +50,13 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// <summary>
     /// A description of the Bot API Token.
     /// </summary>
-    public const string Description = "A BotApiToken is a 64-bit integer value with a 35-character alphanumeric string separated by a colon.";
+    public const string Description =
+        "A BotApiToken is a 64-bit integer value with a 35-character alphanumeric string separated by a colon.";
 
     /// <summary>
     /// The empty value for the Bot API Token.
     /// </summary>
-    public static readonly string EmptyValue = new string('0', 10) + ":" + new string('0', 35);
+    public static readonly string EmptyValue = $"{new string('0', 10)}:{new string('0', 35)}";
 
     /// <summary>
     /// The length of the Bot API Token.
@@ -61,7 +72,9 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     [GeneratedRegex(RegexString, RegexOptions.Compiled | RegexOptions.IgnoreCase)]
     public static partial REx Regex();
 #else
-    private static readonly REx _regex = new(RegexString, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly REx _regex =
+        new(RegexString, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+
     public static REx Regex() => _regex;
 #endif
 
@@ -74,24 +87,33 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// <summary>
     /// An example value of the Bot API Token.
     /// </summary>
-    static BotApiToken IStringWithRegexValueObject<BotApiToken>.ExampleValue => From(ExampleValueString);
-#else
+    static BotApiToken IStringWithRegexValueObject<BotApiToken>.ExampleValue =>
+        From(ExampleValueString) with
+        {
+            OriginalString = ExampleValueString
+        };
 #endif
 
     /// <summary>
     /// The empty Bot API Token.
     /// </summary>
-    public static BotApiToken Empty => From(EmptyValue);
+    public static BotApiToken Empty => From(EmptyValue) with { OriginalString = EmptyValue };
 
     /// <summary>
     /// Compares the current instance with another object.
     /// </summary>
-    public int CompareTo(object? obj) => obj is BotApiToken other ? CompareTo(other) : throw new ArgumentException($"object must be of type {nameof(BotApiToken)}");
+    public int CompareTo(object? obj) =>
+        obj is BotApiToken other
+            ? CompareTo(other)
+            : throw new ArgumentException($"object must be of type {nameof(BotApiToken)}");
 
     /// <summary>
     /// Gets the Bot ID from the Bot API Token.
     /// </summary>
-    public long? BotId => long.TryParse(Regex().Match(Value).Groups[nameof(BotId)].Value, out var botId) ? botId : default;
+    public long? BotId =>
+        long.TryParse(Regex().Match(Value).Groups[nameof(BotId)].Value, out var botId)
+            ? botId
+            : default;
 
     /// <summary>
     /// Checks if the Bot API Token is empty.
@@ -105,24 +127,31 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     static string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
 #else
     REx IStringWithRegexValueObject<BotApiToken>.Regex() => Regex();
+
     /// <summary>
     /// The regular expression string for validating the Bot API Token.
     /// </summary>
     string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
+
     /// <summary>
     /// The description of the Bot API Token.
     /// </summary>
     string IStringWithRegexValueObject<BotApiToken>.Description => Description;
+
     /// <summary>
     /// An example value of the Bot API Token.
     /// </summary>
-    BotApiToken IStringWithRegexValueObject<BotApiToken>.ExampleValue => From(ExampleValueString);
+    BotApiToken IStringWithRegexValueObject<BotApiToken>.ExampleValue => ExampleValue;
 #endif
 
     /// <summary>
     /// An example value of the Bot API Token.
     /// </summary>
-    public BotApiToken ExampleValue => From(ExampleValueString);
+    public BotApiToken ExampleValue =>
+        From(ExampleValueString) with
+        {
+            OriginalString = ExampleValueString
+        };
 
 #if NET6_0_OR_GREATER
     //static string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
@@ -152,8 +181,16 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// </summary>
     public static bool TryParse(string @string, out BotApiToken? value)
     {
-        try { value = From(@string); return true; }
-        catch { value = default; return false; }
+        try
+        {
+            value = From(@string) with { OriginalString = @string };
+            return true;
+        }
+        catch
+        {
+            value = default;
+            return false;
+        }
     }
 
     /// <summary>
@@ -162,9 +199,13 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     public static Validation Validate(string value)
     {
         if (value.Length != Length)
-            return Validation.Invalid($"The length of the {nameof(BotApiToken)} must be {Length} characters.");
+            return Validation.Invalid(
+                $"The length of the {nameof(BotApiToken)} must be {Length} characters."
+            );
         else if (!Regex().IsMatch(value))
-            return Validation.Invalid($"The {nameof(BotApiToken)} must match the regular expression {RegexString}.");
+            return Validation.Invalid(
+                $"The {nameof(BotApiToken)} must match the regular expression {RegexString}."
+            );
         else
             return Validation.Ok;
     }
@@ -172,7 +213,7 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// <summary>
     /// Parses the string representation of a Bot API Token.
     /// </summary>
-    public static BotApiToken Parse(string value) => From(value);
+    public static BotApiToken Parse(string value) => From(value) with { OriginalString = value };
 
     /// <summary>
     /// Parses the string representation of a Bot API Token with the specified format provider.
@@ -182,8 +223,8 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// <summary>
     /// Tries to parse the string representation of a Bot API Token with the specified format provider.
     /// </summary>
-    public static bool TryParse(string? s, IFormatProvider? provider, out BotApiToken result)
-        => (result = string.IsNullOrEmpty(Validate(s).ErrorMessage) ? Parse(s) : Empty) != Empty;
+    public static bool TryParse(string? s, IFormatProvider? provider, out BotApiToken result) =>
+        (result = string.IsNullOrEmpty(Validate(s).ErrorMessage) ? Parse(s) : Empty) != Empty;
 
     /// <summary>
     /// Determines whether one Bot API Token is less than another Bot API Token.
@@ -216,4 +257,6 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     {
         return left.CompareTo(right) >= 0;
     }
+
+    public string OriginalString { get; init; }
 }

@@ -1,7 +1,7 @@
 namespace Telegram.UserBot.Models;
 
 public class UserTelegramSession
-{   
+{
     public long Id { get; set; }
 
     public string SessionName { get; set; }

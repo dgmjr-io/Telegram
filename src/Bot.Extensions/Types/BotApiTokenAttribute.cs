@@ -16,5 +16,6 @@ using System.ComponentModel.DataAnnotations;
 
 public class BotApiTokenAttribute : RegularExpressionAttribute
 {
-    public BotApiTokenAttribute() : base(BotApiToken.RegexString) { }
+    public BotApiTokenAttribute()
+        : base(BotApiToken.RegexString) { }
 }

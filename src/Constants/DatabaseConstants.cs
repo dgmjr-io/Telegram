@@ -17,7 +17,6 @@ namespace Telegram.Constants.DbConstants
         public const string TeleSchema = "tele";
     }
 
-
     public static class TableNames
     {
         /// <summary>
@@ -25,23 +24,25 @@ namespace Telegram.Constants.DbConstants
         /// </summary>
         /// <value>tbl_</value>
         private const string tbl_ = nameof(tbl_);
+
         /// <summary>
         /// The table name for Bots, <inheritdoc cref="Bot" path="/value" />
         /// </summary>
         /// <value><inheritdoc cref="tbl_" path="/value" />Bot</value>
         public const string Bot = tbl_ + nameof(Bot);
+
         /// <summary>
         /// The table name for Groups, <inheritdoc cref="Group" path="/value" />
         /// </summary>
         /// <value><inheritdoc cref="tbl_" path="/value" />Group</value>
         public const string Group = tbl_ + nameof(Group);
+
         /// <summary>
         /// The table name for Channels, <inheritdoc cref="Channel" path="/value" />
         /// </summary>
         /// <value><inheritdoc cref="tbl_" path="/value" />Channel</value>
         public const string Channel = tbl_ + nameof(Channel);
     }
-
 
     public static class ColumnNames
     {

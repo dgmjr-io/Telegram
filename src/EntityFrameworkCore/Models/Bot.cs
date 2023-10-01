@@ -11,6 +11,7 @@
  */
 
 namespace Telegram.Models;
+
 using System.Linq;
 using System.Net.Http.Headers;
 using System.Collections.ObjectModel;
@@ -22,14 +23,15 @@ using static Telegram.Constants.DbConstants.SchemaNames;
 
 [Table(Dgmjr.Identity.Constants.Tables.User, Schema = TeleSchema)]
 [JSerializable(typeof(Bot))]
-public class Bot : Dgmjr.Identity.Models.User
-{
-}
+public class Bot : Dgmjr.Identity.Models.User { }
 
 public class MyBot : Bot
 {
     public virtual BotApiToken ApiToken { get; set; }
-    public virtual UserClaim BotApiTokenClaim { get => this.Claims.FirstOrDefault(c->c.Type == BotClaimTypes.BotApiToken); }
+    public virtual UserClaim BotApiTokenClaim
+    {
+        get => this.Claims.FirstOrDefault(c->c.Type == BotClaimTypes.BotApiToken);
+    }
 }
 
 public class SendPulseBot : MyBot
@@ -37,7 +39,8 @@ public class SendPulseBot : MyBot
     public virtual ObjectId SendPulseId { get; set; }
     public virtual UserClaim SendPulseIdClaim
     {
-        get => this.Claims.FirstOrDefault(c => c.Type == SendPulse.Identity.ClaimTypeNames.ObjectId);
+        get =>
+            this.Claims.FirstOrDefault(c => c.Type == SendPulse.Identity.ClaimTypeNames.ObjectId);
         set
         {
             if (this.SendPulseIdClaim != null)

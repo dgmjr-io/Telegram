@@ -4,7 +4,7 @@
  *   Created: 2022-12-19-07:51:02
  *   Modified: 2022-12-19-07:51:03
  *
- *   Author: David G. Moore, Jr. <justin@Dgmjr.com>
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
  *
  *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
@@ -18,7 +18,7 @@ public static class GroupsAndChannels
     /// <value>5</value>
     public const int TitleMinLength = 5;
 
-    /// <summary>The maximum length of a group title.</summary>
+    /// <summary>The maximum length of a group's title.</summary>
     /// <value>128</value>
     public const int TitleMaxLength = 128;
 

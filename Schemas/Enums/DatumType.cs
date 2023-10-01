@@ -4,7 +4,7 @@
  *   Created: 2023-03-09-06:22:05
  *   Modified: 2023-03-09-06:22:05
  *
- *   Author: David G. Moore, Jr. <justin@Dgmjr.com>
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
  *
  *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
@@ -19,4 +19,19 @@ namespace Telegram.Schema.Enum;
 /// “rental\_agreement”, “passport\_registration”, “temporary\_registration”,
 /// “phone\_number”, “email”.
 /// </summary>
-public enum DatumType { Address, BankStatement, DriverLicense, Email, IdentityCard, InternalPassport, Passport, PassportRegistration, PersonalDetails, PhoneNumber, RentalAgreement, TemporaryRegistration, UtilityBill };
+public enum DatumType
+{
+    Address,
+    BankStatement,
+    DriverLicense,
+    Email,
+    IdentityCard,
+    InternalPassport,
+    Passport,
+    PassportRegistration,
+    PersonalDetails,
+    PhoneNumber,
+    RentalAgreement,
+    TemporaryRegistration,
+    UtilityBill
+};

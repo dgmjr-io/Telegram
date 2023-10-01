@@ -1,4 +1,5 @@
 namespace Telegram.UserBot.Store;
+
 using Telegram.UserBot.Store.Abstractions;
 using Telegram.UserBot.Models;
 using Microsoft.EntityFrameworkCore;
@@ -10,9 +11,8 @@ public class UserBotDbContext : DbContext, IUserBotDbContext
     public const string TableName = "tbl_TelegramSession";
     public const string VarBinaryMax = "varbinary(max)";
 
-    public UserBotDbContext(DbContextOptions<UserBotDbContext> options) : base(options)
-    {
-    }
+    public UserBotDbContext(DbContextOptions<UserBotDbContext> options)
+        : base(options) { }
 
     protected override void OnModelCreating(ModelBuilder modelBuilder)
     {

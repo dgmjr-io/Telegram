@@ -1,7 +1,7 @@
 namespace Telegram.UserBot.Store;
+
 using Telegram.UserBot.Store.Abstractions;
 using Telegram.UserBot.Models;
-
 
 internal class DbUserBotStore : Stream, IUserBotStore
 {
@@ -99,7 +99,6 @@ internal class DbUserBotStore : Stream, IUserBotStore
         get => 0;
         set { }
     }
-
 
     public override bool CanSeek => false;
 

@@ -1,4 +1,5 @@
 namespace Telegram.UserBot;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.Extensions.DependencyInjection;
 using Telegram.UserBot.Config;
@@ -11,7 +12,10 @@ public static class UserBotWebBuilderExtensions
         return builder;
     }
 
-    public static IServiceCollection AddUserBot(this IServiceCollection services, IConfiguration config)
+    public static IServiceCollection AddUserBot(
+        this IServiceCollection services,
+        IConfiguration config
+    )
     {
         services.Configure<UserBotConfig>(config.GetSection("Telegram:UserBot"));
         services.AddSingleton<IUserBot, UserBot>();

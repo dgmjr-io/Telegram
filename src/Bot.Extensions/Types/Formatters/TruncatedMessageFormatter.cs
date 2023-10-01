@@ -4,7 +4,7 @@
  *   Created: 2022-12-13-07:46:57
  *   Modified: 2022-12-13-07:46:57
  *
- *   Author: David G. Moore, Jr. <justin@Dgmjr.com>
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
  *
  *   Copyright © 2022-2023 David G. Moore, Jr., All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)

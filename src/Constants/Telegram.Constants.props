@@ -12,8 +12,9 @@
 
 <Project>
   <ItemGroup>
-    <Using Include="Telegram.Constants.DbConstants" />
-    <Using Include="Telegram.Constants" />
     <Using Include="Telegram.Constants.DbConstants.SchemaNames" Static="true" />
+    <Using Include="Telegram.Constants.DbConstants" />
+    <Using Include="Telegram.Constants.TelegramConstants" Static="true" />
+    <Using Include="Telegram.Constants" />
   </ItemGroup>
 </Project>

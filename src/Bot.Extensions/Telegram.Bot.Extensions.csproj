@@ -17,16 +17,16 @@
   </PropertyGroup>
   <ItemGroup>
     <!-- <FrameworkReference Include="Microsoft.AspNetCore.App" Condition="!$(TargetFramework.Contains('netstandard'))" /> -->
-    <SourceGrnerator Include="Dgmjr.RegexDtoGenerator" />
-    <SourceGenerator Include="Vogen" />
     <PackageReference Include="Dgmjr.Primitives" />
-    <PackageReference Include="Telegram.Bot" />
     <PackageReference Include="Humanizer.Core" />
     <PackageReference Include="Microsoft.AspNetCore.Mvc" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
-    <UsingsReference Include="Microsoft.EntityFrameworkCore.Usings" />
-    <UsingsReference Include="System.Text.RegularExpressions.Usings" />
-    <UsingsReference Include="System.Text.Json.Usings" />
-    <UsingsReference Include="System.ComponentModel.Usings" />
+    <PackageReference Include="Telegram.Bot" />
+    <PackageReference Include="Vogen" />
+    <SourceGeneratorPackageReference Include="Dgmjr.RegexDtoGenerator" />
+    <UsingsPackageReference Include="Microsoft.EntityFrameworkCore.Usings" />
+    <UsingsPackageReference Include="System.ComponentModel.Usings" />
+    <UsingsPackageReference Include="System.Text.Json.Usings" />
+    <UsingsPackageReference Include="System.Text.RegularExpressions.Usings" />
   </ItemGroup>
 </Project>

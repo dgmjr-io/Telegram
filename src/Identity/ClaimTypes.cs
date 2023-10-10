@@ -17,110 +17,128 @@ using Dgmjr.Identity.ClaimTypes;
 
 using Tgcb = TelegramClaimBase;
 
-public record class TelegramClaimBase : ClaimType, IIdentityComponent
+/// <summary>The URI for a claim that specifies the anonymous user.</summary>
+/// <value><inheritdoc cref="Tgcb.UriString" path="/value" /></value>
+public record class TelegramClaimBase : ClaimType, IClaimType, IIdentityComponent
 {
-    /// <value>https://telegram.org/identity</value>
+    public static readonly IClaimType Instance = new Tgcb();
+
+    private TelegramClaimBase() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" /></value>
     public const string UriString = "https://telegram.org/identity";
 
-    /// <value>tg</value>
-    public const string ShortUriString = "tg";
+    /// <value>tg:identity</value>
+    public const string ShortUriString = "tg:identity";
+
+    /// <value>identity</value>
+    public const string Name = "identity";
 
     /// <value>/</value>
     public const string UriSeparator = "/";
 
     /// <value>:</value>
     public const string ShortUriSeparator = ":";
+
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IIdentityComponent.Name => Name;
+
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
 }
 
-public record class BotApiToken : ClaimType, IIdentityComponent
+/// <summary>The URI for a claim that specifies the anonymous user.</summary>
+/// <value><inheritdoc cref="BotApiToken.UriString" path="/value" /></value>
+public record class BotApiToken : ClaimType, IClaimType, IIdentityComponent
 {
-    /// <summary>The name "<inheritdoc cref="Name" path="/value" />"</summary>
+    public static readonly IClaimType Instance = new BotApiToken();
+
+    private BotApiToken() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
+    public const string UriString = TelegramIdentityBaseUri + "/" + Name;
+
+    /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
+    public const string ShortUriString = "tg:" + Name;
+
     /// <value>bot_api_token</value>
     public const string Name = "bot_api_token";
 
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public const string UriString = Tgcb.UriString + Tgcb.UriSeparator + Name;
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IIdentityComponent.Name => Name;
 
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public const string ShortUriString = Tgcb.UriString + Tgcb.UriSeparator + Name;
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
 
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public static readonly new uri Uri = new(UriString);
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
 
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public static readonly new uri ShortUri = new(ShortUriString);
-
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    uri IIdentityComponent.Uri => Uri;
-
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    uri IIdentityComponent.ShortUri => ShortUri;
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
 }
 
-public record class Username : ClaimType, IIdentityComponent
+/// <summary>The URI for a claim that specifies the anonymous user.</summary>
+/// <value><inheritdoc cref="Username.UriString" path="/value" /></value>
+public record class Username : ClaimType, IClaimType, IIdentityComponent
 {
-    /// <summary>The name "<inheritdoc cref="Name" path="/value" />"</summary>
+    public static readonly IClaimType Instance = new Username();
+
+    private Username() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
+    public const string UriString = TelegramIdentityBaseUri + "/" + Name;
+
+    /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
+    public const string ShortUriString = "tg:" + Name;
+
     /// <value>username</value>
     public const string Name = "username";
 
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public const string UriString = Tgcb.UriString + Tgcb.UriSeparator + Name;
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IIdentityComponent.Name => Name;
 
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public const string ShortUriString = Tgcb.UriString + Tgcb.UriSeparator + Name;
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
 
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public static readonly new uri Uri = new(UriString);
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
 
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public static readonly new uri ShortUri = new(ShortUriString);
-
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    uri IIdentityComponent.Uri => Uri;
-
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    uri IIdentityComponent.ShortUri => ShortUri;
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
 }
 
-public record class UserId : ClaimType, IIdentityComponent
+/// <summary>The URI for a claim that specifies the anonymous user.</summary>
+/// <value><inheritdoc cref="UserId.UriString" path="/value" /></value>
+public record class UserId : ClaimType, IClaimType, IIdentityComponent
 {
-    /// <summary>The name "<inheritdoc cref="Name" path="/value" />"</summary>
+    public static readonly IClaimType Instance = new UserId();
+
+    private UserId() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
+    public const string UriString = TelegramIdentityBaseUri + "/" + Name;
+
+    /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
+    public const string ShortUriString = "tg:" + Name;
+
     /// <value>userid</value>
     public const string Name = "userid";
 
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public const string UriString = Tgcb.UriString + Tgcb.UriSeparator + Name;
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IIdentityComponent.Name => Name;
 
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public const string ShortUriString = Tgcb.UriString + Tgcb.UriSeparator + Name;
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
 
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public static readonly new uri Uri = new(UriString);
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
 
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    public static readonly new uri ShortUri = new(ShortUriString);
-
-    /// <summary>The URI string "<inheritdoc cref="UriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /><inheritdoc cref="Tgcb.UriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    uri IIdentityComponent.Uri => Uri;
-
-    /// <summary>The URI string "<inheritdoc cref="ShortUriString" path="/value" />"</summary>
-    /// <value><inheritdoc cref="Tgcb.ShortUriString" path="/value" /><inheritdoc cref="Tgcb.ShortUriSeparator" path="/value" /><inheritdoc cref="Name" path="/value" /></value>
-    uri IIdentityComponent.ShortUri => ShortUri;
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
 }

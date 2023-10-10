@@ -16,17 +16,21 @@
     <Description>This package contains identity classes for Telegram, specifically, the `BotApiToken` claim type and claim value type, and the `Username` and `UserId` claim types.</Description>
   </PropertyGroup>
   <ItemGroup>
-    <SourceGenerator  Include="Dgmjr.Enumerations.CodeGenerator" />
+    <!-- <PackageReference Include="Telegram.Bot.Extensions" /> -->
     <PackageReference Include="Dgmjr.Abstractions" />
+    <PackageReference Include="Dgmjr.ComponentModel" />
+    <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
     <PackageReference Include="Dgmjr.Identity.Claims" />
     <PackageReference Include="Dgmjr.Identity.ClaimValueTypes" />
-    <PackageReference Include="Telegram.Bot.Extensions" />
-    <PackageReference Include="System.Security.Claims" />
-    <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
-    <PackageReference Include="Dgmjr.ComponentModel" />
+    <PackageReference Include="Dgmjr.Primitives" />
     <PackageReference Include="System.ComponentModel.Usings" />
-    <PackageReference Include="System.Runtime.Serialization.Primitives" Condition="$(TargetFramework.Contains('netstandard1'))" />
     <PackageReference Include="System.Console" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" VersionOverride="[4.3.1,)" />
+    <PackageReference Include="System.Runtime.Serialization.Primitives" Condition="$(TargetFramework.Contains('netstandard1'))" />
+    <PackageReference Include="System.Security.Claims" />
+    <ProjectReference Include="../Bot.Extensions/Telegram.Bot.Extensions.csproj" />
+    <ProjectReference Include="../Constants/Telegram.Constants.csproj" />
     <Reference Include="System.Runtime.Numerics" Version="4.3.1" SpecificVersion="true" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
+    <SourceGeneratorPackageReference  Include="Dgmjr.Enumerations.CodeGenerator" />
   </ItemGroup>
+  <Import Project="../Constants/Telegram.Constants.props" />
 </Project>

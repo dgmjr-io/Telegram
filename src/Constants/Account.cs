@@ -16,6 +16,14 @@ namespace Telegram.Constants;
 
 public static class Account
 {
+    /// <summary>A regular expression to validate Telegram usernames</summary>
+    /// <value>^@[a-zA-Z0-9]{<inheritdoc cref="UsernameMinLength" path="/value" />,<inheritdoc cref="UsernameMaxLength" path="/value" />}$</value>
+    public const string UsernameRegex = "^@[a-zA-Z0-9]{5,32}$";
+
+    /// <summary>A regular expression to validate Telegram usernames (without the leading "@")</summary>
+    /// <value>^[a-zA-Z0-9]{<inheritdoc cref="UsernameMinLength" path="/value" />,<inheritdoc cref="UsernameMaxLength" path="/value" />}$</value>
+    public const string UsernameRegexNoLeadingAt = "^[a-zA-Z0-9]{5,32}$";
+
     /// <summary>The minimum length of a username.</summary>
     /// <value>5</value>
     public const int UsernameMinLength = 5;

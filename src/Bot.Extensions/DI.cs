@@ -15,7 +15,6 @@ using Microsoft.AspNetCore.Builder;
 public static class TelegramBotDIExtensions
 {
 #if NET6_0_OR_GREATER
-
     /// <summary>Adds OpenAPI description for the <see cref="BotApiToken" /></summary>
     public static WebApplicationBuilder DescribeBotApiToken(this WebApplicationBuilder builder)
     {

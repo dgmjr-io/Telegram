@@ -23,6 +23,7 @@
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
     <PackageReference Include="Telegram.Bot" />
     <PackageReference Include="Vogen" />
+    <SourceCodePackageReference Include="System.Private.CoreLib.Polyfills" />
     <SourceGeneratorPackageReference Include="Dgmjr.RegexDtoGenerator" />
     <UsingsPackageReference Include="Microsoft.EntityFrameworkCore.Usings" />
     <UsingsPackageReference Include="System.ComponentModel.Usings" />

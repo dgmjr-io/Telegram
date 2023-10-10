@@ -26,11 +26,7 @@ using Vogen;
         | Conversions.TypeConverter
 )]
 [StructLayout(LayoutKind.Auto)]
-public partial record struct BotApiToken
-    : IStringWithRegexValueObject<BotApiToken>,
-        IComparable<BotApiToken>,
-        IComparable,
-        IEquatable<BotApiToken>
+public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiToken>
 {
     /// <summary>
     /// The prefix string for the URI.
@@ -72,8 +68,7 @@ public partial record struct BotApiToken
     [GeneratedRegex(RegexString, RegexOptions.Compiled | RegexOptions.IgnoreCase)]
     public static partial REx Regex();
 #else
-    private static readonly REx _regex =
-        new(RegexString, RegexOptions.Compiled | RegexOptions.IgnoreCase);
+    private static readonly REx _regex = new(RegexString, Compiled | IgnoreCase);
 
     public static REx Regex() => _regex;
 #endif
@@ -118,7 +113,7 @@ public partial record struct BotApiToken
     /// <summary>
     /// Checks if the Bot API Token is empty.
     /// </summary>
-    public bool IsEmpty => this == Empty;
+    public readonly bool IsEmpty => this == Empty;
 
 #if NET6_0_OR_GREATER
     /// <summary>
@@ -126,28 +121,28 @@ public partial record struct BotApiToken
     /// </summary>
     static string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
 #else
-    REx IStringWithRegexValueObject<BotApiToken>.Regex() => Regex();
+    readonly REx IStringWithRegexValueObject<BotApiToken>.Regex() => Regex();
 
     /// <summary>
     /// The regular expression string for validating the Bot API Token.
     /// </summary>
-    string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
+    readonly string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
 
     /// <summary>
     /// The description of the Bot API Token.
     /// </summary>
-    string IStringWithRegexValueObject<BotApiToken>.Description => Description;
+    readonly string IStringWithRegexValueObject<BotApiToken>.Description => Description;
 
     /// <summary>
     /// An example value of the Bot API Token.
     /// </summary>
-    BotApiToken IStringWithRegexValueObject<BotApiToken>.ExampleValue => ExampleValue;
+    readonly BotApiToken IStringWithRegexValueObject<BotApiToken>.ExampleValue => ExampleValue;
 #endif
 
     /// <summary>
     /// An example value of the Bot API Token.
     /// </summary>
-    public BotApiToken ExampleValue =>
+    readonly public BotApiToken ExampleValue =>
         From(ExampleValueString) with
         {
             OriginalString = ExampleValueString
@@ -199,15 +194,21 @@ public partial record struct BotApiToken
     public static Validation Validate(string value)
     {
         if (value.Length != Length)
+        {
             return Validation.Invalid(
                 $"The length of the {nameof(BotApiToken)} must be {Length} characters."
             );
+        }
         else if (!Regex().IsMatch(value))
+        {
             return Validation.Invalid(
                 $"The {nameof(BotApiToken)} must match the regular expression {RegexString}."
             );
+        }
         else
+        {
             return Validation.Ok;
+        }
     }
 
     /// <summary>

@@ -16,7 +16,6 @@
     <Description>This package contains identity classes for Telegram, specifically, the `BotApiToken` claim type and claim value type, and the `Username` and `UserId` claim types.</Description>
   </PropertyGroup>
   <ItemGroup>
-    <!-- <PackageReference Include="Telegram.Bot.Extensions" /> -->
     <PackageReference Include="Dgmjr.Abstractions" />
     <PackageReference Include="Dgmjr.ComponentModel" />
     <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
@@ -29,7 +28,6 @@
     <PackageReference Include="System.Security.Claims" />
     <ProjectReference Include="../Bot.Extensions/Telegram.Bot.Extensions.csproj" />
     <ProjectReference Include="../Constants/Telegram.Constants.csproj" />
-    <Reference Include="System.Runtime.Numerics" Version="4.3.1" SpecificVersion="true" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" />
     <SourceGeneratorPackageReference  Include="Dgmjr.Enumerations.CodeGenerator" />
   </ItemGroup>
   <Import Project="../Constants/Telegram.Constants.props" />

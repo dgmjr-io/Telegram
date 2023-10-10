@@ -19,9 +19,3 @@ public class BotApiTokenConverter : ValueConverter<BotApiToken, string>
     public BotApiTokenConverter()
         : base(v => v.Value, v => BotApiToken.From(v)) { }
 }
-
-// public class BotApiTokenJsonConverter : JsonConverter<BotApiToken>
-// {
-//     public override BotApiToken Read(ref Utf8JsonReader reader, Type typeToConvert, Jso options) => BotApiToken.From(reader.GetString());
-//     public override void Write(Utf8JsonWriter writer, BotApiToken value, Jso options) => writer.WriteStringValue(value.Value);
-// }

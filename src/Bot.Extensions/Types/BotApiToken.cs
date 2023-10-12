@@ -66,11 +66,11 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
 
 #if NET7_0_OR_GREATER
     [GeneratedRegex(RegexString, RegexOptions.Compiled | RegexOptions.IgnoreCase)]
-    public static partial REx Regex();
+    public static partial Regex Regex();
 #else
-    private static readonly REx _regex = new(RegexString, Compiled | IgnoreCase);
+    private static readonly Regex _regex = new(RegexString, Compiled | IgnoreCase);
 
-    public static REx Regex() => _regex;
+    public static Regex Regex() => _regex;
 #endif
 
 #if NET6_0_OR_GREATER
@@ -121,7 +121,7 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// </summary>
     static string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
 #else
-    readonly REx IStringWithRegexValueObject<BotApiToken>.Regex() => Regex();
+    readonly Regex IStringWithRegexValueObject<BotApiToken>.Regex() => Regex();
 
     /// <summary>
     /// The regular expression string for validating the Bot API Token.
@@ -225,7 +225,7 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// Tries to parse the string representation of a Bot API Token with the specified format provider.
     /// </summary>
     public static bool TryParse(string? s, IFormatProvider? provider, out BotApiToken result) =>
-        (result = string.IsNullOrEmpty(Validate(s).ErrorMessage) ? Parse(s) : Empty) != Empty;
+        (result = IsNullOrEmpty(Validate(s).ErrorMessage) ? Parse(s) : Empty) != Empty;
 
     /// <summary>
     /// Determines whether one Bot API Token is less than another Bot API Token.

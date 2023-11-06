@@ -15,7 +15,7 @@
     <TargetFramework>netstandard2.0</TargetFramework>
   </PropertyGroup>
   <ItemGroup>
-    <UsingsPackageReference Include="System.Text.Json.Usings" />
+    <PackageReference Include="System.Text.Json.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
     <PackageReference Include="Telegram.Bot" />
     <PackageReference Include="Newtonsoft.Json" />
   </ItemGroup>

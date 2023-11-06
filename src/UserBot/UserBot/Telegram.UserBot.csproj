@@ -1,11 +1,11 @@
 <!--
  * Telegram.UserBot.csproj
- * 
+ *
  *   Created: 2023-04-24-09:43:43
  *   Modified: 2023-04-25-07:05:34
- * 
+ *
  *   Author: David G. Moore, Jr. <david@dgmjr.io>
- *   
+ *
  *   Copyright © 2022 - 2023 David G. Moore, Jr., All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
 -->
@@ -21,7 +21,7 @@
         <PackageReference Include="WTelegramClient" />
         <PackageReference Include="Microsoft.Extensions.Options" />
         <ProjectReference Include="../Config/Telegram.UserBot.Config.csproj" />
-        <SourceGenerator  Include="Dgmjr.InterfaceGenerator" />
+        <PackageReference Include="Dgmjr.InterfaceGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     </ItemGroup>
     <ItemGroup>
         <Using Include="WTelegram" Alias="WT" />

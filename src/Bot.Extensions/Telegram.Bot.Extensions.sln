@@ -8,7 +8,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution 
 		..\..\..\..\Packages\Versions.Local.props = ..\..\..\..\Packages\Versions.Local.props
 	EndProjectSection
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Bot.Extensions", "Telegram.Bot.Extensions.csproj", "{0A49B99D-482D-4EA5-BE48-33E39E398123}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Bot.Extensions", "Telegram.Bot.Extensions.csproj", "{8022C532-1103-45C3-8A03-FAFD6058C4B1}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -20,18 +20,18 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Local|Any CPU.ActiveCfg = Local|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Local|Any CPU.Build.0 = Local|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Testing|Any CPU.Build.0 = Testing|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Staging|Any CPU.Build.0 = Staging|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Production|Any CPU.ActiveCfg = Local|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Production|Any CPU.Build.0 = Local|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{0A49B99D-482D-4EA5-BE48-33E39E398123}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Local|Any CPU.Build.0 = Local|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Production|Any CPU.Build.0 = Local|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8022C532-1103-45C3-8A03-FAFD6058C4B1}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

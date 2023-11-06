@@ -1,8 +1,79 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B283EBC2-E01F-412D-9339-FD56EF114549}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Directory.Build.props = ..\..\Directory.Build.props
+		..\..\Directory.Build.targets = ..\..\Directory.Build.targets
+		..\..\global.json = ..\..\global.json
+		..\..\..\..\Packages\Versions.Local.props = ..\..\..\..\Packages\Versions.Local.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Bots.Models", "Models\Telegram.Bots.Models.csproj", "{91630162-23F8-47C8-8C56-663B4BC5D8C1}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Bots.Abstractions", "Abstractions\Telegram.Bots.Abstractions.csproj", "{4D57B71A-B866-4CB1-B146-4248EE46D3D9}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Constants", "..\Constants\Telegram.Constants.csproj", "{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Bots.EntityFrameworkCore", "Telegram.Bots.EntityFrameworkCore.csproj", "{280FB26C-794D-4294-8398-574128160819}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Local|Any CPU = Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Testing|Any CPU = Testing|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Local|Any CPU.Build.0 = Local|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Production|Any CPU.Build.0 = Local|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{91630162-23F8-47C8-8C56-663B4BC5D8C1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Local|Any CPU.Build.0 = Local|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Production|Any CPU.Build.0 = Local|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{4D57B71A-B866-4CB1-B146-4248EE46D3D9}.Release|Any CPU.Build.0 = Release|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Local|Any CPU.Build.0 = Local|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Production|Any CPU.Build.0 = Local|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{67F28D36-BCD2-4BAD-A6E6-7BBE477B279A}.Release|Any CPU.Build.0 = Release|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Local|Any CPU.Build.0 = Local|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Production|Any CPU.Build.0 = Local|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{280FB26C-794D-4294-8398-574128160819}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

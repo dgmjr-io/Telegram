@@ -18,7 +18,9 @@
   <ItemGroup>
     <PackageReference Include="Dgmjr.Abstractions" />
     <PackageReference Include="Dgmjr.ComponentModel" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants" />
     <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
+    <PackageReference Include="Dgmjr.Enumerations.CodeGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference Include="Dgmjr.Identity.Claims" />
     <PackageReference Include="Dgmjr.Identity.ClaimValueTypes" />
     <PackageReference Include="Dgmjr.Primitives" />
@@ -26,9 +28,8 @@
     <PackageReference Include="System.Console" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" VersionOverride="[4.3.1,)" />
     <PackageReference Include="System.Runtime.Serialization.Primitives" Condition="$(TargetFramework.Contains('netstandard1'))" />
     <PackageReference Include="System.Security.Claims" />
-    <ProjectReference Include="../Bot.Extensions/Telegram.Bot.Extensions.csproj" />
-    <ProjectReference Include="../Constants/Telegram.Constants.csproj" />
-    <SourceGeneratorPackageReference  Include="Dgmjr.Enumerations.CodeGenerator" />
+    <ProjectReference Include="../Bot.Extensions/Telegram.Bot.Extensions.csproj" Properties="PackageVersionOverride=$(PackageVersion)" />
+    <ProjectReference Include="../Constants/Telegram.Constants.csproj" Properties="PackageVersionOverride=$(PackageVersion)" />
   </ItemGroup>
   <Import Project="../Constants/Telegram.Constants.props" />
 </Project>

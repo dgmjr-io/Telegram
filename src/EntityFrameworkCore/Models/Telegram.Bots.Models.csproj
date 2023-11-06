@@ -17,7 +17,7 @@
   <ItemGroup>
     <PackageReference Include="Dgmjr.Primitives" />
     <PackageReference Include="Dgmjr.System.Extensions" />
-    <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas" />
     <PackageReference Include="System.Text.Json.Usings" />
     <PackageReference Include="Dgmjr.Identity.Abstractions" />
     <PackageReference Include="Dgmjr.Identity.Constants" />

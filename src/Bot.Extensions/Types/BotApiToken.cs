@@ -26,8 +26,11 @@ using Vogen;
         | Conversions.TypeConverter
 )]
 [StructLayout(LayoutKind.Auto)]
-public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiToken>
+public partial record struct BotApiToken : IRegexValueObject<BotApiToken>
 {
+    const int BotIdLength = 10;
+    const int TokenLength = 35;
+
     /// <summary>
     /// The prefix string for the URI.
     /// </summary>
@@ -52,7 +55,8 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// <summary>
     /// The empty value for the Bot API Token.
     /// </summary>
-    public static readonly string EmptyValue = $"{new string('0', 10)}:{new string('0', 35)}";
+    public static readonly string EmptyValue =
+        $"{new string('0', BotIdLength)}:{new string('0', TokenLength)}";
 
     /// <summary>
     /// The length of the Bot API Token.
@@ -65,24 +69,24 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     public const string RegexString = @"(?<BotId>[0-9]{8,10}):(?<Token>[0-9a-zA-Z\-_]{30,35})";
 
 #if NET7_0_OR_GREATER
-    [GeneratedRegex(RegexString, RegexOptions.Compiled | RegexOptions.IgnoreCase)]
+    [GeneratedRegex(RegexString, Rxo.Compiled | Rxo.IgnoreCase)]
     public static partial Regex Regex();
 #else
-    private static readonly Regex _regex = new(RegexString, Compiled | IgnoreCase);
+    private static readonly Regx _regex = new(RegexString, Rxo.Compiled | Rxo.IgnoreCase);
 
-    public static Regex Regex() => _regex;
+    public static Regx Regex() => _regex;
 #endif
 
 #if NET6_0_OR_GREATER
     /// <summary>
     /// The description of the Bot API Token.
     /// </summary>
-    static string IStringWithRegexValueObject<BotApiToken>.Description => Description;
+    static string IRegexValueObject<BotApiToken>.Description => Description;
 
     /// <summary>
     /// An example value of the Bot API Token.
     /// </summary>
-    static BotApiToken IStringWithRegexValueObject<BotApiToken>.ExampleValue =>
+    static BotApiToken IRegexValueObject<BotApiToken>.ExampleValue =>
         From(ExampleValueString) with
         {
             OriginalString = ExampleValueString
@@ -119,24 +123,24 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
     /// <summary>
     /// The regular expression string for validating the Bot API Token.
     /// </summary>
-    static string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
+    static string IRegexValueObject<BotApiToken>.RegexString => RegexString;
 #else
-    readonly Regex IStringWithRegexValueObject<BotApiToken>.Regex() => Regex();
+    readonly Regx IRegexValueObject<BotApiToken>.Regex() => Regex();
 
     /// <summary>
     /// The regular expression string for validating the Bot API Token.
     /// </summary>
-    readonly string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
+    readonly string IRegexValueObject<BotApiToken>.RegexString => RegexString;
 
     /// <summary>
     /// The description of the Bot API Token.
     /// </summary>
-    readonly string IStringWithRegexValueObject<BotApiToken>.Description => Description;
+    readonly string IRegexValueObject<BotApiToken>.Description => Description;
 
     /// <summary>
     /// An example value of the Bot API Token.
     /// </summary>
-    readonly BotApiToken IStringWithRegexValueObject<BotApiToken>.ExampleValue => ExampleValue;
+    readonly BotApiToken IRegexValueObject<BotApiToken>.ExampleValue => ExampleValue;
 #endif
 
     /// <summary>
@@ -149,10 +153,10 @@ public partial record struct BotApiToken : IStringWithRegexValueObject<BotApiTok
         };
 
 #if NET6_0_OR_GREATER
-    //static string IStringWithRegexValueObject<BotApiToken>.RegexString => RegexString;
-    // static string IStringWithRegexValueObject<BotApiToken>.Description => Description;
-    // string IStringWithRegexValueObject<BotApiToken>.RegexString => throw new NotImplementedException();
-    // string IStringWithRegexValueObject<BotApiToken>.Description => throw new NotImplementedException();
+    //static string IRegexValueObject<BotApiToken>.RegexString => RegexString;
+    // static string IRegexValueObject<BotApiToken>.Description => Description;
+    // string IRegexValueObject<BotApiToken>.RegexString => throw new NotImplementedException();
+    // string IRegexValueObject<BotApiToken>.Description => throw new NotImplementedException();
     //public static BotApiToken ExampleValue => From(ExampleValueString);
 #endif
 

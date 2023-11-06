@@ -7,8 +7,8 @@
     <PackageReference Include="System.Text.Json.Usings" />
     <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
     <PackageReference Include="Dgmjr.Abstractions" />
-    <SourceGenerator  Include="Dgmjr.Enumerations.CodeGenerator" />
-    <SourceGenerator  Include="Vogen" />
+    <PackageReference Include="Dgmjr.Enumerations.CodeGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
+    <PackageReference Include="Vogen" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference  Include="Dgmjr.System.Extensions" />
   </ItemGroup>
 </Project>

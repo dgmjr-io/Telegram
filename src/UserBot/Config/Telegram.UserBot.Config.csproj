@@ -1,7 +1,7 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <SourceGenerator Include="Dgmjr.InterfaceGenerator" />
-    <SourceGenerator Include="Dgmjr.Enumerations.CodeGenerator" />
+    <PackageReference Include="Dgmjr.InterfaceGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
+    <PackageReference Include="Dgmjr.Enumerations.CodeGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference Include="System.Text.Json.Usings" />
     <PackageReference Include="Dgmjr.Abstractions" />
     <PackageReference Include="Dgmjr.Enumerations.Abstractions" />

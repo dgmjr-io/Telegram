@@ -1,9 +1,10 @@
 ---
+
 authors:
-  - dgmjr
+- dgmjr
 title: Telegram Constants
 description: This package contains constants for the Telegram API and usage of it.
----
+----------------------------------------------------------------------------------
 
 # Telegram.Constants
 

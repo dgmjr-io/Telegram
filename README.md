@@ -1,13 +1,14 @@
 ---
+
 authors:
-  - dgmjr
+- dgmjr
 title: DGMJR-IO Telegram Libraries
 description: This is a metapackage file for all of the Dgmjr.Telegram libraries.
 keywords:
-  - telegram
-  - bot
-  - userbot
-  - metapackage
+- telegram
+- bot
+- userbot
+- metapackage
 slug: dgmjr-io-telegram-libraries
 type: readme
 project: telegram
@@ -15,7 +16,8 @@ license: MIT
 version: 0.0.1
 lastmod: 2023-07-27T02:01:42.619Z
 preview: /src/Telegram/Assets/Icon.png
----
+--------------------------------------
+
 # DGMJR-IO Telegram Libraries
 
 This is a metapackage file for all of the Dgmjr.Telegram libraries.

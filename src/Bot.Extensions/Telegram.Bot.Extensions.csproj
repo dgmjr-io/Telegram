@@ -19,6 +19,7 @@
     <!-- <FrameworkReference Include="Microsoft.AspNetCore.App" Condition="!$(TargetFramework.Contains('netstandard'))" /> -->
     <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas" />
     <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Migrations" />
     <PackageReference Include="Dgmjr.Primitives" />
     <PackageReference Include="Dgmjr.RegexDtoGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference Include="Humanizer.Core" />
@@ -31,5 +32,9 @@
     <PackageReference Include="Telegram.Bot" />
     <PackageReference Include="Vogen" />
     <SourceCode Include="System.Private.CoreLib.Polyfills" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="Telegram.Bot.Constants" Static="true" />
+    <Using Include="Dgmjr.EntityFrameworkCore.Migrations" />
   </ItemGroup>
 </Project>

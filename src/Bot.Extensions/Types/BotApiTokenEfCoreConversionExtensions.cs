@@ -12,7 +12,7 @@ public static class BotApiTokenEfCoreExtensions
         this EntityTypeBuilder<TEntity> entityBuilder,
         Expression<Func<TEntity, BotApiToken>> propertyExpression,
         string validationFunctionSchemaName = DboSchema.ShortName,
-        string validationFunctionName = ufn_ + "IsValidBotApiToken"
+        string validationFunctionName = IsValidBotToken
     )
         where TEntity : class
     {
@@ -31,7 +31,7 @@ public static class BotApiTokenEfCoreExtensions
         this EntityTypeBuilder<TEntity> entityBuilder,
         Expression<Func<TEntity, ObjectId>> propertyExpression,
         string validationFunctionSchemaName = DboSchema.ShortName,
-        string validationFunctionName = ufn_ + "IsValidBotApiToken"
+        string validationFunctionName = IsValidBotToken
     )
         where TEntity : class =>
         entityBuilder.BotTokenProperty(
@@ -62,19 +62,20 @@ public static class BotApiTokenEfCoreExtensions
         string functionName
     )
     {
-        migrationBuilder.Sql(
-            typeof(Constants).Assembly
-                .GetManifestResourceStream("ufn_IsValidBotToken.sql")
-                .ReadToEnd()
-                .Replace("{schema}", schema)
-                .Replace("{functionName}", functionName)
+        migrationBuilder.Operations.Add(
+            new CreateFunctionOperation(
+                schema,
+                functionName,
+                "@value varchar(255)",
+                typeof(Constants).Assembly.ReadAssemblyResourceAllText(IsValidBotToken + _sql)
+            )
         );
         return migrationBuilder;
     }
 
     public static MigrationBuilder RollBackIsValidBotTokenFunction(
         this MigrationBuilder migrationBuilder
-    ) => migrationBuilder.RollBackIsValidBotTokenFunction("ufn_IsValidBotToken");
+    ) => migrationBuilder.RollBackIsValidBotTokenFunction(IsValidBotToken);
 
     public static MigrationBuilder RollBackIsValidBotTokenFunction(
         this MigrationBuilder migrationBuilder,
@@ -87,7 +88,7 @@ public static class BotApiTokenEfCoreExtensions
         string functionName
     )
     {
-        migrationBuilder.Sql($"DROP FUNCTION IF EXISTS [{schema}].[{functionName}];");
+        migrationBuilder.Operations.Add(new DropFunctionOperation(schema, functionName));
         return migrationBuilder;
     }
 }

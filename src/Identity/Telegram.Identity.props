@@ -14,5 +14,8 @@
   <ItemGroup>
     <Using Include="Telegram.Identity" Alias="TelegramID" />
     <Using Include="Dgmjr.Identity" Alias="DgmjrId" />
+    <Using Include="Telegram.Identity.ClaimTypes.TelegramClaimType" Static="true" />
+    <Using Include="Telegram.Identity.ClaimTypes" />
+    <!-- <Using Include="Telegram.Identity.ClaimValueTypes" /> -->
   </ItemGroup>
 </Project>

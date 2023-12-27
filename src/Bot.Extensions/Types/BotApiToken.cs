@@ -70,7 +70,7 @@ public partial record struct BotApiToken : IRegexValueObject<BotApiToken>
 
 #if NET7_0_OR_GREATER
     [GeneratedRegex(RegexString, Rxo.Compiled | Rxo.IgnoreCase)]
-    public static partial Regex Regex();
+    public static partial Regx Regex();
 #else
     private static readonly Regx _regex = new(RegexString, Rxo.Compiled | Rxo.IgnoreCase);
 

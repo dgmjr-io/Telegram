@@ -22,7 +22,6 @@
     <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
     <PackageReference Include="Dgmjr.Enumerations.CodeGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference Include="Dgmjr.Identity.Claims" />
-    <PackageReference Include="Dgmjr.Identity.ClaimValueTypes" />
     <PackageReference Include="Dgmjr.Primitives" />
     <PackageReference Include="System.ComponentModel.Usings" />
     <PackageReference Include="System.Console" Condition="!$(DefineConstants.Contains('NETSTANDARD2_0_OR_GREATER'))" VersionOverride="[4.3.1,)" />

@@ -16,26 +16,28 @@ public class UserBotConfig
     public const string last_name = nameof(last_name);
     public const string password = nameof(password);
     public const string persist_to = nameof(persist_to);
-    public const string db_conection_string = nameof(db_conection_string);
+    public const string db_connection_string = nameof(db_connection_string);
     public const string session_pathname = nameof(session_pathname);
 
     public virtual string Prompt(string variable)
     {
-        Write($"Enter {variable}: ");
-        return ReadLine();
+        Console.Write($"Enter {variable}: ");
+        return Console.ReadLine();
     }
 
     public string? GetConfigVariable(string variable) =>
         variable switch
         {
+#pragma warning disable S1121
             api_id => (ApiId = long.Parse(ApiId.ToString() ?? Prompt(api_id))).ToString(),
             api_hash => ApiHash ??= Prompt(api_hash),
             verification_code => VerificationCode ??= Prompt(verification_code),
             first_name => FirstName ??= Prompt(first_name),
             last_name => LastName ??= Prompt(last_name),
             password => Password ??= Prompt(password),
+#pragma warning restore
             persist_to => PersistTo.ToString(),
-            db_conection_string => DbConectionString,
+            db_connection_string => DbConnectionString,
             session_pathname => SessionPathname,
             _ => Prompt(variable)
         };
@@ -50,7 +52,7 @@ public class UserBotConfig
                 => new DbUserBotStore(
                     new UserBotDbContext(
                         new DbContextOptionsBuilder<UserBotDbContext>()
-                            .UseSqlServer(DbConectionString)
+                            .UseSqlServer(DbConnectionString)
                             .Options
                     ),
                     SessionPathname
@@ -61,12 +63,12 @@ public class UserBotConfig
 
     [JProp((persist_to))]
     public PersistTo PersistTo { get; set; } =
-        PersistToWhere.TryParse(GetEnvironmentVariable(persist_to), out var @enum)
-            ? @enum.Value
+        Enum.TryParse<PersistTo>(GetEnvironmentVariable(persist_to), out var @enum)
+            ? @enum
             : default;
 
-    [JProp(db_conection_string)]
-    public string DbConectionString { get; set; } = GetEnvironmentVariable(db_conection_string);
+    [JProp(db_connection_string)]
+    public string DbConnectionString { get; set; } = GetEnvironmentVariable(db_connection_string);
 
     [JProp(api_id)]
     public long ApiId { get; set; } =

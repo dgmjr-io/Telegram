@@ -1,0 +1,12 @@
+<Project>
+  <ItemGroup>
+    <Using Include="Telegram.Bot.Constants" Static="true" />
+    <Using Include="Telegram.Bot.Types" />
+    <Using Include="Telegram.Bot.Services" />
+    <Using Include="Telegram.Bot.Extensions" />
+    <Using Include="Telegram.Bot.Configuration" />
+    <Using Include="Microsoft.Extensions.Logging" />
+    <Using Include="Microsoft.Extensions.Hosting" />
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+  </ItemGroup>
+</Project>

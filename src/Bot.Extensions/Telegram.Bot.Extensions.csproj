@@ -14,27 +14,35 @@
   <PropertyGroup>
     <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net8.0</TargetFrameworks>
     <!-- <TargetFramework>net8.0</TargetFramework> -->
+    <Description>This library provides a set of extensions for the [Telegram.Bot](https://github.com/TelegramBots/Telegram.Bot) library.  It primarily consists of the [`BotApiToken`](https://github.com/dgmjr-io/Telegram/blob/main/src/Bot.Extensions/Types/BotApiToken.cs) class right now, which parses a bot API token.</Description>
   </PropertyGroup>
   <ItemGroup>
-    <!-- <FrameworkReference Include="Microsoft.AspNetCore.App" Condition="!$(TargetFramework.Contains('netstandard'))" /> -->
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+
     <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas" />
     <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants" />
     <PackageReference Include="Dgmjr.EntityFrameworkCore.Migrations" />
     <PackageReference Include="Dgmjr.Primitives" />
     <PackageReference Include="Dgmjr.RegexDtoGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference Include="Humanizer.Core" />
-    <PackageReference Include="Microsoft.AspNetCore.Mvc" />
-    <PackageReference Include="Microsoft.EntityFrameworkCore.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
+    <PackageReference Include="Microsoft.Extensions.Configuration.Binder" />
+    <PackageReference Include="Microsoft.Extensions.Configuration" />
+    <PackageReference Include="Microsoft.Extensions.Hosting.Abstractions" />
+    <PackageReference Include="Microsoft.Extensions.Http" />
+    <PackageReference Include="Microsoft.Extensions.Logging" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Swashbuckle.AspNetCore.Annotations" />
     <PackageReference Include="Swashbuckle.AspNetCore.SwaggerGen" />
-    <PackageReference Include="System.ComponentModel.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
-    <PackageReference Include="System.Text.Json.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
-    <PackageReference Include="System.Text.RegularExpressions.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
     <PackageReference Include="Telegram.Bot" />
     <PackageReference Include="Vogen" />
-    <SourceCode Include="System.Private.CoreLib.Polyfills" />
+
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
+    <PackageReference Include="System.ComponentModel.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
+    <PackageReference Include="System.Private.CoreLib.Polyfills" IncludeAssets="ContentFiles;Build;BuildTransitive;BuildMultitargeting" ExcludeAssets="Analyzers;Runtime;Native" PrivateAssets="All" />
+    <PackageReference Include="System.Text.Json.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
+    <PackageReference Include="System.Text.RegularExpressions.Usings" IncludeAssets="Build;BuildTransitive;BuildMultitargeting;Runtime;Compile" ExcludeAssets="ContentFiles;Native;Analyzers" PrivateAssets="None" />
   </ItemGroup>
   <ItemGroup>
-    <Using Include="Telegram.Bot.Constants" Static="true" />
     <Using Include="Dgmjr.EntityFrameworkCore.Migrations" />
   </ItemGroup>
 </Project>

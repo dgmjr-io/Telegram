@@ -49,7 +49,7 @@ public static class BotApiTokenEfCoreExtensions
 
     public static MigrationBuilder HasIsValidBotTokenFunction(
         this MigrationBuilder migrationBuilder
-    ) => migrationBuilder.HasIsValidBotTokenFunction("ufn_IsValidBotToken");
+    ) => migrationBuilder.HasIsValidBotTokenFunction(ufn_ + IsValidBotToken);
 
     public static MigrationBuilder HasIsValidBotTokenFunction(
         this MigrationBuilder migrationBuilder,
@@ -67,7 +67,9 @@ public static class BotApiTokenEfCoreExtensions
                 schema,
                 functionName,
                 "@value varchar(255)",
-                typeof(Constants).Assembly.ReadAssemblyResourceAllText(IsValidBotToken + _sql)
+                typeof(Constants).Assembly.ReadAssemblyResourceAllText(
+                    ufn_ + IsValidBotToken + _sql
+                )
             )
         );
         return migrationBuilder;
@@ -75,7 +77,7 @@ public static class BotApiTokenEfCoreExtensions
 
     public static MigrationBuilder RollBackIsValidBotTokenFunction(
         this MigrationBuilder migrationBuilder
-    ) => migrationBuilder.RollBackIsValidBotTokenFunction(IsValidBotToken);
+    ) => migrationBuilder.RollBackIsValidBotTokenFunction(ufn_ + IsValidBotToken);
 
     public static MigrationBuilder RollBackIsValidBotTokenFunction(
         this MigrationBuilder migrationBuilder,

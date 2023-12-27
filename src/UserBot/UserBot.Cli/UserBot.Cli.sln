@@ -1,0 +1,56 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B283EBC2-E01F-412D-9339-FD56EF114549}"
+	ProjectSection(SolutionItems) = preProject
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\..\..\Directory.Build.targets = ..\..\..\Directory.Build.targets
+		..\..\..\global.json = ..\..\..\global.json
+		..\..\..\..\..\Packages\Versions.Local.props = ..\..\..\..\..\Packages\Versions.Local.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.UserBot", "..\UserBot\Telegram.UserBot.csproj", "{95AFF21B-336B-450E-BDAA-87ADDC1F685C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "UserBot.Cli", "UserBot.Cli.csproj", "{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Local|Any CPU = Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Testing|Any CPU = Testing|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Local|Any CPU.Build.0 = Local|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Production|Any CPU.Build.0 = Local|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{95AFF21B-336B-450E-BDAA-87ADDC1F685C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Local|Any CPU.Build.0 = Local|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Production|Any CPU.Build.0 = Local|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E4DFF00E-5F6F-4EFD-B395-E81534B1FF34}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {26DBBE62-8C87-4444-992B-B1773AFAF8E0}
+	EndGlobalSection
+EndGlobal

@@ -10,6 +10,7 @@
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
 
-namespace Telegram.Identity;
+namespace Telegram.Identity.ClaimValueTypes;
 
-public record class ClaimValueType<TValue> : DgmjrId.ClaimValueType<TValue> { }
+
+// public abstract record class TelegramClaimValueType : DgmjrId.ClaimValueType { }

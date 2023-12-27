@@ -1,0 +1,7 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <ProjectReference Include="../Store.Abstractions/Telegram.UserBot.Store.Abstractions.csproj" />
+    <ProjectReference Include="../Store.EntityFrameworkCore/Telegram.UserBot.Store.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="../Store.FileSystem/Telegram.UserBot.Store.FileSystem.csproj" />
+  </ItemGroup>
+</Project>

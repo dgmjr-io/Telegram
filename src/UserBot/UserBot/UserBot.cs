@@ -12,19 +12,20 @@
 
 namespace Telegram.UserBot;
 
+using System.Runtime.Serialization;
+
 using Dgmjr.Abstractions;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Options;
+
 using Telegram.UserBot.Config;
 using Telegram.UserBot.Store.Abstractions;
-using TL;
+using WTelegram;
 
-public class UserBot : WT.Client, ILog, IUserBot
+public class UserBot : WTelegram.Client, IUserBot
 {
-    public virtual ILogger Logger { get; protected set; }
+    public virtual ILogger Logger { get; }
     public virtual User Me { get; protected set; }
-    public IDictionary<long, User> Users { get; } = new Dictionary<long, User>();
-    static IDictionary<long, ChatBase> Chats { get; } = new Dictionary<long, ChatBase>();
+    public static IDictionary<long, TL.User> Users { get; } = new Dictionary<long, User>();
+    public static IDictionary<long, TL.ChatBase> Chats { get; } = new Dictionary<long, ChatBase>();
 
     public UserBot(IOptions<IUserBotConfig> cfg, ILogger<UserBot> logger)
         : this(cfg.Value, logger) { }
@@ -37,16 +38,17 @@ public class UserBot : WT.Client, ILog, IUserBot
     {
         Logger = logger;
         OnUpdate += Client_OnUpdate;
+        OnOther += Client_OnOther;
     }
 
-    protected virtual async Task Client_OnUpdate(IObject arg)
+    protected virtual Task Client_OnOther(IObject obj) => Task.CompletedTask;
+
+    protected virtual async Task Client_OnUpdate(UpdatesBase updates)
     {
-        if (arg is not UpdatesBase updates)
-            return;
         updates.CollectUsersChats(Users, Chats);
         foreach (var update in updates.UpdateList)
         {
-            WriteLine(update.GetType().Name);
+            Console.WriteLine(update.GetType().Name);
             if (
                 update is UpdateNewMessage
                 {
@@ -56,7 +58,7 @@ public class UserBot : WT.Client, ILog, IUserBot
                 if (!msg.flags.HasFlag(Message.Flags.out_)) // ignore our own outgoing messages
                     if (Users.TryGetValue(user_id, out var user))
                     {
-                        WriteLine($"New message from {user}: {msg.message}");
+                        Console.WriteLine($"New message from {user}: {msg.message}");
                         if (msg.message.Equals("Ping", OrdinalIgnoreCase))
                             await SendMessageAsync(user, "Pong");
                     }

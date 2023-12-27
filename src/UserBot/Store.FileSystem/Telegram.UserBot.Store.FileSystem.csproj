@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <ItemGroup>
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Abstractions" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Entities" />
+    <PackageReference Include="Dgmjr.EntityFrameworkCore.Models" />
+    <PackageReference Include="Dgmjr.InterfaceGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Models/Telegram.UserBot.Models.csproj" />
+    <ProjectReference Include="../Store.Abstractions/Telegram.UserBot.Store.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <InternalsVisibleTo Include="Telegram.UserBot.Config, PublicKey=00240000048000009400000006020000002400005253413100040000010001000d802c8a5e6d2d2a7487bf92dd89a0689f004d27d8eaef54cc62aed0afd643dc33222f020003d3fc79c76c0a791eb7ae56d0d17bac639122f17a8f7f246ae6481045146327ebc0eab8878dbdc79aa6ad1bc26b56bbe0ce5eb443c7450a3496d8bc181135c01b98e974ef825ea9b247bd4bc95023b9394e7073e278cde1ca0c94" />
+  </ItemGroup>
+</Project>

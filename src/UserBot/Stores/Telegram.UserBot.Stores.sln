@@ -1,0 +1,84 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B283EBC2-E01F-412D-9339-FD56EF114549}"
+	ProjectSection(SolutionItems) = preProject
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\..\..\Directory.Build.targets = ..\..\..\Directory.Build.targets
+		..\..\..\global.json = ..\..\..\global.json
+		..\..\..\..\..\Packages\Versions.Local.props = ..\..\..\..\..\Packages\Versions.Local.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.UserBot.Store.Abstractions", "..\Store.Abstractions\Telegram.UserBot.Store.Abstractions.csproj", "{EF36B922-F311-4E9A-851E-4FA61D462D60}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.UserBot.Store.EntityFrameworkCore", "..\Store.EntityFrameworkCore\Telegram.UserBot.Store.EntityFrameworkCore.csproj", "{EE5319FA-94BE-42BE-B613-0E63DF21C053}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.UserBot.Store.FileSystem", "..\Store.FileSystem\Telegram.UserBot.Store.FileSystem.csproj", "{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.UserBot.Stores", "Telegram.UserBot.Stores.csproj", "{383285ED-FD84-4681-BF85-27386678BFD4}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Local|Any CPU = Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Testing|Any CPU = Testing|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Local|Any CPU.Build.0 = Local|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Production|Any CPU.Build.0 = Local|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EF36B922-F311-4E9A-851E-4FA61D462D60}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Local|Any CPU.Build.0 = Local|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Production|Any CPU.Build.0 = Local|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EE5319FA-94BE-42BE-B613-0E63DF21C053}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Local|Any CPU.Build.0 = Local|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Production|Any CPU.Build.0 = Local|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6C602D5F-9DE8-4998-BFF3-1ABE6EB00EDE}.Release|Any CPU.Build.0 = Release|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Local|Any CPU.Build.0 = Local|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Production|Any CPU.Build.0 = Local|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{383285ED-FD84-4681-BF85-27386678BFD4}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4B5E8C64-2AC8-4AB5-A2A1-D4E56E09B972}
+	EndGlobalSection
+EndGlobal

@@ -5,6 +5,11 @@
     <PackageReference Include="System.Text.Json.Usings" />
     <PackageReference Include="Dgmjr.Abstractions" />
     <PackageReference Include="Dgmjr.Enumerations.Abstractions" />
-    <ProjectReference Include="../Store/Telegram.UserBot.Store.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Store.Abstractions/Telegram.UserBot.Store.Abstractions.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="System.Console" Static="true" />
   </ItemGroup>
 </Project>

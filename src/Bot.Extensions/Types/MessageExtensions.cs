@@ -24,17 +24,17 @@ public static class MessageExtensions
         {
             MessageType.Text => message.Text?.Truncate(maxLength),
             MessageType.Sticker => $"🀄: {message.Sticker.Emoji}",
-            MessageType.Video => $"🎥: {message.Caption?.Truncate(maxLength)}",
-            MessageType.Photo => $"📸: {message.Caption?.Truncate(maxLength)} ",
+            MessageType.Video => $"🎥 ({message.Video.Duration}s): {message.Caption?.Truncate(maxLength)}",
+            MessageType.Photo => $"📸 ({Convert.ToInt32(message.Photo[0].FileSize).Bytes().Kilobytes:0.00}kB): {message.Caption?.Truncate(maxLength)} ",
             MessageType.Animation => $"🎉: {message.Animation.FileName.Truncate(maxLength)}",
-            MessageType.Audio => $"🔊: {message.Caption?.Truncate(maxLength)}",
+            MessageType.Audio => $"🔊 ({message.Audio.Duration}s): {message.Caption.Truncate(maxLength)}",
             MessageType.Contact
                 => $"👤: {message.Contact.PhoneNumber ?? message.Contact.FirstName ?? message.Contact.LastName ?? message.Contact.UserId?.ToString()}",
-            MessageType.Document => $"📄: {message.Document.FileName.Truncate(maxLength)}",
+            MessageType.Document => $"📄 ({Convert.ToInt32(message.Document.FileSize).Bytes().Kilobytes:0.00}kB): {message.Document.FileName.Truncate(maxLength)}",
             MessageType.Location
-                => $"📍: {message.Location.Latitude.ToString().Truncate((maxLength / 2) - 5)}, {message.Location.Longitude.ToString().Truncate((maxLength / 2) - 5)}",
+                => $"📍: {message.Location.Latitude:#.###}, {message.Location.Longitude:#.###}",
             MessageType.Dice => $"🎲: {message.Dice.Emoji}",
-            MessageType.Voice => $"🗣: {message.Voice.Duration.Seconds()}",
+            MessageType.Voice => $"🗣 ({message.Audio.Duration}s): {message.Caption.Truncate(maxLength)}",
             _ => message.Caption.Truncate(maxLength)
         };
     }

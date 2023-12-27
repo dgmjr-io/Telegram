@@ -1,57 +1,51 @@
 ﻿Microsoft Visual Studio Solution File, Format Version 12.00
-Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B283EBC2-E01F-412D-9339-FD56EF114549}" 
+# 
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B283EBC2-E01F-412D-9339-FD56EF114549}"
 	ProjectSection(SolutionItems) = preProject
-		..\..\..\..\..\Packages\Versions.props = ..\..\..\..\..\Packages\Versions.props
-		..\..\..\..\..\Packages\Versions.Local.json = ..\..\..\..\..\Packages\Versions.Local.json
+		..\Directory.Build.props = ..\Directory.Build.props
+		..\..\..\Directory.Build.targets = ..\..\..\Directory.Build.targets
+		..\..\..\global.json = ..\..\..\global.json
 		..\..\..\..\..\Packages\Versions.Local.props = ..\..\..\..\..\Packages\Versions.Local.props
-		..\..\..\..\..\Packages\Packages.pkgs = ..\..\..\..\..\Packages\Packages.pkgs
-		..\..\..\..\..\Packages\Packages\AnyOf.pkgs = ..\..\..\..\..\Packages\Packages\AnyOf.pkgs
-		..\..\..\..\..\Packages\Packages\APIVersioning.pkgs = ..\..\..\..\..\Packages\Packages\APIVersioning.pkgs
-		..\..\..\..\..\Packages\Packages\AutoMapper.pkgs = ..\..\..\..\..\Packages\Packages\AutoMapper.pkgs
-		..\..\..\..\..\Packages\Packages\Azure.pkgs = ..\..\..\..\..\Packages\Packages\Azure.pkgs
-		..\..\..\..\..\Packages\Packages\AzureFunctions.pkgs = ..\..\..\..\..\Packages\Packages\AzureFunctions.pkgs
-		..\..\..\..\..\Packages\Packages\DDD.pkgs = ..\..\..\..\..\Packages\Packages\DDD.pkgs
-		..\..\..\..\..\Packages\Packages\EFCore.pkgs = ..\..\..\..\..\Packages\Packages\EFCore.pkgs
-		..\..\..\..\..\Packages\Packages\GlobalBuild.pkgs = ..\..\..\..\..\Packages\Packages\GlobalBuild.pkgs
-		..\..\..\..\..\Packages\Packages\GlobalCodeGenerators.pkgs = ..\..\..\..\..\Packages\Packages\GlobalCodeGenerators.pkgs
-		..\..\..\..\..\Packages\Packages\Images.pkgs = ..\..\..\..\..\Packages\Packages\Images.pkgs
-		..\..\..\..\..\Packages\Packages\McMaster.CommandLineUtils.pkgs = ..\..\..\..\..\Packages\Packages\McMaster.CommandLineUtils.pkgs
-		..\..\..\..\..\Packages\Packages\MediatR.pkgs = ..\..\..\..\..\Packages\Packages\MediatR.pkgs
-		..\..\..\..\..\Packages\Packages\Microsoft.AspNetCore.pkgs = ..\..\..\..\..\Packages\Packages\Microsoft.AspNetCore.pkgs
-		..\..\..\..\..\Packages\Packages\Microsoft.Extensions.pkgs = ..\..\..\..\..\Packages\Packages\Microsoft.Extensions.pkgs
-		..\..\..\..\..\Packages\Packages\Microsoft.Identity.pkgs = ..\..\..\..\..\Packages\Packages\Microsoft.Identity.pkgs
-		..\..\..\..\..\Packages\Packages\Microsoft.VisualStudio.Shell.Interop.pkgs = ..\..\..\..\..\Packages\Packages\Microsoft.VisualStudio.Shell.Interop.pkgs
-		..\..\..\..\..\Packages\Packages\Miscellany.pkgs = ..\..\..\..\..\Packages\Packages\Miscellany.pkgs
-		..\..\..\..\..\Packages\Packages\MSBuild.pkgs = ..\..\..\..\..\Packages\Packages\MSBuild.pkgs
-		..\..\..\..\..\Packages\Packages\MSBuildProjectCreator.pkgs = ..\..\..\..\..\Packages\Packages\MSBuildProjectCreator.pkgs
-		..\..\..\..\..\Packages\Packages\MSBuildSdks.pkgs = ..\..\..\..\..\Packages\Packages\MSBuildSdks.pkgs
-		..\..\..\..\..\Packages\Packages\Newtonsoft.Json.pkgs = ..\..\..\..\..\Packages\Packages\Newtonsoft.Json.pkgs
-		..\..\..\..\..\Packages\Packages\NuGet.pkgs = ..\..\..\..\..\Packages\Packages\NuGet.pkgs
-		..\..\..\..\..\Packages\Packages\Powershell.pkgs = ..\..\..\..\..\Packages\Packages\Powershell.pkgs
-		..\..\..\..\..\Packages\Packages\Roslyn.pkgs = ..\..\..\..\..\Packages\Packages\Roslyn.pkgs
-		..\..\..\..\..\Packages\Packages\Serilog.pkgs = ..\..\..\..\..\Packages\Packages\Serilog.pkgs
-		..\..\..\..\..\Packages\Packages\SlnGen.pkgs = ..\..\..\..\..\Packages\Packages\SlnGen.pkgs
-		..\..\..\..\..\Packages\Packages\Swashbuckle.pkgs = ..\..\..\..\..\Packages\Packages\Swashbuckle.pkgs
-		..\..\..\..\..\Packages\Packages\System.pkgs = ..\..\..\..\..\Packages\Packages\System.pkgs
-		..\..\..\..\..\Packages\Packages\Telegram.pkgs = ..\..\..\..\..\Packages\Packages\Telegram.pkgs
-		..\..\..\..\..\Packages\Packages\Testing.EfCore.pkgs = ..\..\..\..\..\Packages\Packages\Testing.EfCore.pkgs
-		..\..\..\..\..\Packages\Packages\Testing.pkgs = ..\..\..\..\..\Packages\Packages\Testing.pkgs
-		..\..\..\..\..\Packages\Packages\Validation.pkgs = ..\..\..\..\..\Packages\Packages\Validation.pkgs
-		..\..\..\..\..\Packages\Packages\XmlDocMd.pkgs = ..\..\..\..\..\Packages\Packages\XmlDocMd.pkgs
-		..\..\..\..\..\Packages\Versions\AspNetCoreIdentity.props = ..\..\..\..\..\Packages\Versions\AspNetCoreIdentity.props
-		..\..\..\..\..\Packages\Versions\AutoMapper.props = ..\..\..\..\..\Packages\Versions\AutoMapper.props
-		..\..\..\..\..\Packages\Versions\EFCore.props = ..\..\..\..\..\Packages\Versions\EFCore.props
-		..\..\..\..\..\Packages\Versions\JsonPatch.props = ..\..\..\..\..\Packages\Versions\JsonPatch.props
-		..\..\..\..\..\Packages\Versions\MediatR.props = ..\..\..\..\..\Packages\Versions\MediatR.props
-		..\..\..\..\..\Packages\Versions\Microsoft.Extensions.Logging.props = ..\..\..\..\..\Packages\Versions\Microsoft.Extensions.Logging.props
-		..\..\..\..\..\Packages\Versions\MSBuild.props = ..\..\..\..\..\Packages\Versions\MSBuild.props
-		..\..\..\..\..\Packages\Versions\PowerShell.props = ..\..\..\..\..\Packages\Versions\PowerShell.props
 	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.UserBot", "..\UserBot\Telegram.UserBot.csproj", "{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.UserBot.Api", "Telegram.UserBot.Api.csproj", "{E292165E-B418-4874-BF2E-BA447FEC5869}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Local|Any CPU = Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Testing|Any CPU = Testing|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Local|Any CPU.Build.0 = Local|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Production|Any CPU.Build.0 = Local|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A4E9724-C30F-49B9-BB77-9DA740BF7E6C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Local|Any CPU.Build.0 = Local|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Production|Any CPU.Build.0 = Local|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E292165E-B418-4874-BF2E-BA447FEC5869}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

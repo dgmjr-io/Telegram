@@ -1,0 +1,15 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net6.0;net8.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Bot.Extensions/Telegram.Bot.Extensions.csproj" />
+    <ProjectReference Include="../Constants/Telegram.Constants.csproj" />
+    <ProjectReference Include="../Converters/Telegram.JsonConverters.csproj" />
+    <ProjectReference Include="../EntityFrameworkCore/Telegram.Bots.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="../Identity/Telegram.Identity.csproj" />
+    <ProjectReference Include="../Models/Telegram.Models.csproj" />
+    <ProjectReference Include="../UserBot/UserBot/Telegram.UserBot.csproj" Condition="'$(TargetFramework)' == 'net8.0'" />
+    <ProjectReference Include="../../lib/Telegram.Bot/src/Telegram.Bot/Telegram.Bot.csproj" />
+  </ItemGroup>
+</Project>

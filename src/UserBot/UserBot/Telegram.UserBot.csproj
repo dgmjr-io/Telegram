@@ -11,19 +11,31 @@
 -->
 
 <Project Sdk="Microsoft.NET.Sdk">
-    <PropertyGroup>
-        <TargetFramework>net7.0</TargetFramework>
-    </PropertyGroup>
-    <ItemGroup>
-        <FrameworkReference Include="Microsoft.AspNetCore.App" />
-        <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" />
-        <PackageReference Include="Microsoft.AspNetCore.App.Ref"/>
-        <PackageReference Include="WTelegramClient" />
-        <PackageReference Include="Microsoft.Extensions.Options" />
-        <ProjectReference Include="../Config/Telegram.UserBot.Config.csproj" />
-        <PackageReference Include="Dgmjr.InterfaceGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
-    </ItemGroup>
-    <ItemGroup>
-        <Using Include="WTelegram" Alias="WT" />
-    </ItemGroup>
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Http.Extensions" />
+    <!-- <PackageReference Include="Microsoft.AspNetCore.App.Ref"/> -->
+    <PackageReference Include="WTelegramClient" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
+    <PackageReference Include="Dgmjr.Abstractions" />
+    <PackageReference Include="Dgmjr.InterfaceGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Config/Telegram.UserBot.Config.csproj" />
+    <ProjectReference Include="../Models/Telegram.UserBot.Models.csproj" />
+    <ProjectReference Include="../Store/Telegram.UserBot.Store.csproj" />
+    <ProjectReference Include="../Store.Abstractions/Telegram.UserBot.Store.Abstractions.csproj" />
+    <ProjectReference Include="../Store.EntityFrameworkCore/Telegram.UserBot.Store.EntityFrameworkCore.csproj" />
+    <ProjectReference Include="../Store.FileSystem/Telegram.UserBot.Store.FileSystem.csproj" />
+    <ProjectReference Include="../Store.Memory/Telegram.UserBot.Store.Memory.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <Using Include="WTelegram" Alias="WT" />
+    <Using Include="System.Net" />
+  </ItemGroup>
 </Project>

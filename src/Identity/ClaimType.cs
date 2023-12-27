@@ -11,5 +11,3 @@
  */
 
 namespace Telegram.Identity;
-
-public partial record class ClaimType : DgmjrId.ClaimType { }

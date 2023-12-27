@@ -1,3 +1,5 @@
+using System.Security.Claims;
+
 /*
  * ClaimTypes.cs
  *
@@ -15,18 +17,40 @@ namespace Telegram.Identity.ClaimTypes;
 using Dgmjr.Identity;
 using Dgmjr.Identity.ClaimTypes;
 
-using Tgcb = TelegramClaimBase;
+using Tgcb = TelegramClaimType;
+using static TelegramClaimType;
 
-/// <summary>The URI for a claim that specifies the anonymous user.</summary>
+/// <summary>The base claim type for Telegram claims.</summary>
 /// <value><inheritdoc cref="Tgcb.UriString" path="/value" /></value>
-public record class TelegramClaimBase : ClaimType, IClaimType, IIdentityComponent
+public abstract record class TelegramClaimType : DgmjrId.ClaimType, IClaimType
 {
-    public static readonly IClaimType Instance = new Tgcb();
-
-    private TelegramClaimBase() { }
+    /// <value>https://telegram.org/identity</value>
+    public const string TelegramIdentityBaseUri = "https://telegram.org/identity";
 
     /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" /></value>
     public const string UriString = "https://telegram.org/identity";
+
+    /// <value>/</value>
+    public const string UriSeparator = "/";
+
+    /// <value>:</value>
+    public const string ShortUriSeparator = ":";
+
+    /// <value>tg:identity</value>
+    public const string ShortUriString = "tg:identity";
+}
+
+/// <summary>The base claim type for Telegram claims.</summary>
+/// <value><inheritdoc cref="TelegramClaimType{T}.UriString" path="/value" /></value>
+public abstract record class TelegramClaimType<TValueType>
+    : TelegramClaimType,
+        IClaimType<TValueType>
+    where TValueType : IClaimValueType, IEquatable<TValueType>
+{
+    protected TelegramClaimType() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" /></value>
+    public const string UriString = TelegramIdentityBaseUri;
 
     /// <value>tg:identity</value>
     public const string ShortUriString = "tg:identity";
@@ -41,7 +65,7 @@ public record class TelegramClaimBase : ClaimType, IClaimType, IIdentityComponen
     public const string ShortUriSeparator = ":";
 
     /// <value><inheritdoc cref="Name" path="/value" /></value>
-    string IIdentityComponent.Name => Name;
+    string IHaveAName.Name => Name;
 
     /// <value><inheritdoc cref="UriString" path="/value" /></value>
     string IHaveAUriString.UriString => UriString;
@@ -54,24 +78,26 @@ public record class TelegramClaimBase : ClaimType, IClaimType, IIdentityComponen
 }
 
 /// <summary>The URI for a claim that specifies the anonymous user.</summary>
-/// <value><inheritdoc cref="BotApiToken.UriString" path="/value" /></value>
-public record class BotApiToken : ClaimType, IClaimType, IIdentityComponent
+/// <value><inheritdoc cref="UriString" path="/value" /></value>
+public record class BotApiToken : TelegramClaimType, IClaimType<DgmjrCvt.String>
 {
     public static readonly IClaimType Instance = new BotApiToken();
+
+    public override uri? ClaimValueTypeUri => Tgcb.UriString + UriSeparator + Name;
 
     private BotApiToken() { }
 
     /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
-    public const string UriString = TelegramIdentityBaseUri + "/" + Name;
+    public new const string UriString = TelegramIdentityBaseUri + "/" + Name;
 
     /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
-    public const string ShortUriString = "tg:" + Name;
+    public new const string ShortUriString = "tg:" + Name;
 
     /// <value>bot_api_token</value>
-    public const string Name = "bot_api_token";
+    public new const string Name = "bot_api_token";
 
     /// <value><inheritdoc cref="Name" path="/value" /></value>
-    string IIdentityComponent.Name => Name;
+    string IHaveAName.Name => Name;
 
     /// <value><inheritdoc cref="UriString" path="/value" /></value>
     string IHaveAUriString.UriString => UriString;
@@ -84,10 +110,12 @@ public record class BotApiToken : ClaimType, IClaimType, IIdentityComponent
 }
 
 /// <summary>The URI for a claim that specifies the anonymous user.</summary>
-/// <value><inheritdoc cref="Username.UriString" path="/value" /></value>
-public record class Username : ClaimType, IClaimType, IIdentityComponent
+/// <value><inheritdoc cref="UriString" path="/value" /></value>
+public record class Username : ClaimType, IClaimType<DgmjrCvt.String>
 {
     public static readonly IClaimType Instance = new Username();
+
+    public override uri? ClaimValueTypeUri => DgmjrCvt.String.UriString;
 
     private Username() { }
 
@@ -101,7 +129,7 @@ public record class Username : ClaimType, IClaimType, IIdentityComponent
     public const string Name = "username";
 
     /// <value><inheritdoc cref="Name" path="/value" /></value>
-    string IIdentityComponent.Name => Name;
+    string IHaveAName.Name => Name;
 
     /// <value><inheritdoc cref="UriString" path="/value" /></value>
     string IHaveAUriString.UriString => UriString;
@@ -114,10 +142,12 @@ public record class Username : ClaimType, IClaimType, IIdentityComponent
 }
 
 /// <summary>The URI for a claim that specifies the anonymous user.</summary>
-/// <value><inheritdoc cref="UserId.UriString" path="/value" /></value>
-public record class UserId : ClaimType, IClaimType, IIdentityComponent
+/// <value><inheritdoc cref="UriString" path="/value" /></value>
+public record class UserId : ClaimType, IClaimType<DgmjrCvt.Integer64>
 {
     public static readonly IClaimType Instance = new UserId();
+
+    public override uri? ClaimValueTypeUri => DgmjrCvt.Integer64.UriString;
 
     private UserId() { }
 
@@ -131,7 +161,7 @@ public record class UserId : ClaimType, IClaimType, IIdentityComponent
     public const string Name = "userid";
 
     /// <value><inheritdoc cref="Name" path="/value" /></value>
-    string IIdentityComponent.Name => Name;
+    string IHaveAName.Name => Name;
 
     /// <value><inheritdoc cref="UriString" path="/value" /></value>
     string IHaveAUriString.UriString => UriString;

@@ -28,7 +28,7 @@ public abstract record class TelegramClaimType : DgmjrId.ClaimType, IClaimType
     public const string TelegramIdentityBaseUri = "https://telegram.org/identity";
 
     /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" /></value>
-    public const string UriString = "https://telegram.org/identity";
+    public new const string UriString = "https://telegram.org/identity";
 
     /// <value>/</value>
     public const string UriSeparator = "/";
@@ -50,7 +50,7 @@ public abstract record class TelegramClaimType<TValueType>
     protected TelegramClaimType() { }
 
     /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" /></value>
-    public const string UriString = TelegramIdentityBaseUri;
+    public new const string UriString = TelegramIdentityBaseUri;
 
     /// <value>tg:identity</value>
     public const string ShortUriString = "tg:identity";
@@ -77,7 +77,7 @@ public abstract record class TelegramClaimType<TValueType>
     public override uri ShortUri => ShortUriString;
 }
 
-/// <summary>The URI for a claim that specifies the anonymous user.</summary>
+/// <summary>The URI for a bot token claim.</summary>
 /// <value><inheritdoc cref="UriString" path="/value" /></value>
 public record class BotApiToken : TelegramClaimType, IClaimType<DgmjrCvt.String>
 {
@@ -109,7 +109,7 @@ public record class BotApiToken : TelegramClaimType, IClaimType<DgmjrCvt.String>
     public override uri ShortUri => ShortUriString;
 }
 
-/// <summary>The URI for a claim that specifies the anonymous user.</summary>
+/// <summary>The URI for a username claim.</summary>
 /// <value><inheritdoc cref="UriString" path="/value" /></value>
 public record class Username : ClaimType, IClaimType<DgmjrCvt.String>
 {
@@ -120,7 +120,7 @@ public record class Username : ClaimType, IClaimType<DgmjrCvt.String>
     private Username() { }
 
     /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
-    public const string UriString = TelegramIdentityBaseUri + "/" + Name;
+    public new const string UriString = TelegramIdentityBaseUri + "/" + Name;
 
     /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
     public const string ShortUriString = "tg:" + Name;
@@ -141,7 +141,7 @@ public record class Username : ClaimType, IClaimType<DgmjrCvt.String>
     public override uri ShortUri => ShortUriString;
 }
 
-/// <summary>The URI for a claim that specifies the anonymous user.</summary>
+/// <summary>The URI for a user ID claim.</summary>
 /// <value><inheritdoc cref="UriString" path="/value" /></value>
 public record class UserId : ClaimType, IClaimType<DgmjrCvt.Integer64>
 {
@@ -152,13 +152,146 @@ public record class UserId : ClaimType, IClaimType<DgmjrCvt.Integer64>
     private UserId() { }
 
     /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
-    public const string UriString = TelegramIdentityBaseUri + "/" + Name;
+    public new const string UriString = TelegramIdentityBaseUri + "/" + Name;
 
     /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
     public const string ShortUriString = "tg:" + Name;
 
     /// <value>userid</value>
     public const string Name = "userid";
+
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IHaveAName.Name => Name;
+
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
+}
+
+/// <summary>The URI for a first name claim.</summary>
+/// <value><inheritdoc cref="UriString" path="/value" /></value>
+public record class FirstName : ClaimType, IClaimType<DgmjrCvt.String>
+{
+    public static readonly IClaimType Instance = new FirstName();
+
+    public override uri? ClaimValueTypeUri => DgmjrCvt.Integer64.UriString;
+
+    private FirstName() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
+    public new const string UriString = TelegramIdentityBaseUri + "/" + Name;
+
+    /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
+    public const string ShortUriString = "tg:" + Name;
+
+    /// <value>given_name</value>
+    public const string Name = "given_name";
+
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IHaveAName.Name => Name;
+
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
+}
+
+/// <summary>The URI for a last name claim.</summary>
+/// <value><inheritdoc cref="UriString" path="/value" /></value>
+public record class LastName : ClaimType, IClaimType<DgmjrCvt.String>
+{
+    public static readonly IClaimType Instance = new LastName();
+
+    public override uri? ClaimValueTypeUri => DgmjrCvt.Integer64.UriString;
+
+    private LastName() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
+    public new const string UriString = TelegramIdentityBaseUri + "/" + Name;
+
+    /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
+    public const string ShortUriString = "tg:" + Name;
+
+    /// <value>surname</value>
+    public const string Name = "surname";
+
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IHaveAName.Name => Name;
+
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
+}
+
+/// <summary>The URI for a user's photo claim.</summary>
+/// <value><inheritdoc cref="UriString" path="/value" /></value>
+public record class PhotoUrl : ClaimType, IClaimType<DgmjrCvt.AnyUri>
+{
+    public static readonly IClaimType Instance = new PhotoUrl();
+
+    public override uri? ClaimValueTypeUri => DgmjrCvt.Integer64.UriString;
+
+    private PhotoUrl() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
+    public new const string UriString = TelegramIdentityBaseUri + "/" + Name;
+
+    /// <value>tg:<inheritdoc cref="Name" path="/value" /></value>
+    public const string ShortUriString = "tg:" + Name;
+
+    /// <value>photo_url</value>
+    public const string Name = "photo_url";
+
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IHaveAName.Name => Name;
+
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
+}
+
+/// <summary>The URI for a user's photo claim.</summary>
+/// <value><inheritdoc cref="UriString" path="/value" /></value>
+public record class UserUri : ClaimType, IClaimType<DgmjrCvt.AnyUri>
+{
+    /// <value>tg://user?id={0}</value>
+    public const string FormatString = "tg://user?id={0}";
+
+    public static uri Create(long id) => Format(FormatString, id);
+
+    public static readonly IClaimType Instance = new UserUri();
+
+    public override uri? ClaimValueTypeUri => DgmjrCvt.Integer64.UriString;
+
+    private UserUri() { }
+
+    /// <value>tg://<inheritdoc cref="Name" path="/value" /></value>
+    public new const string UriString = "tg://" + Name;
+
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    public const string ShortUriString = UriString;
+
+    /// <value>user</value>
+    public const string Name = "user";
 
     /// <value><inheritdoc cref="Name" path="/value" /></value>
     string IHaveAName.Name => Name;

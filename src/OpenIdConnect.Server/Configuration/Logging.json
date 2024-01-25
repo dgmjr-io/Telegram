@@ -1,0 +1,6 @@
+{
+    "LogLevel": {
+        "Default": "Debug",
+        "Microsoft.AspNetCore": "Debug"
+    }
+}

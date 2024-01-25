@@ -56,12 +56,8 @@ public static class TelegramBotDIExtensions
     public static WebApplicationBuilder AddTelegramBot(
         this WebApplicationBuilder builder,
         string botName = "Bot",
-        IConfiguration? configuration = default)
-    =>
-        builder.AddTelegramBot(
-            botName,
-            cfg => configuration?.Bind(cfg)
-        );
+        IConfiguration? configuration = default
+    ) => builder.AddTelegramBot(botName, cfg => configuration?.Bind(cfg));
 #endif
 
     /// <summary>Adds OpenAPI description for the <see cref="BotApiToken" /></summary>
@@ -98,12 +94,8 @@ public static class TelegramBotDIExtensions
     public static IServiceCollection AddTelegramBot(
         this IServiceCollection services,
         string botName = "Bot",
-        IConfiguration? configuration = default)
-    =>
-        services.AddTelegramBot(
-            botName,
-            cfg => configuration?.Bind(cfg)
-        );
+        IConfiguration? configuration = default
+    ) => services.AddTelegramBot(botName, cfg => configuration?.Bind(cfg));
 
     public static IServiceCollection AddTelegramBot(
         this IServiceCollection services,

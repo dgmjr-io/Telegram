@@ -1,0 +1,42 @@
+﻿Microsoft Visual Studio Solution File, Format Version 12.00
+# 
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Solution Items", "Solution Items", "{B283EBC2-E01F-412D-9339-FD56EF114549}"
+	ProjectSection(SolutionItems) = preProject
+		..\..\Directory.Build.props = ..\..\Directory.Build.props
+		..\..\Directory.Build.targets = ..\..\Directory.Build.targets
+		..\..\global.json = ..\..\global.json
+		..\..\..\..\Packages\Versions.Local.props = ..\..\..\..\Packages\Versions.Local.props
+	EndProjectSection
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.LoginWidget", "Telegram.LoginWidget.csproj", "{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Local|Any CPU = Local|Any CPU
+		Debug|Any CPU = Debug|Any CPU
+		Testing|Any CPU = Testing|Any CPU
+		Staging|Any CPU = Staging|Any CPU
+		Production|Any CPU = Production|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Local|Any CPU.Build.0 = Local|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Production|Any CPU.Build.0 = Local|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{B140220C-B4AB-4816-9CB4-D2ADE7B441D5}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {D35FA477-E1E2-427E-A56F-F2CB4C817E94}
+	EndGlobalSection
+EndGlobal

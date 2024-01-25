@@ -1,0 +1,29 @@
+@*
+* _HeadPartial.cshtml
+*
+*   Created: 2024-39-15T21:39:53-05:00
+*   Modified: 2024-04-16T12:04:48-05:00
+*
+*   Author: David G. Moore, Jr. <david@dgmjr.io>
+*
+*   Copyright © 2024 David G. Moore, Jr., All Rights Reserved
+*      License: MIT (https://opensource.org/licenses/MIT)
+*@
+@namespace Telegram.OpenIdConnect.Pages.Shared
+@model Telegram.OpenIdConnect.Options.TelegramOpenIdConnectServerOptions
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - @Model.Title</title>
+    <link rel="stylesheet" href="@(Model.CdnUriBase)npm/bootswatch/dist/@Model.ColorTheme.ToString().ToLower()/bootstrap.min.css" asp-append-version="true" crossorigin="anonymous">
+    <link rel="stylesheet" href="@(Model.CdnUriBase)npm/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="@(Model.CdnUriBase)npm/jquery-ui/themes/base/selectmenu.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="@(Model.CdnUriBase)npm/prismjs/themes/prism.min.css" asp-append-version="true">
+    @* <link rel="stylesheet" href="@(Model.CdnUriBase)css/site.css" asp-append-version="true"> *@
+    <link rel="icon" href="@Model.FaviconUri" asp-append-version="true" type="image/png" />
+    <style>
+        body {
+            padding-top: 0px !important;
+        }
+    </style>
+</head>

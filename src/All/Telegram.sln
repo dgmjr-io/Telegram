@@ -26,6 +26,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.Bot", "..\..\lib\T
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram", "Telegram.csproj", "{AC53B906-055C-4182-B0DA-A4495D54D106}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Telegram.AspNetCore.Authentication", "..\Authentication\Telegram.AspNetCore.Authentication.csproj", "{3A078665-3A1D-4BF3-8B56-B79A52369EDE}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Local|Any CPU = Local|Any CPU
@@ -144,6 +146,18 @@ Global
 		{AC53B906-055C-4182-B0DA-A4495D54D106}.Production|Any CPU.Build.0 = Local|Any CPU
 		{AC53B906-055C-4182-B0DA-A4495D54D106}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{AC53B906-055C-4182-B0DA-A4495D54D106}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Local|Any CPU.ActiveCfg = Local|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Local|Any CPU.Build.0 = Local|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Testing|Any CPU.ActiveCfg = Testing|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Testing|Any CPU.Build.0 = Testing|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Staging|Any CPU.ActiveCfg = Staging|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Staging|Any CPU.Build.0 = Staging|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Production|Any CPU.ActiveCfg = Local|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Production|Any CPU.Build.0 = Local|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3A078665-3A1D-4BF3-8B56-B79A52369EDE}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

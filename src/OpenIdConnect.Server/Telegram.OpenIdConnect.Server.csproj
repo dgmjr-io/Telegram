@@ -1,0 +1,50 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <RootNamespace>Telegram.OpenIdConnect</RootNamespace>
+    <IsPackable>false</IsPackable>
+    <IsNuGetized>false</IsNuGetized>
+    <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
+    <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
+    <UserSecretsId>080b90c2-0f51-4c61-98dd-4f7a36099587</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dgmjr.AspNetCore.Http.Services" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.AspNetCore.Mvc" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.AspNetCore.Swagger" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.AspNetCore.TagHelpers" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.Configuration.Extensions" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.Extensions.Logging" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.Primitives" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.Enumerations.CodeGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
+    <PackageReference Include="Dgmjr.Http.CorrelationId" />
+    <PackageReference Include="Dgmjr.System.Extensions" />
+    <PackageReference Include="Microsoft.Identity.Abstractions" />
+    <PackageReference Include="Microsoft.Identity.Web" />
+    <PackageReference Include="OneOf" />
+    <PackageReference Include="System.IdentityModel.Tokens.Jwt" />
+    <PackageReference Include="Telegram.Bot.Extensions" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Telegram.Identity" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Telegram.LoginWidget" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Duende.IdentityServer" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="./Certificate.pfx" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+    <Content Include="./Properties/launchSettings.json" CopyToOutputDirectory="Always" CopyToPublishDirectory="Always" />
+  </ItemGroup>
+
+  <ItemGroup Condition="false">
+    <ProjectReference Include="../Bot.Extensions/Telegram.Bot.Extensions.csproj" />
+    <ProjectReference Include="../LoginWidget/Telegram.LoginWidget.csproj" />
+    <ProjectReference Include="../Authentication/Telegram.AspNetCore.Authentication.csproj" />
+    <ProjectReference Include="../Identity/Telegram.Identity.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System.Byte" Alias="Byte" />
+  </ItemGroup>
+
+</Project>

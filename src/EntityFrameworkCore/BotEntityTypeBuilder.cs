@@ -1,11 +1,11 @@
-/* 
+/*
  * BotEntityTypeBuilder.cs
- * 
+ *
  *   Created: 2023-03-23-11:09:29
  *   Modified: 2023-03-23-11:09:30
- * 
+ *
  *   Author: David G. Moore, Jr. <david@dgmjr.io>
- *   
+ *
  *   Copyright © 2022 - 2023 David G. Moore, Jr., All Rights Reserved
  *      License: MIT (https://opensource.org/licenses/MIT)
  */

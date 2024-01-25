@@ -1,0 +1,65 @@
+/*
+ * TelegramAuthenticationConstants.cs
+ *
+ *   Created: 2024-36-20T05:36:35-05:00
+ *   Modified: 2024-36-20T05:36:36-05:00
+ *
+ *   Author: David G. Moore, Jr. <david@dgmjr.io>
+ *
+ *   Copyright © 2024 David G. Moore, Jr., All Rights Reserved
+ *      License: MIT (https://opensource.org/licenses/MIT)
+ */
+
+namespace Telegram.OpenIdConnect.Constants;
+
+/// <summary>
+///     Key names to the key/value pairs provided by Telegram during authentication.
+/// </summary>
+public static class DataCheckKeys
+{
+    public static readonly string[] All = new[]
+    {
+        AuthTime,
+        AuthHash,
+        FirstName,
+        Id,
+        LastName,
+        PhotoUrl,
+        Username
+    };
+
+    /// <summary>
+    ///     Key of key/value pair for the instant Telegram authenticated user.
+    /// </summary>
+    public const string AuthTime = "auth_date";
+
+    /// <summary>
+    ///     Key of key/value pair for Telegram calculated hash using API key as secret.
+    /// </summary>
+    public const string AuthHash = "hash";
+
+    /// <summary>
+    ///     Key of key/value pair for Telegram user's first name.
+    /// </summary>
+    public const string FirstName = "first_name";
+
+    /// <summary>
+    ///     Key of key/value pair for Telegram user's ID.
+    /// </summary>
+    public const string Id = "id";
+
+    /// <summary>
+    ///     Optional key of key/value pair for Telegram user's last name.
+    /// </summary>
+    public const string LastName = "last_name";
+
+    /// <summary>
+    ///     Optional key of key/value pair for a URL to user's photo.
+    /// </summary>
+    public const string PhotoUrl = "photo_url";
+
+    /// <summary>
+    ///     Optional key of key/value pair for user's user name.
+    /// </summary>
+    public const string Username = "username";
+}

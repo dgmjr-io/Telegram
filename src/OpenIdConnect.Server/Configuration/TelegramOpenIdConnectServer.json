@@ -1,0 +1,47 @@
+{
+  "BotName": "DGMJRBot",
+  "BotApiToken": "5387454987:AAEZDJVWnFmoSuN_QaQZZROQJzTzeDMq40Y",
+  "CopyrightHolder": "David G. Moore, Jr.",
+  "CopyrightHolderEmail": "david@jsonschema.xyz",
+  "CopyrightStartYear": 2024,
+  "LogoTitle": "Telegram Open ID Connect Login",
+  "Title": "",
+  "ServerCertificate": {
+    "SourceType": "Path",
+    "CertificateDiskPath": "./Certificate.pfx"
+    // "KeyVaultUrl": "https://jsonschema-xyz.vault.azure.net/",
+    // "KeyVaultCertificateName": "TelegramOpenIdConnectServerCertificate",
+    // "SourceType": "KeyVault"
+  },
+  // "ServerCertificatePath": "./Certificate.cer",
+  "Clients": [
+    {
+      "AllowedScopes": [
+        "openid",
+        "profile",
+        "email",
+        "phone",
+        "address",
+        "offline_access"
+      ],
+      "ClientId": "jsonschema.xyz",
+      "ClientName": "jsonschema.xyz",
+      "ClientSecrets": [
+        {
+          "Value": "FooBar123!"
+        }
+      ],
+      "ClientUri": "https://jsonschema.xyz",
+      "GrantType": [
+        "authorization_code",
+        "refresh_token"
+      ],
+      "IsActive": true,
+      "RedirectUris": [
+        "https://jsonschema.xyz/signin-oidc",
+        "https://valid-seahorse-separately.ngrok-free.app/signin-oidc",
+        "https://localhost:7003/signin-oidc"
+      ]
+    }
+  ]
+}

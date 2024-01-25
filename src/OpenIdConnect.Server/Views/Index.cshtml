@@ -1,0 +1,9 @@
+@using Microsoft.AspNetCore.Authentication
+
+@{
+    ViewData["Title"] = "Welcome!  Please log in.";
+    Layout = "~/Views/_Layout.cshtml";
+}
+
+<telegram-login-widget bot-name="@Model.BotName" redirect-url="@Model.RedirectUrl"></telegram-login-widget>
+

@@ -2,12 +2,17 @@ using Dgmjr.Configuration.Extensions;
 
 using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
+using Duende.IdentityServer.Validation;
+
 using Microsoft.AspNetCore.Builder;
+using Microsoft.Extensions.DependencyInjection.Extensions;
 using Microsoft.Extensions.Hosting;
 
+using Telegram.OpenIdConnect.Services;
+
 namespace Telegram.OpenIdConnect.Options
-{
-    public class IdentityServerAutoConfigurator
+{ // https://localhost:7003/connect/authorize?client_id=jsonschema.xyz&redirect_uri=https://localhost:7003/signin-oidc
+    public class IdentityServerAutoConfigurator()
         : IConfigureIHostApplicationBuilder,
             IConfigureIApplicationBuilder
     {
@@ -23,9 +28,14 @@ namespace Telegram.OpenIdConnect.Options
             Console.WriteLine($"Adding clients: {Join(", ", clients.Select(c => Serialize(c)))}");
             builder.Services
                 .AddIdentityServer()
-                .AddInMemoryIdentityResources([new IdentityResources.OpenId()])
+                .AddInMemoryIdentityResources([new IdentityResources.OpenId(), new IdentityResources.Profile(), new IdentityResources.Email()])
                 .AddInMemoryClients(clients)
-                .AddSigningCredential(config.SigningCredentials);
+                .AddSigningCredential(config.SigningCredentials)
+                .AddAuthorizeInteractionResponseGenerator<TelegramAuthorizeInteractionResponseGenerator>()
+                .AddCustomAuthorizeRequestValidator<TelegramAuthorizeRequestValidator>();
+
+            builder.Services.RemoveAll<IAuthorizeRequestValidator>();
+            builder.Services.AddTransient<IAuthorizeRequestValidator, TelegramAuthorizeRequestValidator>();
 
             /* do nothing */
         }

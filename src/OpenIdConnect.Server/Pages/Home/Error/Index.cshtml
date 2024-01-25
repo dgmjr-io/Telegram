@@ -1,5 +1,10 @@
 @page
-@model IdentityServerHost.Pages.Error.Index
+@namespace Telegram.OpenIdConnect.Pages.Error
+@model Telegram.OpenIdConnect.Pages.Error.Index
+
+@{
+  ViewData["Title"] = $"Error: {Model.View.Error.Error}";
+}
 
 <div class="error-page">
     <div class="lead">

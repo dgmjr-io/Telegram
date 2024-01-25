@@ -1,0 +1,32 @@
+﻿@*
+* _Layout.cshtml
+*
+*   Created: 2024-10-07T06:10:01-05:00
+*   Modified: 2024-04-16T12:04:50-05:00
+*
+*   Author: David G. Moore, Jr. <david@dgmjr.io>
+*
+*   Copyright © 2024 David G. Moore, Jr., All Rights Reserved
+*      License: MIT (https://opensource.org/licenses/MIT)
+*@
+@namespace Telegram.OpenIdConnect.Pages.Shared
+@model Telegram.OpenIdConnect.Pages.TelegramPageModelBase
+<!DOCTYPE html>
+<html lang="en" data-bs-theme="@Model.Options.Theme.ToString().ToLower()">
+@{await Html.RenderPartialAsync("_HeadPartial");}
+<body>
+    <header>
+        @{await Html.RenderPartialAsync("_NavbarPartial");}
+    </header>
+    <container>
+        <page-header title="@ViewData["Title"]"></page-header>
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </container>
+
+    @{await Html.RenderPartialAsync("_FooterPartial");}
+    @{await Html.RenderPartialAsync("_ScriptsPartial");}
+    @{await RenderSectionAsync("Scripts", required: false);}
+</body>
+</html>

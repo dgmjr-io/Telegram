@@ -1,0 +1,24 @@
+@*
+* _NavbarPartial.cshtml
+*
+*   Created: 2024-42-15T18:42:55-05:00
+*   Modified: 2024-05-16T12:05:12-05:00
+*
+*   Author: David G. Moore, Jr. <david@dgmjr.io>
+*
+*   Copyright © 2024 David G. Moore, Jr., All Rights Reserved
+*      License: MIT (https://opensource.org/licenses/MIT)
+*@
+@namespace Telegram.OpenIdConnect.Pages.Shared
+@model Telegram.OpenIdConnect.Pages.TelegramPageModelBase
+
+<navbar position="StickyTop" theme="dark" brand-image="@Model.Options.LogoUri" brand-name="@Model.Options.LogoTitle" brand-href="/oauth2/login" background="Dark">
+    <navbar-nav>
+        <nav-text>@Model.Options.Title</nav-text>
+        @* <a href="/"><i class="fas fa-home"></i> Home</a>
+        <a href="/about"><i class="fas fa-info-circle"></i> About</a>
+        <a href="/contact"><i class="fas fa-envelope"></i> Contact</a>
+        <a href="/privacy"><i class="fas fa-user-secret"></i> Privacy</a>
+        <a href="/terms"><i class="fas fa-file-alt"></i> Terms</a> *@
+    </navbar-nav>
+</navbar>

@@ -1,0 +1,26 @@
+@*
+* _ScriptsPartial.cshtml
+*
+*   Created: 2024-38-15T21:38:20-05:00
+*   Modified: 2024-05-16T12:05:14-05:00
+*
+*   Author: David G. Moore, Jr. <david@dgmjr.io>
+*
+*   Copyright © 2024 David G. Moore, Jr., All Rights Reserved
+*      License: MIT (https://opensource.org/licenses/MIT)
+*@
+@namespace Telegram.OpenIdConnect.Pages.Shared
+@model Telegram.OpenIdConnect.Pages.TelegramPageModelBase
+
+<script src="@(Model.Options.CdnUriBase)npm/bootstrap/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Options.CdnUriBase)npm/jquery/dist/jquery.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Options.CdnUriBase)npm/jquery-ui/dist/jquery-ui.min.js"  crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Options.CdnUriBase)npm/jquery-validation/dist/jquery.validate.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Options.CdnUriBase)npm/prismjs/prism.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+
+@* <environment name="Local">
+    <script src="~/dist/bundle.js" crossorigin="anonymous" asp-append-version="true"></script>
+</environment>
+<environment name="Production">
+    <script src="@(Model.CdnUriBase)js/bundle.js" crossorigin="anonymous" asp-append-version="true"></script>
+</environment> *@

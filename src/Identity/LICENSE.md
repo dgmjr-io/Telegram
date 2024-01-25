@@ -1,27 +1,28 @@
 ---
+
 date: 2023-07-13T05:44:46:00.048Z
 description: Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, yadda, yadda, yadda...
 keywords:
-  - IP
-  - copyright
-  - license
-  - mit
+- IP
+- copyright
+- license
+- mit
 permissions:
-  - commercial-use
-  - modifications
-  - distribution
-  - private-use
+- commercial-use
+- modifications
+- distribution
+- private-use
 conditions:
-  - include-copyright
+- include-copyright
 limitations:
-  - liability
-  - warranty
+- liability
+- warranty
 lastmod: 2023-08-29T17:13:51:00.216Z
 license: MIT
 slug: mit-license
 title: MIT License
 type: license
----
+-------------
 
 # MIT License
 

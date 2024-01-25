@@ -1,20 +1,22 @@
 ---
+
 title: MIT License
 description: Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files..yadda, yadda, yadda...
 keywords:
-  - license
-  - mit
-  - IP
-  - copyright
+- license
+- mit
+- IP
+- copyright
 lastmod: 2023-07-13T06:20:44.857Z
 date: 2023-07-13T05:44:46.048Z
 license: MIT
 authors:
-  - dgmjr
+- dgmjr
 type: readme
 slug: mit-license
 project: telegram
----
+-----------------
+
 # MIT License
 
 Copyright (c) 2022-2023 [David G. Moore, Jr.](mailto:david@dgmjr.io "Send David an email") ([@dgmjr](https://github.com/dgmjr "Contact david on GitHub")), All Rights Reserved

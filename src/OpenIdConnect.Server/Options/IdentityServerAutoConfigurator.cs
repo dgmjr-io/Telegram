@@ -2,6 +2,7 @@ using Dgmjr.Configuration.Extensions;
 
 using Duende.IdentityServer;
 using Duende.IdentityServer.Models;
+using Duende.IdentityServer.Services;
 using Duende.IdentityServer.Validation;
 
 using Microsoft.AspNetCore.Builder;
@@ -36,6 +37,12 @@ namespace Telegram.OpenIdConnect.Options
 
             builder.Services.RemoveAll<IAuthorizeRequestValidator>();
             builder.Services.AddTransient<IAuthorizeRequestValidator, TelegramAuthorizeRequestValidator>();
+
+            builder.Services.RemoveAll<IClaimsService>();
+            builder.Services.TryAddTransient<IClaimsService, TelegramClaimsService>();
+
+            builder.Services.RemoveAll<ITokenService>();
+            builder.Services.TryAddTransient<ITokenService, TelegramTokenService>();
 
             /* do nothing */
         }

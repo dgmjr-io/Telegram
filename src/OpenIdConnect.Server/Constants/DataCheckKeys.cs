@@ -10,6 +10,8 @@
  *      License: MIT (https://opensource.org/licenses/MIT)
  */
 
+using Microsoft.OpenApi.Any;
+
 namespace Telegram.OpenIdConnect.Constants;
 
 /// <summary>
@@ -17,16 +19,17 @@ namespace Telegram.OpenIdConnect.Constants;
 /// </summary>
 public static class DataCheckKeys
 {
-    public static readonly string[] All = new[]
-    {
+    public static readonly string[] AllButHash =
+    [
         AuthTime,
-        AuthHash,
         FirstName,
         Id,
         LastName,
         PhotoUrl,
         Username
-    };
+    ];
+
+    public static readonly string[] All = [.. AllButHash, AuthHash];
 
     /// <summary>
     ///     Key of key/value pair for the instant Telegram authenticated user.

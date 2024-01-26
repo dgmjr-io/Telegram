@@ -13,9 +13,11 @@ using Duende.IdentityServer.Validation;
 
 using IdentityModel;
 
+using Telegram.OpenIdConnect.Constants;
 using Telegram.OpenIdConnect.Extensions;
+using Telegram.OpenIdConnect.Options;
 
-public class TelegramAuthorizeRequestValidator(
+public partial class TelegramAuthorizeRequestValidator(
     IdentityServerOptions options,
     IIssuerNameService issuerNameService,
     IClientStore clients,
@@ -23,7 +25,8 @@ public class TelegramAuthorizeRequestValidator(
     IRedirectUriValidator uriValidator,
     IResourceValidator resourceValidator,
     IUserSession userSession,
-    ILogger<TelegramAuthorizeRequestValidator> logger
+    ILogger<TelegramAuthorizeRequestValidator> logger,
+    IOptionsMonitor<TelegramOpenIdConnectServerOptions> tgOidcOptions
 )
     : /*AuthorizeRequestValidator, */
     ICustomAuthorizeRequestValidator,
@@ -31,6 +34,8 @@ public class TelegramAuthorizeRequestValidator(
         ILog
 {
     public ILogger Logger => logger;
+
+    private TelegramOpenIdConnectServerOptions TgOidcOptions => tgOidcOptions.CurrentValue;
 
     public Task ValidateAsync(CustomAuthorizeRequestValidationContext context)
     {
@@ -70,6 +75,13 @@ public class TelegramAuthorizeRequestValidator(
         // {
         //     return authorizeRequestValidationResult3;
         // }
+        var validateTelegramTokensResult = ValidateTelegramTokens(request);
+        if (validateTelegramTokensResult.IsError)
+        {
+            logger.InvalidTelegramTokens(request);
+            return validateTelegramTokensResult;
+        }
+
         var authorizeRequestValidationResult4 = await ValidateClientAsync(request);
         if (authorizeRequestValidationResult4.IsError)
         {
@@ -190,7 +202,7 @@ public class TelegramAuthorizeRequestValidator(
             return Invalid(request, "invalid_request", "Missing response_type");
         }
         if (
-            !IdentityServer4Constants.SupportedResponseTypes.Contains(
+            !IdentityServerConstants.SupportedResponseTypes.Contains(
                 responseType,
                 responseTypeEqualityComparer
             )
@@ -199,23 +211,23 @@ public class TelegramAuthorizeRequestValidator(
             Logger.InvalidThingForClient(
                 "response type",
                 responseType,
-                IdentityServer4Constants.SupportedResponseTypes
+                IdentityServerConstants.SupportedResponseTypes
             );
             // LogError("Response type not supported", responseType, request);
             return Invalid(request, "unsupported_response_type", "Response type not supported");
         }
-        request.ResponseType = IdentityServer4Constants.SupportedResponseTypes.First(
+        request.ResponseType = IdentityServerConstants.SupportedResponseTypes.First(
             (string supportedResponseType) =>
                 responseTypeEqualityComparer.Equals(supportedResponseType, responseType)
         );
-        request.GrantType = IdentityServer4Constants.ResponseTypeToGrantTypeMapping[
+        request.GrantType = IdentityServerConstants.ResponseTypeToGrantTypeMapping[
             request.ResponseType
         ];
-        request.ResponseMode = IdentityServer4Constants.AllowedResponseModesForGrantType[
+        request.ResponseMode = IdentityServerConstants.AllowedResponseModesForGrantType[
             request.GrantType
         ].First();
         if (
-            !IdentityServer4Constants.AllowedGrantTypesForAuthorizeEndpoint.Contains(
+            !IdentityServerConstants.AllowedGrantTypesForAuthorizeEndpoint.Contains(
                 request.GrantType
             )
         )
@@ -223,7 +235,7 @@ public class TelegramAuthorizeRequestValidator(
             Logger.InvalidThingForClient(
                 "grant type",
                 request.GrantType,
-                IdentityServer4Constants.AllowedGrantTypesForAuthorizeEndpoint
+                IdentityServerConstants.AllowedGrantTypesForAuthorizeEndpoint
             );
             // LogError("Invalid grant type", request.GrantType, request);
             return Invalid(request, "invalid_request", "Invalid response_type");
@@ -240,17 +252,17 @@ public class TelegramAuthorizeRequestValidator(
         var responseMode = request.Raw.Get("response_mode");
         if (responseMode.IsPresent())
         {
-            if (!IdentityServer4Constants.SupportedResponseModes.Contains(responseMode))
+            if (!IdentityServerConstants.SupportedResponseModes.Contains(responseMode))
             {
                 Logger.InvalidThingForClient(
                     "response type",
                     responseMode,
-                    IdentityServer4Constants.SupportedResponseModes
+                    IdentityServerConstants.SupportedResponseModes
                 );
                 return Invalid(request, "unsupported_response_type", "Invalid response_mode");
             }
             if (
-                !IdentityServer4Constants.AllowedResponseModesForGrantType[
+                !IdentityServerConstants.AllowedResponseModesForGrantType[
                     request.GrantType
                 ].Contains(responseMode)
             )
@@ -258,7 +270,7 @@ public class TelegramAuthorizeRequestValidator(
                 Logger.InvalidThingForClient(
                     "response_mode",
                     responseMode,
-                    IdentityServer4Constants.AllowedResponseModesForGrantType[request.GrantType]
+                    IdentityServerConstants.AllowedResponseModesForGrantType[request.GrantType]
                 );
                 return Invalid(
                     request,
@@ -324,7 +336,7 @@ public class TelegramAuthorizeRequestValidator(
             Logger.LogDebug("Missing code_challenge_method, defaulting to plain");
             codeChallengeMethod = "plain";
         }
-        if (!IdentityServer4Constants.SupportedCodeChallengeMethods.Contains(codeChallengeMethod))
+        if (!IdentityServerConstants.SupportedCodeChallengeMethods.Contains(codeChallengeMethod))
         {
             LogError("Unsupported code_challenge_method", codeChallengeMethod, request);
             authorizeRequestValidationResult.ErrorDescription = "Transform algorithm not supported";
@@ -357,13 +369,13 @@ public class TelegramAuthorizeRequestValidator(
         }
         request.RequestedScopes = scope.FromSpaceSeparatedString().Distinct().ToList();
         request.IsOpenIdRequest = request.RequestedScopes.Contains("openid");
-        var requirement = IdentityServer4Constants.ResponseTypeToScopeRequirement[
+        var requirement = IdentityServerConstants.ResponseTypeToScopeRequirement[
             request.ResponseType
         ];
         if (
             (
-                requirement == IdentityServer4Constants.ScopeRequirement.Identity
-                || requirement == IdentityServer4Constants.ScopeRequirement.IdentityOnly
+                requirement == IdentityServerConstants.ScopeRequirement.Identity
+                || requirement == IdentityServerConstants.ScopeRequirement.IdentityOnly
             ) && !request.IsOpenIdRequest
         )
         {
@@ -430,7 +442,7 @@ public class TelegramAuthorizeRequestValidator(
         bool flag = true;
         switch (requirement)
         {
-            case IdentityServer4Constants.ScopeRequirement.Identity:
+            case IdentityServerConstants.ScopeRequirement.Identity:
                 if (!resourceValidationResult.Resources.IdentityResources.Any())
                 {
                     Logger.LogError(
@@ -439,7 +451,7 @@ public class TelegramAuthorizeRequestValidator(
                     flag = false;
                 }
                 break;
-            case IdentityServer4Constants.ScopeRequirement.IdentityOnly:
+            case IdentityServerConstants.ScopeRequirement.IdentityOnly:
                 if (
                     !resourceValidationResult.Resources.IdentityResources.Any()
                     || resourceValidationResult.Resources.ApiScopes.Any()
@@ -451,7 +463,7 @@ public class TelegramAuthorizeRequestValidator(
                     flag = false;
                 }
                 break;
-            case IdentityServer4Constants.ScopeRequirement.ResourceOnly:
+            case IdentityServerConstants.ScopeRequirement.ResourceOnly:
                 if (
                     resourceValidationResult.Resources.IdentityResources.Any()
                     || !resourceValidationResult.Resources.ApiScopes.Any()
@@ -499,7 +511,7 @@ public class TelegramAuthorizeRequestValidator(
                 !array.All(
                     p =>
                         // TODO: Fix this
-                        /*options.UserInteraction.PromptValuesSupported?.Contains(p) ?? */false
+                        /*options.UserInteraction.PromptValuesSupported?.Contains(p) ?? false*/true
                 )
             )
             {
@@ -532,7 +544,7 @@ public class TelegramAuthorizeRequestValidator(
                 !array2.All(
                     (string p) =>
                         // TODO: Fix this
-                        /*options.UserInteraction.PromptValuesSupported?.Contains(p) ??*/false
+                        /*options.UserInteraction.PromptValuesSupported?.Contains(p) ??false*/true
                 )
             )
             {
@@ -573,7 +585,7 @@ public class TelegramAuthorizeRequestValidator(
         var display = request.Raw.Get("display");
         if (display.IsPresent())
         {
-            if (IdentityServer4Constants.SupportedDisplayModes.Contains(display))
+            if (IdentityServerConstants.SupportedDisplayModes.Contains(display))
             {
                 request.DisplayMode = display;
             }

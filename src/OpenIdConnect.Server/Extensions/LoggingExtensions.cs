@@ -127,6 +127,85 @@ public static partial class LoggingExtensions
         this ILogger logger,
         ValidatedAuthorizeRequest requestDetails
     );
+
+    [LoggerMessage(
+        8,
+        Error,
+        """
+        Invalid Telegram tokens received:
+        {RequestDetails}
+        """,
+        EventName = nameof(ReceivedValidatedAuthorizedRequest)
+    )]
+    public static partial void InvalidTelegramTokens(
+        this ILogger logger,
+        ValidatedAuthorizeRequest requestDetails
+    );
+
+    [LoggerMessage(
+        Error,
+        """
+        {Message} ({Code}):
+        {RequestDetails}
+        """
+    )]
+    public static partial void TelegramAuthenticationError(
+        this ILogger logger,
+        string code,
+        string message,
+        ValidatedAuthorizeRequest requestDetails
+    );
+
+    public static void TelegramAuthenticationError(
+        this ILogger logger,
+        Constants.Abstractions.IErrorMessage errorMessage,
+        ValidatedAuthorizeRequest requestDetails
+    )
+    {
+        logger.TelegramAuthenticationError(
+            errorMessage.ShortName,
+            errorMessage.Description,
+            requestDetails
+        );
+    }
+
+    [LoggerMessage(9, Debug, "Starting access token creation...")]
+    public static partial void StartingAccessTokenCreation(this ILogger logger);
+
+    [LoggerMessage(13, Debug, "Finished creating access token.")]
+    public static partial void FinishedCreatingAccessToken(this ILogger logger);
+
+    [LoggerMessage(10, Debug, "Starting ID token creation...")]
+    public static partial void StartingIdTokenCreation(this ILogger logger);
+
+    [LoggerMessage(12, Debug, "Finished creating access token.")]
+    public static partial void FinishedCreatingIdToken(this ILogger logger);
+
+    [LoggerMessage(11, Debug, "Retrieving claims from {principal}")]
+    public static partial void RetrievingClaimsFromPrincipal(this ILogger logger, string principal);
+
+    public static void RetrievingClaimsFromPrincipal(
+        this ILogger logger,
+        ClaimsPrincipal principal
+    ) =>
+        logger.RetrievingClaimsFromPrincipal(
+            Serialize(
+                principal.Claims
+                    .Select(c => c.Type)
+                    .Distinct()
+                    .ToDictionary(t => t, t => principal.FindFirstValue(t))
+            )
+        );
+
+    [LoggerMessage(14, Debug, "Creating JWT access token...")]
+    public static partial void CreatingJwtAccessToken(this ILogger logger);
+
+    [LoggerMessage(15, Debug, "Creating reference access token...")]
+    public static partial void CreatingReferenceAccessToken(this ILogger logger);
+
+    [LoggerMessage(15, Debug, "Creating JWT identity token...")]
+    public static partial void CreatingJwtIdentityToken(this ILogger logger);
+
     // {
     //     logger.AuthorizationRequestReceived(request.ToString());
     //     logger.AuthorizationRequestValidated(request...CorrelationId, request.ClientId);

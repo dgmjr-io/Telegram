@@ -18,6 +18,11 @@ namespace Telegram.OpenIdConnect.Constants;
 public static class TelegramAuthenticationDefaults
 {
     /// <summary>
+    ///     Default value for the identity provider.
+    /// </summary>
+    public const string IdentityProvider = "Telegram OIDC Connect";
+
+    /// <summary>
     ///     Default value for <see cref="Microsoft.AspNetCore.Authentication.AuthenticationScheme.Name" />.
     /// </summary>
     public const string Name = "Telegram";
@@ -30,7 +35,7 @@ public static class TelegramAuthenticationDefaults
     /// <summary>
     ///     Default value for <see cref="Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.ClaimsIssuer" />.
     /// </summary>
-    public const string ClaimsIssuer = "https://telegram.org";
+    public const string ClaimsIssuer = "https://oidc.telegram.technology";
 
     /// <summary>
     ///     Default value for <see cref="TelegramAuthenticationOptions.AuthorizationEndpoint" />.

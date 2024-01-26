@@ -15,8 +15,9 @@
     <PackageReference Include="Dgmjr.AspNetCore.Mvc" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.AspNetCore.Swagger" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.AspNetCore.TagHelpers" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.AspNetCore.Razor" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Configuration.Extensions" ExcludeAssets="ContentFiles" />
-    <PackageReference Include="Dgmjr.Extensions.Logging" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.Logging.Extensions" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Primitives" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Enumerations.CodeGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference Include="Dgmjr.Http.CorrelationId" />

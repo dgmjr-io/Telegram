@@ -1,5 +1,5 @@
 {
-  "service.name": "Telegram OpenIdConnect Server",
-  "service.namespace": "https://telegram.oidc.dgmjr.io",
-  "service.instance.id": "telegram.oidc.dgmjr.io"
+  "service.name": "Telegram Open ID Connect Server",
+  "service.namespace": "https://oidc.telegram.technology",
+  "service.instance.id": "oidc.telegram.technology"
 }

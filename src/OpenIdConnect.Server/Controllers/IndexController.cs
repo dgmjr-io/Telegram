@@ -5,9 +5,9 @@ using Microsoft.AspNetCore.Mvc;
 [Route("/")]
 public class IndexController : ViewControllerBase
 {
-    [HttpGet]
-    public IActionResult Index()
-    {
-        return RedirectToAction(nameof(OidcController.Login), "Oidc");
-    }
+    // [HttpGet]
+    // public IActionResult Index()
+    // {
+    //     return RedirectToPage("/Index"); // RedirectToAction(nameof(OidcController.Login), "Oidc");
+    // }
 }

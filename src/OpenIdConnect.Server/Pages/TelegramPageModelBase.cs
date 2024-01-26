@@ -5,7 +5,7 @@ using Microsoft.AspNetCore.Mvc.RazorPages;
 using Telegram.OpenIdConnect.Options;
 
 public class TelegramPageModelBase(IOptionsMonitor<TelegramOpenIdConnectServerOptions> options)
-    : PageModel
+    : Dgmjr.AspNetCore.Razor.PageModel<TelegramOpenIdConnectServerOptions>(options.CurrentValue)
 {
     public TelegramOpenIdConnectServerOptions Options => options.CurrentValue;
 }

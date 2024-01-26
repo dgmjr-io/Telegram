@@ -8,5 +8,9 @@
   "ServerCertificate": {
     "SourceType": "Path",
     "CertificateDiskPath": "./Certificate.pfx"
-  }
+    // "KeyVaultUrl": "https://jsonschema-xyz.vault.azure.net/",
+    // "KeyVaultCertificateName": "TelegramOpenIdConnectServerCertificate",
+    // "SourceType": "KeyVault"
+  },
+  // "ServerCertificatePath": "./Certificate.cer",
 }

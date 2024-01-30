@@ -24,7 +24,7 @@ public class TelegramOpenIdConnectServerAutoConfigurator
         // app.UseEndpoints(endpoints => endpoints.MapControllers());
     }
 
-    public void Configure(IHostApplicationBuilder builder)
+    public void Configure(WebApplicationBuilder builder)
     {
         builder.Services.Configure<TelegramOpenIdConnectServerOptions>(options =>
         {

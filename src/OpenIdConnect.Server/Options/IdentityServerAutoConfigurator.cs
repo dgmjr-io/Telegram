@@ -19,7 +19,7 @@ namespace Telegram.OpenIdConnect.Options
     {
         public ConfigurationOrder Order => ConfigurationOrder.Early;
 
-        public void Configure(IHostApplicationBuilder builder)
+        public void Configure(WebApplicationBuilder builder)
         {
             var config = builder.Configuration.GetSection(TelegramOpenIdConnectServerOptions.ConfigurationSectionKey).Get<TelegramOpenIdConnectServerOptions>();
             var clients = builder.Configuration

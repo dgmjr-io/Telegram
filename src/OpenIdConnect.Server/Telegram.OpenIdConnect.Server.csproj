@@ -30,7 +30,16 @@
     <PackageReference Include="Telegram.Identity" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Telegram.LoginWidget" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Duende.IdentityServer" />
-    <PackageReference Include="Serilog.AspNetCore" />
+
+    <PackageReference Update="Serilog.Extensions.Logging" />
+    <PackageReference Update="Serilog.Sinks.Console" />
+    <PackageReference Update="Serilog.Sinks.File" />
+    <PackageReference Update="Serilog.Sinks.MsSqlServer" />
+    <PackageReference Update="Serilog.Sinks.OpenTelemetry" />
+    <PackageReference Update="Serilog.Sinks.ApplicationInsights" />
+    <PackageReference Update="Serilog.AspNetCore" />
+    <PackageReference Update="Serilog.Enrichers.AspNetCore.HttpContext " />
+    <PackageReference Update="Serilog.Sinks.AzureApp" />
   </ItemGroup>
 
   <ItemGroup>

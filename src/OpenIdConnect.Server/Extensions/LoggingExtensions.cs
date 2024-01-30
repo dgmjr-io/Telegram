@@ -106,7 +106,7 @@ public static partial class LoggingExtensions
         {Message}
         {RequestDetails}
         """,
-        EventName = nameof(InvalidRequest)
+        EventName = nameof(InvalidRequest) + "WithNoDetail"
     )]
     public static partial void InvalidRequest(
         this ILogger logger,
@@ -135,7 +135,7 @@ public static partial class LoggingExtensions
         Invalid Telegram tokens received:
         {RequestDetails}
         """,
-        EventName = nameof(ReceivedValidatedAuthorizedRequest)
+        EventName = nameof(InvalidTelegramTokens)
     )]
     public static partial void InvalidTelegramTokens(
         this ILogger logger,

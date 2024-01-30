@@ -1,3 +1,5 @@
+namespace Microsoft.Extensions.DependencyInjection;
+
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.Infrastructure;
@@ -6,11 +8,10 @@ using Microsoft.Extensions.Hosting;
 
 using Telegram.AspNetCore.Authentication;
 using Telegram.OpenIdConnect.Json;
+using Telegram.OpenIdConnect.Middleware;
 using Telegram.OpenIdConnect.Options;
 using Telegram.OpenIdConnect.Services;
 using Telegram.OpenIdConnect.Services.CodeService;
-
-namespace Microsoft.Extensions.DependencyInjection;
 
 public class TelegramOpenIdConnectServerAutoConfigurator
     : IConfigureIApplicationBuilder,
@@ -21,10 +22,10 @@ public class TelegramOpenIdConnectServerAutoConfigurator
     public void Configure(IApplicationBuilder app)
     {
         app.UseRouting();
-        // app.UseEndpoints(endpoints => endpoints.MapControllers());
+        app.UseMiddleware<ClientSessionMiddleware>();
     }
 
-    public void Configure(IHostApplicationBuilder builder)
+    public void Configure(WebApplicationBuilder builder)
     {
         builder.Services.Configure<TelegramOpenIdConnectServerOptions>(options =>
         {
@@ -33,6 +34,7 @@ public class TelegramOpenIdConnectServerAutoConfigurator
                 .Bind(options);
         });
         builder.Services.AddHttpContextAccessor();
+        builder.Services.AddSingleton<ClientSessionMiddleware>();
         builder.Services.AddSingleton<ICodeStoreService, CodeStoreService>();
         builder.Services.AddSingleton<IAuthorizationService, AuthorizationService>();
         builder.Services.AddSingleton<ITelegramJwtFactory, TelegramJwtFactory>();

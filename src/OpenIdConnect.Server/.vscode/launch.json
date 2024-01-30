@@ -14,10 +14,13 @@
       "name": ".NET Core Launch (web)",
       "type": "coreclr",
       "request": "launch",
-      "preLaunchTask": "build",
+      "preLaunchTask": "Build Telegram.OpenIdConnect.Server.Server",
       // If you have changed target frameworks, make sure to update the program path.
       "program": "${workspaceFolder}/bin/Local/net8.0/Telegram.OpenIdConnect.Server.dll",
-      "args": [],
+      "args": [
+        "--configuration",
+        "Local"
+      ],
       "cwd": "${workspaceFolder}",
       "stopAtEntry": false,
       // Enable launching a web browser when ASP.NET Core starts. For more information: https://aka.ms/VSCode-CS-LaunchJson-WebBrowser

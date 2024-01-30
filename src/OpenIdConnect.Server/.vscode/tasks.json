@@ -2,14 +2,16 @@
   "version": "2.0.0",
   "tasks": [
     {
-      "label": "build",
+      "label": "Build Telegram.OpenIdConnect.Server.Server",
       "command": "dotnet",
       "type": "process",
       "args": [
         "build",
         "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj",
         "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary;ForceNoAlign"
+        "/consoleloggerparameters:NoSummary;ForceNoAlign",
+        "--configuration",
+        "Local"
       ],
       "problemMatcher": "$msCompile"
     },

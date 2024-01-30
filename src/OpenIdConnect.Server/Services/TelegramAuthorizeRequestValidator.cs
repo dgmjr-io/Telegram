@@ -330,7 +330,7 @@ public partial class TelegramAuthorizeRequestValidator(
             return authorizeRequestValidationResult;
         }
         request.CodeChallenge = codeChallenge;
-        string codeChallengeMethod = request.Raw.Get("code_challenge_method");
+        var codeChallengeMethod = request.Raw.Get("code_challenge_method");
         if (codeChallengeMethod.IsMissing())
         {
             Logger.LogDebug("Missing code_challenge_method, defaulting to plain");
@@ -416,17 +416,20 @@ public partial class TelegramAuthorizeRequestValidator(
         );
         if (!resourceValidationResult.Succeeded)
         {
-            if (resourceValidationResult.InvalidResourceIndicators.Any())
+            if (resourceValidationResult.InvalidResourceIndicators.Count != 0)
             {
                 return Invalid(request, "invalid_target", "Invalid resource indicator");
             }
-            if (resourceValidationResult.InvalidScopes.Any())
+            if (resourceValidationResult.InvalidScopes.Count != 0)
             {
                 return Invalid(request, "invalid_scope", "Invalid scope");
             }
         }
         // IdentityServerLicenseValidator.Instance.ValidateResourceIndicators(resourceIndicators);
-        if (resourceValidationResult.Resources.IdentityResources.Any() && !request.IsOpenIdRequest)
+        if (
+            resourceValidationResult.Resources.IdentityResources.Count != 0
+            && !request.IsOpenIdRequest
+        )
         {
             LogError("Identity related scope requests, but no openid scope", request);
             return Invalid(
@@ -435,15 +438,15 @@ public partial class TelegramAuthorizeRequestValidator(
                 "Identity scopes requested, but openid scope is missing"
             );
         }
-        if (resourceValidationResult.Resources.ApiScopes.Any())
+        if (resourceValidationResult.Resources.ApiScopes.Count != 0)
         {
             request.IsApiResourceRequest = true;
         }
-        bool flag = true;
+        var flag = true;
         switch (requirement)
         {
             case IdentityServerConstants.ScopeRequirement.Identity:
-                if (!resourceValidationResult.Resources.IdentityResources.Any())
+                if (resourceValidationResult.Resources.IdentityResources.Count == 0)
                 {
                     Logger.LogError(
                         "Requests for id_token response type must include identity scopes"
@@ -453,8 +456,8 @@ public partial class TelegramAuthorizeRequestValidator(
                 break;
             case IdentityServerConstants.ScopeRequirement.IdentityOnly:
                 if (
-                    !resourceValidationResult.Resources.IdentityResources.Any()
-                    || resourceValidationResult.Resources.ApiScopes.Any()
+                    resourceValidationResult.Resources.IdentityResources.Count == 0
+                    || resourceValidationResult.Resources.ApiScopes.Count != 0
                 )
                 {
                     Logger.LogError(
@@ -465,8 +468,8 @@ public partial class TelegramAuthorizeRequestValidator(
                 break;
             case IdentityServerConstants.ScopeRequirement.ResourceOnly:
                 if (
-                    resourceValidationResult.Resources.IdentityResources.Any()
-                    || !resourceValidationResult.Resources.ApiScopes.Any()
+                    resourceValidationResult.Resources.IdentityResources.Count != 0
+                    || resourceValidationResult.Resources.ApiScopes.Count == 0
                 )
                 {
                     Logger.LogError(
@@ -672,7 +675,7 @@ public partial class TelegramAuthorizeRequestValidator(
     private AuthorizeRequestValidationResult Invalid(
         ValidatedAuthorizeRequest request,
         string error = "invalid_request",
-        string description = null
+        string? description = default
     )
     {
         return new AuthorizeRequestValidationResult(request, error, description);

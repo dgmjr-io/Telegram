@@ -33,17 +33,17 @@ public static class TelegramAuthenticationDefaults
     public const string DisplayName = "Telegram";
 
     /// <summary>
-    ///     Default value for <see cref="Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.ClaimsIssuer" />.
+    ///     Default value for <see cref="Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions.ClaimsIssuer" />.
     /// </summary>
     public const string ClaimsIssuer = "https://oidc.telegram.technology";
 
     /// <summary>
-    ///     Default value for <see cref="TelegramAuthenticationOptions.AuthorizationEndpoint" />.
+    ///     Default value for <see cref="Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.AuthorizationEndpoint" />.
     /// </summary>
     public const string AuthorizationEndpoint = "/Identity/Account/TelegramLogin";
 
     /// <summary>
-    ///     Default value for <see cref="TelegramAuthenticationOptions.CallbackPath" />.
+    ///     Default value for <see cref="Microsoft.AspNetCore.Authentication.RemoteAuthenticationOptions.CallbackPath" />.
     /// </summary>
     public const string CallbackPath = "/signin-telegram";
 

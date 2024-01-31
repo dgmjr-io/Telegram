@@ -5,10 +5,10 @@ using BotApiToken = Telegram.Bot.Types.BotApiToken;
 public class TelegramOidcClient : Duende.IdentityServer.Models.Client
 {
     [Required, RegularExpression(BotApiToken.RegexString)]
-    public BotApiToken BotApiToken { get; set; } = BotApiToken.Empty;
+    public BotApiToken BotApiToken { get => BotApiToken.From(ClientSecrets.FirstOrDefault()?.Value); set => ClientSecrets = new[] { new Duende.IdentityServer.Models.Secret(value.ToString()) }; }
 
     [Required]
-    public string BotUsername { get; set; } = string.Empty;
+    public string BotUsername { get => ClientId; set => ClientId = value;}
 
     [Required]
     public string BotName

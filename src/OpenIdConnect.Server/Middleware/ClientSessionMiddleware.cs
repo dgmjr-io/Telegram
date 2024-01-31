@@ -11,7 +11,7 @@ public class ClientSessionMiddleware : IMiddleware
 {
     const string ClientIdKey = "client_id";
 
-    public Task InvokeAsync(HttpContext context, RequestDelegate next)
+    public async Task InvokeAsync(HttpContext context, RequestDelegate next)
     {
         var clientId = context.Request.Query[ClientIdKey].ToString();
 
@@ -20,6 +20,6 @@ public class ClientSessionMiddleware : IMiddleware
             context.Response.Cookies.Append(SessionKeys.ClientId, clientId);
         }
 
-        return Task.CompletedTask;
+        await next(context);
     }
 }

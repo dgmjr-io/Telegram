@@ -164,7 +164,7 @@ public partial class TelegramAuthorizeRequestValidator
         var dataCheckString = Join((char)0x0a + "", components);
 
         byte[] key;
-        key =  null;//SHA256.HashData(UTF8.GetBytes(TgOidcOptions.Clients[data.].BotApiToken.ToString()));
+        key =  SHA256.HashData(UTF8.GetBytes(TgOidcOptions.Clients[data["client_id"]].BotApiToken.ToString()));
 
         byte[] hash;
         using (var hmac = new HMACSHA256(key))

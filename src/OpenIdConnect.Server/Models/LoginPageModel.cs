@@ -13,10 +13,10 @@ public class LoginViewModel(TelegramOpenIdConnectServerOptions options, HttpCont
     public string? ClientId =>
         !IsNullOrEmpty(context.Request.Query[ClientIdKey])
             ? context.Request.Query[ClientIdKey]
-            : !IsNullOrEmpty(context.Request.Form[ClientIdKey])
+            : context.Request.ContentType == Application.FormUrlEncoded.DisplayName && !IsNullOrEmpty(context.Request.Form[ClientIdKey])
                 ? context.Request.Form[ClientIdKey]
-                : !IsNullOrEmpty(context.Request.Cookies[ClientIdKey])
-                    ? context.Request.Cookies[ClientIdKey]
+                : !IsNullOrEmpty(context.Request.Cookies[SessionKeys.ClientId])
+                    ? context.Request.Cookies[SessionKeys.ClientId]
                     : Options.Clients.BotNames.FirstOrDefault();
 
     public TelegramOidcClient? Client => Options.Clients[ClientId];

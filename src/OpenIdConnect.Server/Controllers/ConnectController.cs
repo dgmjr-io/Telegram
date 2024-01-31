@@ -9,6 +9,6 @@ using Telegram.OpenIdConnect.Constants;
 public class ConnectController(IOptions<TelegramOpenIdConnectServerOptions> options)
     : ViewControllerBase
 {
-    [HttpGet(IdentityServerConstants.UIConstants.DefaultRoutePaths.Login)]
+    [HttpGet("login")]
     public IActionResult Login() => View(new LoginViewModel(options.Value, HttpContext));
 }

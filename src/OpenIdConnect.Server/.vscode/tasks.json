@@ -16,14 +16,17 @@
       "problemMatcher": "$msCompile"
     },
     {
-      "label": "publish",
+      "label": "Publish Telegram.OpenIdConnect.Server.Server",
       "command": "dotnet",
       "type": "process",
       "args": [
         "publish",
         "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj",
         "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary;ForceNoAlign"
+        "/consoleloggerparameters:NoSummary;ForceNoAlign",
+        "--configuration",
+        "Local",
+        "-o:${workspaceFolder}/app"
       ],
       "problemMatcher": "$msCompile"
     },

@@ -16,6 +16,9 @@ builder.AutoConfigure<Program>();
 builder.Services.AddTransient<ISession>(
     provider => provider.GetRequiredService<IHttpContextAccessor>().HttpContext.Session
 );
+builder.Services.AddRazorPages();
+builder.Services.AddRazorComponents();
+builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 app.AutoConfigure();

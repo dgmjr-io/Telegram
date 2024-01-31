@@ -1,0 +1,13 @@
+[
+  "Microsoft.Extensions.DependencyInjection.TelegramOpenIdConnectServerAutoConfigurator, Telegram.OpenIdConnect.Server",
+  "Telegram.OpenIdConnect.Options.IdentityServerAutoConfigurator, Telegram.OpenIdConnect.Server",
+  // "Microsoft.Extensions.DependencyInjection.AutomaticAzureAdConfigurator, Dgmjr.AzureAd",
+  "Microsoft.Extensions.DependencyInjection.RedisAutoConfigurator, Dgmjr.Redis.Extensions",
+  "Microsoft.Extensions.DependencyInjection.AutomaticLoggingConfigurator, Dgmjr.Logging.Extensions",
+  "Microsoft.Extensions.DependencyInjection.MvcAutoConfigurator, Dgmjr.AspNetCore.Mvc",
+  "Microsoft.Extensions.DependencyInjection.SwaggerAutoConfigurator, Dgmjr.AspNetCore.Swagger",
+  // "Microsoft.Extensions.DependencyInjection.MicrosoftGraphAutoConfigurator, Dgmjr.Graph",
+  "Microsoft.Extensions.DependencyInjection.HttpServicesOptionsAutoConfigurator, Dgmjr.AspNetCore.Http.Services",
+  // "Microsoft.Extensions.DependencyInjection.AzureCommunicationServicesAutoConfigurator, Dgmjr.AspNetCore.Communication"
+  "Microsoft.Extensions.DependencyInjection.CorrelationIdAutoConfigurator, Dgmjr.Http.CorrelationId"
+]

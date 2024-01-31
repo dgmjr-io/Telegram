@@ -12,13 +12,15 @@ using Telegram.OpenIdConnect.Extensions;
 using Telegram.OpenIdConnect.Models;
 using Telegram.OpenIdConnect.Options;
 
-public class TelegramPageModelBase(
+public partial class TelegramPageModelBase(
     IOptionsMonitor<TelegramOpenIdConnectServerOptions>? options = null
 ) : Dgmjr.AspNetCore.Razor.PageModel<TelegramOpenIdConnectServerOptions?>(options?.CurrentValue)
 {
+    private const string ClientIdKey = "client_id";
     public TelegramOpenIdConnectServerOptions Options => ViewModel!;
 
     public string? ReturnUrl => ((string?)Request.Query["ReturnUrl"]) ?? "/";
+
 
     // private Dictionary<string, StringValues>? ReturnUrlQuery =>
     //     QueryHelpers.ParseQuery(new Uri(ReturnUrl).Query);
@@ -30,6 +32,9 @@ public class TelegramPageModelBase(
     //             ? ReturnUrlQuery["client_id"]
     //             : default;
 
-    public TelegramOidcClient? Client =>
-        Options.Clients[HttpContext.Request.Cookies[SessionKeys.ClientId]];
+    public string? ClientId => Request.GetClientId();
+
+    public string? BotUsername => IsNullOrEmpty(Client?.BotUsername) ? "DGMJRBot" : Client.BotUsername;
+
+    public TelegramOidcClient? Client => Request.GetClient();
 }

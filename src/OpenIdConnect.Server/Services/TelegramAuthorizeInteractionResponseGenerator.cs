@@ -27,7 +27,7 @@ public class TelegramAuthorizeInteractionResponseGenerator(
 {
     private HttpContext HttpContext => httpContextAccessor.HttpContext!;
     private HttpRequest Request => HttpContext.Request;
-    public ILogger Logger => logger;
+    public new ILogger Logger => logger;
 
     public override Task<InteractionResponse> ProcessInteractionAsync(
         ValidatedAuthorizeRequest request,
@@ -39,7 +39,7 @@ public class TelegramAuthorizeInteractionResponseGenerator(
         if (ShouldRedirectToTelegramLoginPage())
         {
             Logger.RequestRequiresInteraction();
-            request.RedirectUri = TelegramLoginUri; //ShouldRedirectToTelegramLoginPage();
+            // request.RedirectUri = TelegramLoginUri; //ShouldRedirectToTelegramLoginPage();
             return Task.FromResult(
                 new InteractionResponse { IsLogin = true, RedirectUrl = TelegramLoginUri }
             );
@@ -50,8 +50,7 @@ public class TelegramAuthorizeInteractionResponseGenerator(
         }
     }
 
-    private string TelegramLoginUri =>
-        linkGenerator.GetActionUri<OidcController>(HttpContext, nameof(OidcController.Login))!;
+    private string TelegramLoginUri => linkGenerator.GetUriByPage(HttpContext, "/Connect/Login")!; //.GetActionUri<OidcController>(HttpContext, nameof(OidcController.Login))!;
 
     private bool ShouldRedirectToTelegramLoginPage() =>
         IsNullOrEmpty(Request.Query[DataCheckKeys.AuthHash]);

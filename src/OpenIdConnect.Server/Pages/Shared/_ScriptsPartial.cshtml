@@ -12,11 +12,11 @@
 @namespace Telegram.OpenIdConnect.Pages.Shared
 @model Telegram.OpenIdConnect.Pages.TelegramPageModelBase
 
-<script src="@(Model.Options.CdnUriBase)npm/bootstrap/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" asp-append-version="true"></script>
-<script src="@(Model.Options.CdnUriBase)npm/jquery/dist/jquery.min.js" crossorigin="anonymous" asp-append-version="true"></script>
-<script src="@(Model.Options.CdnUriBase)npm/jquery-ui/dist/jquery-ui.min.js"  crossorigin="anonymous" asp-append-version="true"></script>
-<script src="@(Model.Options.CdnUriBase)npm/jquery-validation/dist/jquery.validate.min.js" crossorigin="anonymous" asp-append-version="true"></script>
-<script src="@(Model.Options.CdnUriBase)npm/prismjs/prism.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Client.CdnUriBase)npm/bootstrap/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Client.CdnUriBase)npm/jquery/dist/jquery.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Client.CdnUriBase)npm/jquery-ui/dist/jquery-ui.min.js"  crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Client.CdnUriBase)npm/jquery-validation/dist/jquery.validate.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Model.Client.CdnUriBase)npm/prismjs/prism.min.js" crossorigin="anonymous" asp-append-version="true"></script>
 
 @* <environment name="Local">
     <script src="~/dist/bundle.js" crossorigin="anonymous" asp-append-version="true"></script>

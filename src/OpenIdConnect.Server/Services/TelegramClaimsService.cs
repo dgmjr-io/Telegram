@@ -117,7 +117,7 @@ public class TelegramClaimsService(IProfileService profile, ILogger<DefaultClaim
     /// <returns>
     /// Claims for the access token
     /// </returns>
-    public virtual async Task<IEnumerable<Claim>> GetAccessTokenClaimsAsync(
+    public override async Task<IEnumerable<Claim>> GetAccessTokenClaimsAsync(
         ClaimsPrincipal subject,
         ResourceValidationResult resourceResult,
         ValidatedRequest request
@@ -250,7 +250,7 @@ public class TelegramClaimsService(IProfileService profile, ILogger<DefaultClaim
     /// </summary>
     /// <param name="subject">The subject.</param>
     /// <returns>A list of standard claims</returns>
-    protected virtual IEnumerable<Claim> GetStandardSubjectClaims(ClaimsPrincipal subject)
+    protected override IEnumerable<Claim> GetStandardSubjectClaims(ClaimsPrincipal subject)
     {
         Logger.RetrievingClaimsFromPrincipal(subject);
         return subject.Claims;
@@ -275,7 +275,7 @@ public class TelegramClaimsService(IProfileService profile, ILogger<DefaultClaim
     /// </summary>
     /// <param name="subject">The subject.</param>
     /// <returns>Additional claims</returns>
-    protected virtual IEnumerable<Claim> GetOptionalClaims(ClaimsPrincipal subject)
+    protected override IEnumerable<Claim> GetOptionalClaims(ClaimsPrincipal subject)
     {
         var claims = new List<Claim>();
 
@@ -291,7 +291,7 @@ public class TelegramClaimsService(IProfileService profile, ILogger<DefaultClaim
     /// </summary>
     /// <param name="claims">The claims.</param>
     /// <returns></returns>
-    protected virtual IEnumerable<Claim> FilterProtocolClaims(IEnumerable<Claim> claims)
+    protected override IEnumerable<Claim> FilterProtocolClaims(IEnumerable<Claim> claims)
     {
         var claimsToFilter = claims.Where(
             x => IdentityServerConstants.Filters.ClaimsServiceFilterClaimTypes.Contains(x.Type)
@@ -311,7 +311,7 @@ public class TelegramClaimsService(IProfileService profile, ILogger<DefaultClaim
     /// Filters out protocol claims like amr, nonce etc..
     /// </summary>
     /// <param name="claimTypes">The claim types.</param>
-    protected virtual IEnumerable<string> FilterRequestedClaimTypes(IEnumerable<string> claimTypes)
+    protected override IEnumerable<string> FilterRequestedClaimTypes(IEnumerable<string> claimTypes)
     {
         var claimTypesToFilter = claimTypes.Where(
             x => IdentityServerConstants.Filters.ClaimsServiceFilterClaimTypes.Contains(x)

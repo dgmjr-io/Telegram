@@ -10,17 +10,18 @@
 *      License: MIT (https://opensource.org/licenses/MIT)
 *@
 @namespace Telegram.OpenIdConnect.Pages.Shared
+@using Telegram.OpenIdConnect.Extensions
 @model Telegram.OpenIdConnect.Options.TelegramOpenIdConnectServerOptions
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - @Model.Title</title>
-    <link rel="stylesheet" href="@(Model.CdnUriBase)npm/bootswatch/dist/@Model.ColorTheme.ToString().ToLower()/bootstrap.min.css" asp-append-version="true" crossorigin="anonymous">
-    <link rel="stylesheet" href="@(Model.CdnUriBase)npm/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="@(Model.CdnUriBase)npm/jquery-ui/themes/base/selectmenu.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="@(Model.CdnUriBase)npm/prismjs/themes/prism.min.css" asp-append-version="true">
+    <title>@ViewData["Title"] - @Context.Request.GetClient().Title</title>
+    <link rel="stylesheet" href="@(Context.Request.GetClient().CdnUriBase)npm/bootswatch/dist/@Context.Request.GetClient().PageTheme.ToString().ToLower()/bootstrap.min.css" asp-append-version="true" crossorigin="anonymous">
+    <link rel="stylesheet" href="@(Context.Request.GetClient().CdnUriBase)npm/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="@(Context.Request.GetClient().CdnUriBase)npm/jquery-ui/themes/base/selectmenu.min.css" asp-append-version="true">
+    <link rel="stylesheet" href="@(Context.Request.GetClient().CdnUriBase)npm/prismjs/themes/prism.min.css" asp-append-version="true">
     @* <link rel="stylesheet" href="@(Model.CdnUriBase)css/site.css" asp-append-version="true"> *@
-    <link rel="icon" href="@Model.FaviconUri" asp-append-version="true" type="image/png" />
+    <link rel="icon" href="@Context.Request.GetClient().FaviconUri" asp-append-version="true" type="image/png" />
     <style>
         body {
             padding-top: 0px !important;

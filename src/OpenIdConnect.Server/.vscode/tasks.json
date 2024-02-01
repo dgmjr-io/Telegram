@@ -1,41 +1,34 @@
 {
-    "version": "2.0.0",
-    "tasks": [
-        {
-            "label": "build",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "build",
-                "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary;ForceNoAlign"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "publish",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "publish",
-                "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj",
-                "/property:GenerateFullPaths=true",
-                "/consoleloggerparameters:NoSummary;ForceNoAlign"
-            ],
-            "problemMatcher": "$msCompile"
-        },
-        {
-            "label": "watch",
-            "command": "dotnet",
-            "type": "process",
-            "args": [
-                "watch",
-                "run",
-                "--project",
-                "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj"
-            ],
-            "problemMatcher": "$msCompile"
-        }
-    ]
+  "tasks": [ {
+    "args": [ "build", "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary;ForceNoAlign", "--configuration", "Local" ],
+    "command": "dotnet",
+    "label": "Build Telegram.OpenIdConnect.Server.Server",
+    "problemMatcher": "$msCompile",
+    "type": "process"
+  }, {
+    "args": [ "publish", "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary;ForceNoAlign", "--configuration", "Local", "-o:${workspaceFolder}/app" ],
+    "command": "dotnet",
+    "label": "Publish Telegram.OpenIdConnect.Server.Server",
+    "problemMatcher": "$msCompile",
+    "type": "process"
+  }, {
+    "args": [ "watch", "run", "--project", "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj" ],
+    "command": "dotnet",
+    "label": "watch",
+    "problemMatcher": "$msCompile",
+    "type": "process"
+  }, {
+    "args": [ "run", "--project", "${workspaceFolder}/Telegram.OpenIdConnect.Server.csproj", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary;ForceNoAlign", "-c:Local" ],
+    "command": "dotnet",
+    "label": "Run Telegram.OpenIdConnect.Server.Server",
+    "problemMatcher": "$msCompile",
+    "type": "process"
+  }, {
+    "args": [ "tunnel", "--label", "edge=edghts_2YVlve6yoIHeHG4dzj3cV1Ojnqn", "https://localhost:7003" ],
+    "command": "ngrok",
+    "label": "ngrok - Telegram OpenIdConnect",
+    "problemMatcher": [ ],
+    "type": "shell"
+  } ],
+  "version": "2.0.0"
 }

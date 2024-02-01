@@ -24,7 +24,7 @@ public class ErrorResponse() : Message
     [JProp("is_success")]
     public bool IsSuccess => false;
 
-    public ErrorResponse(IErrorType? errorType = default, string correlationId = null) : this()
+    public ErrorResponse(IErrorType? errorType = default, string? correlationId = default) : this()
     {
         ErrorType = errorType ?? Errors.ErrorType.ServerError.Instance;
         CorrelationId = correlationId;

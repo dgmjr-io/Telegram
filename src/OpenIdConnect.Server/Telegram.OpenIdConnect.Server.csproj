@@ -16,12 +16,14 @@
     <PackageReference Include="Dgmjr.AspNetCore.Swagger" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.AspNetCore.TagHelpers" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.AspNetCore.Razor" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.AzureAd" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Configuration.Extensions" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Logging.Extensions" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Primitives" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Enumerations.CodeGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference Include="Dgmjr.Http.CorrelationId" />
     <PackageReference Include="Dgmjr.System.Extensions" />
+    <PackageReference Include="Dgmjr.Redis.Extensions" />
     <PackageReference Include="Microsoft.Identity.Abstractions" />
     <PackageReference Include="Microsoft.Identity.Web" />
     <PackageReference Include="OneOf" />
@@ -30,7 +32,16 @@
     <PackageReference Include="Telegram.Identity" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Telegram.LoginWidget" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Duende.IdentityServer" />
-    <PackageReference Include="Serilog.AspNetCore" />
+
+    <PackageReference Update="Serilog.Extensions.Logging" />
+    <PackageReference Update="Serilog.Sinks.Console" />
+    <PackageReference Update="Serilog.Sinks.File" />
+    <PackageReference Update="Serilog.Sinks.MsSqlServer" />
+    <PackageReference Update="Serilog.Sinks.OpenTelemetry" />
+    <PackageReference Update="Serilog.Sinks.ApplicationInsights" />
+    <PackageReference Update="Serilog.AspNetCore" />
+    <PackageReference Update="Serilog.Enrichers.AspNetCore.HttpContext " />
+    <PackageReference Update="Serilog.Sinks.AzureApp" />
   </ItemGroup>
 
   <ItemGroup>

@@ -23,7 +23,8 @@ public class TelegramTokenService(
     IClock clock,
     IKeyMaterialService keyMaterialService,
     IdentityServerOptions options,
-    ILogger<TelegramTokenService> logger
+    ILogger<TelegramTokenService> logger,
+    Events.TelegramOpenIdConnectEvents events
 )
     : DefaultTokenService(
         claimsProvider,
@@ -43,7 +44,7 @@ public class TelegramTokenService(
 
     public override async Task<Token> CreateAccessTokenAsync(TokenCreationRequest request)
     {
-        Logger.StartingAccessTokenCreation();
+        Logger.StartingAccessTokenCreation(request);
         using var activity = Activities.ServiceActivitySource.StartActivity(
             $"{nameof(TelegramTokenService)}.{nameof(CreateAccessTokenAsync)}"
         );

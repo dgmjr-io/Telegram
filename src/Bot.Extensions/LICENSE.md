@@ -1,5 +1,6 @@
 ---
-date: 2023-07-13T05:44:46:00.048Z
+
+date: 2023-07-13T05:44:46:00-05:00Z
 description: Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, yadda, yadda, yadda...
 keywords:
 - IP
@@ -16,16 +17,16 @@ conditions:
 limitations:
 - liability
 - warranty
-lastmod: 2023-08-29T17:13:51:00.216Z
+lastmod: 2024-01-0T00:39:00.0000+05:00Z
 license: MIT
 slug: mit-license
 title: MIT License
 type: license
----
+-------------
 
 # MIT License
 
-## Copyright © 2022-2023 [David G. Moore, Jr.](mailto:david@dgmjr.io "Send David an email") ([@dgmjr](https://github.com/dgmjr "Contact david on GitHub")), All Rights Reserved
+## Copyright © 2022-2024 [David G. Moore, Jr.](mailto:david@dgmjr.io "Send Dr. Moore") ([@dgmjr](https://github.com/dgmjr "Contact Dr. Moore on GitHub")), All Rights Reserved
 
 Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files (the "Software"), to deal in the Software without restriction, including without limitation the rights to use, copy, modify, merge, publish, distribute, sublicense, and/or sell copies of the Software, and to permit persons to whom the Software is furnished to do so, subject to the following conditions:
 

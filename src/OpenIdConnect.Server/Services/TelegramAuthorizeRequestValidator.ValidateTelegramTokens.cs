@@ -152,6 +152,9 @@ public partial class TelegramAuthorizeRequestValidator
     /// <returns>Hash of key/value pairs to validate against Telegram provided hash.</returns>
     private string ComputeHash(NameValueCollection data)
     {
+        using var hashComputationActivity = Telemetry.Activities.ValidationActivitySource.StartActivity(
+            $"{nameof(TelegramAuthorizeRequestValidator)}.{nameof(ComputeHash)}"
+        );
         var components = DataCheckKeys.All
             .OfType<string>()
             .Where(x => x is not DataCheckKeys.AuthHash)
@@ -161,7 +164,7 @@ public partial class TelegramAuthorizeRequestValidator
         var dataCheckString = Join((char)0x0a + "", components);
 
         byte[] key;
-        key = SHA256.HashData(UTF8.GetBytes(TgOidcOptions.BotApiToken.ToString()));
+        key =  SHA256.HashData(UTF8.GetBytes(TgOidcOptions.Clients[data["client_id"]].BotApiToken.ToString()));
 
         byte[] hash;
         using (var hmac = new HMACSHA256(key))

@@ -22,9 +22,6 @@ public static class ExtensionMethods
 
     public static bool IsRedirectUriStartWithHttps(this string redirectUri)
     {
-        if (redirectUri != null && redirectUri.StartsWith("https"))
-            return true;
-
-        return false;
+        return redirectUri?.StartsWith("https") == true;
     }
 }

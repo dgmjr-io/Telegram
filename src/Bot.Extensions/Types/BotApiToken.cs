@@ -59,7 +59,7 @@ public partial record struct BotApiToken : IRegexValueObject<BotApiToken>
     /// <summary>
     /// The empty value for the Bot API Token.
     /// </summary>
-    /// <value>0000000000:000000</value>
+    /// <value>0000000000:00000000000000000000000000000000000</value>
     public static readonly string EmptyValueString =
         $"{new string('0', BotIdLength)}:{new string('0', TokenLength)}";
 

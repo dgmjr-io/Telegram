@@ -43,8 +43,6 @@ namespace Telegram.OpenIdConnect.Options
 
             builder.Services.RemoveAll<ITokenService>();
             builder.Services.TryAddTransient<ITokenService, TelegramTokenService>();
-
-            /* do nothing */
         }
 
         public void Configure(IApplicationBuilder app)

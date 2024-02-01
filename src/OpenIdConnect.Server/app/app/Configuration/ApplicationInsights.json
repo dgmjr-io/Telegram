@@ -1,0 +1,11 @@
+{
+  "$schema": "https://jsonschema.xyz/schemas/Microsoft.ApplicationInsights.AspNetCore.Extensions.ApplicationInsightsServiceOptions.schema",
+  "ConnectionString": "${ConnectionStrings:ApplicationInsights}",
+  "EnableAdaptiveSampling": false,
+  "EnablePerformanceCounterCollectionModule": false,
+  "RequestCollectionOptions": {
+    "EnableW3CDistributedTracing": true,
+    "InjectResponseHeaders": true,
+    "TrackExceptions": true
+  }
+}

@@ -1,48 +1,26 @@
 {
-  "$schema": "https://jsonschema.xyz/schemas/Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIOptions.schema",
-  // "ConfigObject": {
-  //   "DeepLinking": true,
-  //   "DefaultModelExpandDepth": 1,
-  //   "DefaultModelRendering": "example",
-  //   "DisplayOperationId": true,
-  //   "DisplayRequestDuration": true,
-  //   "DocExpansion": "list",
-  //   "TryItOutEnabled": true,
-  //   "PersistAuthorization": true,
-  //   "ShowCommonExtensions": true,
-  //   "ShowExtensions": true,
-  //   "DefaultModelsExpandDepth": 1,
-  //   "SupportedSubmitMethods": [
-  //     "get",
-  //     "put",
-  //     "post",
-  //     "delete",
-  //     "options",
-  //     "head",
-  //     "patch",
-  //     "trace"
-  //   ],
-  //   "Urls": [
-  //     {
-  //       "Name": "Telegram OpenIDConnect Server v0.0.1",
-  //       "Url": "/swagger/v0.0.1/swagger.json"
-  //     }
-  //   ]
-  // },
-  // "OAuthConfigObject": {
-  //   "AppName": "Telegram OpenIDConnect Server",
-  //   "ClientId": "${AzureAdB2C:ClientId}",
-  //   "Scopes": [
-  //     "https://oidc.telegram.dgmjr.app/user_impersonation"
-  //   ],
-  //   "UseBasicAuthenticationWithAccessCodeGrant": true,
-  //   "UsePkceWithAuthorizationCodeGrant": true,
-  //   "Realm": "jsonschema.xyz",
-  //   "ClientSecret": "${AzureAdB2C:ClientSecret}"
-  // },
-  // "DocumentTitle": "Telegram OpenIDConnect Server",
-  // "Theme": "flattop",
-  // "SwaggerUI": "Bootstrap",
-  // "UseReverseProxyForIndexHtml": false,
-  // "UseCache": true
+  "$schema": "https://jsonschema.xyz/Swashbuckle.AspNetCore.SwaggerUI.SwaggerUIOptions.schema",
+  "ConfigObject": {
+    "DeepLinking": true,
+    "DefaultModelExpandDepth": 1,
+    "DefaultModelRendering": "example",
+    "DefaultModelsExpandDepth": 1,
+    "DisplayOperationId": true,
+    "DisplayRequestDuration": true,
+    "DocExpansion": "list",
+    "PersistAuthorization": true,
+    "ShowCommonExtensions": true,
+    "ShowExtensions": true,
+    "SupportedSubmitMethods": [ "get", "put", "post", "delete", "options", "head", "patch", "trace" ],
+    "TryItOutEnabled": true,
+    "Urls": [ {
+      "Name": "Telegram OpenIDConnect Server v0.0.1",
+      "Url": "/swagger/v0.0.1/swagger.json"
+    } ]
+  },
+  "DocumentTitle": "Telegram OpenIDConnect Server",
+  "SwaggerUI": "Bootstrap",
+  "Theme": "flattop",
+  "UseCache": true,
+  "UseReverseProxyForIndexHtml": false
 }

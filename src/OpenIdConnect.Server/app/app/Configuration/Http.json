@@ -1,0 +1,91 @@
+{
+  "$schema": "https://jsonschema.xyz/Dgmjr.AspNetCore.Http.HttpServicesOptions.schema",
+  "AddHttpContextAccessor": true,
+  "CookiePolicy": {
+    "CheckConsentNeeded": "ctx => false",
+    "ConsentCookie": {
+      "Domain": "jsonschema.xyz",
+      "HttpOnly": true,
+      "Name": "🖕🏻",
+      "SameSite": "lax",
+      "SecurePolicy": "always"
+    },
+    "ConsentCookieValue": "🖕🏻",
+    "HttpOnly": "always",
+    "MinimumSameSitePolicy": "none",
+    "Secure": "always"
+  },
+  "Cors": {
+    "DefaultPolicyName": "AllowAny",
+    "Policies": {
+      "AllowAny": {
+        "AllowAnyHeader": true,
+        "AllowAnyMethod": true,
+        "AllowAnyOrigin": true,
+        "AllowCredentials": true,
+        "Headers": [ "*" ],
+        "MaxAge": "01:00:00:00",
+        "Methods": [ "*" ],
+        "Origins": [ "*" ],
+        "PreflightMaxAge": "01:00:00:00"
+      }
+    }
+  },
+  "FileServer": {
+    "DefaultFilesOptions": {
+      "DefaultFileNames": [ "index.hml", "index.htm", "swagger.json" ]
+    },
+    "DirectoryBrowserOptions": {
+      "FileProvider": "new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), \"wwwroot\"))",
+      "RequestPath": ""
+    },
+    "EnableDefaultFiles": true,
+    "EnableDirectoryBrowsing": true,
+    "FileProvider": "new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), \"wwwroot\"))",
+    "RequestPath": "",
+    "StaticFileOptions": {
+      "DefaultContentType": "text/html",
+      "FileProvider": "new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), \"wwwroot\"))",
+      "HttpsCompression": "Compress",
+      "OnPrepareResponse": "ctx => ctx.Context.Response.Headers[\"Cache-Control\"] = \"public,max-age=31536000\"",
+      "OnPrepareResponseAsync": "ctx => ctx.Context.Response.Headers[\"Cache-Control\"] = \"public,max-age=31536000\"",
+      "RedirectToAppendTrailingSlash": true,
+      "ServeUnknownFileTypes": true
+    }
+  },
+  "Hsts": {
+    "IncludeSubDomains": true,
+    "Preload": true
+  },
+  "IIS": {
+    "AllowSynchronousIO": true
+  },
+  "Kestrel": {
+    "AllowSynchronousIO": true
+  },
+  "ResponseCompression": {
+    "EnableForHttps": true
+  },
+  "Session": {
+    "Cookie": {
+      "Domain": "oidc.telegram.technology",
+      "HttpOnly": true,
+      "IsEssential": true,
+      "MaxAge": "01:00:00:00",
+      "Name": "Sesh",
+      "Path": "foo",
+      "SameSite": "lax",
+      "SecurePolicy": "always"
+    }
+  },
+  "UseCookiePolicy": true,
+  "UseCors": true,
+  "UseFileServer": true,
+  "UseHsts": true,
+  "UseHttpsRedirection": true,
+  "UseOutputCaching": true,
+  "UseRequestDecompression": true,
+  "UseResponseCaching": true,
+  "UseResponseCompression": true,
+  "UseSession": true
+}

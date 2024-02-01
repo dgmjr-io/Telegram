@@ -1,0 +1,16 @@
+﻿@page
+@model Telegram.OpenIdConnect.Server.Pages.Connect.LoginModel
+@{
+  ViewData["Title"] = "Welcome! Please log in.";
+}
+
+@Request.Query["redirect_uri"]
+
+<script
+  async src="https://telegram.org/js/telegram-widget.js?22"
+  data-telegram-login="@Model.Client.BotUsername"
+  data-size="large"
+  data-auth-url="@Model.ReturnUrl"
+  data-request-access="write"></script>
+
+

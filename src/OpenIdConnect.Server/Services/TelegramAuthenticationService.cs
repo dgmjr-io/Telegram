@@ -187,7 +187,7 @@ public class TelegramJwtFactory(
         var dataCheckString = Join((char)0x0a + "", components);
 
         byte[] key;
-        key = SHA256.HashData(UTF8.GetBytes(Options.BotApiToken.ToString()));
+        key = SHA256.HashData(UTF8.GetBytes(Options.Clients[data.ClientId].BotApiToken.ToString()));
 
         byte[] hash;
         using (var hmac = new HMACSHA256(key))

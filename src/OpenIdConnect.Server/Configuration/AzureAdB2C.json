@@ -1,0 +1,31 @@
+{
+  "$schema": "https://jsonschema.xyz/Schemas/Dgmjr.AzureAd.Web.MicrosoftIdentityOptions",
+  "AccessDeniedPath": "/access-denied",
+  "AppType": "Web",
+  "AzureAdB2CExtensionsApplicationId": "3fe1c00f-ad99-4428-8d18-a476ec3bd723",
+  // "Authority": "https://login.microsoftonline.com/ed3fc08a-0441-4b46-9c09-a05185a4f7d0",
+  "AzureRegion": "TryAutoDetect",
+  "CallbackPath": "/signin-oidc",
+  "ClaimsIssuer": "https://login.oidc.telegram.technology",
+  "ClientId": "fc1d3bd9-a4e1-4bd9-b87f-146c91207e3f",
+  "contentMediaType": "application/json",
+  "DefaultUserFlow": "$(AzureAdB2C:SignUpSignInPolicyId)",
+  // "Domain": "login.telegram.technology",
+  "Domain": "telegramopenidconnect.onmicrosoft.com",
+  "EditProfilePolicyId": "b2c_1_editprofile",
+  "EnablePiiLogging": true,
+  "GetClaimsFromUserInfoEndpoint": false,
+  "InitialScopes": [
+    "https://graph.microsoft.com/.default"
+  ],
+  "Instance": "https://login.oidc.telegram.technology/",
+  "MapInboundClaims": true,
+  "RemoteSignOutPath": "/signout/${AzureAdB2C:SignUpSignInPolicyId}",
+  "ResetPasswordPolicyId": "b2c_1_resetpassword",
+  "SaveTokens": true,
+  "SignedOutCallbackPath": "/",
+  "SignedOutRedirectUri": "https://oidc.telegram.technology/",
+  "SignInScheme": "OpenIdConnect",
+  "SignUpSignInPolicyId": "b2c_1_signupsignin",
+  "TenantId": "5cae8e2f-4d05-4bba-9bd6-4a2921642ee4"
+}

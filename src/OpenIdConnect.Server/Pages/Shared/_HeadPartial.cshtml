@@ -14,13 +14,15 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - @Model.Options.Title</title>
-    <link rel="stylesheet" href="@(Model.Options.CdnUriBase)npm/bootswatch/dist/@Model.Options.ColorTheme.ToString().ToLower()/bootstrap.min.css" asp-append-version="true" crossorigin="anonymous">
-    <link rel="stylesheet" href="@(Model.Options.CdnUriBase)npm/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="@(Model.Options.CdnUriBase)npm/jquery-ui/themes/base/selectmenu.min.css" asp-append-version="true">
-    <link rel="stylesheet" href="@(Model.Options.CdnUriBase)npm/prismjs/themes/prism.min.css" asp-append-version="true">
+    <title>@ViewData["Title"] - @Model.Client.Title</title>
+    <link rel="stylesheet" href="@(Model.Client.CdnUriBase)npm/bootswatch/dist/@Model.Client.PageTheme.ToString().ToLower()/bootstrap.min.css" asp-append-version="true" crossorigin="anonymous" referrerpolicy="no-referrer">
+    <link rel="stylesheet" href="@(Model.Client.CdnUriBase)npm/bootstrap-icons/font/bootstrap-icons.min.css" asp-append-version="true" crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <link rel="stylesheet" href="@(Model.Client.CdnUriBase)npm/jquery-ui/themes/base/selectmenu.min.css" asp-append-version="true" crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <link rel="stylesheet" href="@(Model.Client.CdnUriBase)npm/prismjs/themes/prism.min.css" asp-append-version=" true"crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <link rel="stylesheet" href="@(Model.Client.CdnUriBase)npm/prismjs/themes/prism.min.css" asp-append-version="true" crossorigin="anonymous" referrerpolicy="no-referrer" >
+    <link rel="stylesheet" href="@(Model.Client.CdnUriBase)npm/font-awesome/css/font-awesome.min.css" crossorigin="anonymous" referrerpolicy="no-referrer" />
     @* <link rel="stylesheet" href="@(Model.CdnUriBase)css/site.css" asp-append-version="true"> *@
-    <link rel="icon" href="@Model.Options.FaviconUri" asp-append-version="true" type="image/png" />
+    <link rel="icon" href="@Model.Client.FaviconUri" asp-append-version="true" type="image/png" />
     <style>
         body {
             padding-top: 0px !important;

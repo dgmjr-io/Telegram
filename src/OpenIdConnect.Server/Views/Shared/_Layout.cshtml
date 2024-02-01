@@ -10,9 +10,11 @@
 *      License: MIT (https://opensource.org/licenses/MIT)
 *@
 @namespace Telegram.OpenIdConnect.Pages.Shared
+@using Telegram.OpenIdConnect.Extensions
 @model Telegram.OpenIdConnect.Options.TelegramOpenIdConnectServerOptions
+<!-- This page uses MVC Views -->
 <!DOCTYPE html>
-<html lang="en" data-bs-theme="@Model.Theme.ToString().ToLower()">
+<html lang="en" data-bs-theme="@Context.Request.GetClient().Theme.ToString().ToLower()">
 @{await Html.RenderPartialAsync("_HeadPartial");}
 <body>
     <header>

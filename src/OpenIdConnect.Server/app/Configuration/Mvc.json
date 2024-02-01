@@ -1,20 +1,12 @@
 {
-  "$schema": "https://jsonschema.xyz/schemas/MvcOptions.schema",
-  "AllowEmptyInputInBodyModelBinding": false,
-  "RespectBrowserAcceptHeader": true,
-  "ReturnHttpNotAcceptable": true,
-  "SuppressAsyncSuffixInActionNames": true,
-  "SuppressImplicitRequiredAttributeForNonNullableReferenceTypes": true,
-  "SuppressInputFormatterBuffering": true,
-  "SuppressOutputFormatterBuffering": true,
-  "ValidateComplexTypesIfChildValidationFails": false,
-  "EnableEndpointRouting": true,
-  "EnableActionInvokers": true,
-  "UseResponseCompression": true,
+  "$schema": "https://jsonschema.xyz/schemas/Dgmjr.AspNetCore.Mvc.MvcOptions.schema",
   "AddControllers": true,
-  "AddControllersWithViews": true,
   "AddControllersAsServices": false,
+  "AddControllersWithViews": true,
+  "AddJsonOptions": true,
+  "AddMicrosoftIdentityUI": true,
   "AddRazorPages": true,
+  "AllowEmptyInputInBodyModelBinding": false,
   // "AddControllersAsServices": true,
   "CacheProfiles": {
     "Default": {
@@ -23,5 +15,15 @@
       "NoStore": false,
       "VaryByHeader": "Accept"
     }
-  }
+  },
+  "EnableActionInvokers": true,
+  "EnableEndpointRouting": true,
+  "RespectBrowserAcceptHeader": true,
+  "ReturnHttpNotAcceptable": true,
+  "SuppressAsyncSuffixInActionNames": true,
+  "SuppressImplicitRequiredAttributeForNonNullableReferenceTypes": true,
+  "SuppressInputFormatterBuffering": true,
+  "SuppressOutputFormatterBuffering": true,
+  "UseResponseCompression": true,
+  "ValidateComplexTypesIfChildValidationFails": false
 }

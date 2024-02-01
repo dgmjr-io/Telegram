@@ -19,12 +19,6 @@ public partial class TelegramOpenIdConnectServerOptions
     public const string DisplayName = "Telegram OpenId Connect Server";
     public const string ConfigurationSectionKey = "TelegramOpenIdConnectServer";
 
-    [Required]
-    public string BotName { get; set; }
-
-    [Required]
-    public BotApiToken BotApiToken { get; set; }
-
     public CertificateDescription? ServerCertificate { get; set; }
 
     private byte[] ServerCertificateBytes

@@ -1,16 +1,49 @@
 {
   "BotName": "DGMJRBot",
+  "Clients": [ {
+    "AllowedGrantTypes": [ "implicit" ],
+    "AllowedScopes": [ "openid", "profile", "email", "phone", "address", "offline_access" ],
+    "Claims": [ {
+      "ClaimType": "https://telegram.org/identity/username"
+    }, {
+      "ClaimType": "https://telegram.org/identity/userid"
+    } ],
+    "ClientId": "DGMJRBot",
+    "ClientName": "JSON Schema",
+    "ClientUri": "https://jsonschema.xyz",
+    "Description": "jsonschema.xyz",
+    "IsActive": true,
+    "RedirectUris": [ "https://jsonschema.b2clogin.com/jsonschema.onmicrosoft.com/oauth2/authresp", "https://jsonschema.b2clogin.com/jsonschema.xyz/oauth2/authresp", "https://jsonschema.xyz/signin-oidc", "https://localhost:7003/signin-oidc", "https://login.jsonschema.xyz/jsonschema.onmicrosoft.com/oauth2/authresp", "https://login.jsonschema.xyz/jsonschema.xyz/oauth2/authresp", "https://valid-seahorse-separately.ngrok-free.app/signin-oidc" ]
+  }, {
+    "AllowedGrantTypes": [ "implicit" ],
+    "AllowedScopes": [ "openid", "profile", "email", "phone", "address", "offline_access" ],
+    "BotName": "The Backroom",
+    "BotUsername": "TheBackroomBot",
+    "ClientUri": "https://thebackroom.gay",
+    "CopyrightHolder": "The Backroom",
+    "CopyrightHolderEmail": "admin@thebackroom.gay",
+    "IsActive": true,
+    "PageTheme": "flatly",
+    "PageTitle": "Telegram Login",
+    "RedirectUris": [ "https://inthebackroom.b2clogin.com/inthebackroom.onmicrosoft.com/oauth2/authresp", "https://inthebackroom.b2clogin.com/thebackroom.gay/oauth2/authresp", "https://valid-seahorse-separately.ngrok-free.app/signin-oidc", "https://login.thebackroom.gay/thebackroom.gay/oauth2/authresp" ]
+  }, {
+    "AllowedGrantTypes": [ "implicit" ],
+    "AllowedScopes": [ "openid", "profile", "email", "phone", "address", "offline_access" ],
+    "BotName": "JSONSchema.xyz",
+    "BotUsername": "JSONSchemaBot",
+    "ClientUri": "https://jsonschema.xyz",
+    "IsActive": true,
+    "PageTheme": "superhero",
+    "PageTitle": "JSONSchema.xyz Telegram Login",
+    "RedirectUris": [ "https://jsonschema.b2clogin.com/jsonschema.onmicrosoft.com/oauth2/authresp", "https://jsonschema.b2clogin.com/jsonschema.xyz/oauth2/authresp", "https://jsonschema.xyz/signin-oidc", "https://localhost:7003/signin-oidc", "https://login.jsonschema.xyz/jsonschema.onmicrosoft.com/oauth2/authresp", "https://login.jsonschema.xyz/jsonschema.xyz/oauth2/authresp", "https://valid-seahorse-separately.ngrok-free.app/signin-oidc" ]
+  } ],
   "CopyrightHolder": "David G. Moore, Jr.",
   "CopyrightHolderEmail": "david@jsonschema.xyz",
   "CopyrightStartYear": 2024,
   "LogoTitle": "Telegram Open ID Connect Login",
-  "Title": "Telegram Open ID Connect Login",
   "ServerCertificate": {
-    "SourceType": "Path",
-    "CertificateDiskPath": "./Certificate.pfx"
-    // "KeyVaultUrl": "https://jsonschema-xyz.vault.azure.net/",
-    // "KeyVaultCertificateName": "TelegramOpenIdConnectServerCertificate",
-    // "SourceType": "KeyVault"
+    "CertificateDiskPath": "./Certificate.pfx",
+    "SourceType": "Path"
   },
-  // "ServerCertificatePath": "./Certificate.cer",
+  "Title": "Telegram Open ID Connect Login"
 }

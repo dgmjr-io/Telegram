@@ -1,0 +1,7 @@
+{
+  "src": {
+    "authentication": { },
+    "constants": { },
+    "openidconnect.server": { }
+  }
+}

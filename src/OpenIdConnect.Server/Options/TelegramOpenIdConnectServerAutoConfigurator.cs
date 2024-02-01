@@ -52,6 +52,7 @@ public class TelegramOpenIdConnectServerAutoConfigurator
                     new System.Globalization.JsonLocaleConverter()
                 );
             });
+        builder.Services.AddScoped<Telegram.OpenIdConnect.Events.TelegramOpenIdConnectEvents>();
         builder.Services.AddSingleton<IActionContextAccessor, ActionContextAccessor>();
         builder.Services.AddSingleton<IUrlHelper>(
             y => new UrlHelper(y.GetRequiredService<IActionContextAccessor>().ActionContext)

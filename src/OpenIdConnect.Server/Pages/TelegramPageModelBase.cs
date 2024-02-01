@@ -8,6 +8,7 @@ using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Primitives;
 
 using Telegram.OpenIdConnect.Constants;
+using Telegram.OpenIdConnect.Events;
 using Telegram.OpenIdConnect.Extensions;
 using Telegram.OpenIdConnect.Models;
 using Telegram.OpenIdConnect.Options;
@@ -16,8 +17,9 @@ public partial class TelegramPageModelBase(
     IOptionsMonitor<TelegramOpenIdConnectServerOptions>? options = null
 ) : Dgmjr.AspNetCore.Razor.PageModel<TelegramOpenIdConnectServerOptions?>(options?.CurrentValue)
 {
-    private const string ClientIdKey = "client_id";
     public TelegramOpenIdConnectServerOptions Options => ViewModel!;
+
+    public TelegramOpenIdConnectEvents Events => HttpContext.RequestServices.GetRequiredService<TelegramOpenIdConnectEvents>();
 
     public string? ReturnUrl => ((string?)Request.Query["ReturnUrl"]) ?? "/";
 

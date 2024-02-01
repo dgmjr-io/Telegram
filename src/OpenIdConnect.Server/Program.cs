@@ -5,6 +5,7 @@ using Telegram.OpenIdConnect.Json;
 using Telegram.OpenIdConnect.Middleware;
 using Telegram.OpenIdConnect.Services;
 using Telegram.OpenIdConnect.Services.CodeService;
+using WebApplication = Microsoft.AspNetCore.Builder.WebApplication;
 
 // using Serilog;
 // using Log = Serilog.Log;
@@ -13,7 +14,7 @@ using Telegram.OpenIdConnect.Services.CodeService;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AutoConfigure<Program>();
-builder.Services.AddTransient<ISession>(
+builder.Services.AddTransient(
     provider => provider.GetRequiredService<IHttpContextAccessor>().HttpContext.Session
 );
 builder.Services.AddRazorPages();

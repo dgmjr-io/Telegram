@@ -1,5 +1,5 @@
 {
-  "$schema": "https://jsonschema.xyz/Dgmjr.AspNetCore.Http.HttpServicesOptions.schema",
+  "$schema": "https://jsonschema.xyz/schemas/Dgmjr.AspNetCore.Http.HttpServicesOptions.schema",
   "CookiePolicy": {
     "CheckConsentNeeded": "ctx => false",
     "ConsentCookieValue": "🖕🏻",
@@ -16,7 +16,7 @@
   },
   "FileServer": {
     "EnableDefaultFiles": true,
-    "EnableDirectoryBrowsing": true,
+    "EnableDirectoryBrowsing": false,
     "StaticFileOptions": {
       "DefaultContentType": "text/html",
       "ServeUnknownFileTypes": true,
@@ -59,9 +59,9 @@
       "HttpOnly": true,
       "IsEssential": true,
       "MaxAge": "01:00:00:00",
-      "Name": "Sesh",
-      "Path": "foo",
-      "SameSite": "lax",
+      "Name": "Telegram.OpenIdConnect.Technology.Session",
+      "Path": "/",
+      "SameSite": "strict",
       "SecurePolicy": "always"
     }
   },

@@ -10,15 +10,20 @@
 *      License: MIT (https://opensource.org/licenses/MIT)
 *@
 @namespace Telegram.OpenIdConnect.Pages.Shared
+@using Telegram.OpenIdConnect.Extensions
 @model Telegram.OpenIdConnect.Options.TelegramOpenIdConnectServerOptions
 
-<navbar position="StickyTop" theme="dark" brand-image="@Model.LogoUri" brand-name="@Model.LogoTitle" brand-href="/oauth2/login" background="Dark">
+<navbar position="StickyTop" theme="dark" brand-image="@Context.Request.GetClient().LogoUri" brand-name="@Context.Request.GetClient().LogoTitle" brand-href="/home" background="Dark">
     <navbar-nav>
-        <nav-text>@Model.Title</nav-text>
+        <nav-text>@Context.Request.GetClient().Title</nav-text>
         @* <a href="/"><i class="fas fa-home"></i> Home</a>
         <a href="/about"><i class="fas fa-info-circle"></i> About</a>
         <a href="/contact"><i class="fas fa-envelope"></i> Contact</a>
         <a href="/privacy"><i class="fas fa-user-secret"></i> Privacy</a>
         <a href="/terms"><i class="fas fa-file-alt"></i> Terms</a> *@
     </navbar-nav>
+    <navbar-nav-right>
+      <a asp-authz="true" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignOut"><i class="fas fa-sign-out-alt"></i> Logout</a>
+      <a asp-authz="false" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn"><i class="fas fa-sign-in-alt"></i> Login</a>
+    </navbar-nav-right>
 </navbar>

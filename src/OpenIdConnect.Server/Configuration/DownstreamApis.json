@@ -1,0 +1,11 @@
+{
+  "$schema": "https://jsonschema.xyz/schemas/Dgmjr.Web.DownstreamApis.DownstreamApis.schema",
+  "contentMediaType": "application/json",
+  "MicrosoftGraph": {
+    "BaseUrl": "https://graph.microsoft.com/v1.0",
+    "Scopes": [
+      "https://graph.microsoft.com/.default"
+    ],
+    "AzureAdB2CExtensionsApplicationId": "eb7f7fa0-b946-4e6e-8c79-d107807725da"
+  }
+}

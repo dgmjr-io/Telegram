@@ -1,5 +1,6 @@
 namespace Telegram.OpenIdConnect.Extensions;
 
+using Duende.IdentityServer.Models;
 using Duende.IdentityServer.Validation;
 
 using Telegram.OpenIdConnect.Models.Requests;
@@ -169,8 +170,8 @@ public static partial class LoggingExtensions
         );
     }
 
-    [LoggerMessage(9, Debug, "Starting access token creation...")]
-    public static partial void StartingAccessTokenCreation(this ILogger logger);
+    [LoggerMessage(9, Debug, "Starting access token creation for request: {Request}...")]
+    public static partial void StartingAccessTokenCreation(this ILogger logger, TokenCreationRequest request);
 
     [LoggerMessage(13, Debug, "Finished creating access token.")]
     public static partial void FinishedCreatingAccessToken(this ILogger logger);
@@ -205,6 +206,30 @@ public static partial class LoggingExtensions
 
     [LoggerMessage(15, Debug, "Creating JWT identity token...")]
     public static partial void CreatingJwtIdentityToken(this ILogger logger);
+
+    [LoggerMessage(16, Debug, "Creating reference identity token...")]
+    public static partial void CreatingReferenceIdentityToken(this ILogger logger);
+
+    [LoggerMessage(17, Debug, "Creating access token response...")]
+    public static partial void CreatingAccessTokenResponse(this ILogger logger);
+
+    [LoggerMessage(18, Information, "Clearing bot ID", EventName = nameof(ClearingBotId))]
+    public static partial void ClearingBotId(this ILogger logger);
+
+    [LoggerMessage(18, Information, "Passing authentication to Telegram", EventName = nameof(RedirectToTelegramLogin))]
+    public static partial void RedirectToTelegramLogin(this ILogger logger);
+
+    [LoggerMessage(19, Information, "Telegram token validated: {Token}", EventName = nameof(TelegramTokenValidated))]
+    public static partial void TelegramTokenValidated(this ILogger logger, Token token);
+
+    [LoggerMessage(20, Information, "Validating Telegram token: {Token}", EventName = nameof(ValidatingTelegramToken))]
+    public static partial void ValidatingTelegramToken(this ILogger logger, TokenCreationRequest token);
+
+    [LoggerMessage(21, Information, "Logging in", EventName = nameof(Login))]
+    public static partial void Login(this ILogger logger);
+
+    [LoggerMessage(22, Information, "Logging out", EventName = nameof(Logout))]
+    public static partial void Logout(this ILogger logger);
 
     // {
     //     logger.AuthorizationRequestReceived(request.ToString());

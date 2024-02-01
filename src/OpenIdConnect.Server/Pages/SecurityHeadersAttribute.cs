@@ -4,6 +4,7 @@
 
 using Microsoft.AspNetCore.Mvc.Filters;
 using Microsoft.AspNetCore.Mvc.RazorPages;
+using Telegram.OpenIdConnect.Extensions;
 
 namespace IdentityServerHost.Pages;
 
@@ -34,7 +35,7 @@ public class SecurityHeadersAttribute : ActionFilterAttribute
 
             // https://developer.mozilla.org/en-US/docs/Web/HTTP/Headers/Content-Security-Policy
             var csp =
-                $"default-src 'self' {options.CdnUriBase.Host} {options.LogoUri.Host}; object-src 'none' {options.CdnUriBase.Host}; frame-ancestors 'none' {options.CdnUriBase.Host}; sandbox allow-forms allow-same-origin allow-scripts; base-uri 'self' {options.CdnUriBase.Host};";
+                $"default-src 'self' {context.HttpContext.Request.GetClient().CdnUriBase.Host} {context.HttpContext.Request.GetClient().LogoUri.Host}; object-src 'none' {context.HttpContext.Request.GetClient().CdnUriBase.Host}; frame-ancestors 'none' {context.HttpContext.Request.GetClient().CdnUriBase.Host}; sandbox allow-forms allow-same-origin allow-scripts; base-uri 'self' {context.HttpContext.Request.GetClient().CdnUriBase.Host};";
             // also consider adding upgrade-insecure-requests once you have HTTPS in place for production
             //csp += "upgrade-insecure-requests;";
             // also an example if you need client images to be displayed from twitter

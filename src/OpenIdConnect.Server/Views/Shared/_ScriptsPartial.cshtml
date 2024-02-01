@@ -10,13 +10,14 @@
 *      License: MIT (https://opensource.org/licenses/MIT)
 *@
 @namespace Telegram.OpenIdConnect.Pages.Shared
+@using Telegram.OpenIdConnect.Extensions
 @model Telegram.OpenIdConnect.Options.TelegramOpenIdConnectServerOptions
 
-<script src="@(Model.CdnUriBase)npm/bootstrap/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" asp-append-version="true"></script>
-<script src="@(Model.CdnUriBase)npm/jquery/dist/jquery.min.js" crossorigin="anonymous" asp-append-version="true"></script>
-<script src="@(Model.CdnUriBase)npm/jquery-ui/dist/jquery-ui.min.js"  crossorigin="anonymous" asp-append-version="true"></script>
-<script src="@(Model.CdnUriBase)npm/jquery-validation/dist/jquery.validate.min.js" crossorigin="anonymous" asp-append-version="true"></script>
-<script src="@(Model.CdnUriBase)npm/prismjs/prism.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Context.Request.GetClient().CdnUriBase)npm/bootstrap/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Context.Request.GetClient().CdnUriBase)npm/jquery/dist/jquery.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Context.Request.GetClient().CdnUriBase)npm/jquery-ui/dist/jquery-ui.min.js"  crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Context.Request.GetClient().CdnUriBase)npm/jquery-validation/dist/jquery.validate.min.js" crossorigin="anonymous" asp-append-version="true"></script>
+<script src="@(Context.Request.GetClient().CdnUriBase)npm/prismjs/prism.min.js" crossorigin="anonymous" asp-append-version="true"></script>
 
 @* <environment name="Local">
     <script src="~/dist/bundle.js" crossorigin="anonymous" asp-append-version="true"></script>

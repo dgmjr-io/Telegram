@@ -66,7 +66,39 @@
         "https://inthebackroom.b2clogin.com/thebackroom.gay/oauth2/authresp",
         "https://valid-seahorse-separately.ngrok-free.app/signin-oidc",
         "https://login.thebackroom.gay/thebackroom.gay/oauth2/authresp"
-      ]
+      ],
+      "PageTheme": "flatly",
+      "PageTitle": "Telegram Login",
+      "CopyrightHolder": "The Backroom",
+      "CopyrightHolderEmail": "admin@thebackroom.gay"
+    },
+    {
+      "AllowedGrantTypes": [
+        "implicit"
+      ],
+      "AllowedScopes": [
+        "openid",
+        "profile",
+        "email",
+        "phone",
+        "address",
+        "offline_access"
+      ],
+      "BotName": "JSONSchema.xyz",
+      "BotUsername": "JSONSchemaBot",
+      "ClientUri": "https://jsonschema.xyz",
+      "IsActive": true,
+      "RedirectUris": [
+        "https://jsonschema.b2clogin.com/jsonschema.onmicrosoft.com/oauth2/authresp",
+        "https://jsonschema.b2clogin.com/jsonschema.xyz/oauth2/authresp",
+        "https://jsonschema.xyz/signin-oidc",
+        "https://localhost:7003/signin-oidc",
+        "https://login.jsonschema.xyz/jsonschema.onmicrosoft.com/oauth2/authresp",
+        "https://login.jsonschema.xyz/jsonschema.xyz/oauth2/authresp",
+        "https://valid-seahorse-separately.ngrok-free.app/signin-oidc"
+      ],
+      "PageTheme": "superhero",
+      "PageTitle": "JSONSchema.xyz Telegram Login"
     }
   ]
 }

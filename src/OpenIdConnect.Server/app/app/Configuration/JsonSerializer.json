@@ -1,0 +1,13 @@
+{
+  "$schema": "https://jsonschema.xyz/schemas/JsonSerializerOptions.schema",
+  "PropertyNamingPolicy": "SnakeCaseLower",
+  "DictionaryKeyPolicy": "SnakeCaseLower",
+  "PropertyNameCaseInsensitive": true,
+  "DefaultIgnoreCondition": "Never",
+  "Converters": [
+    "Telegram.OpenIdConnect.Json.EnumToDisplayStringJsonConverter, Telegram.OpenIdConnect.Server"
+  ],
+  "AllowTrailingCommas": true,
+  "NumberHandling": 5,
+  "ReferenceHandler": "Preserve",
+}

@@ -16,12 +16,14 @@
     <PackageReference Include="Dgmjr.AspNetCore.Swagger" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.AspNetCore.TagHelpers" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.AspNetCore.Razor" ExcludeAssets="ContentFiles" />
+    <PackageReference Include="Dgmjr.AzureAd" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Configuration.Extensions" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Logging.Extensions" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Primitives" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.Enumerations.CodeGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
     <PackageReference Include="Dgmjr.Http.CorrelationId" />
     <PackageReference Include="Dgmjr.System.Extensions" />
+    <PackageReference Include="Dgmjr.Redis.Extensions" />
     <PackageReference Include="Microsoft.Identity.Abstractions" />
     <PackageReference Include="Microsoft.Identity.Web" />
     <PackageReference Include="OneOf" />

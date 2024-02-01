@@ -9,6 +9,7 @@ using Telegram.OpenIdConnect.Models.Requests;
 using Telegram.OpenIdConnect.Models.Responses;
 using Telegram.OpenIdConnect.Extensions;
 using CorrelationId.Abstractions;
+using Application = Dgmjr.Mime.Application;
 
 public partial class OidcController
 {

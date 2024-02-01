@@ -29,17 +29,6 @@
       }
     ]
   },
-  // "OAuthConfigObject": {
-  //   "AppName": "Telegram OpenIDConnect Server",
-  //   "ClientId": "${AzureAdB2C:ClientId}",
-  //   "Scopes": [
-  //     "https://oidc.telegram.dgmjr.app/user_impersonation"
-  //   ],
-  //   "UseBasicAuthenticationWithAccessCodeGrant": true,
-  //   "UsePkceWithAuthorizationCodeGrant": true,
-  //   "Realm": "jsonschema.xyz",
-  //   "ClientSecret": "${AzureAdB2C:ClientSecret}"
-  // },
   "DocumentTitle": "Telegram OpenIDConnect Server",
   "Theme": "flattop",
   "SwaggerUI": "Bootstrap",

@@ -8,6 +8,7 @@
     <GeneratePackageOnBuild>false</GeneratePackageOnBuild>
     <CopyLocalLockFileAssemblies>true</CopyLocalLockFileAssemblies>
     <UserSecretsId>080b90c2-0f51-4c61-98dd-4f7a36099587</UserSecretsId>
+    <ProjectGuid>9f0589d9-8491-434f-a208-4c54e062d94f</ProjectGuid>
   </PropertyGroup>
 
   <ItemGroup>

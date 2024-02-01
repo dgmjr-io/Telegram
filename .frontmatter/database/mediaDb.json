@@ -1,1 +1,7 @@
-{"src":{"authentication":{},"constants":{},"openidconnect.server":{}}}
+{
+  "src": {
+    "authentication": { },
+    "constants": { },
+    "openidconnect.server": { }
+  }
+}

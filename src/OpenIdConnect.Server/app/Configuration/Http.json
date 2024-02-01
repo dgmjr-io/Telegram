@@ -1,44 +1,57 @@
 {
   "$schema": "https://jsonschema.xyz/schemas/Dgmjr.AspNetCore.Http.HttpServicesOptions.schema",
+  "AddHttpContextAccessor": true,
   "CookiePolicy": {
     "CheckConsentNeeded": "ctx => false",
-    "ConsentCookieValue": "🖕🏻",
-    "HttpOnly": "always",
-    "MinimumSameSitePolicy": "none",
-    "Secure": "always",
     "ConsentCookie": {
       "Domain": "jsonschema.xyz",
       "HttpOnly": true,
+      "Name": "🖕🏻",
       "SameSite": "lax",
-      "SecurePolicy": "always",
-      "Name": "🖕🏻"
+      "SecurePolicy": "always"
+    },
+    "ConsentCookieValue": "🖕🏻",
+    "HttpOnly": "always",
+    "MinimumSameSitePolicy": "none",
+    "Secure": "always"
+  },
+  "Cors": {
+    "DefaultPolicyName": "AllowAny",
+    "Policies": {
+      "AllowAny": {
+        "AllowAnyHeader": true,
+        "AllowAnyMethod": true,
+        "AllowAnyOrigin": true,
+        "AllowCredentials": true,
+        "Headers": [ "*" ],
+        "MaxAge": "01:00:00:00",
+        "Methods": [ "*" ],
+        "Origins": [ "*" ],
+        "PreflightMaxAge": "01:00:00:00"
+      }
     }
   },
   "FileServer": {
-    "EnableDefaultFiles": true,
-    "EnableDirectoryBrowsing": false,
-    "StaticFileOptions": {
-      "DefaultContentType": "text/html",
-      "ServeUnknownFileTypes": true,
-      "FileProvider": "new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), \"wwwroot\"))",
-      "HttpsCompression": "Compress",
-      "OnPrepareResponse": "ctx => ctx.Context.Response.Headers[\"Cache-Control\"] = \"public,max-age=31536000\"",
-      "OnPrepareResponseAsync": "ctx => ctx.Context.Response.Headers[\"Cache-Control\"] = \"public,max-age=31536000\"",
-      "RedirectToAppendTrailingSlash": true
-    },
     "DefaultFilesOptions": {
-      "DefaultFileNames": [
-        "index.hml",
-        "index.htm",
-        "swagger.json"
-      ]
+      "DefaultFileNames": [ "index.hml", "index.htm", "swagger.json" ]
     },
     "DirectoryBrowserOptions": {
       "FileProvider": "new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), \"wwwroot\"))",
       "RequestPath": ""
     },
+    "EnableDefaultFiles": true,
+    "EnableDirectoryBrowsing": false,
     "FileProvider": "new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), \"wwwroot\"))",
-    "RequestPath": ""
+    "RequestPath": "",
+    "StaticFileOptions": {
+      "DefaultContentType": "text/html",
+      "FileProvider": "new PhysicalFileProvider(Path.Combine(Directory.GetCurrentDirectory(), \"wwwroot\"))",
+      "HttpsCompression": "Compress",
+      "OnPrepareResponse": "ctx => ctx.Context.Response.Headers[\"Cache-Control\"] = \"public,max-age=31536000\"",
+      "OnPrepareResponseAsync": "ctx => ctx.Context.Response.Headers[\"Cache-Control\"] = \"public,max-age=31536000\"",
+      "RedirectToAppendTrailingSlash": true,
+      "ServeUnknownFileTypes": true
+    }
   },
   "Hsts": {
     "IncludeSubDomains": true,
@@ -65,28 +78,6 @@
       "SecurePolicy": "always"
     }
   },
-  "Cors": {
-    "DefaultPolicyName": "AllowAny",
-    "Policies": {
-      "AllowAny": {
-        "AllowAnyHeader": true,
-        "AllowAnyMethod": true,
-        "AllowAnyOrigin": true,
-        "AllowCredentials": true,
-        "MaxAge": "01:00:00:00",
-        "PreflightMaxAge": "01:00:00:00",
-        "Origins": [
-          "*"
-        ],
-        "Headers": [
-          "*"
-        ],
-        "Methods": [
-          "*"
-        ]
-      }
-    }
-  },
   "UseCookiePolicy": true,
   "UseCors": true,
   "UseFileServer": true,
@@ -96,6 +87,5 @@
   "UseRequestDecompression": true,
   "UseResponseCaching": true,
   "UseResponseCompression": true,
-  "UseSession": true,
-  "AddHttpContextAccessor": true
+  "UseSession": true
 }

@@ -1,1 +1,8 @@
-{"src":{"authentication":{},"constants":{},"openidconnect.server":{},"telegrambotbase.extensions.serializer.redis":{}}}
+{
+  "src": {
+    "authentication": { },
+    "constants": { },
+    "openidconnect.server": { },
+    "telegrambotbase.extensions.serializer.redis": { }
+  }
+}

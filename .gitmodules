@@ -1,3 +1,6 @@
 [submodule "Telegram.Bot"]
 	path = lib/Telegram.Bot
 	url = https://github.com/dgmjr-io/Telegram.Bot.git
+[submodule "lib/TelegramBotFramework"]
+	path = lib/TelegramBotFramework
+	url = https://github.com/MajMcCloud/TelegramBotFramework.git

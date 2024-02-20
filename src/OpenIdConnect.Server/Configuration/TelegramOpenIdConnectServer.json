@@ -36,7 +36,7 @@
     "PageTheme": "superhero",
     "PageTitle": "JSONSchema.xyz Telegram Login",
     "RedirectUris": [ "https://jsonschema.b2clogin.com/jsonschema.onmicrosoft.com/oauth2/authresp", "https://jsonschema.b2clogin.com/jsonschema.xyz/oauth2/authresp", "https://jsonschema.xyz/signin-oidc", "https://localhost:7003/signin-oidc", "https://login.jsonschema.xyz/jsonschema.onmicrosoft.com/oauth2/authresp", "https://login.jsonschema.xyz/jsonschema.xyz/oauth2/authresp", "https://valid-seahorse-separately.ngrok-free.app/signin-oidc" ]
-  } , {
+  }, {
     "AllowedGrantTypes": [ "implicit" ],
     "AllowedScopes": [ "openid", "profile", "email", "phone", "address", "offline_access" ],
     "BotName": "Cash Raper",
@@ -60,7 +60,7 @@
     "PageTheme": "simplex",
     "PageTitle": "Welcome to the Telegram Open ID Connect Server!",
     "RedirectUris": [ "https://telegramopenidconnect.b2clogin.com/telegramopenidconnect.onmicrosoft.com/oauth2/authresp", "https://telegramopenidconnect.b2clogin.com/oidc.telegram.technology/oauth2/authresp", "https://valid-seahorse-separately.ngrok-free.app/signin-oidc", "https://login.telegram.technology/oidc.telegram.technology/oauth2/authresp" ]
-  } , {
+  }, {
     "AllowedGrantTypes": [ "implicit" ],
     "AllowedScopes": [ "openid", "profile", "email", "phone", "address", "offline_access" ],
     "BotName": "Any Zoom Rooms Open? Bot",

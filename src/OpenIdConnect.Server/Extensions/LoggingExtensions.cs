@@ -6,6 +6,7 @@ using Duende.IdentityServer.Validation;
 using Telegram.OpenIdConnect.Models.Requests;
 
 using static Microsoft.Extensions.Logging.LogLevel;
+using ClaimsPrincipal = System.Security.Claims.ClaimsPrincipal;
 
 public static partial class LoggingExtensions
 {
@@ -230,6 +231,9 @@ public static partial class LoggingExtensions
 
     [LoggerMessage(22, Information, "Logging out", EventName = nameof(Logout))]
     public static partial void Logout(this ILogger logger);
+
+    [LoggerMessage(23, Information, "Validating Telegram token creation request: {Request}", EventName = nameof(ValidatingTelegramTokenCreationRequest))]
+    public static partial void ValidatingTelegramTokenCreationRequest(this ILogger logger, TokenCreationRequest request);
 
     // {
     //     logger.AuthorizationRequestReceived(request.ToString());

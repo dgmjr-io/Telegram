@@ -20,6 +20,7 @@ using Telegram.OpenIdConnect.Extensions;
 
 using static Duende.IdentityServer.IdentityServerConstants;
 using Telegram.OpenIdConnect.Constants;
+using ClaimsPrincipal = System.Security.Claims.ClaimsPrincipal;
 
 namespace Telegram.OpenIdConnect.Services;
 
@@ -28,7 +29,7 @@ namespace Telegram.OpenIdConnect.Services;
 /// </summary>
 public class TelegramClaimsService(IProfileService profile, ILogger<DefaultClaimsService> logger)
     : DefaultClaimsService(profile, logger),
-        ILog, IClaimsService
+        ILog
 {
     public new ILogger Logger => base.Logger;
 

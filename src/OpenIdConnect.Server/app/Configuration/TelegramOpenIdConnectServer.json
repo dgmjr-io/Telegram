@@ -36,6 +36,42 @@
     "PageTheme": "superhero",
     "PageTitle": "JSONSchema.xyz Telegram Login",
     "RedirectUris": [ "https://jsonschema.b2clogin.com/jsonschema.onmicrosoft.com/oauth2/authresp", "https://jsonschema.b2clogin.com/jsonschema.xyz/oauth2/authresp", "https://jsonschema.xyz/signin-oidc", "https://localhost:7003/signin-oidc", "https://login.jsonschema.xyz/jsonschema.onmicrosoft.com/oauth2/authresp", "https://login.jsonschema.xyz/jsonschema.xyz/oauth2/authresp", "https://valid-seahorse-separately.ngrok-free.app/signin-oidc" ]
+  } , {
+    "AllowedGrantTypes": [ "implicit" ],
+    "AllowedScopes": [ "openid", "profile", "email", "phone", "address", "offline_access" ],
+    "BotName": "Cash Raper",
+    "BotUsername": "CashRaperBot",
+    "ClientUri": "https://cashraper.thebackroom.bot",
+    "CopyrightHolder": "Justin Chase",
+    "CopyrightHolderEmail": "justin@thebackroom.gay",
+    "IsActive": true,
+    "PageTheme": "united",
+    "PageTitle": "The Cash Raper Telegram Bot",
+    "RedirectUris": [ "https://inthebackroom.b2clogin.com/inthebackroom.onmicrosoft.com/oauth2/authresp", "https://inthebackroom.b2clogin.com/thebackroom.gay/oauth2/authresp", "https://valid-seahorse-separately.ngrok-free.app/signin-oidc", "https://login.thebackroom.gay/thebackroom.gay/oauth2/authresp" ]
+  }, {
+    "AllowedGrantTypes": [ "implicit" ],
+    "AllowedScopes": [ "openid", "profile", "email", "phone", "address", "offline_access" ],
+    "BotName": "Telegram Open ID Connect",
+    "BotUsername": "TeleOpenIdConnectBot",
+    "ClientUri": "https://oidc.telegram.technology",
+    "CopyrightHolder": "David G. Moore, Jr.",
+    "CopyrightHolderEmail": "david@telegram.technology",
+    "IsActive": true,
+    "PageTheme": "simplex",
+    "PageTitle": "Welcome to the Telegram Open ID Connect Server!",
+    "RedirectUris": [ "https://telegramopenidconnect.b2clogin.com/telegramopenidconnect.onmicrosoft.com/oauth2/authresp", "https://telegramopenidconnect.b2clogin.com/oidc.telegram.technology/oauth2/authresp", "https://valid-seahorse-separately.ngrok-free.app/signin-oidc", "https://login.telegram.technology/oidc.telegram.technology/oauth2/authresp" ]
+  } , {
+    "AllowedGrantTypes": [ "implicit" ],
+    "AllowedScopes": [ "openid", "profile", "email", "phone", "address", "offline_access" ],
+    "BotName": "Any Zoom Rooms Open? Bot",
+    "BotUsername": "AnyZoomRoomsOpenBot",
+    "ClientUri": "https://zoom.thebackroom.bot",
+    "CopyrightHolder": "The Backroom Bots",
+    "CopyrightHolderEmail": "bots@thebackroom.bot",
+    "IsActive": true,
+    "PageTheme": "pulse",
+    "PageTitle": "Welcome to the Any Zoom Rooms Open? Bot!",
+    "RedirectUris": [ "https://thebackroombots.b2clogin.com/thebackroombots.onmicrosoft.com/oauth2/authresp", "https://thebackroombots.b2clogin.com/login.thebackroom.bot/oauth2/authresp", "https://login.thebackroom.bot/thebackroom.bot/oauth2/authresp" ]
   } ],
   "CopyrightHolder": "David G. Moore, Jr.",
   "CopyrightHolderEmail": "david@jsonschema.xyz",

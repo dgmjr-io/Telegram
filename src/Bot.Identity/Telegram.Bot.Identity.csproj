@@ -1,0 +1,27 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <UserSecretsId>3c222328-0ad6-44b0-9f6e-effab4bba7ae</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Dgmjr.AzureAdB2C.Identity" />
+    <PackageReference Include="Dgmjr.Graph" />
+    <PackageReference Include="Dgmjr.Identity.Claims" />
+    <PackageReference Include="Microsoft.Identity.Web.MicrosoftGraph" />
+    <PackageReference Include="Telegram.Bot" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="../Bot.Extensions/Telegram.Bot.Extensions.csproj" />
+    <ProjectReference Include="../Identity/Telegram.Identity.csproj" />
+  </ItemGroup>
+
+  <Import Project="../Bot.Extensions/Telegram.Bot.Extensions.props" />
+
+</Project>

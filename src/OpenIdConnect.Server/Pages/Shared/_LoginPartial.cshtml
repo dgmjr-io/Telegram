@@ -1,0 +1,59 @@
+@namespace Telegram.OpenIdConnect.Pages.Shared
+@using Telegram.OpenIdConnect.Extensions
+@using Telegram.OpenIdConnect.Constants
+@using Telegram.OpenIdConnect.Enums
+@using Dgmjr.AspNetCore.TagHelpers.Extensions
+@model Telegram.OpenIdConnect.Pages.TelegramPageModelBase
+<!-- Begin /Pages/Shared/_LoginPartial.cshtml -->
+
+  <form method="get" class="needs-validation" action="/connect/authorize">
+      <div class="row align-items-center">
+          <div class="col-md-4">
+              <div class="form-floating mb-3">
+                <select id="client_id" name="client_id" class="form-control" placeholder="Select the response type" aria-label="Response Type">
+                  @foreach(var client in Model.Request.GetClients())
+                  {
+                    <option value="@client.ClientId" selected="@client.ClientId.Equals(Context.Request.Query["client_id"])">@client.ClientId</option>
+                  }
+                </select>
+                <label for="client_id">Bot Username</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="password" id="ClientSecret" name="client_secret" class="form-control" placeholder="Type the client secret here" aria-label="Client Secret" value="@Context.Request.Query["client_secret"]" />
+                <label for="client_secret">Bot API Token</label>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="text" id="state" name="state" class="form-control" placeholder="An (optional) value to be returned with the authorization code" aria-label="State" value="@Context.Request.Query["state"]" />
+                <label for="state">State</label>
+              </div>
+              <div class="form-floating mb-3">
+                <select id="response_type" name="response_type" class="form-control" placeholder="Select the response type" aria-label="Response Type">
+                  <option value="code" selected="@("code".Equals(Context.Request.Query["response_type"]))">Code</option>
+                  <option value="token" selected="@("token".Equals(Context.Request.Query["response_type"]))">Token</option>
+                  <option value="id_token" selected="@("id_token".Equals(Context.Request.Query["response_type"]))">ID Token</option>
+                </select>
+                <label for="response_type">Response Type</label>
+              </div>
+              <div class="input-group mb-3">
+                <label for="scope" class="input-group-text">Scopes</label>
+                <select class="form-floating" list="ScopesOptions" id="scope" list="scope" name="scope" placeholder="Select the scopes to Context.Request. aria-label="Scope" multiple>
+                  <option value="@StandardScope.OpenId.GetDescription()" selected="@Context.Request.Query["scope"].Contains(StandardScope.OpenId.GetDescription())">@StandardScope.OpenId.GetName()</option>
+                  <option value="@StandardScope.Profile.GetDescription()" selected="@Context.Request.Query["scope"].Contains(StandardScope.Profile.GetDescription())">@StandardScope.Profile.GetName()</option>
+                  <option value="@StandardScope.Email.GetDescription()" selected="@Context.Request.Query["scope"].Contains(StandardScope.Email.GetDescription())">@StandardScope.Email.GetName()</option>
+                  <option value="@StandardScope.Address.GetDescription()" selected="@Context.Request.Query["scope"].Contains(StandardScope.Address.GetDescription())">@StandardScope.Address.GetName()</option>
+                  <option value="@StandardScope.Phone.GetDescription()" selected="@Context.Request.Query["scope"].Contains(StandardScope.Phone.GetDescription())">@StandardScope.Phone.GetName()</option>
+                  <option value="@StandardScope.OfflineAccess.GetDescription()" selected="@Context.Request.Query["scope"].Contains(StandardScope.OfflineAccess.GetDescription())">@StandardScope.OfflineAccess.GetName()</option>
+                  <option value="@StandardScope.App.GetDescription()" selected="@Context.Request.Query["scope"].Contains(StandardScope.App.GetDescription())">The Application Itself</option>
+                </select>
+              </div>
+              <div class="form-floating mb-3">
+                <input type="url" id="redirect_uri" name="redirect_uri" class="form-control" placeholder="The URI to which the token will be sent and the user redirected" aria-label="Redirect URI" value="@Context.Request.Query["redirect_uri"]" />
+                <label for="redirect_uri">Redirect URI</label>
+              </div>
+              <div class="form-group mb-3">
+                <button type="submit" class="btn btn-primary">Log in</button>
+              </div>
+          </div>
+      </div>
+  </form>
+<!-- End /Pages/Shared/_LoginPartial.cshtml -->

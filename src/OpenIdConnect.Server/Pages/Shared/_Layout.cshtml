@@ -13,6 +13,7 @@
 @using Telegram.OpenIdConnect.Extensions
 @model Telegram.OpenIdConnect.Pages.TelegramPageModelBase
 <!-- This page uses Razor pages -->
+<!-- Begin /Pages/Shared/_LayoutPartial.cshtml -->
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="@Context.Request.GetClient().Theme.ToString().ToLower()">
 @{await Html.RenderPartialAsync("_HeadPartial");}
@@ -32,3 +33,4 @@
     @{await RenderSectionAsync("Scripts", required: false);}
 </body>
 </html>
+<!-- End /Pages/Shared/_LayoutPartial.cshtml -->

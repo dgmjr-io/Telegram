@@ -49,6 +49,7 @@ public class TelegramTokenService(
             $"{nameof(TelegramTokenService)}.{nameof(CreateAccessTokenAsync)}"
         );
 
+        events.ValidatingTelegramTokenCreationRequest(request);
         request.Validate();
         var claims = new List<Claim>();
         var list = claims;

@@ -4,4 +4,10 @@
     <GeneratePackageOnBuild>true</GeneratePackageOnBuild>
     <IsNuGetized>true</IsNuGetized>
   </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="StackExchange.Redis" />
+    <PackageReference Include="TelegramBotBase" />
+    <PackageReference Include="Microsoft.Extensions.Options" />
+    <PackageReference Include="System.Text.Json" />
+  </ItemGroup>
 </Project>

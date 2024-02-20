@@ -321,4 +321,5 @@ public static partial class IdentityServerConstants
     public const string SHash = "s_hash";
     public const string Idp = "idp";
     public const string UserId = nameof(UserId);
+    public const string RedirectUri = "redirect_uri";
 }

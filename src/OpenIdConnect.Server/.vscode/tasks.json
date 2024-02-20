@@ -29,6 +29,12 @@
     "label": "ngrok - Telegram OpenIdConnect",
     "problemMatcher": [ ],
     "type": "shell"
+  }, {
+    "args": [ "tunnel", "--label", "edge=edghts_2bvkJZvDkl2dJlO7zKOnYNFrgHd", "https://localhost:7003" ],
+    "command": "ngrok",
+    "label": "ngrok - Telegram OpenIdConnect (on oidc.telegram.technology domain)",
+    "problemMatcher": [ ],
+    "type": "shell"
   } ],
   "version": "2.0.0"
 }

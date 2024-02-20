@@ -1,7 +1,0 @@
-{
-  "$schema": "https://jsonschema.xyz/schemas/HttpLoggingOptions.schema",
-  "CombineLogs": true,
-  "LoggingFields": "All",
-  "RequestBodyLogLimit": -1,
-  "ResponseBodyLogLimit": -1
-}

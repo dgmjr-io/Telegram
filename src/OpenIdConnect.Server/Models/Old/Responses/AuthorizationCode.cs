@@ -1,6 +1,7 @@
 using System.Security.Claims;
 
 using OneOf;
+using ClaimsPrincipal = System.Security.Claims.ClaimsPrincipal;
 
 namespace Telegram.OpenIdConnect.Models.Responses;
 

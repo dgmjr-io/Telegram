@@ -7,6 +7,8 @@ using Microsoft.Extensions.Caching.Distributed;
 
 using Telegram.OpenIdConnect.Models.Responses;
 using Telegram.OpenIdConnect.Options;
+using ClaimsPrincipal = System.Security.Claims.ClaimsPrincipal;
+using ClaimsIdentity = System.Security.Claims.ClaimsIdentity;
 
 namespace Telegram.OpenIdConnect.Services.CodeService;
 

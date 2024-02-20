@@ -9,16 +9,18 @@ public class TelegramOpenIdConnectEvents(ILogger<TelegramOpenIdConnectEvents> lo
     public ILogger Logger => logger;
 
     public event TelegramOpenIdConnectEventHandler OnLogin;
-
     public event TelegramOpenIdConnectEventHandler OnLogout;
-
     public event TelegramOpenIdConnectEventHandler OnRedirectToTelegramLogin;
-
     public event TelegramOpenIdConnectEventHandler<TelegramOpenIdConnectEventArgs<TokenCreationRequest>> OnValidatingTelegramToken;
-
     public event TelegramOpenIdConnectEventHandler<TelegramOpenIdConnectEventArgs<Token>> OnTelegramTokenValidated;
-
     public event TelegramOpenIdConnectEventHandler OnClearingBotId;
+    public event TelegramOpenIdConnectEventHandler OnValidatingTelegramTokenCreationRequest;
+
+    internal async Task ValidatingTelegramTokenCreationRequest(TokenCreationRequest e)
+    {
+        Logger.ValidatingTelegramTokenCreationRequest(e);
+        await (OnValidatingTelegramTokenCreationRequest?.Invoke(this, new TelegramOpenIdConnectEventArgs<TokenCreationRequest>(e)) ?? Task.CompletedTask);
+    }
 
     internal async Task ClearingBotId(TelegramOpenIdConnectEventArgs e)
     {

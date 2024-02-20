@@ -13,6 +13,7 @@
 @using Telegram.OpenIdConnect.Extensions
 @model Telegram.OpenIdConnect.Options.TelegramOpenIdConnectServerOptions
 <!-- This page uses MVC Views -->
+<!-- Begin /Views/Shared/_Layoutartial.cshtml -->
 <!DOCTYPE html>
 <html lang="en" data-bs-theme="@Context.Request.GetClient().Theme.ToString().ToLower()">
 @{await Html.RenderPartialAsync("_HeadPartial");}
@@ -32,3 +33,4 @@
     @{await RenderSectionAsync("Scripts", required: false);}
 </body>
 </html>
+<!-- End /Views/Shared/_Layoutartial.cshtml -->

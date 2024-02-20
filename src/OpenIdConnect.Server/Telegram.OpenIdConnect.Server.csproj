@@ -61,4 +61,8 @@
     <Using Include="System.Byte" Alias="Byte" />
   </ItemGroup>
 
+  <ItemGroup>
+    <Compile Remove="./Controllers/*.cs" />
+  </ItemGroup>
+
 </Project>

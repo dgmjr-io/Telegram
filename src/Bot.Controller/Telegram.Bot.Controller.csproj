@@ -1,0 +1,17 @@
+<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+   <TargetFrameworks>net6.0;net8.0</TargetFrameworks>
+  </PropertyGroup>
+  <ItemGroup>
+    <FrameworkReference Include="Microsoft.AspNetCore.App" />
+  </ItemGroup>
+  <ItemGroup>
+    <PackageReference Include="Dgmjr.AspNetCore.Mvc" />
+    <PackageReference Include="Dgmjr.Mime" />
+    <PackageReference Include="Telegram.Bot" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="../Bot.Extensions/Telegram.Bot.Extensions.csproj" />
+  </ItemGroup>
+  <Import Project="../Bot.Extensions/Telegram.Bot.Extensions.props" />
+</Project>

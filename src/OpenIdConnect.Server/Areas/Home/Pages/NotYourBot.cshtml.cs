@@ -5,6 +5,6 @@ public class NotYourBotPageModel : TelegramPageModelBase
 {
     public void OnGet()
     {
-        HttpContext.ClearClientId();
+        // HttpContext.ClearClientId();
     }
 }

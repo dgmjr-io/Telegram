@@ -12,6 +12,7 @@
 @namespace Telegram.OpenIdConnect.Pages.Shared
 @using Telegram.OpenIdConnect.Extensions
 @model Telegram.OpenIdConnect.Options.TelegramOpenIdConnectServerOptions
+<!-- Begin /Views/Shared/_ScriptsPartial.cshtml -->
 
 <script src="@(Context.Request.GetClient().CdnUriBase)npm/bootstrap/dist/js/bootstrap.bundle.min.js" crossorigin="anonymous" asp-append-version="true"></script>
 <script src="@(Context.Request.GetClient().CdnUriBase)npm/jquery/dist/jquery.min.js" crossorigin="anonymous" asp-append-version="true"></script>
@@ -25,3 +26,4 @@
 <environment name="Production">
     <script src="@(Model.CdnUriBase)js/bundle.js" crossorigin="anonymous" asp-append-version="true"></script>
 </environment> *@
+<!-- End /Views/Shared/_ScriptsPartial.cshtml -->

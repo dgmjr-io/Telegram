@@ -6,7 +6,7 @@ using Duende.IdentityServer.Validation;
 
 using Telegram.OpenIdConnect.Constants;
 using Telegram.OpenIdConnect.Extensions;
-using Telegram.OpenIdConnect.Controllers;
+// using Telegram.OpenIdConnect.Controllers;
 using Duende.IdentityServer;
 using Duende.IdentityServer.Configuration;
 using Duende.IdentityServer.Services;
@@ -50,7 +50,7 @@ public class TelegramAuthorizeInteractionResponseGenerator(
         }
     }
 
-    private string TelegramLoginUri => linkGenerator.GetUriByPage(HttpContext, "/Connect/Login")!; //.GetActionUri<OidcController>(HttpContext, nameof(OidcController.Login))!;
+    private string TelegramLoginUri => linkGenerator.GetUriByPage(HttpContext, "/connect/login") + "?" + Join("&", HttpContext.Request.Query.Keys.Select(k => HttpContext.Request.Query[k]))!; //.GetActionUri<OidcController>(HttpContext, nameof(OidcController.Login))!;
 
     private bool ShouldRedirectToTelegramLoginPage() =>
         IsNullOrEmpty(Request.Query[DataCheckKeys.AuthHash]);

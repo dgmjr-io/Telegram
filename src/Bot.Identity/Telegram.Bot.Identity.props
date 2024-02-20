@@ -1,0 +1,16 @@
+<Project>
+
+  <ItemGroup>
+    <Using Include="Microsoft.Extensions.Options" />
+    <Using Include="Microsoft.AspNetCore.Authentication" />
+    <Using Include="Microsoft.AspNetCore.Http" />
+    <Using Include="Microsoft.Extensions.Logging" />
+    <Using Include="Microsoft.AspNetCore.Routing" />
+    <Using Include="Microsoft.AspNetCore.Mvc.Abstractions" />
+    <Using Include="Microsoft.AspNetCore.Mvc.Infrastructure" />
+  </ItemGroup>
+
+  <!-- <Import Project="../Bot.Extensions/Telegram.Bot.Extensions.props" />
+  <Import Project="../Identity/Telegram.Identity.props" /> -->
+
+</Project>

@@ -10,15 +10,15 @@ using WebApplication = Microsoft.AspNetCore.Builder.WebApplication;
 
 var builder = WebApplication.CreateBuilder(args);
 builder.AutoConfigure<Program>();
-builder.Services.AddTransient(
-    provider => provider.GetRequiredService<IHttpContextAccessor>().HttpContext.Session
-);
-builder.Services.AddRazorPages();
-builder.Services.AddRazorComponents();
-builder.Services.AddControllersWithViews();
+// builder.Services.AddTransient(
+//     provider => provider.GetRequiredService<IHttpContextAccessor>().HttpContext.Session
+// );
+// builder.Services.AddRazorPages();
+// builder.Services.AddRazorComponents();
+// builder.Services.AddControllersWithViews();
 
 var app = builder.Build();
 app.AutoConfigure();
-app.UseCors(builder => builder.AllowAnyMethod().AllowAnyHeader().AllowCredentials());
-app.UseMiddleware<ClientSessionMiddleware>();
+// app.UseCors(builder => builder.AllowAnyMethod().AllowAnyHeader().AllowCredentials());
+// app.UseMiddleware<ClientSessionMiddleware>();
 app.Run();

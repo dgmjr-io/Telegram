@@ -11,6 +11,7 @@
 *@
 @namespace Telegram.OpenIdConnect.Pages.Shared
 @model Telegram.OpenIdConnect.Pages.TelegramPageModelBase
+<!-- Begin /Pages/Shared/_NavbarPartial.cshtml -->
 
 <navbar position="StickyTop" theme="dark" brand-image="@Model.Client.LogoUri" brand-name="@Model.Client.BotName" brand-href="/" color="Primary" class="center">
     <navbar-nav>
@@ -27,3 +28,4 @@
       <a asp-authz="false" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn"><i class="fas fa-sign-in"></i> Admin Login</a>
     </navbar-nav-right>
 </navbar>
+<!-- End /Pages/Shared/_NavbarPartial.cshtml -->

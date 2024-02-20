@@ -12,6 +12,7 @@
 @namespace Telegram.OpenIdConnect.Pages.Shared
 @using Telegram.OpenIdConnect.Extensions
 @model Telegram.OpenIdConnect.Options.TelegramOpenIdConnectServerOptions
+<!-- Begin /Views/Shared/_NavbarPartial.cshtml -->
 
 <navbar position="StickyTop" theme="dark" brand-image="@Context.Request.GetClient().LogoUri" brand-name="@Context.Request.GetClient().LogoTitle" brand-href="/home" background="Dark">
     <navbar-nav>
@@ -27,3 +28,4 @@
       <a asp-authz="false" asp-area="MicrosoftIdentity" asp-controller="Account" asp-action="SignIn"><i class="fas fa-sign-in-alt"></i> Login</a>
     </navbar-nav-right>
 </navbar>
+<!-- End /Views/Shared/_NavbarPartial.cshtml -->

@@ -305,3 +305,35 @@ public record class UserUri : ClaimType, IClaimType<DgmjrCvt.AnyUri>
     /// <value><inheritdoc cref="ShortUriString" /></value>
     public override uri ShortUri => ShortUriString;
 }
+
+/// <summary>The URI for a user's preferred language.</summary>
+/// <value><inheritdoc cref="UriString" path="/value" /></value>
+public record class Language : ClaimType, IClaimType<DgmjrCvt.AnyUri>
+{
+    public static readonly IClaimType Instance = new Language();
+
+    public override uri? ClaimValueTypeUri => DgmjrCvt.Integer64.UriString;
+
+    private Language() { }
+
+    /// <value><inheritdoc cref="TelegramIdentityBaseUri" path="/value" />/<inheritdoc cref="Name" path="/value" /></value>
+    public new const string UriString =  TelegramIdentityBaseUri + "/" + Name;
+
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    public const string ShortUriString = UriString;
+
+    /// <value>language</value>
+    public const string Name = "language";
+
+    /// <value><inheritdoc cref="Name" path="/value" /></value>
+    string IHaveAName.Name => Name;
+
+    /// <value><inheritdoc cref="UriString" path="/value" /></value>
+    string IHaveAUriString.UriString => UriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    string IIdentityComponent.ShortUriString => ShortUriString;
+
+    /// <value><inheritdoc cref="ShortUriString" /></value>
+    public override uri ShortUri => ShortUriString;
+}

@@ -5,5 +5,6 @@ public enum PersistTo
 {
     Memory = 0,
     File = 1,
-    Database = 2
+    Database = 2,
+    Redis = 3
 }

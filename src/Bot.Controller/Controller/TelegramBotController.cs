@@ -17,6 +17,8 @@ public abstract class TelegramBotController(IServiceProvider services)
         ITelegramBotController,
         ITelegramBotClient
 {
+    /// <summary>The MIME type for a Telegram Bot update.</summary>
+    /// <value><inheritdoc cref="MediaType.Application.DisplayName" path="/value" />/telegram-bot-update<inheritdoc cref="Suffixes.Json.DisplayName" path="/value" /></value>
     public const string TelegramBotUpdateMimeType =
         $"{MediaType.Application.DisplayName}/telegram-bot-update{Suffixes.Json.DisplayName}";
 
@@ -76,8 +78,10 @@ public abstract class TelegramBotController(IServiceProvider services)
     }
     #endregion
 
+    /// <summary>Processes an update from the Telegram bot server</summary>
+    /// <param name="update">The <see cref="Update" /></param>
     [HttpPost]
-    [Consumes(Application.Json.DisplayName)]
+    [Consumes(TelegramBotUpdateMimeType)]
     [ProducesOKResponse<IActionResult>]
     public async Task<IActionResult> PostUpdateAsync(Update update)
     {
@@ -101,8 +105,6 @@ public abstract class TelegramBotController(IServiceProvider services)
         Logger.LogError(ex, ex.Message);
     }
 
-    [HttpPost]
-    [Consumes(Application.Json.DisplayName)]
     protected abstract Task HandleUpdateAsync(Update update);
 
     protected virtual Task ExecuteBotCommandAsync(Update update, string botCommand, string[] args)

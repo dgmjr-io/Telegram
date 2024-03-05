@@ -2,7 +2,7 @@
 
   <PropertyGroup>
     <TargetFrameworks>net8.0</TargetFrameworks>
-    <UserSecretsId>3c222328-0ad6-44b0-9f6e-effab4bba7ae</UserSecretsId>
+    <UserSecretsId>Telegram.Bot.Identity</UserSecretsId>
   </PropertyGroup>
 
   <ItemGroup>

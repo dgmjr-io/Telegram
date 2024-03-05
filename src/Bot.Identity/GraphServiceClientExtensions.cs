@@ -9,12 +9,12 @@ public static class GraphServiceClientExtensions
     {
         var properties = await directoryObjectsService.GetExtensionPropertiesAsync();
 
-        return Array.Find(properties, p => p.Name.EndsWith(ExtensionProperties.TelegramId))?.Name;
+        return Find(properties, p => p.Name.EndsWith(ExtensionProperties.TelegramId))?.Name;
     }
     public static async Task<string?> GetTelegramUsernamePropertyAsync(this IDirectoryObjectsService directoryObjectsService)
     {
         var properties = await directoryObjectsService.GetExtensionPropertiesAsync();
 
-        return Array.Find(properties, p => p.Name.EndsWith(ExtensionProperties.TelegramUsername))?.Name;
+        return Find(properties, p => p.Name.EndsWith(ExtensionProperties.TelegramUsername))?.Name;
     }
 }

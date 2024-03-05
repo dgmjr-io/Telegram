@@ -20,7 +20,7 @@ public static class TelegramAuthenticationDefaults
     /// <summary>
     ///     Default value for the identity provider.
     /// </summary>
-    public const string IdentityProvider = "Telegram OIDC Connect";
+    public const string IdentityProvider = "oidc.telegram.technology";
 
     /// <summary>
     ///     Default value for <see cref="Microsoft.AspNetCore.Authentication.AuthenticationScheme.Name" />.

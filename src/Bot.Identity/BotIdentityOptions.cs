@@ -1,11 +1,12 @@
+namespace Telegram.Bot.Identity;
 using System;
 
 using Telegram.Bot.Types;
-using BotApiToken = Telegram.Bot.Types.BotApiToken;
-using Telegram.Bot.Configuration;
-namespace Telegram.Bot.Identity;
 
-public class BotIdentityOptions : Microsoft.AspNetCore.Authentication.AuthenticationSchemeOptions, IBotConfiguration
+using BotApiToken = Types.BotApiToken;
+using Telegram.Bot.Configuration;
+
+public class BotIdentityOptions : AuthenticationSchemeOptions, IBotConfiguration
 {
     public BotApiToken BotApiToken => BotApiToken.From(Token);
 

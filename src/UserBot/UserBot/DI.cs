@@ -1,10 +1,13 @@
 namespace Microsoft.Extensions.DependencyInjection;
+using Telegram.UserBot.Config;
+using Telegram.UserBot;
 
 public static class DI
 {
-    public static IServiceCollection AddUserBot(this IServiceCollection services)
+    public static IServiceCollection AddUserBot(this IServiceCollection services, Action<UserBotConfig> config)
     {
-        services.AddUserBotEfCoreStore("Data Source=userbot.db");
+        services.AddSingleton<IUserBot, UserBot>();
+        services.ConfigureAll<UserBotConfig>(config);
         return services;
     }
 }

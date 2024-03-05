@@ -8,18 +8,18 @@ public static partial class UserBotLoggerExtensions
     [LoggerMessage(
         EventId = 0,
         Level = LogLevel.Information,
-        Message = "New message from {user}: {message}"
+        Message = "New message from {User}: {Message}"
     )]
-    public static partial void LogNewMessageFromUser(
+    public static partial void NewMessageFromUser(
         this ILogger logger,
         User user,
-        string message
+        TL.Message message
     );
 
     [LoggerMessage(
         EventId = 1,
         Level = LogLevel.Information,
-        Message = "{me} logged in with phone number {phoneNumber}"
+        Message = "{Me} logged in with phone number {PhoneNumber}"
     )]
-    public static partial void LogLoggedIn(this ILogger logger, string phoneNumber, User me);
+    public static partial void LoggedIn(this ILogger logger, string phoneNumber, User me);
 }

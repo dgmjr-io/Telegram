@@ -16,7 +16,7 @@ internal class DbUserBotStore : Stream, IUserBotStore
 
     public Stream GetStream() => this;
 
-    public DbUserBotStore(UserBotDbContext dbContext, string sessionName = null)
+    public DbUserBotStore(UserBotDbContext dbContext, string? sessionName = default)
     {
         _dbContext = dbContext ?? throw new ArgumentNullException(nameof(dbContext));
         _sessionName = sessionName ?? "DefaultSession";

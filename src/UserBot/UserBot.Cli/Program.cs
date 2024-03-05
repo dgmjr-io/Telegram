@@ -1,6 +1,12 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿using Microsoft.Extensions.DependencyInjection;
+using Microsoft.Extensions.Hosting;
+using Microsoft.Extensions.Logging;
 
-var Services = new ServiceCollection();
-Services.AddLogging(builder => builder.AddConsole());
-Services.AddUserBot();
+var builder = Host.CreateApplicationBuilder(args);
+
+builder.Services.AddLogging(builder => builder.AddConsole());
+builder.Services.AddUserBot(_ => {});
+
+var app = builder.Build();
+await app.StartAsync();
+var bot = app.

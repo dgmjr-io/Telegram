@@ -2,7 +2,6 @@
   <ItemGroup>
     <PackageReference Include="Dgmjr.EntityFrameworkCore.Abstractions" />
     <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas" />
-    <PackageReference Include="Dgmjr.EntityFrameworkCore.Entities" />
     <PackageReference Include="Dgmjr.EntityFrameworkCore.Models" />
     <PackageReference Include="Dgmjr.InterfaceGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
   </ItemGroup>

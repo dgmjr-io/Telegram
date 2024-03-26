@@ -11,6 +11,7 @@
     <ProjectGuid>0b6d23c8-68fa-4002-83b9-5629e385b225</ProjectGuid>
   </PropertyGroup>
 
+  <PropertyGroup Condition=" '$(RunConfiguration)' == 'OpenIdConnect' " />
   <ItemGroup>
     <PackageReference Include="Dgmjr.AspNetCore.Http.Services" ExcludeAssets="ContentFiles" />
     <PackageReference Include="Dgmjr.AspNetCore.Mvc" ExcludeAssets="ContentFiles" />
@@ -63,6 +64,7 @@
 
   <ItemGroup>
     <Compile Remove="./Controllers/*.cs" />
+    <Compile Remove="./app/**/*.*" />
   </ItemGroup>
 
 </Project>

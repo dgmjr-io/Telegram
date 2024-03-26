@@ -2,8 +2,9 @@ namespace Telegram.Bot.Identity;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Dgmjr.AzureAdB2C.Identity;
 using BotApiToken = Types.BotApiToken;
+using Microsoft.EntityFrameworkCore.Abstractions;
 
-public class TelegramB2CDbContext<TUser>(DbContextOptions options) : AzureAdB2CDbContext<TUser>(options)
+public class TelegramB2CDbContext<TUser>(DbContextOptions options) : AzureAdB2CDbContext<TUser>(options), IDbContext<TelegramB2CDbContext<TUser>>
     where TUser : TelegramB2CUser
 {
     protected override void OnModelCreating(ModelBuilder builder)

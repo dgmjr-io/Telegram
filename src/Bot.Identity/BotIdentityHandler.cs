@@ -25,16 +25,21 @@ using Dgmjr.AzureAdB2C.Identity;
 
 using Uris = Constants.Uris;
 using Telegram.Bot.Types.Enums;
+using Microsoft.EntityFrameworkCore.Abstractions;
 
-public class BotIdentityHandler(IOptionsMonitor<BotIdentityOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock, GraphServiceClient graph, Dgmjr.Graph.Abstractions.IDirectoryObjectsService directoryObjectsService, Dgmjr.Graph.Abstractions.IUsersService usersService, TelegramB2CDbContext<TelegramB2CUser> db)  : AuthenticationHandler<BotIdentityOptions>(options, logger, encoder, clock)
+public class BotIdentityHandler(IOptionsMonitor<BotIdentityOptions> options, ILoggerFactory logger, UrlEncoder encoder, ISystemClock clock)  : AuthenticationHandler<BotIdentityOptions>(options, logger, encoder, clock), IHaveADbContext<TelegramB2CDbContext<TelegramB2CUser>>, IHaveAGraphClient
 {
     private IActionContextAccessor ActionContextAccessor => Request.HttpContext.RequestServices.GetRequiredService<IActionContextAccessor>();
+    public GraphServiceClient Graph => Request.HttpContext.RequestServices.GetRequiredService<GraphServiceClient>();
     private IUrlHelperFactory UrlHelperFactory => Request.HttpContext.RequestServices.GetRequiredService<IUrlHelperFactory>();
+    private IUsersService UsersService => Request.HttpContext.RequestServices.GetRequiredService<IUsersService>();
+    public TelegramB2CDbContext<TelegramB2CUser> Db => Request.HttpContext.RequestServices.GetRequiredService<TelegramB2CDbContext<TelegramB2CUser>>();
+    private IDirectoryObjectsService DirectoryObjectsService => Request.HttpContext.RequestServices.GetRequiredService<IDirectoryObjectsService>();
     private IUrlHelper UrlHelper => UrlHelperFactory.GetUrlHelper(ActionContextAccessor.ActionContext);
     private DGraphExtensionProperty TelegramIdProperty => new(TelegramIdPropertyName);
-    private string TelegramIdPropertyName => Format(DGraphExtensionProperty.FormatString, directoryObjectsService.ExtensionsAppClientId.ToString("N"), Constants.ExtensionProperties.TelegramId);
+    private string TelegramIdPropertyName => Format(DGraphExtensionProperty.FormatString, DirectoryObjectsService.ExtensionsAppClientId.ToString("N"), Constants.ExtensionProperties.TelegramId);
     private DGraphExtensionProperty TelegramUsernameProperty => new (TelegramUsernamePropertyName);
-    private string TelegramUsernamePropertyName => Format(DGraphExtensionProperty.FormatString, directoryObjectsService.ExtensionsAppClientId.ToString("N"), Constants.ExtensionProperties.TelegramUsername);
+    private string TelegramUsernamePropertyName => Format(DGraphExtensionProperty.FormatString, DirectoryObjectsService.ExtensionsAppClientId.ToString("N"), Constants.ExtensionProperties.TelegramUsername);
     protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
     {
         if(Request.Path != "/" + Options.Route)
@@ -51,7 +56,7 @@ public class BotIdentityHandler(IOptionsMonitor<BotIdentityOptions> options, ILo
             return await Task.FromResult(AuthenticateResult.NoResult());
         }
         var telegramUser = (update.Message ?? update.EditedMessage ?? update.ChannelPost ?? update.EditedChannelPost).From;
-        var b2cUser = await db.Users.FirstOrDefaultAsync(u => u.TelegramId == telegramUser.Id);
+        var b2cUser = await Db.Users.FirstOrDefaultAsync(u => u.TelegramId == telegramUser.Id);
         List<Claim> claims =
         [
             new(Ct.Name, telegramUser.Username ?? telegramUser.Id.ToString()),
@@ -67,7 +72,7 @@ public class BotIdentityHandler(IOptionsMonitor<BotIdentityOptions> options, ILo
             new(Username.Name, telegramUser.Username ?? telegramUser.Id.ToString()),
             new(Username.UriString, telegramUser.Username ?? telegramUser.Id.ToString())
         ];
-        var graphUser = (await graph.Users.Request().Filter($"{TelegramIdPropertyName} eq '{telegramUser.Id}'").GetAsync()).FirstOrDefault();
+        var graphUser = (await Graph.Users.Request().Filter($"{TelegramIdPropertyName} eq '{telegramUser.Id}'").GetAsync()).FirstOrDefault();
         if(graphUser is null)
         {
             graphUser = new User
@@ -96,7 +101,7 @@ public class BotIdentityHandler(IOptionsMonitor<BotIdentityOptions> options, ILo
                     Password = guid.NewGuid().ToString("N") + "!"
                 }
             };
-            await graph.Users.Request().AddAsync(graphUser);
+            await Graph.Users.Request().AddAsync(graphUser);
         }
         if(b2cUser is null)
         {
@@ -106,8 +111,8 @@ public class BotIdentityHandler(IOptionsMonitor<BotIdentityOptions> options, ILo
                 TelegramId = telegramUser.Id,
                 TelegramUsername = telegramUser.Username
             };
-            await db.Users.AddAsync(b2cUser);
-            await db.SaveChangesAsync();
+            await Db.Users.AddAsync(b2cUser);
+            await Db.SaveChangesAsync();
         }
         claims.Add(new(Ct.Upn, graphUser.UserPrincipalName));
         claims.Add(new(Ct.NameIdentifier, graphUser.Id));

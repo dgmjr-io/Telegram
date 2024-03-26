@@ -36,6 +36,7 @@ public class WebhookRegistrar : IHostedService
         await botClient.SetWebhookAsync(
             url: webhookAddress,
             allowedUpdates: Empty<UpdateType>(),
+            dropPendingUpdates: true,
             secretToken: _botConfig.SecretToken,
             cancellationToken: cancellationToken
         );

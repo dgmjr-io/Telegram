@@ -6,6 +6,7 @@ using Microsoft.EntityFrameworkCore.Metadata.Builders;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Migrations;
 using ObjectId = System.ObjectId;
+using System.Data;
 
 public static class BotApiTokenEfCoreExtensions
 {
@@ -67,7 +68,8 @@ public static class BotApiTokenEfCoreExtensions
             new CreateFunctionOperation(
                 schema,
                 functionName,
-                "@value varchar(255)",
+                [new SqlArgument("@value", "varchar(255)")],
+                Bit.ShortName,
                 typeof(Constants).Assembly.ReadAssemblyResourceAllText(
                     ufn_ + IsValidBotToken + _sql
                 )

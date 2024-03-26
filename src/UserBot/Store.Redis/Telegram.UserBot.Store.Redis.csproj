@@ -1,9 +1,6 @@
 <Project Sdk="Microsoft.NET.Sdk">
   <ItemGroup>
-    <PackageReference Include="Dgmjr.EntityFrameworkCore.Abstractions" />
-    <PackageReference Include="Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas" />
-    <PackageReference Include="Dgmjr.EntityFrameworkCore.Models" />
-    <PackageReference Include="Dgmjr.InterfaceGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
+    <PackageReference Include="Dgmjr.Redis.Extensions" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../Models/Telegram.UserBot.Models.csproj" />

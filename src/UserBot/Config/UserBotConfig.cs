@@ -4,6 +4,8 @@ namespace Telegram.UserBot.Config;
 
 using Telegram.UserBot.Store.Abstractions;
 using Telegram.UserBot.Store;
+using Telegram.UserBot.Store.EntityFrameworkCore;
+using Telegram.UserBot.Store.Redis;
 using static Environment;
 using Microsoft.EntityFrameworkCore;
 
@@ -17,7 +19,10 @@ public class UserBotConfig
     public const string password = nameof(password);
     public const string persist_to = nameof(persist_to);
     public const string db_connection_string = nameof(db_connection_string);
+    public const string redis_connection_string = nameof(redis_connection_string);
     public const string session_pathname = nameof(session_pathname);
+    public const string session_key = nameof(session_key);
+    public const string server_address = nameof(server_address);
 
     public virtual string Prompt(string variable)
     {
@@ -57,6 +62,9 @@ public class UserBotConfig
                     ),
                     SessionPathname
                 ),
+            PersistTo.Redis => new RedisUserBotStore(
+                new RedisUserBotOptions { Key = SessionKey, ConnectionString = RedisConnectionString }
+            ),
             _ => null,
         };
     }
@@ -91,4 +99,13 @@ public class UserBotConfig
 
     [JProp(session_pathname)]
     public string SessionPathname { get; set; } = GetEnvironmentVariable(session_pathname);
+
+    [JProp(redis_connection_string)]
+    public string RedisConnectionString { get; set; } = GetEnvironmentVariable(redis_connection_string);
+
+    [JProp(session_key)]
+    public string SessionKey { get; set; } = GetEnvironmentVariable(session_key);
+
+    [JProp(server_address)]
+    public string ServerAddress { get; set; } = GetEnvironmentVariable(server_address);
 }

@@ -98,19 +98,6 @@
           }
         }
       },
-      "Azure.Data.AppConfiguration/1.3.0-beta.2": {
-        "dependencies": {
-          "Azure.Core": "1.36.0",
-          "Microsoft.Bcl.AsyncInterfaces": "1.1.1",
-          "System.Text.Json": "8.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Azure.Data.AppConfiguration.dll": {
-            "assemblyVersion": "1.3.0.0",
-            "fileVersion": "1.300.23.36103"
-          }
-        }
-      },
       "Azure.Identity/1.10.4": {
         "dependencies": {
           "Azure.Core": "1.36.0",
@@ -125,19 +112,6 @@
           "lib/netstandard2.0/Azure.Identity.dll": {
             "assemblyVersion": "1.10.4.0",
             "fileVersion": "1.1000.423.56303"
-          }
-        }
-      },
-      "Azure.Messaging.EventGrid/4.7.0": {
-        "dependencies": {
-          "Azure.Core": "1.36.0",
-          "System.Memory.Data": "1.0.2",
-          "System.Text.Json": "8.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Azure.Messaging.EventGrid.dll": {
-            "assemblyVersion": "4.7.0.0",
-            "fileVersion": "4.700.21.50703"
           }
         }
       },
@@ -234,10 +208,7 @@
           "Dgmjr.ComponentModel": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
           "Microsoft.Extensions.Logging.Abstractions": "8.0.0",
-          "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
           "lib/netstandard2.0/Dgmjr.Abstractions.dll": {
@@ -248,18 +219,17 @@
       },
       "Dgmjr.AspNetCore.Formatters/0.0.1-Local": {
         "dependencies": {
+          "Dgmjr.AspNetCore.Mvc.Polyfills": "0.0.1-Local",
           "Dgmjr.Http": "0.0.1-Local",
+          "Dgmjr.Http.Extensions": "0.0.1-Local",
+          "Dgmjr.Http.Headers": "0.0.1-Local",
+          "Dgmjr.Http.StatusCodes": "0.0.1-Local",
           "Dgmjr.Mime": "0.0.1-Local",
           "Dgmjr.Payloads": "0.0.1-Local",
           "MessagePack.AspNetCoreMvcFormatter": "2.5.140",
           "Microsoft.AspNetCore.Mvc.Abstractions": "2.2.0",
           "Newtonsoft.Json.Bson": "1.0.2",
-          "System.Collections.Immutable": "8.0.0",
-          "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Json.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Text.Json.Usings": "0.0.1-Local"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.AspNetCore.Formatters.dll": {
@@ -286,6 +256,7 @@
       "Dgmjr.AspNetCore.Http.Services/0.0.1-Local": {
         "dependencies": {
           "Dgmjr.Configuration.Extensions": "0.0.1-Local",
+          "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.Mime": "0.0.1-Local",
           "Microsoft.AspNetCore.OpenApi": "8.0.0",
           "Microsoft.AspNetCore.OutputCaching.StackExchangeRedis": "8.0.1",
@@ -293,10 +264,8 @@
           "Microsoft.Extensions.Configuration.Binder": "8.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
@@ -309,12 +278,8 @@
           "MimeKit": "4.3.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Drawing.Common": "7.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Drawing.Common": "7.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.AspNetCore.Http.Services.dll": {
@@ -331,10 +296,8 @@
           "Microsoft.AspNetCore.Components": "8.0.1",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
@@ -343,13 +306,8 @@
           "Microsoft.Identity.Web.UI": "2.16.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
-          "System.Collections.Immutable": "8.0.0",
-          "System.ComponentModel.Annotations": "5.0.0",
           "System.Net.Http.Json": "7.0.0",
-          "System.Text.Json": "8.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Text.Json": "8.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.AspNetCore.Mvc.dll": {
@@ -383,8 +341,13 @@
       },
       "Dgmjr.AspNetCore.Swagger/0.0.1-Local": {
         "dependencies": {
+          "Dgmjr.AspNetCore.Mvc.Polyfills": "0.0.1-Local",
           "Dgmjr.Caching.Extensions": "0.0.1-Local",
           "Dgmjr.Configuration.Extensions": "0.0.1-Local",
+          "Dgmjr.Http": "0.0.1-Local",
+          "Dgmjr.Http.Extensions": "0.0.1-Local",
+          "Dgmjr.Http.Headers": "0.0.1-Local",
+          "Dgmjr.Http.StatusCodes": "0.0.1-Local",
           "Dgmjr.Logging.Extensions": "0.0.1-Local",
           "Dgmjr.Mime": "0.0.1-Local",
           "Dgmjr.Payloads": "0.0.1-Local",
@@ -397,10 +360,8 @@
           "Microsoft.Extensions.Configuration.Binder": "8.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
@@ -411,7 +372,6 @@
           "Swashbuckle.AspNetCore.ReDoc": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerUI": "6.5.0",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Text.Usings": "0.0.1-Local",
           "System.Usings": "0.0.1-Local",
@@ -431,11 +391,7 @@
           "CommonMark.NET": "0.15.1",
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.ComponentModel": "0.0.1-Local",
-          "Dgmjr.Enumerations.CodeGenerator.Runtime": "0.0.1-Local",
-          "System.Collections.Immutable": "8.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "Dgmjr.Enumerations.CodeGenerator.Runtime": "0.0.1-Local"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.AspNetCore.TagHelpers.dll": {
@@ -448,6 +404,7 @@
         "dependencies": {
           "Dgmjr.AspNetCore.Mvc": "0.0.1-Local",
           "Dgmjr.Configuration.Extensions": "0.0.1-Local",
+          "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.Graph": "0.0.1-Local",
           "Dgmjr.Http.Headers": "0.0.1-Local",
           "Dgmjr.Mime": "0.0.1-Local",
@@ -455,10 +412,8 @@
           "Microsoft.AspNetCore.Authentication.OpenIdConnect": "8.0.0",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
@@ -469,12 +424,8 @@
           "Microsoft.Identity.Web.DownstreamApi": "2.16.0",
           "Microsoft.Identity.Web.MicrosoftGraph": "2.16.0",
           "Microsoft.Identity.Web.UI": "2.16.0",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Polyfills": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Polyfills": "0.0.1-Local"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.AzureAd.dll": {
@@ -512,23 +463,16 @@
           "Azure.Identity": "1.10.4",
           "Dgmjr.Hosting.Extensions": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
-          "Microsoft.Azure.AppConfiguration.AspNetCore": "7.0.0-preview.2",
           "Microsoft.Extensions.Configuration.All.Usings": "0.0.1-Local",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
           "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0",
-          "System.Collections.Immutable": "8.0.0",
           "System.Text.RegularExpressions.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
           "Workleap.Extensions.Configuration.Substitution": "1.1.2"
         },
         "runtime": {
@@ -542,17 +486,14 @@
         "dependencies": {
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.Security.Constants": "0.0.1-Local",
+          "Humanizer.Core": "2.14.1",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
           "Microsoft.EntityFrameworkCore.Usings": "0.0.1-Local",
           "System.Collections.Generic.Usings": "0.0.1-Local",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Json": "8.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Text.Json": "8.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.EntityFrameworkCore.Abstractions.dll": {
@@ -566,6 +507,7 @@
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.ComponentModel": "0.0.1-Local",
           "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
+          "Humanizer.Core": "2.14.1",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.ComponentModel.Usings": "0.0.1-Local"
         },
@@ -579,7 +521,8 @@
       "Dgmjr.EntityFrameworkCore.Constants.All/0.0.1-Local": {
         "dependencies": {
           "Dgmjr.EntityFrameworkCore.Constants": "0.0.1-Local",
-          "Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas": "0.0.1-Local"
+          "Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas": "0.0.1-Local",
+          "Humanizer.Core": "2.14.1"
         },
         "runtime": {
           "lib/netstandard2.0/Dgmjr.EntityFrameworkCore.Constants.All.dll": {
@@ -595,6 +538,8 @@
           "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.Enumerations.CodeGenerator": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
+          "Humanizer.Core": "2.14.1",
+          "NetTopologySuite": "2.5.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.ComponentModel.Usings": "0.0.1-Local"
         },
@@ -607,26 +552,41 @@
       },
       "Dgmjr.EntityFrameworkCore.Migrations/0.0.1-Local": {
         "dependencies": {
-          "Dgmjr.Abstractions": "0.0.1-Local",
+          "Dgmjr.EntityFrameworkCore.Abstractions": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Constants.All": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas": "0.0.1-Local",
-          "Dgmjr.System.Extensions": "0.0.1-Local",
+          "Dgmjr.EntityFrameworkCore.Models": "0.0.1-Local",
+          "Dgmjr.RegexDtoGenerator": "0.0.1-Local",
+          "Humanizer.Core": "2.14.1",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
           "Microsoft.EntityFrameworkCore.Usings": "0.0.1-Local",
-          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
-          "System.Collections.Immutable": "8.0.0",
-          "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Threading.Tasks.Extensions": "4.5.4",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
-          "libphonenumber-csharp": "8.13.24"
+          "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.EntityFrameworkCore.Migrations.dll": {
+            "assemblyVersion": "0.0.1.0",
+            "fileVersion": "0.0.1.0"
+          }
+        }
+      },
+      "Dgmjr.EntityFrameworkCore.Models/0.0.1-Local": {
+        "dependencies": {
+          "Dgmjr.EntityFrameworkCore.Abstractions": "0.0.1-Local",
+          "Dgmjr.System.Extensions": "0.0.1-Local",
+          "Humanizer.Core": "2.14.1",
+          "Microsoft.EntityFrameworkCore": "8.0.2",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
+          "Microsoft.EntityFrameworkCore.Usings": "0.0.1-Local",
+          "System.Collections.Generic.Usings": "0.0.1-Local",
+          "System.ComponentModel.Annotations": "5.0.0",
+          "System.ComponentModel.Usings": "0.0.1-Local",
+          "Vogen": "3.0.24"
+        },
+        "runtime": {
+          "lib/net8.0/Dgmjr.EntityFrameworkCore.Models.dll": {
             "assemblyVersion": "0.0.1.0",
             "fileVersion": "0.0.1.0"
           }
@@ -636,12 +596,8 @@
         "dependencies": {
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.ComponentModel": "0.0.1-Local",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Json.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Text.Json.Usings": "0.0.1-Local"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Enumerations.Abstractions.dll": {
@@ -686,13 +642,9 @@
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Security.Cryptography.Algorithms": "4.3.1",
-          "System.Text.Json": "8.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Usings": "0.0.1-Local"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Enumerations.Enumeration.dll": {
@@ -709,6 +661,7 @@
           "Dgmjr.AspNetCore.Mvc": "0.0.1-Local",
           "Dgmjr.Caching.Extensions": "0.0.1-Local",
           "Dgmjr.Configuration.Extensions": "0.0.1-Local",
+          "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.Logging.Extensions": "0.0.1-Local",
           "Dgmjr.Security.Extensions": "0.0.1-Local",
           "Dgmjr.Web.DownstreamApis": "0.0.1-Local",
@@ -719,10 +672,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.DependencyInjection": "8.0.0",
@@ -771,18 +722,12 @@
           "Dgmjr.Configuration.Extensions": "0.0.1-Local",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
-          "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0",
-          "System.Collections.Immutable": "8.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Http.CorrelationId.dll": {
@@ -816,10 +761,7 @@
           "Dgmjr.Enumerations.Enumeration": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.ComponentModel.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.ComponentModel.Usings": "0.0.1-Local"
         },
         "runtime": {
           "lib/netstandard2.0/Dgmjr.Http.Headers.dll": {
@@ -835,10 +777,7 @@
           "Dgmjr.Enumerations.CodeGenerator.Runtime": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Json.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Text.Json.Usings": "0.0.1-Local"
         },
         "runtime": {
           "lib/netstandard2.0/Dgmjr.Http.StatusCodes.dll": {
@@ -849,7 +788,6 @@
       },
       "Dgmjr.Identity.Abstractions/0.0.1-Local": {
         "dependencies": {
-          "AspNetCore.Hashids": "2.0.0-DgmjrMods",
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.AspNetCore.Hashids": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Abstractions": "0.0.1-Local",
@@ -866,25 +804,16 @@
           "Microsoft.EntityFrameworkCore.Abstractions": "8.0.2",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
-          "Microsoft.OpenApi": "1.6.9",
           "SendPulse.Identity": "0.0.1-Local",
-          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "System.Collections.Generic.Usings": "0.0.1-Local",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.ComponentModel.Usings": "0.0.1-Local",
           "System.Security.Claims": "4.3.0",
           "System.Security.Usings": "0.0.1-Local",
           "System.Text.Json": "8.0.0",
           "System.Text.Json.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Threading.Tasks.Extensions": "4.5.4",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
           "Telegram.Bot.Extensions": "0.0.1-Local",
-          "Telegram.Constants": "0.0.1-Local",
-          "libphonenumber-csharp": "8.13.24"
+          "Telegram.Constants": "0.0.1-Local"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Identity.Abstractions.dll": {
@@ -903,48 +832,40 @@
           "Dgmjr.Identity.Core": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Security.Claims": "4.3.0",
           "System.Security.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Usings": "0.0.1-Local"
         },
         "runtime": {
-          "lib/net8.0/Dgmjr.Identity.Claims.dll": {
+          "lib/netstandard2.0/Dgmjr.Identity.Claims.dll": {
             "assemblyVersion": "0.0.1.0",
             "fileVersion": "0.0.1.0"
           },
-          "lib/net8.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.CSharp.Workspaces.dll": {
             "assemblyVersion": "4.7.0.0",
             "fileVersion": "4.700.23.41609"
           },
-          "lib/net8.0/Microsoft.CodeAnalysis.dll": {
+          "lib/netstandard2.0/Microsoft.CodeAnalysis.dll": {
             "assemblyVersion": "4.7.0.0",
             "fileVersion": "4.700.23.41609"
           }
         },
         "resources": {
-          "lib/net8.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
+          "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.CSharp.Workspaces.resources.dll": {
             "locale": "cs"
           },
-          "lib/net8.0/cs/Microsoft.CodeAnalysis.resources.dll": {
+          "lib/netstandard2.0/cs/Microsoft.CodeAnalysis.resources.dll": {
             "locale": "cs"
           }
         }
       },
       "Dgmjr.Identity.ClaimTypes/0.0.1-Local": {
         "dependencies": {
-          "AnyOf": "0.3.0",
-          "AnyOf.System.Text.Json": "0.3.0",
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.Identity.ClaimValueTypes": "0.0.1-Local",
           "Dgmjr.Identity.Core": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
-          "Microsoft.EntityFrameworkCore": "8.0.2",
-          "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
-          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
           "Microsoft.IdentityModel.JsonWebTokens": "7.2.0",
           "Microsoft.IdentityModel.Protocols.OpenIdConnect": "7.2.0",
           "Microsoft.IdentityModel.Protocols.WsFederation": "7.2.0",
@@ -965,24 +886,17 @@
           "AnyOf.System.Text.Json": "0.3.0",
           "AnyOf.Usings": "0.0.1-Local",
           "Dgmjr.Abstractions": "0.0.1-Local",
+          "Dgmjr.Enumerations.CodeGenerator": "0.0.1-Local",
           "Dgmjr.Identity.Core": "0.0.1-Local",
           "Dgmjr.Primitives.All": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
-          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Net.Primitives": "4.3.1",
           "System.Security.Cryptography.Xml": "8.0.0",
-          "System.Security.Principal.Windows": "5.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Threading.Tasks.Extensions": "4.5.4",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
-          "libphonenumber-csharp": "8.13.24"
+          "System.Security.Principal.Windows": "5.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Identity.ClaimValueTypes.dll": {
@@ -993,19 +907,10 @@
       },
       "Dgmjr.Identity.Core/0.0.1-Local": {
         "dependencies": {
-          "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
-          "Dgmjr.System.Extensions": "0.0.1-Local",
-          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Security.Claims": "4.3.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Threading.Tasks.Extensions": "4.5.4",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
-          "libphonenumber-csharp": "8.13.24"
+          "System.Security.Claims": "4.3.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Identity.Core.dll": {
@@ -1028,13 +933,12 @@
           "Azure.Monitor.OpenTelemetry.AspNetCore": "1.0.0",
           "Dgmjr.AspNetCore.Formatters": "0.0.1-Local",
           "Dgmjr.Configuration.Extensions": "0.0.1-Local",
+          "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.Hosting": "8.0.0",
@@ -1056,11 +960,7 @@
           "Serilog.Sinks.File": "5.0.0",
           "Serilog.Sinks.MSSqlServer": "6.0.0",
           "Serilog.Sinks.OpenTelemetry": "1.2.0",
-          "System.Collections.Immutable": "8.0.0",
-          "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Logging.Extensions.dll": {
@@ -1078,15 +978,11 @@
           "Dgmjr.Primitives": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
           "MimeKit": "4.3.0",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.ComponentModel.Usings": "0.0.1-Local",
           "System.Polyfills": "0.0.1-Local",
           "System.Security.Cryptography.Algorithms": "4.3.1",
-          "System.Text.Json.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Text.Json.Usings": "0.0.1-Local"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Mime.dll": {
@@ -1100,18 +996,19 @@
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.AspNetCore.Mvc.Polyfills": "0.0.1-Local",
           "Dgmjr.ComponentModel": "0.0.1-Local",
+          "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.Enumerations.Enumeration": "0.0.1-Local",
           "Dgmjr.Http": "0.0.1-Local",
+          "Dgmjr.Http.Extensions": "0.0.1-Local",
+          "Dgmjr.Http.Headers": "0.0.1-Local",
+          "Dgmjr.Http.StatusCodes": "0.0.1-Local",
           "Dgmjr.Mime": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Text.Json.Usings": "0.0.1-Local",
           "System.Text.RegularExpressions.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
           "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
           "Vogen": "3.0.24"
         },
         "runtime": {
@@ -1124,8 +1021,9 @@
       "Dgmjr.Primitives/0.0.1-Local": {
         "dependencies": {
           "Dgmjr.Abstractions": "0.0.1-Local",
+          "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
-          "Humanizer.Core": "2.14.24-JustinWritesCodeMods",
+          "Humanizer.Core": "2.14.1",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "System.ComponentModel.Annotations": "5.0.0",
@@ -1149,11 +1047,7 @@
         "dependencies": {
           "Dgmjr.Primitives": "0.0.1-Local",
           "Dgmjr.Primitives.EntityFrameworkCore": "0.0.1-Local",
-          "System.Collections.Immutable": "8.0.0",
-          "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Primitives.All.dll": {
@@ -1164,22 +1058,13 @@
       },
       "Dgmjr.Primitives.EntityFrameworkCore/0.0.1-Local": {
         "dependencies": {
-          "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Constants.All": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Migrations": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
-          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
-          "System.Collections.Immutable": "8.0.0",
-          "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Threading.Tasks.Extensions": "4.5.4",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
-          "libphonenumber-csharp": "8.13.24"
+          "System.ComponentModel.Annotations": "5.0.0"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Primitives.EntityFrameworkCore.dll": {
@@ -1193,17 +1078,9 @@
           "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
-          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Runtime.Numerics": "4.3.0",
-          "System.Security.Cryptography.Algorithms": "4.3.1",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Threading.Tasks.Extensions": "4.5.4",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
-          "libphonenumber-csharp": "8.13.24"
+          "System.Security.Cryptography.Algorithms": "4.3.1"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Primitives.Gender.dll": {
@@ -1246,21 +1123,24 @@
           }
         }
       },
+      "Dgmjr.RegexDtoGenerator/0.0.1-Local": {
+        "dependencies": {
+          "Scriban.Signed": "5.7.0",
+          "System.Polyfills": "0.0.1-Local",
+          "System.Text.Json": "8.0.0",
+          "System.Text.RegularExpressions.Usings": "0.0.1-Local",
+          "System.Usings": "0.0.1-Local"
+        }
+      },
       "Dgmjr.Security.Constants/0.0.1-Local": {
         "dependencies": {
           "Dgmjr.Abstractions": "0.0.1-Local",
+          "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
           "Dgmjr.System.Extensions": "0.0.1-Local",
-          "Microsoft.EntityFrameworkCore": "8.0.2",
-          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
-          "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
+          "Humanizer.Core": "2.14.1",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Security.Cryptography.Algorithms": "4.3.1",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Threading.Tasks.Extensions": "4.5.4",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
-          "libphonenumber-csharp": "8.13.24"
+          "System.Security.Cryptography.Algorithms": "4.3.1"
         },
         "runtime": {
           "lib/netstandard2.0/Dgmjr.Security.Constants.dll": {
@@ -1271,11 +1151,11 @@
       },
       "Dgmjr.Security.Extensions/0.0.1-Local": {
         "dependencies": {
+          "AnyOf": "0.3.0",
           "Dgmjr.Identity.Abstractions": "0.0.1-Local",
-          "Dgmjr.Identity.ClaimTypes": "0.0.1-Local",
-          "Dgmjr.Identity.ClaimValueTypes": "0.0.1-Local",
-          "Dgmjr.Identity.Core": "0.0.1-Local",
-          "Dgmjr.Identity.EntityFrameworkCore.Constants": "0.0.1-Local",
+          "Microsoft.EntityFrameworkCore": "8.0.2",
+          "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
+          "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.Security.Claims": "4.3.0"
         },
@@ -1306,13 +1186,12 @@
       "Dgmjr.Web.DownstreamApis/0.0.1-Local": {
         "dependencies": {
           "Dgmjr.Configuration.Extensions": "0.0.1-Local",
+          "Dgmjr.Enumerations.Abstractions": "0.0.1-Local",
           "Dgmjr.Mime": "0.0.1-Local",
           "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
           "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
-          "Microsoft.Extensions.Configuration.FileExtensions": "8.0.0",
           "Microsoft.Extensions.Configuration.Ini": "8.0.0",
           "Microsoft.Extensions.Configuration.Json": "8.0.0",
-          "Microsoft.Extensions.Configuration.KeyPerFile": "8.0.0",
           "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
           "Microsoft.Extensions.Configuration.Xml": "8.0.0",
           "Microsoft.Extensions.Options": "8.0.0",
@@ -1320,12 +1199,8 @@
           "Microsoft.Identity.Web": "2.16.0",
           "Microsoft.Identity.Web.DownstreamApi": "2.16.0",
           "Microsoft.Identity.Web.MicrosoftGraph": "2.16.0",
-          "System.Collections.Immutable": "8.0.0",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.Text.Json.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0"
+          "System.Text.Json.Usings": "0.0.1-Local"
         },
         "runtime": {
           "lib/net8.0/Dgmjr.Web.DownstreamApis.dll": {
@@ -1416,11 +1291,11 @@
           }
         }
       },
-      "Humanizer.Core/2.14.24-JustinWritesCodeMods": {
+      "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
             "assemblyVersion": "2.14.0.0",
-            "fileVersion": "2.14.24.5925"
+            "fileVersion": "2.14.1.48190"
           }
         }
       },
@@ -1866,17 +1741,6 @@
           }
         }
       },
-      "Microsoft.Azure.AppConfiguration.AspNetCore/7.0.0-preview.2": {
-        "dependencies": {
-          "Microsoft.Extensions.Configuration.AzureAppConfiguration": "7.0.0-preview.2"
-        },
-        "runtime": {
-          "lib/net7.0/Microsoft.Azure.AppConfiguration.AspNetCore.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.0.0"
-          }
-        }
-      },
       "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
         "runtime": {
           "lib/netstandard2.1/Microsoft.Bcl.AsyncInterfaces.dll": {
@@ -2157,22 +2021,16 @@
           "Microsoft.Extensions.Primitives": "8.0.0"
         }
       },
-      "Microsoft.Extensions.Configuration.All.Usings/0.0.1-Local": {},
-      "Microsoft.Extensions.Configuration.AzureAppConfiguration/7.0.0-preview.2": {
+      "Microsoft.Extensions.Configuration.All.Usings/0.0.1-Local": {
         "dependencies": {
-          "Azure.Data.AppConfiguration": "1.3.0-beta.2",
-          "Azure.Messaging.EventGrid": "4.7.0",
-          "Azure.Security.KeyVault.Secrets": "4.5.0",
-          "Microsoft.Extensions.Configuration": "8.0.0",
-          "Microsoft.Extensions.DependencyInjection.Abstractions": "8.0.0",
-          "Microsoft.Extensions.Logging": "8.0.0",
-          "System.Text.Json": "8.0.0"
-        },
-        "runtime": {
-          "lib/netstandard2.0/Microsoft.Extensions.Configuration.AzureAppConfiguration.dll": {
-            "assemblyVersion": "7.0.0.0",
-            "fileVersion": "7.0.0.0"
-          }
+          "Microsoft.Extensions.Configuration.CommandLine": "7.0.0",
+          "Microsoft.Extensions.Configuration.EnvironmentVariables": "8.0.0",
+          "Microsoft.Extensions.Configuration.Ini": "8.0.0",
+          "Microsoft.Extensions.Configuration.Json": "8.0.0",
+          "Microsoft.Extensions.Configuration.UserSecrets": "8.0.0",
+          "Microsoft.Extensions.Configuration.Xml": "8.0.0",
+          "Microsoft.Extensions.Options": "8.0.0",
+          "Microsoft.Extensions.Options.ConfigurationExtensions": "8.0.0"
         }
       },
       "Microsoft.Extensions.Configuration.Binder/8.0.0": {
@@ -2871,6 +2729,17 @@
         }
       },
       "MinVer/4.2.0": {},
+      "NetTopologySuite/2.5.0": {
+        "dependencies": {
+          "System.Memory": "4.5.5"
+        },
+        "runtime": {
+          "lib/netstandard2.0/NetTopologySuite.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.0.0"
+          }
+        }
+      },
       "Newtonsoft.Json/13.0.1": {
         "runtime": {
           "lib/netstandard2.0/Newtonsoft.Json.dll": {
@@ -3044,14 +2913,6 @@
           }
         }
       },
-      "PolyKit/3.0.9": {
-        "runtime": {
-          "lib/net8.0/PolyKit.dll": {
-            "assemblyVersion": "3.0.0.0",
-            "fileVersion": "3.0.9.54914"
-          }
-        }
-      },
       "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.fedora.23-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
       "runtime.fedora.24-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {},
@@ -3117,7 +2978,6 @@
       "SendPulse.Identity/0.0.1-Local": {
         "dependencies": {
           "AnyOf": "0.3.0",
-          "Dgmjr.Abstractions": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Constants": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Migrations": "0.0.1-Local",
@@ -3125,20 +2985,13 @@
           "Dgmjr.Identity.ClaimTypes": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
           "Dgmjr.Primitives.EntityFrameworkCore": "0.0.1-Local",
-          "Dgmjr.System.Extensions": "0.0.1-Local",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
           "Microsoft.EntityFrameworkCore.Usings": "0.0.1-Local",
-          "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
           "System.ComponentModel.Annotations": "5.0.0",
-          "System.ComponentModel.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Threading.Tasks.Extensions": "4.5.4",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
-          "libphonenumber-csharp": "8.13.24"
+          "System.ComponentModel.Usings": "0.0.1-Local"
         },
         "runtime": {
           "lib/netstandard2.0/SendPulse.Identity.dll": {
@@ -3431,14 +3284,7 @@
           "System.Threading.Tasks": "4.3.0"
         }
       },
-      "System.Collections.Generic.Usings/0.0.1-Local": {
-        "runtime": {
-          "lib/net7.0/System.Collections.Generic.Usings.dll": {
-            "assemblyVersion": "0.0.1.0",
-            "fileVersion": "0.0.1.0"
-          }
-        }
-      },
+      "System.Collections.Generic.Usings/0.0.1-Local": {},
       "System.Collections.Immutable/8.0.0": {},
       "System.Collections.NonGeneric/4.3.0": {
         "dependencies": {
@@ -3459,6 +3305,55 @@
           "System.Runtime": "4.3.1",
           "System.Runtime.Extensions": "4.3.0",
           "System.Threading": "4.3.0"
+        }
+      },
+      "System.CommandLine/2.0.0-beta4.22272.1": {
+        "runtime": {
+          "lib/net6.0/System.CommandLine.dll": {
+            "assemblyVersion": "2.0.0.0",
+            "fileVersion": "2.0.22.27201"
+          }
+        },
+        "resources": {
+          "lib/net6.0/cs/System.CommandLine.resources.dll": {
+            "locale": "cs"
+          },
+          "lib/net6.0/de/System.CommandLine.resources.dll": {
+            "locale": "de"
+          },
+          "lib/net6.0/es/System.CommandLine.resources.dll": {
+            "locale": "es"
+          },
+          "lib/net6.0/fr/System.CommandLine.resources.dll": {
+            "locale": "fr"
+          },
+          "lib/net6.0/it/System.CommandLine.resources.dll": {
+            "locale": "it"
+          },
+          "lib/net6.0/ja/System.CommandLine.resources.dll": {
+            "locale": "ja"
+          },
+          "lib/net6.0/ko/System.CommandLine.resources.dll": {
+            "locale": "ko"
+          },
+          "lib/net6.0/pl/System.CommandLine.resources.dll": {
+            "locale": "pl"
+          },
+          "lib/net6.0/pt-BR/System.CommandLine.resources.dll": {
+            "locale": "pt-BR"
+          },
+          "lib/net6.0/ru/System.CommandLine.resources.dll": {
+            "locale": "ru"
+          },
+          "lib/net6.0/tr/System.CommandLine.resources.dll": {
+            "locale": "tr"
+          },
+          "lib/net6.0/zh-Hans/System.CommandLine.resources.dll": {
+            "locale": "zh-Hans"
+          },
+          "lib/net6.0/zh-Hant/System.CommandLine.resources.dll": {
+            "locale": "zh-Hant"
+          }
         }
       },
       "System.ComponentModel/4.3.0": {
@@ -3986,12 +3881,6 @@
       "System.Security.Usings/0.0.1-Local": {
         "dependencies": {
           "System.Security.Claims": "4.3.0"
-        },
-        "runtime": {
-          "lib/net7.0/System.Security.Usings.dll": {
-            "assemblyVersion": "0.0.1.0",
-            "fileVersion": "0.0.1.0"
-          }
         }
       },
       "System.Text.Encoding/4.3.0": {
@@ -4095,13 +3984,12 @@
           "System.Xml.ReaderWriter": "4.3.0"
         }
       },
-      "Telegram.Bot/19.0.0-DgmjrMods": {
+      "Telegram.Bot/19.0.0-preview.1": {
         "dependencies": {
-          "Newtonsoft.Json": "13.0.1",
-          "System.Text.Json": "8.0.0"
+          "Newtonsoft.Json": "13.0.1"
         },
         "runtime": {
-          "lib/net7.0/Telegram.Bot.dll": {
+          "lib/net6.0/Telegram.Bot.dll": {
             "assemblyVersion": "19.0.0.0",
             "fileVersion": "19.0.0.0"
           }
@@ -4113,7 +4001,7 @@
           "Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas": "0.0.1-Local",
           "Dgmjr.EntityFrameworkCore.Migrations": "0.0.1-Local",
           "Dgmjr.Primitives": "0.0.1-Local",
-          "Humanizer.Core": "2.14.24-JustinWritesCodeMods",
+          "Humanizer.Core": "2.14.1",
           "Microsoft.EntityFrameworkCore": "8.0.2",
           "Microsoft.EntityFrameworkCore.Relational": "8.0.2",
           "Microsoft.EntityFrameworkCore.SqlServer": "8.0.2",
@@ -4126,16 +4014,13 @@
           "Microsoft.Extensions.Options": "8.0.0",
           "Swashbuckle.AspNetCore.Annotations": "6.5.0",
           "Swashbuckle.AspNetCore.SwaggerGen": "6.5.0",
-          "System.Collections.Immutable": "8.0.0",
+          "System.CommandLine": "2.0.0-beta4.22272.1",
           "System.ComponentModel.Annotations": "5.0.0",
           "System.ComponentModel.Usings": "0.0.1-Local",
           "System.Polyfills": "0.0.1-Local",
           "System.Text.Json.Usings": "0.0.1-Local",
           "System.Text.RegularExpressions.Usings": "0.0.1-Local",
-          "System.Text.Usings": "0.0.1-Local",
-          "System.Usings": "0.0.1-Local",
-          "System.Xml.XPath": "4.3.0",
-          "Telegram.Bot": "19.0.0-DgmjrMods",
+          "Telegram.Bot": "19.0.0-preview.1",
           "Vogen": "3.0.24"
         },
         "runtime": {
@@ -4184,9 +4069,6 @@
         }
       },
       "Telegram.LoginWidget/0.0.1-Local": {
-        "dependencies": {
-          "PolyKit": "3.0.9"
-        },
         "runtime": {
           "lib/net8.0/Telegram.LoginWidget.dll": {
             "assemblyVersion": "0.0.1.0",
@@ -4263,7 +4145,7 @@
     "AnyOf.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zRjslSuZZL8Sm3VdufJe9LpJZuLnMg2RCRD756QpsvAYfYuObStHbtJnHcOcrrSJT90WdHW7JUgAmmv6XeBk4w==",
+      "sha512": "sha512-l/j5XN8y0j0y3WYimrq5zsy/LraacnVVqHS0vQKJoRd0BE60yTxzMWkln8Yq/gE2AaYKvmkXQ9wHxtGHwG6hlA==",
       "path": "anyof.usings/0.0.1-local",
       "hashPath": "anyof.usings.0.0.1-local.nupkg.sha512"
     },
@@ -4281,26 +4163,12 @@
       "path": "azure.core/1.36.0",
       "hashPath": "azure.core.1.36.0.nupkg.sha512"
     },
-    "Azure.Data.AppConfiguration/1.3.0-beta.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-FSxTwOENEa7mStmk83D6Mv2d2qfSh/vTHoz6pHamViHqUQ8qobg3Sp1NWugoNKqkc/OiUbi/H0FglrqQP5s3/w==",
-      "path": "azure.data.appconfiguration/1.3.0-beta.2",
-      "hashPath": "azure.data.appconfiguration.1.3.0-beta.2.nupkg.sha512"
-    },
     "Azure.Identity/1.10.4": {
       "type": "package",
       "serviceable": true,
       "sha512": "sha512-hSvisZy9sld0Gik1X94od3+rRXCx+AKgi+iLH6fFdlnRZRePn7RtrqUGSsORiH2h8H2sc4NLTrnuUte1WL+QuQ==",
       "path": "azure.identity/1.10.4",
       "hashPath": "azure.identity.1.10.4.nupkg.sha512"
-    },
-    "Azure.Messaging.EventGrid/4.7.0": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-Wm5+RY6hNoIPVLPwmr3T1ijVm5GdLVZBij93c4Brwe9iB3X8nlUYNjlnQVVJqK4QLs85nGwqBGUpB4BfYdGXVQ==",
-      "path": "azure.messaging.eventgrid/4.7.0",
-      "hashPath": "azure.messaging.eventgrid.4.7.0.nupkg.sha512"
     },
     "Azure.Monitor.OpenTelemetry.AspNetCore/1.0.0": {
       "type": "package",
@@ -4361,133 +4229,140 @@
     "Dgmjr.Abstractions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-V4IF3lGaATVIbx09TskZcdFlgqG/4+rivoBxaCrvyw6ziujtxu2lPDFU9qrL4Ps/Ml92X3P+API3S6Cwj5GMzg==",
+      "sha512": "sha512-ISdxO4d/N03Kiaqb4W+gYCqUUlQ4iFQOST98eU/sbEvT2Y7M5hV8VGnm9QC8azQUh/s0hFYhWNHFjlH7SErqmg==",
       "path": "dgmjr.abstractions/0.0.1-local",
       "hashPath": "dgmjr.abstractions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AspNetCore.Formatters/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ek8UXkUQwcwP38IfhQ3fCVi6GtdA/A4lFstlaD3pBD9t4Z9mHvvio6cdgc0nkPC3izSwWU+LNQKBGhqHqAF9Kg==",
+      "sha512": "sha512-lWlOs4NdXhk/GEc3DP3SIan2fwETWyozY0EDLaKRpmG1LszV3IqkkBxj83socKWBT5CI6KeUGW2XJlvNmkK90g==",
       "path": "dgmjr.aspnetcore.formatters/0.0.1-local",
       "hashPath": "dgmjr.aspnetcore.formatters.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AspNetCore.Hashids/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-+VPeBaSjB5JATqHKPleBju7CyFYhNwVCCl37Wq+n0bu1hPsoE6wML0ZF4mINnDHx7brU6Fc9BX/vAgQQ7N3O1Q==",
+      "sha512": "sha512-GsE4EI0Uli4mfrG5xsxbVLJGH+/NtkGMY57HWkjRylkYB5vqqgGK7XyR9+o3WJ6fblRbmqfMMvzP1NBrqadChw==",
       "path": "dgmjr.aspnetcore.hashids/0.0.1-local",
       "hashPath": "dgmjr.aspnetcore.hashids.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AspNetCore.Http.Services/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Nxz1//vE4fVr3bGOWCcRZOPPEUE/ejbGWQeCtCJ8j9TKrLI1eNFf5m6Gg/nQpnd16WBH9J0MnC7/aFJAWa8Fag==",
+      "sha512": "sha512-+fj2iHylW6UZl/Peq7rEC9f+QzlEAGZ6Hj8+TQPbHvMP6TQKqxP71v7rAeSiuFwYMCHE3ncZo++27LNICRoEIA==",
       "path": "dgmjr.aspnetcore.http.services/0.0.1-local",
       "hashPath": "dgmjr.aspnetcore.http.services.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AspNetCore.Mvc/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-k9VMTBSgfdrEchkWED3hfANxR4rJCWBYMZQRkFMaPQmMSghaNmjredVI+mB0N9QmfHIpAAVuAmBVHxOH5OvTpA==",
+      "sha512": "sha512-C3z7SIwnRJFSMsCgAjttoQi+w95hMx9LGkwvJeoztdiFDeyyv3QbrjvNdqE2/S52UkoJo0E+3zte7fGs2ZpBmA==",
       "path": "dgmjr.aspnetcore.mvc/0.0.1-local",
       "hashPath": "dgmjr.aspnetcore.mvc.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AspNetCore.Mvc.Polyfills/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-77/OazogcjvQBR7E7XNElkzegWMsIU2vSa6r99tuA8L6AG9Za3HX/F9aVoJ6lfc6gQT+d8a7KZg2hApTwUG6zQ==",
+      "sha512": "sha512-qRzMW0SMO5V90wufL25XVxB/Az+MBDd2KrZOTU28DvcfoLSRKCG4EYPxxyoiKqqUgd6NaGzqQkEoJKwpMSbdDQ==",
       "path": "dgmjr.aspnetcore.mvc.polyfills/0.0.1-local",
       "hashPath": "dgmjr.aspnetcore.mvc.polyfills.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AspNetCore.Razor/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8g04+G1fCL1KGt1FT6lCZNcxGrinZPOviQKU7/jQjrkW0Zrt1eJDyHzTf2lCJtGaouH+8B4qIo7AOCAnxj/s3g==",
+      "sha512": "sha512-BBQJu3gE8IoHO4Ru8IoaJ9BKFtU2JJnybJ38FYx4oQl54K3NanIARzHDp7WmUdFb1f4Dco++pO59QMkz6aPlfw==",
       "path": "dgmjr.aspnetcore.razor/0.0.1-local",
       "hashPath": "dgmjr.aspnetcore.razor.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AspNetCore.Swagger/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-k7r6EEX3Lh2wNpT5BF2J14H1M/0J4H3G4yDRCtHfT2s9BKQt1J5AYKws1q1H69Vipgl0AP0UYPfKBXgm3U5NPQ==",
+      "sha512": "sha512-Usggy5vnHA3+WbXzc5w5I3XHjpvuIt79Q3MRhpG56C7L9jHNNow/OW9cCJ4ORTQ6EpTNVMcKrVRXek0XJ4AapQ==",
       "path": "dgmjr.aspnetcore.swagger/0.0.1-local",
       "hashPath": "dgmjr.aspnetcore.swagger.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AspNetCore.TagHelpers/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-OuDHIoHol1coVmGg2ou/5forPoNoxe2bI3UrwApIr8XbseMyUJX0Zq2ORSehwxvYCpxOXZg2mc3+A9gvg69Haw==",
+      "sha512": "sha512-MokG2kQKAx5tR5L+IIgxdptl7n0X++Qqfa2psFCGkLNrlvZzeVChKAQ10soKnDrqplbCOWxa+zKt48zXw63hpA==",
       "path": "dgmjr.aspnetcore.taghelpers/0.0.1-local",
       "hashPath": "dgmjr.aspnetcore.taghelpers.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.AzureAd/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-F/WLhDgFVzpJXqpy1rTxPEL09cWwvw9LKRcz7H8zUeDoLKUere+WZAnAs2BSOG8CMcNsCibNFmrYcPPzUGsSSg==",
+      "sha512": "sha512-aKHgZes5XpE5EchW3syrTLgfG8jfdenmb0zjxjLtuBAj7/P9XXmKpvKQYxCXx4dk6ZsJrVfAJz9/MTlnXh8l1Q==",
       "path": "dgmjr.azuread/0.0.1-local",
       "hashPath": "dgmjr.azuread.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Caching.Extensions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HziPyYBvaHD/NIahId48w5fDxehzAjd7etUuStXvyCv81ALTPh9XV2rr3YCuBamma+odFZCoEfLAbdoXnaFjGw==",
+      "sha512": "sha512-YqkMrtssYcc8v1WI+Sk8wsOc5XVFb4Dkaz7D+H+05VTDjqLTSpBec28YBLRil9pgcGHHSZDFWkvM8bh7Dxed6g==",
       "path": "dgmjr.caching.extensions/0.0.1-local",
       "hashPath": "dgmjr.caching.extensions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.ComponentModel/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/Tg03HGkpnD4Dfzv1CtcCB254j9eSo0UccB9KSIjSjAfhjq21Bd5DsXguvpYl9edRdOwllFVH2A8/R4wCmtPsA==",
+      "sha512": "sha512-pVcmvZEQixiTCNqc5fpVZL37M2SItSuhJp2WHUVxKPq7dY4seYILOhrB4zl3KmczfVIQ1uDQj/WAm7m8uwovGA==",
       "path": "dgmjr.componentmodel/0.0.1-local",
       "hashPath": "dgmjr.componentmodel.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Configuration.Extensions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nk/+fK5RpaZN4aNgz5F25iKsqnstHYSTj+HWZCx87JZhSHhqyirwPCf85tB2oomQnRbNQc7+Nx8AL7JRc3PCJg==",
+      "sha512": "sha512-rvmC6nQ2RkufFMk73XKiXm3+ldF5AZiXm9fPIO9bQFMrupM36oIOlD5f2Fy0s8uar57VvYM4IiJuYQv0AGgE3Q==",
       "path": "dgmjr.configuration.extensions/0.0.1-local",
       "hashPath": "dgmjr.configuration.extensions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.EntityFrameworkCore.Abstractions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-zkriaMKYc56HpPYd3dxYlZzhthXrd5cR+hjfalb9W5vE5uT+7K9kVHRXiwjsF5UOg6HFEX1EULBZbAQSTOBxxQ==",
+      "sha512": "sha512-aNbBkoTNDe6Sx95zNGl2MwwL3ZDl38kvGwgLgZhOdw1LK4Wq0vwS7gW6zLx9JQZgAeLiMUcUdQaHB8rHHhlGIg==",
       "path": "dgmjr.entityframeworkcore.abstractions/0.0.1-local",
       "hashPath": "dgmjr.entityframeworkcore.abstractions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.EntityFrameworkCore.Constants/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-i0nkHn17uHiNKpwUVLizGbF4NDgZs3OBpwJwF+6xhMX3PgrwS7etro+ek5QdSaYaCauIH0OUJeJjqIfStVfE3g==",
+      "sha512": "sha512-Poc6UPseocpJeKhLa7p1Gurq9y72CZuWfO6L+fVSh2cNLog8ODdQZOz/NdcGJACY/np3aiAyudY2bdi8yBCO1A==",
       "path": "dgmjr.entityframeworkcore.constants/0.0.1-local",
       "hashPath": "dgmjr.entityframeworkcore.constants.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.EntityFrameworkCore.Constants.All/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-70xswUMORy3LhEJTnJF38/5ZcenW45AhPs3KzdLS/qEl4M6hptq/eNhb0ng8pzc33uaBEzkfgqH/qpNCshG6iQ==",
+      "sha512": "sha512-WSAux5ojOw+q8t6GZC52u1xYPBZK2FVsjM8iQEM1WMGx9OH8AHFfTGldq8nbpvk/hO8qhM6AcY9RT/nVXW3A6g==",
       "path": "dgmjr.entityframeworkcore.constants.all/0.0.1-local",
       "hashPath": "dgmjr.entityframeworkcore.constants.all.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.EntityFrameworkCore.Constants.DbTypesNamesAndSchemas/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MTda1xmk/g8BhEilTVg3Yomk3hb66iACS3wFYhLgBC1RfzbpaeGVP2ZjMIgrpGPWTLP8CK7rRMWWM8n9rWpdGA==",
+      "sha512": "sha512-18fj1PIUT2ToM/wPvHRsJtbV2w57mz7yRSXRGG7y+Z+Q8bYlAY0cCN+zaG+5KL68a9lyHeszOK4NJD06+GQq8w==",
       "path": "dgmjr.entityframeworkcore.constants.dbtypesnamesandschemas/0.0.1-local",
       "hashPath": "dgmjr.entityframeworkcore.constants.dbtypesnamesandschemas.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.EntityFrameworkCore.Migrations/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-i9LZHYd/UlcBnU30TZJu52i0B6nwlGRsJ3hg63jIXWRJBhWvX/T/T1+HhV27hUj/hLETpmTodZbaJsNlllw5GQ==",
+      "sha512": "sha512-OI4ec2jUbmoOWLlWzylbJ7Q6JkJcgSTJrQHe6BOsd5/8EB9blP7/zeNms9MxZjhAGbaLoyaTA95KNluCdYUcqw==",
       "path": "dgmjr.entityframeworkcore.migrations/0.0.1-local",
       "hashPath": "dgmjr.entityframeworkcore.migrations.0.0.1-local.nupkg.sha512"
+    },
+    "Dgmjr.EntityFrameworkCore.Models/0.0.1-Local": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-tP2WS6fnNpqvI5RUdi8DAdS7EIAAnmHyO1RtmXoTJEOd+sS7EU88v4+aSwuiiVhQ85wjC+42MRMXKQvNc1uIxQ==",
+      "path": "dgmjr.entityframeworkcore.models/0.0.1-local",
+      "hashPath": "dgmjr.entityframeworkcore.models.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Enumerations.Abstractions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-8l8GGYg7gcYi2VA6er6ucOig8f7EXNtcHoiPfm1tXI6PkKC013hq8uSN103SAVETm6DIH2O+14jfv0H4L+7zbw==",
+      "sha512": "sha512-FLVY5i5Zc1SACSeLoO9ceSf6UY0Vim7x4U2PP4YQejpOxGpUh3Yu2ImsWs7T01XvSl9sX5zKRe9qheNWFI+srQ==",
       "path": "dgmjr.enumerations.abstractions/0.0.1-local",
       "hashPath": "dgmjr.enumerations.abstractions.0.0.1-local.nupkg.sha512"
     },
@@ -4508,147 +4383,147 @@
     "Dgmjr.Enumerations.Enumeration/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-TzEakvlTzFYSsDNyyp1KTGeEcBdKmS0Ec5mzHl9apFPoYVw5UmEnAaaDJyqNeyUjpLv9At01ptY4EOaqKkqr5Q==",
+      "sha512": "sha512-XeEUGqe1/tgBzLtRULHxDgSkRJ+i0aPrMSS0MKrSbQJaGPfGaZWGUPKh38r7JGOpHbjtQ0IfTMYe/JiZHLHsZg==",
       "path": "dgmjr.enumerations.enumeration/0.0.1-local",
       "hashPath": "dgmjr.enumerations.enumeration.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Graph/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-puJl0ZY/jtEwZ6be6HwoECwE0Mz3a30Ewq1u6H3Zx03pp+B65K7xJQvoewCKy38ov+e9RFFWxshqc2z3MZzh2Q==",
+      "sha512": "sha512-ZbNJLW9yY2p+42XjD0mmBVwbrScndx8y8XJ/n9dRbu+AYBTjYia31/gMSqRPE9Q9FsS2WKwaOxSLf0Q3ZpM+xg==",
       "path": "dgmjr.graph/0.0.1-local",
       "hashPath": "dgmjr.graph.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Hosting.Extensions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-GEGCTbSb7H4d6A2CMZSlstLgScIphLB3F3NgcCowoQ7+I3SC40DCRqPpQW8AXgKZQlEn6Xcp+14MYUYo2Knxgw==",
+      "sha512": "sha512-irHvp71ct7Hp94cv3oi9rquH38Uk3v3VUmwwHqynjmZrfFJ9ChgOH3OBmVFUSSRSP7uVIKohlEin5AImmtf6Ow==",
       "path": "dgmjr.hosting.extensions/0.0.1-local",
       "hashPath": "dgmjr.hosting.extensions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Http/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-esqmxENX48wDNw6AIROLeL0G/y1Ju5oSXZwNMnrcSMLjJXqhTYHwxnmRn0bSEtHJgH7DXkYKJL55ky51DIMOxw==",
+      "sha512": "sha512-3WBgo6p91b7xoy8g8FPVc/oq026MWRwSlSJgZghBJARQ65Mn7bGWy/mfJzJUA1oymTGwDRftT1r5UNcPZ4JhRA==",
       "path": "dgmjr.http/0.0.1-local",
       "hashPath": "dgmjr.http.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Http.CorrelationId/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gHqdJCyWnycxsVKrz7xpAPGrSFlhvdfJspvMsPZKqdhKhRzMBGvjrS8GM3xNI7RkvcFZ4Sed/jrpmKtc0UUXDA==",
+      "sha512": "sha512-6M6qz0IUdS2zinaj/peQbNIi8TTwO8S1Yz47Mcv+PlO1A9TRsZViFIxaQqJ+R9SbTAQletuC3J1cCRMJnH9sCA==",
       "path": "dgmjr.http.correlationid/0.0.1-local",
       "hashPath": "dgmjr.http.correlationid.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Http.Extensions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Q3BX8b+VNd2fMA5fme/bcFbufv18qGdurixXTRU8t1UGtNoHQ9ituyhrr4rlma8ch3QfUq771KFsu3tx+syByg==",
+      "sha512": "sha512-OsFtf0lrnosqtC3pRNGQI1MRnANkJnAZBvluyNW32G2uR3MXHfRMnr2qlOhJ5h0asDf7rMhJd3t/jgbLcr0YNw==",
       "path": "dgmjr.http.extensions/0.0.1-local",
       "hashPath": "dgmjr.http.extensions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Http.Headers/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-rPeZn3j6dUl3I5DvwNNxm20zghYDXswpUra5vgSB4cgqg0ee7/iRx4PeVz/yr5AGy3ufFXCgOVnq18GL1YfBAg==",
+      "sha512": "sha512-vQ7QgDtoJaOWgZxlWMfVa7z6ZwsK3IjwhZ8OlMQbQZGBsKvnDaLfjbkbt924FRP8oWxbG81oH1ocFTF40Mu5Qg==",
       "path": "dgmjr.http.headers/0.0.1-local",
       "hashPath": "dgmjr.http.headers.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Http.StatusCodes/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-bU/QZc/sk1/1kKZ9kFkKgZmMbbwBvrq+LXWIzVeUHdJspevRzBn+lQaiMJn18FXcyTItSzTEyvyDEBzRIai/tg==",
+      "sha512": "sha512-yjQQzQIyILYQcB8tJLtD5EBKuqc4JMxK6tJAXqa+LKg7ZHUcQ9PaBXLUaEeTqEFPIwcTq9DLTmqWzJSJvqC8hQ==",
       "path": "dgmjr.http.statuscodes/0.0.1-local",
       "hashPath": "dgmjr.http.statuscodes.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Identity.Abstractions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-HttyyJgYXWZGd5SKSVyDqztCno7czq/DfMhpoh5BwtjYJk0s15ihLOVp3gxDestokN6tBq7XbPS7DQa2zXxeGw==",
+      "sha512": "sha512-giGH0x6x2KHrRFoMdpmNl/ZTKi5Vd3h4dj9ZzlL4NTFXN+Pz7zzqjbZPjT7Q7EbimFnVk29mAmaIP5T7TrQXfg==",
       "path": "dgmjr.identity.abstractions/0.0.1-local",
       "hashPath": "dgmjr.identity.abstractions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Identity.Claims/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-nCsCoExmRmrQkF4qtwQtnHZ2BYCDPTFNagWH+IN0RX8aOuub5w6igzRKFeB4tIKxfBbZNw+JBUZtLQidFwP0Dw==",
+      "sha512": "sha512-HBy8N8AyyJXR03qNm8mttvPqKmtZs/9+BQ8afbY+LOUerLjfXgvHN6fm2D6mljQ7ddbm75t0afEPh5f0rpLGow==",
       "path": "dgmjr.identity.claims/0.0.1-local",
       "hashPath": "dgmjr.identity.claims.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Identity.ClaimTypes/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Xiqhq9IJH4KyMaaj6WLW4cYQkcpB4pKN5mtY7w7FiBmXLOnZkiRMdId8vXWGU9CNNSS2NEGi5KABIG3IzOpHoQ==",
+      "sha512": "sha512-nSDinpGJMsiyaCfy52/6B78lpwlschT/52rOroDNmuM/mQ3kHw/kBoG9qK9bOPJoZJlIczXCjfExU0VlGW9BKw==",
       "path": "dgmjr.identity.claimtypes/0.0.1-local",
       "hashPath": "dgmjr.identity.claimtypes.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Identity.ClaimValueTypes/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-UQmFgUVbI/vUu7JzA9pOZGEBe3lBCmvNAN+NULRleGhD49zjkuOPqNzplvCChbuBPBD2RK1V7X9vPEZNb8Hfgw==",
+      "sha512": "sha512-B1K6NUCjXvBmD2rIxhqV+iy/IuhlZDlpx5cWP1euE5xj3t0tDwBXEaNP2DQRQ57p0fPdP659AVmtOw1q8YslxA==",
       "path": "dgmjr.identity.claimvaluetypes/0.0.1-local",
       "hashPath": "dgmjr.identity.claimvaluetypes.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Identity.Core/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-aGtJGUV+r1lljzIC4RMR069lBBN0hsrdHy5uJNHGNH8Kjm1ktynjYhg+z9UELUBMmy8rbJUe7fmenvaPZ+ia7A==",
+      "sha512": "sha512-AWucpFIBxmn7kRtaPquuJO7BaooM21ib/5WAE3ptWx2K6HqZwYsMFy/emli3aSBmek8Z+1fPp86wXcAvitDoLQ==",
       "path": "dgmjr.identity.core/0.0.1-local",
       "hashPath": "dgmjr.identity.core.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Identity.EntityFrameworkCore.Constants/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-uof5hkiIfb41GI4tM8WWItcHCjOKzNP4wBlbDFEAppOIlT8saG2AEsxBCQ+Y/X8CZE1hvnWwJ8GUZJ7Y1uRrTQ==",
+      "sha512": "sha512-b5VUquPQ9H/nxb8iZrSr0ltzYtwsX4jM5TrZZbBvG+/TEIP61fFY2YmxOrinbTbEBATkWGywSA/muekAIOXwrw==",
       "path": "dgmjr.identity.entityframeworkcore.constants/0.0.1-local",
       "hashPath": "dgmjr.identity.entityframeworkcore.constants.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Logging.Extensions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Mo68FMN27wE9O9ln/yqoOztWa8EmFknVbkajthEbhcIz5UbkEAQiddcjP2CSKFsKFyqF0rUXDhG/Q3nMcDRFog==",
+      "sha512": "sha512-PYeW1UHQaz5C46YgW/iuVkpwCNPW+xMgdrLNT1eav7e0PWbVaULx5a6spUZKPxMVs5gtbJ15DiDixtR5bWuEVA==",
       "path": "dgmjr.logging.extensions/0.0.1-local",
       "hashPath": "dgmjr.logging.extensions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Mime/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-4CQq1KLIhEBJrq8Hjf8Dzlbhm/OFLgp5tFkUwtwIrTW4ls9rSYg/BwYPCvyriayPCkc8/U7BIbjNIOstluDAnw==",
+      "sha512": "sha512-erNHXk+yYP0k7yFEN3IBYWSs4AWRGwM5O0DFCtx3dkv9YbNS+SVFOPeZ/DR4/GvwX3VkE+qi17RkuSc7G6+tZw==",
       "path": "dgmjr.mime/0.0.1-local",
       "hashPath": "dgmjr.mime.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Payloads/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-fV+DHSJa32K667rarBYYOSjv32FqNkOznb52lD7ifh7uniFx19MJ5MU6MHTFakuP4XKmngSQ0upHA2akOwAqQg==",
+      "sha512": "sha512-2sRTflG4xbnB/pAyFKrXm+3DimXwxbfjmQi6F4bjnyyIssU78PIM15oGc+Ou9DWnwMWQYzmHRbQufg2kX4Q21A==",
       "path": "dgmjr.payloads/0.0.1-local",
       "hashPath": "dgmjr.payloads.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Primitives/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Od+dTr8wRDuPVm4P/P4mcwnKC9r6+fT1t6v7rSc2gsrk8iyfNk/wXGHQTX29rm0hu3Cd9d0DS10NRFXvYSIcWA==",
+      "sha512": "sha512-IB0CfST7THK1A5mZsCSYNlXmHtzH+GGHTn3H6e6fkuxBjXHiCyl6NwFTZH0qiVa5FH2OKGtlrptpJdMnB8fUcA==",
       "path": "dgmjr.primitives/0.0.1-local",
       "hashPath": "dgmjr.primitives.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Primitives.All/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Gv26UbcehbVkj53Bog4JQkHQi6CkaHKav2HnTMN/RIlU2TKnZ2pddHKWyZ8zK1MbytMXkUjDJ3Aeih1zswYDjQ==",
+      "sha512": "sha512-ThN4KBGmi1D2pwnxXd/v1oTTRhS6d6nO8YTD0O+dlTKbbENIy0TebUrmRmVGoZzUQDTauIZTPFK+QFfVF8EnOA==",
       "path": "dgmjr.primitives.all/0.0.1-local",
       "hashPath": "dgmjr.primitives.all.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Primitives.EntityFrameworkCore/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-24D6chhVBrZCjwqvdGv+S9MdCgB6yNGgm6JVpLK/m6+xf2MMD3NJPC0kMczanxbkmCftT6xtzv0ywZmBPQlzdA==",
+      "sha512": "sha512-ySmgF7/or2yIChO+V294f3J9AuGhSsNmoNX0hygr9V7t7FAdRT+ZVsII/g3wWTZAXPqguC9t0WgHiQo/22Up/w==",
       "path": "dgmjr.primitives.entityframeworkcore/0.0.1-local",
       "hashPath": "dgmjr.primitives.entityframeworkcore.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Primitives.Gender/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-vDm3PD3/FrgU/F1GaDlnK9yyyKyO+4iIXQGSsQAeOeFKQd2BTIUsF/9h3yDtDP47psK++PJbfFjJ2Ei27hucDw==",
+      "sha512": "sha512-pCeyOO0odxl0ICObGNictaCC8VIGIrwzwarFZQQ9K9uTLiankEgNUq++mJlzUd199KRUInzUs+xgt/VmbAevhA==",
       "path": "dgmjr.primitives.gender/0.0.1-local",
       "hashPath": "dgmjr.primitives.gender.0.0.1-local.nupkg.sha512"
     },
@@ -4659,31 +4534,38 @@
       "path": "dgmjr.redis.extensions/0.0.1-local",
       "hashPath": "dgmjr.redis.extensions.0.0.1-local.nupkg.sha512"
     },
+    "Dgmjr.RegexDtoGenerator/0.0.1-Local": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-oZnJj0tXqi1T6uvXooTpVJf7ylyLxi9ZWs+oLyUiorwvN4ZSuzepO7gOceZVr3g55avq1RvZ5/Ow7ogs//m12Q==",
+      "path": "dgmjr.regexdtogenerator/0.0.1-local",
+      "hashPath": "dgmjr.regexdtogenerator.0.0.1-local.nupkg.sha512"
+    },
     "Dgmjr.Security.Constants/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-hDd0fCY5rp54ht3KrXU939XIRe91bGXVjYYHAet6WLrQrqMH3UH5qSXF0taWorWQV9aYPWZ2kEL3TCsryWb1uw==",
+      "sha512": "sha512-k4eJ+fI8qH1SCpSo+ufrin5te6UDzO2KlGz1WYr3H78ifPEL9zC74qxAv6QNFUEF+aUgjrjLkfyhp5xBb0JwKQ==",
       "path": "dgmjr.security.constants/0.0.1-local",
       "hashPath": "dgmjr.security.constants.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Security.Extensions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-Gc7+q4wsiHxB5PXrXrWgoQXA5sfE69ZOox2WJekIvsWVqyLY4sZ5sQiSa4LIqmjTJQBMPfmkdBOyLj5q8rkNeQ==",
+      "sha512": "sha512-Blo5mxiFxJatLUsRE8DZXzAZ/P9v2jZIBIokS61trM8PF+3RYVxg4NOvkXXZ9IHIgYa+VeX4ai8nkBlWLoah3g==",
       "path": "dgmjr.security.extensions/0.0.1-local",
       "hashPath": "dgmjr.security.extensions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.System.Extensions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gUobq9I6AypjM8wJTuvS97L5gpdliW0Q2ZVtUnSCEH59KHtPhV3dqSm0WwiEKI4yuTb/q7EGsIVWDZuydvnqnQ==",
+      "sha512": "sha512-aQy64B96bcA542M9IbUJ3ohhpAHJy/jToEFjrp53cjY0FqsyBIoeKD+Rg4nk0emKCCHsbY5pWU1aGfZXDOG/3g==",
       "path": "dgmjr.system.extensions/0.0.1-local",
       "hashPath": "dgmjr.system.extensions.0.0.1-local.nupkg.sha512"
     },
     "Dgmjr.Web.DownstreamApis/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-dIdSsZFAMwZ9BDCoIVA0ERGD/Fxt/cKXE7ImWYp4BLIK9WMHVdtNc/CD6REGNqvxSvcyZeuVTAb7hYYsTuNd5g==",
+      "sha512": "sha512-2mIs3Fao4wjsCT6iIVIZVXsW8+HMrdXGZojlR5JBvWQBWW9UdCHaBirYYIApCxAKsAKz99U/aZqPyVRiXpYU8w==",
       "path": "dgmjr.web.downstreamapis/0.0.1-local",
       "hashPath": "dgmjr.web.downstreamapis.0.0.1-local.nupkg.sha512"
     },
@@ -4743,12 +4625,12 @@
       "path": "hashids.net/1.4.1",
       "hashPath": "hashids.net.1.4.1.nupkg.sha512"
     },
-    "Humanizer.Core/2.14.24-JustinWritesCodeMods": {
+    "Humanizer.Core/2.14.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-PHfnqygF7XZGAJR5XdBP0J4n90SCmIRUkynQXrbTgyPeN95Z/wL+CtV5fH+z2c0BiQOs/MMEC3oE0KON0Qk7IQ==",
-      "path": "humanizer.core/2.14.24-justinwritescodemods",
-      "hashPath": "humanizer.core.2.14.24-justinwritescodemods.nupkg.sha512"
+      "sha512": "sha512-lQKvtaTDOXnoVJ20ibTuSIOf2i0uO0MPbDhd1jm238I+U/2ZnRENj0cktKZhtchBMtCUSRQ5v4xBCUbKNmyVMw==",
+      "path": "humanizer.core/2.14.1",
+      "hashPath": "humanizer.core.2.14.1.nupkg.sha512"
     },
     "IdentityModel/6.2.0": {
       "type": "package",
@@ -5114,13 +4996,6 @@
       "path": "microsoft.authentication.webassembly.msal/8.0.1",
       "hashPath": "microsoft.authentication.webassembly.msal.8.0.1.nupkg.sha512"
     },
-    "Microsoft.Azure.AppConfiguration.AspNetCore/7.0.0-preview.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-s/2uZayfwusPt+Hx6b3ARTEXkj7MYfPh+iYLwwiPhfubMpRwXCIvN9snANt5PPlxgtsEWYtGtjxUnwSrirXtDg==",
-      "path": "microsoft.azure.appconfiguration.aspnetcore/7.0.0-preview.2",
-      "hashPath": "microsoft.azure.appconfiguration.aspnetcore.7.0.0-preview.2.nupkg.sha512"
-    },
     "Microsoft.Bcl.AsyncInterfaces/1.1.1": {
       "type": "package",
       "serviceable": true,
@@ -5229,7 +5104,7 @@
     "Microsoft.EntityFrameworkCore.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-NcpRPwhrn60kdI0sbUTF0KLbNz0kkgARU9e8quBcF1s46i1rGgPiSHyOm9c0n9GHHuKoRlSgASXFuGPrvha0gg==",
+      "sha512": "sha512-kQdEqjgse6zAZQMycbokfiylNFIahyjIMVSLGjovRsEk6rjf14SFUh2rNmm219Sgz/5RioFk8qCfX4wtisQ79g==",
       "path": "microsoft.entityframeworkcore.usings/0.0.1-local",
       "hashPath": "microsoft.entityframeworkcore.usings.0.0.1-local.nupkg.sha512"
     },
@@ -5271,16 +5146,9 @@
     "Microsoft.Extensions.Configuration.All.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-MgndeEDvvZtwLkqRVe2LZNQCo+4E0rOZw+2nqZGklDl+RFAJ66a98TPg5OkqSmv1Et3OCVcazrMP58zpTPgkiA==",
+      "sha512": "sha512-e5a+ZucpVo65usK7Z6f+Mh2+BryHYZJgTFOkCSUbAzz4hrjJV4Db6OGcHLP8dRgpTLi6YgfzPNVKHhNwNsHoWA==",
       "path": "microsoft.extensions.configuration.all.usings/0.0.1-local",
       "hashPath": "microsoft.extensions.configuration.all.usings.0.0.1-local.nupkg.sha512"
-    },
-    "Microsoft.Extensions.Configuration.AzureAppConfiguration/7.0.0-preview.2": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-tclHczQMzoCySAWSp66BoKceDy7wOjcN3VDjR3Mk1ymtE6T4I67SnOihxdg6U8frU2TYfY7vZNc3AABvRKrPvw==",
-      "path": "microsoft.extensions.configuration.azureappconfiguration/7.0.0-preview.2",
-      "hashPath": "microsoft.extensions.configuration.azureappconfiguration.7.0.0-preview.2.nupkg.sha512"
     },
     "Microsoft.Extensions.Configuration.Binder/8.0.0": {
       "type": "package",
@@ -5821,6 +5689,13 @@
       "path": "minver/4.2.0",
       "hashPath": "minver.4.2.0.nupkg.sha512"
     },
+    "NetTopologySuite/2.5.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-5/+2O2ADomEdUn09mlSigACdqvAf0m/pVPGtIPEPQWnyrVykYY0NlfXLIdkMgi41kvH9kNrPqYaFBTZtHYH7Xw==",
+      "path": "nettopologysuite/2.5.0",
+      "hashPath": "nettopologysuite.2.5.0.nupkg.sha512"
+    },
     "Newtonsoft.Json/13.0.1": {
       "type": "package",
       "serviceable": true,
@@ -5932,13 +5807,6 @@
       "sha512": "sha512-zG2FApP5zxSx6OcdJQLbZDk2AVlN2BNQD6MorwIfV6gVj0RRxWPEp2LXAxqDGZqeNV1Zp0BNPcNaey/GXmTdvQ==",
       "path": "pipelines.sockets.unofficial/2.2.8",
       "hashPath": "pipelines.sockets.unofficial.2.2.8.nupkg.sha512"
-    },
-    "PolyKit/3.0.9": {
-      "type": "package",
-      "serviceable": true,
-      "sha512": "sha512-sB9peUPMs3q1awfl4KzemPUULDnXBIECCHrIKKGLLUpamVkEAKUA+zGn1WLvOyqSo5ZVOwYG0agSFAQqedr9Vg==",
-      "path": "polykit/3.0.9",
-      "hashPath": "polykit.3.0.9.nupkg.sha512"
     },
     "runtime.debian.8-x64.runtime.native.System.Security.Cryptography.OpenSsl/4.3.2": {
       "type": "package",
@@ -6062,7 +5930,7 @@
     "SendPulse.Identity/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-gve5VS5syur3KA0xmhh5Pz/HX82FoAoBhcaFRdoVxKaESwF9xOsdInO39lasnADCfz2JGECasx9yHWn0iBYW3Q==",
+      "sha512": "sha512-BzCUMZJOn8K67Lty2OIiJ9bsZgS2Y9lrC0/eGmtiGsNUbXyz4VXDk5XTjOO5ZuTIbrJ2nyZ67Hm6nNJpgNHlSw==",
       "path": "sendpulse.identity/0.0.1-local",
       "hashPath": "sendpulse.identity.0.0.1-local.nupkg.sha512"
     },
@@ -6251,7 +6119,7 @@
     "System.Collections.Generic.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-b4QU51Ef4hSWKfpKYS7t2D+fpXYjKPFmqxIAKGTMpdH9qpI+lLIDJXplho6aHfZx4LqIsY5UwBciiebejbIbDQ==",
+      "sha512": "sha512-XoihlgbhpX+80v1S57Qey9P0oMLirBAro8Z5lDlCpS5k47ypndBeLRpNSG6MCahEe/cyua6XnUWfGRP84ljZtw==",
       "path": "system.collections.generic.usings/0.0.1-local",
       "hashPath": "system.collections.generic.usings.0.0.1-local.nupkg.sha512"
     },
@@ -6275,6 +6143,13 @@
       "sha512": "sha512-Epx8PoVZR0iuOnJJDzp7pWvdfMMOAvpUo95pC4ScH2mJuXkKA2Y4aR3cG9qt2klHgSons1WFh4kcGW7cSXvrxg==",
       "path": "system.collections.specialized/4.3.0",
       "hashPath": "system.collections.specialized.4.3.0.nupkg.sha512"
+    },
+    "System.CommandLine/2.0.0-beta4.22272.1": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-1uqED/q2H0kKoLJ4+hI2iPSBSEdTuhfCYADeJrAqERmiGQ2NNacYKRNEQ+gFbU4glgVyK8rxI+ZOe1onEtr/Pg==",
+      "path": "system.commandline/2.0.0-beta4.22272.1",
+      "hashPath": "system.commandline.2.0.0-beta4.22272.1.nupkg.sha512"
     },
     "System.ComponentModel/4.3.0": {
       "type": "package",
@@ -6307,7 +6182,7 @@
     "System.ComponentModel.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-LmK/DPebty2ErXhvI+RTIS8K/32f1f7yJ+4ANpiKw4kSyXGKPL5vSMLW/AI68+ydJ5rLrhkbudT+NzD+T7uXUA==",
+      "sha512": "sha512-wivHPDq08lPBvojAKcI2pCvcZZcIqz0PoiIJ2Wh5HlX8D4Lx4HP8wLsu5WerIi4JmxqFk0z0M77ePeuMUn4xVA==",
       "path": "system.componentmodel.usings/0.0.1-local",
       "hashPath": "system.componentmodel.usings.0.0.1-local.nupkg.sha512"
     },
@@ -6482,7 +6357,7 @@
     "System.Polyfills/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-eU0RHr4oLnQbrXPiCNM+vNFvhjovBAPaqfY1jXRO9hb+/F3xUDL0p9108a8ulbRi7YJ36+ChPEnwAEla7f62rQ==",
+      "sha512": "sha512-XqoIMusumwIiZs3ivdsB50gmalWWvChVuINB+iUV8a/WF5+ywdZ6BIFnX4eOkF1YxziW9kYCBeajBIjcCR3pYQ==",
       "path": "system.polyfills/0.0.1-local",
       "hashPath": "system.polyfills.0.0.1-local.nupkg.sha512"
     },
@@ -6699,7 +6574,7 @@
     "System.Security.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-puAyCfCZOLXsZo67u0G6ZonB5ZLVDOnIdF7txZO1pdIRUB6sn+VL5/0qAdk7eagjvnkLZTOYjMfuTbuPN1Oc3Q==",
+      "sha512": "sha512-QEUF1w5PF7gSAklL9qW8c+yIct0k0tWwSAYfRsfe81nPvQMdi+SqoVZjpD6HiVtA2Rn5Dj4R+4ts9WGHGmfjCw==",
       "path": "system.security.usings/0.0.1-local",
       "hashPath": "system.security.usings.0.0.1-local.nupkg.sha512"
     },
@@ -6741,7 +6616,7 @@
     "System.Text.Json.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-A4l9V2nDXGX2s6Ev3+CMbe63NsivAfcMEu3NnHbxKJtrrQ2cFIDi1ZRtffad863act4ZKPmxnn/3w4hlww7pfw==",
+      "sha512": "sha512-VtDaR9lto6wCFiIs2gMLALTiYs9lGZS5hPDyUtkZyEErtovbCZMHs36b+cHvCxj8ypSnUk0z0a1gyNDrQiAVgQ==",
       "path": "system.text.json.usings/0.0.1-local",
       "hashPath": "system.text.json.usings.0.0.1-local.nupkg.sha512"
     },
@@ -6755,14 +6630,14 @@
     "System.Text.RegularExpressions.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-ycS2+RW7XcXlZth2+GGi1lhc2m5ianx4DrwP8nPUIal0LdPzbX/SFv/t722ZV+ZpzCjmbfuGs0n15GLhdJGfxg==",
+      "sha512": "sha512-MQO2L0ArzqpLZvUiO9rsh0R/ldLeTSszJQIeTcx6o69kLyiwkCCDF6Q3uGtkrbyB+niOtvDrjjTG3LyJ9IzX/w==",
       "path": "system.text.regularexpressions.usings/0.0.1-local",
       "hashPath": "system.text.regularexpressions.usings.0.0.1-local.nupkg.sha512"
     },
     "System.Text.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-T/Rt4OAxiRloQB2I+QNAT2rpxrEuItx2RlnnBeEUZemAT/i2ir5GUlOCkeIi1mG/J88igYFw5mtHF+5+9GPZpg==",
+      "sha512": "sha512-SLwmtL12heFVMHxDHMccrllIPmYiwjUlDgsFxlgtwVic0BTZ/LL1yTdEtek2Gw3ll4xvfq+6SBvG2CqL8qyS7g==",
       "path": "system.text.usings/0.0.1-local",
       "hashPath": "system.text.usings.0.0.1-local.nupkg.sha512"
     },
@@ -6790,7 +6665,7 @@
     "System.Usings/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-7QWMdgPjsppmPDkU6IOONEPojIAD5KCZQ/W4eBSsy8ZPwwrjjpWNAcUn97i+eg5S1aWJAkfAa8ao027hbwVEhA==",
+      "sha512": "sha512-wBnMVuhjtFYOyAVu4nfI//u06e5xn+sMbDrieNOTJEivESDBqYSB6hg/xrH/0ZQSPA59w7HjXpV5OwFKdUd2/A==",
       "path": "system.usings/0.0.1-local",
       "hashPath": "system.usings.0.0.1-local.nupkg.sha512"
     },
@@ -6822,24 +6697,24 @@
       "path": "system.xml.xpath/4.3.0",
       "hashPath": "system.xml.xpath.4.3.0.nupkg.sha512"
     },
-    "Telegram.Bot/19.0.0-DgmjrMods": {
+    "Telegram.Bot/19.0.0-preview.1": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-lG7OY56scpD0rdS2lEde2B+b9VYGgWkyuty+8CVXmF3JmAdBggLGTgZknpssSyO4FEr9GXoS49nHXMaKaVF+bA==",
-      "path": "telegram.bot/19.0.0-dgmjrmods",
-      "hashPath": "telegram.bot.19.0.0-dgmjrmods.nupkg.sha512"
+      "sha512": "sha512-Iz+QRPW1oa9wfFnBgP9yxBhQAmpyLHpTrJoeJVS1Lq1BhrDXKK7h+U95uNllWwubsV3f12mCMIRRghRKy7+QXA==",
+      "path": "telegram.bot/19.0.0-preview.1",
+      "hashPath": "telegram.bot.19.0.0-preview.1.nupkg.sha512"
     },
     "Telegram.Bot.Extensions/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-w1PuHBXfNbdMa1jmCErU1X8CshW9ZWYEcCzz/56oGbYoDXppx0ehMMhk/mENzhjQ3ArsfP0rTmNYV2UXxidvog==",
+      "sha512": "sha512-fg8MmiDI/YcqKwwnkuI+9YiJdN0VvjFxdwda+tJ4QT0bSBUQHdPE4QPXai6JwgOzNkGd7A0T9JZVoJyPa1zK0g==",
       "path": "telegram.bot.extensions/0.0.1-local",
       "hashPath": "telegram.bot.extensions.0.0.1-local.nupkg.sha512"
     },
     "Telegram.Constants/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-/y7YndYP/9ZIASV1VQM4MWf3HXEuo4HFe9sOWvbUQaqmE5KHmC1dVTksazW1o87Ujn4kE4vXj5kDpiJtTZxXBg==",
+      "sha512": "sha512-brZuxEBtzIaOsXwUu70h54zH44/bUADOs1Z3aO6i7IA8MCFxY7M6OlhW388wFrV13OL+on4cNA6oeFkQ0+B34w==",
       "path": "telegram.constants/0.0.1-local",
       "hashPath": "telegram.constants.0.0.1-local.nupkg.sha512"
     },
@@ -6853,7 +6728,7 @@
     "Telegram.LoginWidget/0.0.1-Local": {
       "type": "package",
       "serviceable": true,
-      "sha512": "sha512-wrvhmPd235MM7DhBhFq84Epe/xNusvIf7I4sQEXrMCqW8ntz96LG3qy1F9AVJ/itKlzVMPWu7cvtFoBl/fRvlw==",
+      "sha512": "sha512-AeuPLiBI1e8XA9U5+zvUrdUCDu7lfYHgltWFx75Vaiw6GqOXQ4yJGWv4F6erVI8EAydcvHkt0T0lpGCZiIexPA==",
       "path": "telegram.loginwidget/0.0.1-local",
       "hashPath": "telegram.loginwidget.0.0.1-local.nupkg.sha512"
     },

@@ -195,7 +195,7 @@ public static partial class LoggingExtensions
                 principal.Claims
                     .Select(c => c.Type)
                     .Distinct()
-                    .ToDictionary(t => t, t => principal.FindFirstValue(t))
+                    .ToDictionary(t => t, t => System.Security.Claims.ClaimsPrincipalExtensions.FindFirstValue(principal, t))
             )
         );
 

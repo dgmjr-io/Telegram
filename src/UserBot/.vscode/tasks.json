@@ -1,24 +1,15 @@
 {
   "$schema": "https://raw.githubusercontent.com/microsoft/azure-pipelines-task-lib/master/tasks.schema.json",
+  "tasks": [ {
+    "args": [ "build", "-c:Local", "-p:BuildFromSource=false", "${workspaceFolder}/UserBot.Cli/UserBot.Cli.csproj", "/property:GenerateFullPaths=true", "/consoleloggerparameters:NoSummary;ForceNoAlign" ],
+    "command": "dotnet",
+    "label": "Build UserBot.Cli",
+    "problemMatcher": "$msCompile",
+    "type": "process"
+  } ],
   "version": {
     "Major": 2,
     "Minor": 0,
     "Patch": 0
-  },
-  "tasks": [
-    {
-      "label": "Build UserBot.Cli",
-      "command": "dotnet",
-      "type": "process",
-      "args": [
-        "build",
-        "-c:Local",
-        "-p:BuildFromSource=false",
-        "${workspaceFolder}/UserBot.Cli/UserBot.Cli.csproj",
-        "/property:GenerateFullPaths=true",
-        "/consoleloggerparameters:NoSummary;ForceNoAlign"
-      ],
-      "problemMatcher": "$msCompile"
-    }
-  ]
+  }
 }

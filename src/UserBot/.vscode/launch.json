@@ -1,0 +1,21 @@
+{
+  "configurations": [
+
+    {
+      "name": ".NET Core Launch (console)",
+      "type": "coreclr",
+      "request": "launch",
+      "preLaunchTask": "Build UserBot.Cli",
+      "program": "${workspaceFolder}/UserBot.Cli/bin/Local/net8.0/UserBot.Cli.dll",
+      "args": [],
+      "cwd": "${workspaceFolder}",
+      "stopAtEntry": false,
+      "console": "internalConsole",
+      "env": {
+        "api_id": "24851338",
+        "api_hash": "82a9e257eb717d3a46f8479cdf307434",
+        "persist_to": "Memory"
+      }
+    }
+  ]
+}

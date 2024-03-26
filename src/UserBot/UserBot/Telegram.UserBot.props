@@ -15,7 +15,8 @@
     <Using Include="Dgmjr.Abstractions" />
     <Using Include="Microsoft.Extensions.Logging" />
     <Using Include="Microsoft.Extensions.Options" />
-    <Using Include="WTelegram" />
     <Using Include="TL" />
+    <Using Include="WTelegram" Alias="WT" />
+    <Using Include="System.Net" />
   </ItemGroup>
 </Project>

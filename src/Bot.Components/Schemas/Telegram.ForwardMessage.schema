@@ -1,0 +1,42 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "extends(Telegram.TelegramBotCustomAction)",
+  "type": "object",
+  "title": "Forward Message",
+  "description": "Sends a video via the Telegram Bot API to a specified recipient.",
+  "required": [
+    "messageId",
+    "recipientId",
+    "fromChatId",
+    "botApiToken"
+  ],
+  "properties": {
+    "fromChatId": {
+      "$ref": "schema:#/definitions/Telegram.ChatIdExpression",
+      "title": "From Chat ID",
+      "description": "The ID of the chat from which the message originates.",
+      "examples": [
+        1234567890,
+        "@YourChatUsername",
+        "=state.chatId"
+      ]
+    },
+    "messageId": {
+      "$ref": "schema:#/definitions/integerExpression",
+      "title": "Message ID",
+      "description": "The ID of the message to be forwarded.",
+      "examples": [
+        12345,
+        "=state.messageId"
+      ]
+    }
+  },
+  "definitions": {
+    "chatIdExpression": {
+      "$id": "chatIdExpression",
+      "title": "Telegram.Bot - ChatId",
+      "description": "A Telegram chat ID (either a 64-bit signed integer or a username starting with \"@\")",
+      "$ref": "schema:#/definitions/stringExpression"
+    }
+  }
+}

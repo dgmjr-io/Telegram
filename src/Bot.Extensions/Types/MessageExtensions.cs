@@ -38,4 +38,9 @@ public static class MessageExtensions
             _ => message.Caption.Truncate(maxLength)
         };
     }
+
+    public static string EscapeMarkdown(this string s)
+    {
+        return s.Replace("_", "\\_").Replace("*", "\\*").Replace("`", "\\`").Replace("!", "\\!");
+    }
 }

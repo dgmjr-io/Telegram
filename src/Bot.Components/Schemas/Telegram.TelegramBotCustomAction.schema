@@ -1,0 +1,99 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "implements(Microsoft.IDialog)",
+  "type": "object",
+  "title": "Telegram Bot Custom Action",
+  "description": "Invokes an action via the Telegram channel.",
+  "required": [
+    "recipientId",
+    "botApiToken"
+  ],
+  "properties": {
+    "recipientId": {
+      "$ref": "schema:#/definitions/Telegram.ChatIdExpression",
+      "title": "Recipient ID",
+      "description": "The ID of the recipient to send the image to.",
+      "examples": [
+        "1234567890",
+        "@MyChatUsername",
+        "=dialog.recipientId"
+      ]
+    },
+    "botApiToken": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Bot API Token",
+      "description": "The API token of the bot to use for sending the image.",
+      "examples": [
+        "123456:ABC-DEF1234ghIkl-zyx57W2v1u123ew11"
+      ]
+    },
+    "parseMode": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Parse Mode",
+      "description": "The parse mode to use for the message.",
+      "enum": [
+        "Html",
+        "Markdown",
+        "MarkdownV2"
+      ],
+      "default": "MarkdownV2"
+    },
+    "disableNotification": {
+      "$ref": "schema:#/definitions/booleanExpression",
+      "title": "Disable Notification",
+      "description": "Whether to disable notifications for the message.",
+      "default": false,
+      "examples": [
+        true,
+        false,
+        "=dialog.disableNotification"
+      ]
+    },
+    "replyToMessageId": {
+      "$ref": "schema:#/definitions/integerExpression",
+      "title": "Reply To Message ID",
+      "description": "The ID of the message to reply to.",
+      "examples": [
+        "1234567890",
+        "=dialog.replyToMessageId"
+      ]
+    },
+    "protectContent": {
+      "$ref": "schema:#/definitions/booleanExpression",
+      "title": "Protect Content",
+      "description": "Whether to protect the content of the message.",
+      "default": false,
+      "examples": [
+        true,
+        false,
+        "=dialog.protectContent"
+      ]
+    },
+    "resultProperty": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Result property",
+      "description": "Named state location to store result.",
+      "examples": [
+        "turn.Result"
+      ]
+    },
+    "disabled": {
+      "$ref": "schema:#/definitions/booleanExpression",
+      "title": "Is disabled?",
+      "description": "Set to true to disable this action.",
+      "examples": [
+        true,
+        false
+      ],
+      "default": false
+    }
+  },
+  "definitions": {
+    "chatIdExpression": {
+      "$id": "chatIdExpression",
+      "title": "Telegram.Bot - ChatId",
+      "description": "A Telegram chat ID (either a 64-bit signed integer or a username starting with \"@\")",
+      "$ref": "schema:#/definitions/stringExpression"
+    }
+  }
+}

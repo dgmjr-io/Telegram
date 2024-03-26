@@ -1,0 +1,39 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "extends(stringExpression)",
+  "title": "URL or file expression",
+  "description": "An absolute URL to a resource on the Web or a base64-encoded binary file.",
+  "oneOf": [
+    {
+      "type": "string",
+      "title": "URL",
+      "description": "An absolute URL to a resource on the Web.",
+      "examples": [
+        "https://example.com/image.jpg",
+        "https://example.com/video.mp4"
+      ],
+      "pattern": "^https?://",
+      "errorMessage": "The value must be a valid URL."
+    },
+    {
+      "type": "string",
+      "title": "Data URI",
+      "description": "A base64-encoded binary file.",
+      "examples": [
+        "data:image/jpeg;base64,...",
+        "data:video/mp4;base64,..."
+      ],
+      "pattern": "^data:.*;base64,",
+      "errorMessage": "The value must be a base64-encoded file."
+    },
+    {
+      "$ref": "schema:#/definitions/equalsExpression",
+      "title": "URL",
+      "description": "An absolute URL to a resource on the Web or a base64-encoded binary file.",
+      "examples": [
+        "=..."
+      ],
+      "additionalProperties": false
+    }
+  ]
+}

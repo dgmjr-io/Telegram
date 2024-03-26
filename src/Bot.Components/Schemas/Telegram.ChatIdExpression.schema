@@ -1,0 +1,37 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "extends(valueExpression)",
+  "title": "Chat ID Expression",
+  "description": "A Telegram chat ID (either a 64-bit signed integer or a username starting with \"@\")",
+  "oneOf": [
+    {
+      "type": "string",
+      "title": "Username",
+      "description": "The recipient's username starting with a \"@.\"",
+      "pattern": "^@(?!(=)).*",
+      "examples": [
+        "@RecipientUserId"
+      ]
+    },
+    {
+      "$ref": "schema:#/definitions/equalsExpression",
+      "description": "The recipient's username starting with a \"@.\"",
+      "examples": [
+        "=concat('@','foo')",
+        "=dialog.chatId"
+      ]
+    },
+    {
+      "$ref": "schema:#/definitions/integerExpression",
+      "title": "Chat ID",
+      "description": "A 64-bit signed integer.",
+      "examples": [
+        1234567890,
+        "=state.chatId"
+      ]
+    },
+    {
+      "$ref": "schema:#/definitions/valueExpression"
+    }
+  ]
+}

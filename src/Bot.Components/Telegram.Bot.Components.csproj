@@ -1,0 +1,43 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>net8.0</TargetFrameworks>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Bot.Builder.Dialogs.Adaptive.Runtime" />
+    <PackageReference Include="Telegram.Bot" />
+    <PackageReference Include="Telegram.Bot.Extensions" />
+    <PackageReference Include="Microsoft.Azure.KeyVault.Core" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="**/*.dialog" />
+    <Content Include="**/*.lg" />
+    <Content Include="**/*.lu" />
+    <Content Include="**/*.schema" />
+    <Content Include="**/*.uischema" />
+    <Content Include="**/*.qna" />
+    <Content Include="README.md" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Using Include="System" />
+    <Using Include="System.Collections.Generic" />
+    <Using Include="System.Linq" />
+    <Using Include="System.Reflection" />
+    <Using Include="AdaptiveExpressions.Converters" />
+    <Using Include="Microsoft.Bot.Builder" />
+    <Using Include="Microsoft.Bot.Builder.AI.Luis" />
+    <Using Include="Microsoft.Bot.Builder.Dialogs.Declarative" />
+    <Using Include="Microsoft.Bot.Builder.Dialogs.Declarative.Converters" />
+    <Using Include="Microsoft.Extensions.Configuration" />
+    <Using Include="Microsoft.Extensions.DependencyInjection" />
+    <Using Include="Microsoft.Extensions.Logging" />
+    <Using Include="Telegram.Bot.Types.Enums.ParseMode" Alias="ParseModeEnum" />
+    <Using Include="Newtonsoft.Json.JsonConvert" Static="true" />
+  </ItemGroup>
+
+</Project>

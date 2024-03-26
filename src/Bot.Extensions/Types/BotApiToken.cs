@@ -28,8 +28,8 @@ using Vogen;
 [StructLayout(LayoutKind.Auto)]
 public partial record struct BotApiToken : IRegexValueObject<BotApiToken>
 {
-    const int BotIdLength = 10;
-    const int TokenLength = 35;
+    private const int BotIdLength = 10;
+    private const int TokenLength = 35;
 
     /// <summary>
     /// The prefix string for the URI.

@@ -9,12 +9,12 @@ namespace Microsoft.Extensions.DependencyInjection;
 
 public static class TelegramBotClientDIExtensions
 {
-    public static IServiceCollection AddTelegramBot(this IServiceCollection services, IConfiguration config, string configurationKey = BotConfiguration.Key)
+    public static IServiceCollection AddTelegramBot(this IServiceCollection services, IConfiguration config, string configurationKey = BotConfiguration.Key, bool configureWebhook = true)
     {
-        services.AddTelegramBot<TelegramBotClient>(config, configurationKey);
+        services.AddTelegramBot<TelegramBotClient>(config, configurationKey, configureWebhook);
         return services;
     }
-    public static IServiceCollection AddTelegramBot<TBot>(this IServiceCollection services, IConfiguration config, string configurationKey = BotConfiguration.Key)
+    public static IServiceCollection AddTelegramBot<TBot>(this IServiceCollection services, IConfiguration config, string configurationKey = BotConfiguration.Key, bool configureWebhook = true)
         where TBot : class, ITelegramBotClient
     {
         // Register named HttpClient to get benefits of IHttpClientFactory
@@ -25,10 +25,13 @@ public static class TelegramBotClientDIExtensions
         services
             .AddHttpClient("telegram_bot_client")
             .AddTypedClient<ITelegramBotClient, TBot>();
-        services.AddSingleton<ITelegramBotClient, TBot>();
+        services.AddSingleton<ITelegramBotClient>(y => y.GetRequiredService<TBot>());
         services.AddSingleton<TBot>();
         services.ConfigureBotOptions(config, configurationKey);
-        services.ConfigureBotWebhook();
+        if(configureWebhook)
+        {
+            services.ConfigureBotWebhook();
+        }
         return services;
     }
 

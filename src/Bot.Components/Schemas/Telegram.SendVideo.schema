@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "extends(Telegram.TelegramBotCustomAction)",
+  "type": "object",
+  "title": "Send Video",
+  "description": "Sends a video via the Telegram Bot API to a specified recipient.",
+  "required": [
+    "video",
+    "recipientId",
+    "botApiToken"
+  ],
+  "properties": {
+    "video": {
+      "$ref": "schema:#/definitions/Telegram.FileExpression",
+      "title": "Video",
+      "description": "The absolute URL or data URI of the video to send.",
+      "examples": [
+        "https://example.com/video.mp4",
+        "=attachment.contentUrl"
+      ]
+    },
+    "caption": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Caption",
+      "description": "The caption to send with the video.",
+      "examples": [
+        "Check out this cool video!",
+        "=attachment.name"
+      ]
+    }
+  },
+  "definitions": {
+    "chatIdExpression": {
+      "$id": "chatIdExpression",
+      "title": "Telegram.Bot - ChatId",
+      "description": "A Telegram chat ID (either a 64-bit signed integer or a username starting with \"@\")",
+      "$ref": "schema:#/definitions/stringExpression"
+    }
+  }
+}

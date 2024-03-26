@@ -1,0 +1,29 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "extends(Telegram.TelegramBotCustomAction)",
+  "type": "object",
+  "title": "Send Text Message",
+  "description": "Sends an image via the Telegram Bot API to a specified recipient.",
+  "required": [
+    "recipientId",
+    "botApiToken"
+  ],
+  "properties": {
+    "text": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Message Text",
+      "description": "The text of the message.",
+      "examples": [
+        "Hello, world!"
+      ]
+    }
+  },
+  "definitions": {
+    "chatIdExpression": {
+      "$id": "chatIdExpression",
+      "title": "Telegram.Bot - ChatId",
+      "description": "A Telegram chat ID (either a 64-bit signed integer or a username starting with \"@\")",
+      "$ref": "schema:#/definitions/stringExpression"
+    }
+  }
+}

@@ -1,0 +1,40 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "extends(Telegram.TelegramBotCustomAction)",
+  "type": "object",
+  "title": "Send Image",
+  "description": "Sends an image via the Telegram Bot API to a specified recipient.",
+  "required": [
+    "image",
+    "recipientId",
+    "botApiToken"
+  ],
+  "properties": {
+    "image": {
+      "$ref": "schema:#/definitions/Telegram.FileExpression",
+      "title": "Image",
+      "description": "The absolute URL or data URI of the image to send.",
+      "examples": [
+        "https://example.com/image.jpg",
+        "=attachment.contentUrl"
+      ]
+    },
+    "caption": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Caption",
+      "description": "The caption to send with the image.",
+      "examples": [
+        "Check out this cool pic!",
+        "=attachment.name"
+      ]
+    }
+  },
+  "definitions": {
+    "chatIdExpression": {
+      "$id": "chatIdExpression",
+      "title": "Telegram.Bot - ChatId",
+      "description": "A Telegram chat ID (either a 64-bit signed integer or a username starting with \"@\")",
+      "$ref": "schema:#/definitions/stringExpression"
+    }
+  }
+}

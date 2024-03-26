@@ -1,0 +1,27 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/ui/v1.0/ui.schema",
+  "menu": {
+    "submenu": ["Telegram"]
+  },
+  "form": {
+    "properties": {
+      "caption": {
+        "description": "The caption to be displayed below the image.",
+        "widget": "textarea"
+      }
+    },
+    "intellisenseScopes": [
+      "expressions",
+      "user-variables"
+    ],
+    "fieldsets": [
+      {
+        "defaultExpanded": true,
+        "fields": [
+          "caption"
+        ],
+        "title": "Image"
+      }
+    ]
+  }
+}

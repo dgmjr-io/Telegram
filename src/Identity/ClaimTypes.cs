@@ -1,5 +1,3 @@
-using System.Security.Claims;
-
 /*
  * ClaimTypes.cs
  *
@@ -13,6 +11,7 @@ using System.Security.Claims;
  */
 
 namespace Telegram.Identity.ClaimTypes;
+using System.Security.Claims;
 
 using Dgmjr.Identity;
 using Dgmjr.Identity.ClaimTypes;

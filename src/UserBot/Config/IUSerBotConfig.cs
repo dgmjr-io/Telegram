@@ -8,8 +8,11 @@ namespace Telegram.UserBot.Config
 {
     public partial interface IUserBotConfig
     {
-        IUserBotStore? GetSessionStore();
+        // GetSessionStore GetSessionStore { get; set; }
+        // IUserBotStore? GetSessionStore();
         string? GetConfigVariable(string variable);
-        string Prompt(string variable);
+        string? Prompt(string variable);
     }
+
+    public delegate IUserBotStore GetSessionStore(IServiceProvider services);
 }

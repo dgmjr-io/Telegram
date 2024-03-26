@@ -23,7 +23,7 @@
     <PackageReference Include="Microsoft.Extensions.Options" />
     <PackageReference Include="Microsoft.Extensions.DependencyInjection" />
     <PackageReference Include="Dgmjr.Abstractions" />
-    <PackageReference Include="Dgmjr.InterfaceGenerator" IncludeAssets="Analyzers;Build" ExcludeAssets="Native;BuildTransitive;BuildMultitargeting;ContentFiles;Compile;Runtime" PrivateAssets="All" />
+    <SourceGeneratorPackageReference Include="Dgmjr.InterfaceGenerator" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="../Config/Telegram.UserBot.Config.csproj" />

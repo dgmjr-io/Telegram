@@ -6,9 +6,13 @@
   "form": {
     "properties": {
       "caption": {
-        "description": "The caption to be displayed below the video.",
+        "description": "The caption to be displayed below the image.",
         "widget": "textarea"
       }
-    }
+    },
+    "intellisenseScopes": [
+      "expressions",
+      "user-variables"
+    ]
   }
 }

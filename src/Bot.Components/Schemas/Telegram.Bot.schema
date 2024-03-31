@@ -1,0 +1,35 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "implements(Microsoft.IAdapter)",
+  "type": "object",
+  "title": "Telegram Bot",
+  "description": "This component sends messages via a Telegram bot.",
+  "required": [
+    "ForwardMessages",
+    "Token"
+  ],
+  "properties": {
+    "RecipientId": {
+      "type": "string",
+      "title": "Recipient ID",
+      "description": "The ID of the recipient to send the message to."
+    },
+    "TranscriptRecipientId": {
+      "type": "string",
+      "title": "Transcript Recipient ID",
+      "description": "The ID of the recipient to send the transcripts to.  If not specified, the recipient ID is used."
+    },
+    "ForwardMessages": {
+      "type": "boolean",
+      "title": "Forward Messages",
+      "description": "Whether or not to forward messages to the recipient.",
+      "default": true
+    },
+    "Token": {
+      "type": "string",
+      "title": "Token",
+      "description": "The token to use to authenticate with the Telegram API.",
+      "secret": true
+    }
+  }
+}

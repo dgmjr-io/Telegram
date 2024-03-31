@@ -110,19 +110,19 @@ public class UserDataAccessor(UserState userState)
 
     public virtual async Task SetUserDataAsync(ITurnContext turnContext, string key, object value, CancellationToken cancellationToken = default)
     {
-        var state = await UserState.CreateProperty<Dictionary<string, object>>(nameof(UserData)).GetAsync(turnContext, () => new Dictionary<string, object>(), cancellationToken);
+        var state = await UserState.CreateProperty<Dictionary<string, object>>(nameof(UserData)).GetAsync(turnContext, () => [], cancellationToken);
         state[key] = value;
     }
 
     public virtual async Task<T?> GetUserDataAsync<T>(ITurnContext turnContext, string key, CancellationToken cancellationToken = default)
     {
-        var state = await UserState.CreateProperty<Dictionary<string, object>>(nameof(UserData)).GetAsync(turnContext, () => new Dictionary<string, object>(), cancellationToken);
+        var state = await UserState.CreateProperty<Dictionary<string, object>>(nameof(UserData)).GetAsync(turnContext, () => [], cancellationToken);
         return state.TryGetValue(key, out var value) ? (T)value : default;
     }
 
     public virtual async Task DeleteUserDataAsync(ITurnContext turnContext, string key, CancellationToken cancellationToken = default)
     {
-        var state = await UserState.CreateProperty<Dictionary<string, object>>(nameof(UserData)).GetAsync(turnContext, () => new Dictionary<string, object>(), cancellationToken);
+        var state = await UserState.CreateProperty<Dictionary<string, object>>(nameof(UserData)).GetAsync(turnContext, () => [], cancellationToken);
         state.Remove(key);
     }
 }

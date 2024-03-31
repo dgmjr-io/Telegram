@@ -68,8 +68,12 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
     protected virtual ChatId GetChatId(DialogContext dc) =>
         RecipientId.GetChatIdValue(dc.State);
 
-    protected virtual async Task<T> CallBotAsync<T>(DialogContext dc, CallBot<T> action)
+    protected virtual async Task<T?> CallBotAsync<T>(DialogContext dc, CallBot<T> action)
     {
+        if(IsDisabled.GetValue(dc.State))
+        {
+            return default;
+        }
         var botApiToken = BotApiToken.GetValue(dc.State);
         var bot = new TelegramBotClient(botApiToken);
         bot.OnMakingApiRequest += OnMakingApiRequest;

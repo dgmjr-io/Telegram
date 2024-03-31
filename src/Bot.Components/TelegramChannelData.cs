@@ -124,9 +124,9 @@ public partial class MessageFrom
     [JProp("is_premium")]
     public bool IsPremium { get; set; }
 
-    [JsonProperty("language")]
-    [JProp("language")]
-    public bool LanguageCode { get; set; }
+    [JsonProperty("language_code")]
+    [JProp("language_code")]
+    public string LanguageCode { get; set; }
 
     [JsonProperty("first_name")]
     [JProp("first_name")]

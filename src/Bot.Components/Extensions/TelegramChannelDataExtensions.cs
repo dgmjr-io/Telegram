@@ -31,16 +31,15 @@ public static class TelegramChannelDataExtensions
             userData.LastName = from.LastName;
             userData.Username = from.Username;
             userData.IsBot = from.IsBot;
+            userData.LanguageCode = from.LanguageCode;
+            userData.IsPremium = from.IsPremium;
         }
         return userData;
     }
 
     public static UserData AssignTo(this TelegramChannelData channelData, UserData userData)
     {
-        if(channelData is not null)
-        {
-            channelData.Message.From.AssignTo(userData);
-        }
+        channelData?.Message.From.AssignTo(userData);
         return userData;
     }
 }

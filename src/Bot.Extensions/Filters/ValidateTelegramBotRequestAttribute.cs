@@ -36,7 +36,7 @@ public sealed class ValidateTelegramBotRequestAttribute : TypeFilterAttribute
                     {
                         Title = "Forbidden",
                         Detail = $"\"{XTelegramBotApiSecretTokenHeader}\" is invalid",
-                        Type = "https://developer.mozilla.org/en-US/docs/Web/HTTP/Status/403",
+                        Type = "https://developer.mozilla.org/en-us/docs/Web/HTTP/Status/403",
                         Instance = context.HttpContext.Request.Path,
                         Status = StatusCodes.Status403Forbidden
                     }

@@ -13,15 +13,6 @@
     "intellisenseScopes": [
       "expressions",
       "user-variables"
-    ],
-    "fieldsets": [
-      {
-        "defaultExpanded": true,
-        "fields": [
-          "caption"
-        ],
-        "title": "Image"
-      }
     ]
   }
 }

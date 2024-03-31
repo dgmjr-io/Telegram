@@ -8,17 +8,8 @@
       "type": "string",
       "title": "Username",
       "description": "The recipient's username starting with a \"@.\"",
-      "pattern": "^@(?!(=)).*",
       "examples": [
         "@RecipientUserId"
-      ]
-    },
-    {
-      "$ref": "schema:#/definitions/equalsExpression",
-      "description": "The recipient's username starting with a \"@.\"",
-      "examples": [
-        "=concat('@','foo')",
-        "=dialog.chatId"
       ]
     },
     {
@@ -31,7 +22,12 @@
       ]
     },
     {
-      "$ref": "schema:#/definitions/valueExpression"
+      "$ref": "schema:#/definitions/valueExpression",
+      "title": "Expression",
+      "description": "An expression that evaluates to a chat ID.",
+      "examples": [
+        "=state.chatId"
+      ]
     }
   ]
 }

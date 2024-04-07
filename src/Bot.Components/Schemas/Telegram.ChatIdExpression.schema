@@ -5,28 +5,26 @@
   "description": "A Telegram chat ID (either a 64-bit signed integer or a username starting with \"@\")",
   "oneOf": [
     {
-      "type": "string",
+      "$role": "expression",
+      "title": "Equals Expression",
+      "description": "The Equals Expression of the property",
+      "$ref": "schema:#/definitions/equalsExpression"
+    },
+    {
       "title": "Username",
-      "description": "The recipient's username starting with a \"@.\"",
+      "description": "The recipient's (or sender's) username",
+      "type": "string",
       "examples": [
-        "@RecipientUserId"
+        "@MyUsername"
       ]
     },
     {
-      "$ref": "schema:#/definitions/integerExpression",
-      "title": "Chat ID",
-      "description": "A 64-bit signed integer.",
+      "title": "User ID",
+      "description": "The recipient's (or sender's) user ID",
+      "type": "number",
+      "format": "int64",
       "examples": [
-        1234567890,
-        "=state.chatId"
-      ]
-    },
-    {
-      "$ref": "schema:#/definitions/valueExpression",
-      "title": "Expression",
-      "description": "An expression that evaluates to a chat ID.",
-      "examples": [
-        "=state.chatId"
+        123456789
       ]
     }
   ]

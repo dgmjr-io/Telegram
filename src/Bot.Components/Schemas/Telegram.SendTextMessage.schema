@@ -17,13 +17,5 @@
         "Hello, world!"
       ]
     }
-  },
-  "definitions": {
-    "chatIdExpression": {
-      "$id": "chatIdExpression",
-      "title": "Telegram.Bot - ChatId",
-      "description": "A Telegram chat ID (either a 64-bit signed integer or a username starting with \"@\")",
-      "$ref": "schema:#/definitions/stringExpression"
-    }
   }
 }

@@ -1,6 +1,49 @@
 {
   "$schema": "https://schemas.botframework.com/schemas/ui/v1.0/ui.schema",
   "menu": {
-    "submenu": ["Telegram"]
+    "submenu": [
+      "Telegram"
+    ]
+  },
+  "form": {
+    "subtitle": "Forward a message to another chat.",
+    "widget": "textarea",
+    "fieldsets": [
+      {
+        "title": "Bot API Token",
+        "description": "Enter the bot token.",
+        "defaultExpanded": false,
+        "fields": [
+          "botApiToken"
+        ]
+      },
+      {
+        "title": "Message",
+        "description": "Enter the message's information.",
+        "defaultExpanded": true,
+        "fields": [
+          "messageId",
+          "fromChatId",
+          "recipientId",
+          "replyToMessageId"
+        ]
+      },
+      {
+        "title": "Miscellaneous",
+        "description": "Other stuff.",
+        "defaultExpanded": false,
+        "fields": [
+          "*"
+        ]
+      }
+    ]
+  },
+  "flow": {
+    "widget": "ActionCard",
+    "title": "Forward a Message",
+    "body": "=concat(\"𝗙𝗿𝗼𝗺 𝗰𝗵𝗮𝘁: \", coalesce(action.fromChatId, \"?\"), \"\n𝗠𝗲𝘀𝘀𝗮𝗴𝗲: \", coalesce(action.messageId, \"?\"), \"\n𝗧𝗼: \", coalesce(action.recipientId, \"?\"))",
+    "action": {
+      "type": "Action.Submit"
+    }
   }
 }

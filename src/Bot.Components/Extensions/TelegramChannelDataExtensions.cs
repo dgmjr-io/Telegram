@@ -4,14 +4,40 @@ using Telegram.Bot.Components;
 
 public static class TelegramChannelDataExtensions
 {
-    public static TelegramChannelData? GetTelegramChannelData(this ITurnContext turnContext)
+    public const string NotATelegramChannel = "Not a Telegram channel";
+
+    private static readonly TelegramChannelData NotATelegramChannelData =
+        new()
+        {
+            Message = new Message
+            {
+                From = new MessageFrom
+                {
+                    Id = -1,
+                    FirstName = NotATelegramChannel,
+                    Username = NotATelegramChannel,
+                    IsBot = false
+                },
+                Chat = new Chat { Id = -1, Type = ChatType.Private.ToString() }
+            },
+            From = new TelegramChannelDataFrom
+            {
+                Id = -1,
+                FirstName = NotATelegramChannel,
+                Username = NotATelegramChannel,
+                IsBot = false
+            }
+        };
+
+    public static TelegramChannelData GetTelegramChannelData(this ITurnContext turnContext)
     {
-        return DeserializeObject<TelegramChannelData>(turnContext.Activity.ChannelData.ToString());
+        return DeserializeObject<TelegramChannelData>(turnContext.Activity.ChannelData.ToString())
+            ?? NotATelegramChannelData;
     }
 
     public static UserData AssignTo(this TelegramChannelDataFrom from, UserData userData)
     {
-        if(from is not null)
+        if (from is not null)
         {
             userData.Id = from.Id;
             userData.FirstName = from.FirstName;
@@ -22,9 +48,10 @@ public static class TelegramChannelDataExtensions
         }
         return userData;
     }
+
     public static UserData AssignTo(this MessageFrom from, UserData userData)
     {
-        if(from is not null)
+        if (from is not null)
         {
             userData.Id = from.Id;
             userData.FirstName = from.FirstName;

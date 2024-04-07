@@ -1,6 +1,6 @@
 {
-    "sonarlint.connectedMode.project": {
-        "connectionId": "dgmjr-io",
-        "projectKey": "dgmjr-io_Telegram"
-    }
+  "sonarlint.connectedMode.project": {
+    "connectionId": "dgmjr-io",
+    "projectKey": "dgmjr-io_Telegram"
+  }
 }

@@ -56,7 +56,7 @@ public class UserData : INotifyPropertyChanged
     [JProp("biography")]
     public string? Biography { get => _biography; set { _biography = value; OnPropertyChanged(); } }
 
-    protected virtual void OnPropertyChanged([CallerMemberName] string? propertyName = null)
+    private void OnPropertyChanged([CallerMemberName] string? propertyName = null)
     {
         PropertyChanged?.Invoke(this, new PropertyChangedEventArgs(propertyName));
     }
@@ -72,6 +72,21 @@ public class UserData : INotifyPropertyChanged
     {
         return DeserializeObject<UserData>(json);
     }
+
+    public const string NotATelegramUserMessage = "Not a Telegram user";
+
+    public static readonly UserData NotATelegramUser = new ()
+    {
+        Id = long.MinValue,
+        FirstName = NotATelegramUserMessage,
+        LastName = NotATelegramUserMessage,
+        Username = NotATelegramUserMessage,
+        Biography = NotATelegramUserMessage,
+        LanguageCode = "en",
+        IsBot = false,
+        IsPremium = false,
+        PhotoUrl = "https://via.placeholder.com/150?text=Not+a+Telegram+user"
+    };
 }
 
 public class UserDataAccessor(UserState userState)

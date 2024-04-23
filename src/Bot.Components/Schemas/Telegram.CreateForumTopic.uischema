@@ -1,0 +1,85 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/ui/v1.0/ui.schema",
+  "menu": {
+    "submenu": [
+      "Telegram"
+    ]
+  },
+  "form": {
+    "hidden": [
+      "parseMode",
+      "replyToMessageId",
+      "protectContent"
+    ],
+    "subtitle": "Forward a message to another chat.",
+    "widget": "textarea",
+    "fieldsets": [
+      {
+        "title": "Bot API Token",
+        "description": "Enter the bot token.",
+        "defaultExpanded": false,
+        "fields": [
+          "botApiToken"
+        ]
+      },
+      {
+        "title": "Group Chat Info",
+        "defaultExpanded": true,
+        "fields": [
+          "recipientId",
+          "title",
+          "customEmojiIcon",
+          "iconColor"
+        ]
+      },
+      {
+        "title": "Miscellaneous",
+        "description": "Other stuff.",
+        "defaultExpanded": false,
+        "fields": [
+          "*"
+        ]
+      }
+    ],
+    "properties": {
+      "recipientId": {
+        "description": "The ID of the chat to forward the message to.",
+        "subtitle": "The ID of the chat to forward the message to.",
+        "widget": "textarea",
+        "label": "Group Chat ID",
+        "intellisenseScopes": [
+          "expressions",
+          "user-variables"
+        ]
+      }
+    },
+    "pivotFieldsets": true
+  },
+  "flow": {
+    "widget": "ActionCard",
+    "header": {
+      "widget": "ActionHeader",
+      "title": "=\"New topic: \\\"\" + coalesce(action.title, \"Create a Forum Topic\") + \"\\\"\"",
+      "icon": "OfficeChatSolid",
+      "subtitle": "Create a forum topic in a group chat.",
+      "action": {
+        "type": "Action.Submit",
+        "title": "Create"
+      },
+      "colors": {
+        "theme": "#992299",
+        "color": "#FFFFFF",
+        "icon": "#FFFFFF"
+      }
+    },
+    "body": {
+      "widget": "ListOverview",
+      "items": "=[\"Group chat ID: \" + coalesce(action.recipientId, \"?\"), \"Icon Color: \" + coalesce(action.iconColor, \"?\"), \"\nIcon: \" + coalesce(action.customEmojiIcon, \"?\")]"
+    },
+    "footer": {
+      "widget": "PropertyDescription",
+      "property": "=action.resultProperty",
+      "description": "(the created forum topic)"
+    }
+  }
+}

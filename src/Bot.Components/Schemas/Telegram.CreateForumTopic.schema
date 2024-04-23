@@ -1,0 +1,46 @@
+{
+  "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
+  "$role": "extends(Telegram.TelegramBotCustomAction)",
+  "type": "object",
+  "title": "Create Forum Topic",
+  "description": "Sends a video via the Telegram Bot API to a specified recipient.",
+  "required": [
+    "recipientId",
+    "botApiToken",
+    "title"
+  ],
+  "properties": {
+    "iconColor": {
+      "$ref": "schema:#/definitions/Telegram.ColorExpression",
+      "title": "Icon Color",
+      "description": "The color of the icon to be displayed in the chat.",
+      "examples": [
+        "#FF0000",
+        "=state.color",
+        "rgb(255, 0, 0)",
+        {
+          "red": 255,
+          "green": 0,
+          "blue": 0
+        }
+      ]
+    },
+    "customEmojiIcon": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Custom Emojus",
+      "description": "The custom emojus to be displayed in the chat.",
+      "examples": [
+        "=state.emoji"
+      ]
+    },
+    "title": {
+      "$ref": "schema:#/definitions/stringExpression",
+      "title": "Title",
+      "description": "The title of the forum topic.",
+      "examples": [
+        "New Forum Topic",
+        "=state.title"
+      ]
+    }
+  }
+}

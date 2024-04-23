@@ -1,7 +1,9 @@
 {
   "$schema": "https://schemas.botframework.com/schemas/ui/v1.0/ui.schema",
   "menu": {
-    "submenu": ["Telegram"]
+    "submenu": [
+      "Telegram"
+    ]
   },
   "form": {
     "hidden": [
@@ -15,6 +17,28 @@
         "label": "User ID",
         "description": "The ID of the user to get."
       }
+    }
+  },
+  "flow": {
+    "widget": "ActionCard",
+    "header": {
+      "widget": "ActionHeader",
+      "title": "Get User",
+      "subtitle": "Get a user by ID.",
+      "description": "Get User ${coalesce(action.recipientId, \"?\")}",
+      "overrideSDKHeader": true,
+      "icon": "UserOptional",
+      "colors": {
+        "theme": "#1d0691",
+        "color": "#FFFFFF",
+        "icon": "#FFFFFF"
+      }
+    },
+    "body": "User: ${coalesce(action.recipientId, \"?\")}",
+    "footer": {
+      "widget": "PropertyDescription",
+      "property": "=action.resultProperty",
+      "description": "(the user object)"
     }
   }
 }

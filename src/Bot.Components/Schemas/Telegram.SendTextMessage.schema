@@ -10,6 +10,7 @@
   ],
   "properties": {
     "text": {
+      "$role": "expression",
       "$ref": "schema:#/definitions/stringExpression",
       "title": "Message Text",
       "description": "The text of the message.",

@@ -21,8 +21,10 @@ using Microsoft.AspNetCore.Session;
 
 using Telegram.UserBot.Config;
 using Telegram.UserBot.Store.Abstractions;
-using WTelegram;
+
 using TL;
+
+using WTelegram;
 
 public class UserBot : Client, IUserBot
 {
@@ -51,24 +53,20 @@ public class UserBot : Client, IUserBot
         OnMessageReceived += Client_OnMessageReceived;
         OnUpdateDeleteChannelMessages += async udcm =>
             Logger?.ChatMessagesDeleted(Chats[udcm.channel_id], udcm.messages.Length);
-        OnUpdateDeleteMessages += async udm =>
-            Logger?.MessagesDeleted(udm.messages.Length);
+        OnUpdateDeleteMessages += async udm => Logger?.MessagesDeleted(udm.messages.Length);
         OnUpdateUserTyping += async uut =>
             Logger?.UserAction(Users[uut.user_id], uut.action.GetType().Name);
         OnUpdateChatUserTyping += async ucut =>
             Logger?.ChatUserTyping(Users[ucut.from_id.ID], Chats[ucut.chat_id]);
         OnUpdateChannelUserTyping += async ucut2 =>
             Logger?.ChatUserTyping(Users[ucut2.from_id.ID], Chats[ucut2.channel_id]);
-        OnUpdateChatParticipants += async ucp =>
+        OnUpdateChatParticipants += async (ucp, cp) =>
             Logger?.ChatParticipants(ucp.participants.ChatId, ucp.participants.Participants.Length);
-        OnUpdateUserStatus += async uus =>
-            Logger?.UserStatus(Users[uus.user_id], uus.status);
+        OnUpdateUserStatus += async uus => Logger?.UserStatus(Users[uus.user_id], uus.status);
         OnUpdateUserName += async uun =>
             Logger?.UserChangedProfileName(Users[uun.user_id], uun.first_name, uun.last_name);
-        OnUpdateUser += async uu =>
-            Logger?.UserChangedInfos(Users[uu.user_id]);
-        OnOtherUpdate += async u =>
-            Logger?.UnhandledUpdate(u);
+        OnUpdateUser += async uu => Logger?.UserChangedInfos(Users[uu.user_id]);
+        OnOtherUpdate += async u => Logger?.UnhandledUpdate(u);
         OnUpdateGroupCallParticipants += async ugcp =>
             Logger?.GroupCallParticipants(ugcp.call.id, ugcp.participants.Length);
     }
@@ -78,20 +76,19 @@ public class UserBot : Client, IUserBot
     protected virtual async Task Client_OnUpdate(UpdatesBase updates)
     {
         updates.CollectUsersChats(Users, Chats);
-        if (updates is UpdateShortMessage usm && !Users.ContainsKey(usm.user_id))
+        switch (updates)
         {
-            (
-                await this.Updates_GetDifference(usm.pts - usm.pts_count, usm.date, 0)
-            ).CollectUsersChats(Users, Chats);
-        }
-        else if (
-            updates is UpdateShortChatMessage uscm
-            && (!Users.ContainsKey(uscm.from_id) || !Chats.ContainsKey(uscm.chat_id))
-        )
-        {
-            (
-                await this.Updates_GetDifference(uscm.pts - uscm.pts_count, uscm.date, 0)
-            ).CollectUsersChats(Users, Chats);
+            case UpdateShortMessage usmsg when !Users.ContainsKey(usmsg.user_id):
+                (
+                    await this.Updates_GetDifference(usmsg.pts - usmsg.pts_count, usmsg.date, 0)
+                ).CollectUsersChats(Users, Chats);
+                break;
+            case UpdateShortChatMessage uscm
+                when !Users.ContainsKey(uscm.from_id) || !Chats.ContainsKey(uscm.chat_id):
+                (
+                    await this.Updates_GetDifference(uscm.pts - uscm.pts_count, uscm.date, 0)
+                ).CollectUsersChats(Users, Chats);
+                break;
         }
 
         foreach (var update in updates.UpdateList)
@@ -121,7 +118,7 @@ public class UserBot : Client, IUserBot
                     await OnUpdateChannelUserTyping(ucut2);
                     break;
                 case UpdateChatParticipants { participants: ChatParticipants cp } ucp:
-                    await OnUpdateChatParticipants(ucp);
+                    await OnUpdateChatParticipants(ucp, cp);
                     break;
                 case UpdateUserStatus uus:
                     await OnUpdateUserStatus(uus);
@@ -176,10 +173,19 @@ public class UserBot : Client, IUserBot
         switch (messageBase)
         {
             case Message m:
-                Logger?.MessageReceived(m, this.GetPeerName(m.from_id), this.GetPeerName(m.peer_id));
+                Logger?.MessageReceived(
+                    m,
+                    this.GetPeerName(m.from_id),
+                    this.GetPeerName(m.peer_id)
+                );
                 break;
             case MessageService ms:
-                Logger?.UserAction(ms, this.GetPeerName(ms.from_id), this.GetPeerName(ms.peer_id), ms.action.GetType().Name[13..]);
+                Logger?.UserAction(
+                    ms,
+                    this.GetPeerName(ms.from_id),
+                    this.GetPeerName(ms.peer_id),
+                    ms.action.GetType().Name[13..]
+                );
                 break;
         }
     }
@@ -191,7 +197,7 @@ public class UserBot : Client, IUserBot
     public event UpdateHandler<UpdateUserTyping> OnUpdateUserTyping;
     public event UpdateHandler<UpdateChatUserTyping> OnUpdateChatUserTyping;
     public event UpdateHandler<UpdateChannelUserTyping> OnUpdateChannelUserTyping;
-    public event UpdateHandler<UpdateChatParticipants> OnUpdateChatParticipants;
+    public event UpdateHandler<UpdateChatParticipants, ChatParticipants> OnUpdateChatParticipants;
     public event UpdateHandler<UpdateUserStatus> OnUpdateUserStatus;
     public event UpdateHandler<UpdateUserName> OnUpdateUserName;
     public event UpdateHandler<UpdateUser> OnUpdateUser;
@@ -202,3 +208,7 @@ public class UserBot : Client, IUserBot
 public delegate Task MessageHandler(MessageBase messageBase, bool edit = false);
 public delegate Task UpdateHandler<in T>(T update)
     where T : Update;
+
+public delegate Task UpdateHandler<in T, in V>(T update, V @value)
+    where T : Update
+    where V : class;

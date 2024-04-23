@@ -5,6 +5,7 @@ using Telegram.Bot.Components;
 public static class TelegramChannelDataExtensions
 {
     public const string NotATelegramChannel = "Not a Telegram channel";
+    public const string NotATelegramUser = "Not a Telegram user";
 
     private static readonly TelegramChannelData NotATelegramChannelData =
         new()
@@ -14,8 +15,8 @@ public static class TelegramChannelDataExtensions
                 From = new MessageFrom
                 {
                     Id = -1,
-                    FirstName = NotATelegramChannel,
-                    Username = NotATelegramChannel,
+                    FirstName = NotATelegramUser,
+                    Username = NotATelegramUser,
                     IsBot = false
                 },
                 Chat = new Chat { Id = -1, Type = ChatType.Private.ToString() }
@@ -23,8 +24,8 @@ public static class TelegramChannelDataExtensions
             From = new TelegramChannelDataFrom
             {
                 Id = -1,
-                FirstName = NotATelegramChannel,
-                Username = NotATelegramChannel,
+                FirstName = NotATelegramUser,
+                Username = NotATelegramUser,
                 IsBot = false
             }
         };
@@ -64,9 +65,28 @@ public static class TelegramChannelDataExtensions
         return userData;
     }
 
-    public static UserData AssignTo(this TelegramChannelData channelData, UserData userData)
+    public static UserData AssignTo(
+        this TelegramChannelData channelData,
+        UserData userData,
+        IBotTelemetryClient? telemetryClient = null
+    )
     {
-        channelData?.Message.From.AssignTo(userData);
-        return userData;
+        try
+        {
+            channelData?.Message.From.AssignTo(userData);
+        }
+        catch (Exception ex)
+        {
+            // don't let this bork the whole thing if it fails
+            telemetryClient?.TrackException(
+                ex,
+                new StringDictionary
+                {
+                    [nameof(channelData)] = channelData?.ToString(),
+                    [nameof(userData)] = userData?.ToString()
+                }
+            );
+        }
+        return userData!;
     }
 }

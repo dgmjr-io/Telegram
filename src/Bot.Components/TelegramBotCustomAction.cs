@@ -5,26 +5,39 @@ using System.Threading.Tasks;
 
 using AdaptiveExpressions.Properties;
 
+using Dgmjr.BotFramework;
+
 using Microsoft.Bot.Builder.Dialogs;
 
 using NetTopologySuite.Utilities;
 
 using Telegram.Bot.Components.Expressions;
 
+using Trace = System.Diagnostics.Trace;
+
 public delegate Task<T> CallBot<T>(ITelegramBotClient bot);
 
-public abstract class TelegramBotCustomAction(string kind): Dialog
+public abstract class TelegramBotCustomAction<TAction> : BotCustomComponentAction<TAction>
+    where TAction : TelegramBotCustomAction<TAction>
 {
-    protected TelegramBotCustomAction() : this(DeclarativeTypeConst) {}
+    protected TelegramBotCustomAction(
+        IBotTelemetryClient telemetryClient,
+        string kind,
+        [CallerFilePath] string sourceFilePath = "",
+        [CallerLineNumber] int sourceLineNumber = 0
+    )
+        : base(kind, sourceFilePath, sourceLineNumber)
+    {
+        TelemetryClient = telemetryClient;
+        RegisterSourceLocation(sourceFilePath, sourceLineNumber);
+    }
 
-    public const string DeclarativeTypeConst = $"{Constants.Namespace}.{nameof(TelegramBotCustomAction)}";
+    protected TelegramBotCustomAction(IBotTelemetryClient telemetryClient)
+        : this(telemetryClient, DeclarativeTypeConst) { }
 
-    /// <summary>
-    /// Gets the declarative type of the custom action.
-    /// </summary>
-    [JsonProperty("$kind")]
-    [JProp("$kind")]
-    public virtual string Kind => kind;
+    private const string TelegramBotCustomActionKind = "TelegramBotCustomAction";
+    public const string DeclarativeTypeConst =
+        $"{Constants.Namespace}.{TelegramBotCustomActionKind}";
 
     /// <summary>Gets or sets the bot API token.</summary>
     [JsonProperty("botApiToken")]
@@ -55,22 +68,11 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
     [JProp("protectContent")]
     public virtual BoolExpression? ProtectContent { get; set; } = false;
 
-    [JsonProperty("disabled")]
-    [JProp("disabled")]
-    public virtual BoolExpression? IsDisabled { get; set; } = false;
-
-    /// <summary>
-    /// Gets or sets the path to which we store the result from the output of this custom action.
-    /// </summary>
-    [JsonProperty("resultProperty")]
-    public StrExp ResultProperty { get; set; }
-
-    protected virtual ChatId GetChatId(DialogContext dc) =>
-        RecipientId.GetChatIdValue(dc.State);
+    protected virtual ChatId GetChatId(DialogContext dc) => RecipientId.GetChatIdValue(dc.State);
 
     protected virtual async Task<T?> CallBotAsync<T>(DialogContext dc, CallBot<T> action)
     {
-        if(IsDisabled.GetValue(dc.State))
+        if (IsDisabled.GetValue(dc.State))
         {
             return default;
         }
@@ -79,26 +81,61 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
         bot.OnMakingApiRequest += OnMakingApiRequest;
         bot.OnApiResponseReceived += OnApiResponseReceived;
         Assert.IsTrue(bot != null, "The bot API token is not valid.");
-        var result = await action(bot);
 
-        if (ResultProperty != null)
+        try
         {
-            dc.State.SetValue(ResultProperty.GetValue(dc.State), result);
-        }
+            var result = await action(bot);
+            if (ResultProperty != null)
+            {
+                dc.State.SetValue(ResultProperty.GetValue(dc.State), result);
+            }
 
-        return result;
+            return result;
+        }
+        catch (Exception ex)
+        {
+            TelemetryClient.TrackException(ex);
+            throw;
+        }
     }
 
-    protected virtual ValueTask OnApiResponseReceived(ITelegramBotClient bot, ApiResponseEventArgs args, CancellationToken cancellationToken)
+    protected virtual ValueTask OnApiResponseReceived(
+        ITelegramBotClient bot,
+        ApiResponseEventArgs args,
+        CancellationToken cancellationToken
+    )
     {
-        Trace.TraceInformation($"Received response from {args.ApiRequestEventArgs.Request.MethodName}");
+        var elapsedTime = StopTimer();
+        TelemetryClient.TrackDependency(
+            Constants.TelegramBot,
+            bot.BotId.ToString(),
+            args.ApiRequestEventArgs.Request.MethodName,
+            $$$"""
+            {
+                "request": {{{SerializeObject(args.ApiRequestEventArgs.Request)}}},
+                "response": {{{SerializeObject(args.ResponseMessage)}}}
+            }
+            """,
+            DateTimeOffset.Now - elapsedTime,
+            elapsedTime,
+            args.ResponseMessage.StatusCode.ToString(),
+            args.ResponseMessage.IsSuccessStatusCode
+        );
+        Trace.TraceInformation(
+            $"Received response from {args.ApiRequestEventArgs.Request.MethodName}"
+        );
         return new ValueTask();
     }
 
-    protected virtual ValueTask OnMakingApiRequest(ITelegramBotClient bot, ApiRequestEventArgs args, CancellationToken cancellationToken)
+    protected virtual ValueTask OnMakingApiRequest(
+        ITelegramBotClient bot,
+        ApiRequestEventArgs args,
+        CancellationToken cancellationToken
+    )
     {
+        StartTimer();
         Trace.TraceInformation($"Making request to {args.Request.MethodName}");
-        switch(args.Request)
+        switch (args.Request)
         {
             case SendMessageRequest sendMessageRequest:
                 Trace.TraceInformation($"Sending message to {sendMessageRequest.ChatId}");
@@ -146,7 +183,9 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
                 Trace.TraceInformation($"Sending chat action to {sendChatActionRequest.ChatId}");
                 break;
             case GetUserProfilePhotosRequest getUserProfilePhotosRequest:
-                Trace.TraceInformation($"Getting user profile photos for {getUserProfilePhotosRequest.UserId}");
+                Trace.TraceInformation(
+                    $"Getting user profile photos for {getUserProfilePhotosRequest.UserId}"
+                );
                 break;
             case GetFileRequest getFileRequest:
                 Trace.TraceInformation($"Getting file {getFileRequest.FileId}");
@@ -158,19 +197,27 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
                 Trace.TraceInformation($"Unbanning chat member {unbanChatMemberRequest.ChatId}");
                 break;
             case RestrictChatMemberRequest restrictChatMemberRequest:
-                Trace.TraceInformation($"Restricting chat member {restrictChatMemberRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Restricting chat member {restrictChatMemberRequest.ChatId}"
+                );
                 break;
             case PromoteChatMemberRequest promoteChatMemberRequest:
                 Trace.TraceInformation($"Promoting chat member {promoteChatMemberRequest.ChatId}");
                 break;
             case SetChatAdministratorCustomTitleRequest setChatAdministratorCustomTitleRequest:
-                Trace.TraceInformation($"Setting chat administrator custom title {setChatAdministratorCustomTitleRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Setting chat administrator custom title {setChatAdministratorCustomTitleRequest.ChatId}"
+                );
                 break;
             case SetChatPermissionsRequest setChatPermissionsRequest:
-                Trace.TraceInformation($"Setting chat permissions {setChatPermissionsRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Setting chat permissions {setChatPermissionsRequest.ChatId}"
+                );
                 break;
             case ExportChatInviteLinkRequest exportChatInviteLinkRequest:
-                Trace.TraceInformation($"Exporting chat invite link {exportChatInviteLinkRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Exporting chat invite link {exportChatInviteLinkRequest.ChatId}"
+                );
                 break;
             case SetChatPhotoRequest setChatPhotoRequest:
                 Trace.TraceInformation($"Setting chat photo {setChatPhotoRequest.ChatId}");
@@ -182,7 +229,9 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
                 Trace.TraceInformation($"Setting chat title {setChatTitleRequest.ChatId}");
                 break;
             case SetChatDescriptionRequest setChatDescriptionRequest:
-                Trace.TraceInformation($"Setting chat description {setChatDescriptionRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Setting chat description {setChatDescriptionRequest.ChatId}"
+                );
                 break;
             case PinChatMessageRequest pinChatMessageRequest:
                 Trace.TraceInformation($"Pinning chat message {pinChatMessageRequest.ChatId}");
@@ -197,22 +246,32 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
                 Trace.TraceInformation($"Getting chat {getChatRequest.ChatId}");
                 break;
             case GetChatAdministratorsRequest getChatAdministratorsRequest:
-                Trace.TraceInformation($"Getting chat administrators {getChatAdministratorsRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Getting chat administrators {getChatAdministratorsRequest.ChatId}"
+                );
                 break;
             case GetChatMemberCountRequest getChatMembersCountRequest:
-                Trace.TraceInformation($"Getting chat members count {getChatMembersCountRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Getting chat members count {getChatMembersCountRequest.ChatId}"
+                );
                 break;
             case GetChatMemberRequest getChatMemberRequest:
                 Trace.TraceInformation($"Getting chat member {getChatMemberRequest.ChatId}");
                 break;
             case SetChatStickerSetRequest setChatStickerSetRequest:
-                Trace.TraceInformation($"Setting chat sticker set {setChatStickerSetRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Setting chat sticker set {setChatStickerSetRequest.ChatId}"
+                );
                 break;
             case DeleteChatStickerSetRequest deleteChatStickerSetRequest:
-                Trace.TraceInformation($"Deleting chat sticker set {deleteChatStickerSetRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Deleting chat sticker set {deleteChatStickerSetRequest.ChatId}"
+                );
                 break;
             case AnswerCallbackQueryRequest answerCallbackQueryRequest:
-                Trace.TraceInformation($"Answering callback query {answerCallbackQueryRequest.CallbackQueryId}");
+                Trace.TraceInformation(
+                    $"Answering callback query {answerCallbackQueryRequest.CallbackQueryId}"
+                );
                 break;
             case SetMyCommandsRequest setMyCommandsRequest:
                 Trace.TraceInformation($"Setting my commands: {setMyCommandsRequest.Commands}");
@@ -221,13 +280,17 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
                 Trace.TraceInformation($"Editing message text {editMessageTextRequest.ChatId}");
                 break;
             case EditMessageCaptionRequest editMessageCaptionRequest:
-                Trace.TraceInformation($"Editing message caption {editMessageCaptionRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Editing message caption {editMessageCaptionRequest.ChatId}"
+                );
                 break;
             case EditMessageMediaRequest editMessageMediaRequest:
                 Trace.TraceInformation($"Editing message media {editMessageMediaRequest.ChatId}");
                 break;
             case EditMessageReplyMarkupRequest editMessageReplyMarkupRequest:
-                Trace.TraceInformation($"Editing message reply markup {editMessageReplyMarkupRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Editing message reply markup {editMessageReplyMarkupRequest.ChatId}"
+                );
                 break;
             case StopPollRequest stopPollRequest:
                 Trace.TraceInformation($"Stopping poll {stopPollRequest.ChatId}");
@@ -245,31 +308,43 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
                 Trace.TraceInformation($"Uploading sticker file {uploadStickerFileRequest.UserId}");
                 break;
             case CreateNewStickerSetRequest createNewStickerSetRequest:
-                Trace.TraceInformation($"Creating new sticker set {createNewStickerSetRequest.UserId}");
+                Trace.TraceInformation(
+                    $"Creating new sticker set {createNewStickerSetRequest.UserId}"
+                );
                 break;
             case AddStickerToSetRequest addStickerToSetRequest:
                 Trace.TraceInformation($"Adding sticker to set {addStickerToSetRequest.UserId}");
                 break;
             case SetStickerPositionInSetRequest setStickerPositionInSetRequest:
-                Trace.TraceInformation($"Setting sticker position in set {setStickerPositionInSetRequest}");
+                Trace.TraceInformation(
+                    $"Setting sticker position in set {setStickerPositionInSetRequest}"
+                );
                 break;
             case DeleteStickerFromSetRequest deleteStickerFromSetRequest:
                 Trace.TraceInformation($"Deleting sticker from set {deleteStickerFromSetRequest}");
                 break;
             case SetStickerSetThumbRequest setStickerSetThumbRequest:
-                Trace.TraceInformation($"Setting sticker set thumb {setStickerSetThumbRequest.UserId}");
+                Trace.TraceInformation(
+                    $"Setting sticker set thumb {setStickerSetThumbRequest.UserId}"
+                );
                 break;
             case AnswerInlineQueryRequest answerInlineQueryRequest:
-                Trace.TraceInformation($"Answering inline query {answerInlineQueryRequest.InlineQueryId}");
+                Trace.TraceInformation(
+                    $"Answering inline query {answerInlineQueryRequest.InlineQueryId}"
+                );
                 break;
             case SendInvoiceRequest sendInvoiceRequest:
                 Trace.TraceInformation($"Sending invoice {sendInvoiceRequest.ChatId}");
                 break;
             case AnswerShippingQueryRequest answerShippingQueryRequest:
-                Trace.TraceInformation($"Answering shipping query {answerShippingQueryRequest.ShippingQueryId}");
+                Trace.TraceInformation(
+                    $"Answering shipping query {answerShippingQueryRequest.ShippingQueryId}"
+                );
                 break;
             case AnswerPreCheckoutQueryRequest answerPreCheckoutQueryRequest:
-                Trace.TraceInformation($"Answering pre checkout query {answerPreCheckoutQueryRequest.PreCheckoutQueryId}");
+                Trace.TraceInformation(
+                    $"Answering pre checkout query {answerPreCheckoutQueryRequest.PreCheckoutQueryId}"
+                );
                 break;
             case SendGameRequest sendGameRequest:
                 Trace.TraceInformation($"Sending game {sendGameRequest.ChatId}");
@@ -278,7 +353,9 @@ public abstract class TelegramBotCustomAction(string kind): Dialog
                 Trace.TraceInformation($"Setting game score {setGameScoreRequest.ChatId}");
                 break;
             case GetGameHighScoresRequest getGameHighScoresRequest:
-                Trace.TraceInformation($"Getting game high scores {getGameHighScoresRequest.ChatId}");
+                Trace.TraceInformation(
+                    $"Getting game high scores {getGameHighScoresRequest.ChatId}"
+                );
                 break;
         }
         return new ValueTask();

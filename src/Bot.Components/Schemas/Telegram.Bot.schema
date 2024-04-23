@@ -11,18 +11,21 @@
   "properties": {
     "RecipientId": {
       "type": "string",
-      "title": "Recipient ID",
-      "description": "The ID of the recipient to send the message to."
+      "title": "Administrative Recipient ID",
+      "description": "The ID of the recipient to send administrative messages to."
     },
-    "TranscriptRecipientId": {
-      "type": "string",
+    "TranscriptGroupId": {
       "title": "Transcript Recipient ID",
-      "description": "The ID of the recipient to send the transcripts to.  If not specified, the recipient ID is used."
+      "description": "The ID of the group to which transcripts will be sent.  If not specified, the Administrative Recipient ID is used.",
+      "type": [
+        "string",
+        "integer"
+      ]
     },
     "ForwardMessages": {
       "type": "boolean",
-      "title": "Forward Messages",
-      "description": "Whether or not to forward messages to the recipient.",
+      "title": "Transcribe to Telegram?",
+      "description": "Whether or not to forward messages to the recipient's Telegram ID.",
       "default": true
     },
     "Token": {
@@ -30,6 +33,169 @@
       "title": "Token",
       "description": "The token to use to authenticate with the Telegram API.",
       "secret": true
+    },
+    "Letter2CustomEmojiMap": {
+      "type": "object",
+      "title": "Letter to Custom Emoji Map",
+      "description": "A map of letters to custom emoji.  If a letter is not in the map, it will be set as the default emoji.",
+      "properties": {
+        "A": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"A\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"A.\""
+        },
+        "B": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"B\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"B.\""
+        },
+        "C": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"C\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"C.\""
+        },
+        "D": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"D\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"D.\""
+        },
+        "E": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"E\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"E.\""
+        },
+        "F": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"F\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"F.\""
+        },
+        "G": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"G\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"G.\""
+        },
+        "H": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"H\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"H.\""
+        },
+        "I": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"I\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"I.\""
+        },
+        "J": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"J\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"J.\""
+        },
+        "K": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"K\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"K.\""
+        },
+        "L": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"L\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"L.\""
+        },
+        "M": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"M\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"M.\""
+        },
+        "N": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"N\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"N.\""
+        },
+        "O": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"O\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"O.\""
+        },
+        "P": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"P\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"P.\""
+        },
+        "Q": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"Q\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"Q.\""
+        },
+        "R": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"R\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"R.\""
+        },
+        "S": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"S\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"S.\""
+        },
+        "T": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"T\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"T.\""
+        },
+        "U": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"U\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"U.\""
+        },
+        "V": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"V\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"V.\""
+        },
+        "W": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"W\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"W.\""
+        },
+        "X": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"X\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"X.\""
+        },
+        "Y": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"Y\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"Y.\""
+        },
+        "Z": {
+          "type": "integer",
+          "format": "int64",
+          "title": "\"Z\" Custom Emojus",
+          "description": "The custom emojus to use for the letter \"Z.\""
+        }
+      }
     }
   }
 }

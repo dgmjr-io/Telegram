@@ -6,6 +6,7 @@ using Newtonsoft.Json;
 
 using Telegram.Bot.Components.Expressions;
 
+[CustomJsonConverter]
 public class FileExpressionConverter : Newtonsoft.Json.JsonConverter<FileExpression>
 {
     public override FileExpression? ReadJson(

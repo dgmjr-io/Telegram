@@ -1,8 +1,107 @@
 {
   "$schema": "https://schemas.botframework.com/schemas/ui/v1.0/ui.schema",
   "form": {
-      "label": "Telegram Bot Configuration",
-      "description": "Connects the bot to Telegram for backchannel messaging.",
-      "helpLink": "https://docs.dgmjr.io"
+    "label": "Telegram Bot Configuration",
+    "description": "Connects the bot to Telegram for backchannel messaging.",
+    "subtitle": "Connects the bot to Telegram for backchannel messaging.",
+    "helpLink": "https://docs.dgmjr.io",
+    "intellisenseScopes": [
+      "expressions",
+      "user-variables"
+    ],
+    "widget": "textarea",
+    "properties": {
+      "Token": {
+        "description": "The token for the Telegram bot.",
+        "subtitle": "The token for the Telegram bot.",
+        "label": "Bot Token",
+        "widget": "textarea",
+        "intellisenseScopes": [
+          "expressions",
+          "user-variables"
+        ]
+      },
+      "RecipientId": {
+        "description": "The recipient ID for the administrative user.",
+        "subtitle": "The recipient ID for the administrative user.",
+        "label": "Recipient ID",
+        "widget": "textarea",
+        "intellisenseScopes": [
+          "expressions",
+          "user-variables"
+        ]
+      },
+      "ForwardMessages": {
+        "description": "Transcribe messages to Telegram.",
+        "subtitle": "Transcribe messages to Telegram.",
+        "label": "Transcribe to Telegram",
+        "widget": "checkbox",
+        "intellisenseScopes": [
+          "expressions",
+          "user-variables"
+        ]
+      },
+      "TranscriptGroupId": {
+        "description": "The group ID for the transcript.",
+        "subtitle": "The group ID for the transcript.",
+        "label": "Transcript Group ID",
+        "widget": "textarea",
+        "intellisenseScopes": [
+          "expressions",
+          "user-variables"
+        ]
+      },
+      "Letter2CustomEmojiMap": {
+        "description": "A map of letters to custom emoji.",
+        "subtitle": "A map of letters to custom emoji.",
+        "label": "Letter to Custom Emoji Map",
+        "intellisenseScopes": [
+          "expressions",
+          "user-variables"
+        ]
+      }
+    },
+    "fieldsets": [
+      {
+        "title": "Connection",
+        "defaultExpanded": true,
+        "fields": [
+          {
+            "type": "Input.Text",
+            "id": "Token",
+            "label": "Bot Token"
+          },
+          {
+            "type": "Input.Text",
+            "id": "RecipientId",
+            "label": "Administrative Recipient ID"
+          }
+        ]
+      },
+      {
+        "title": "Transcribe to Telegram",
+        "defaultExpanded": false,
+        "fields": [
+          {
+            "type": "Input.Toggle",
+            "id": "ForwardMessages",
+            "label": "Transcribe to Telegram"
+          },
+          {
+            "type": "Input.Text",
+            "id": "TranscriptGroupId",
+            "label": "Transcript Group ID",
+            "placeholder": "123456789"
+          }
+        ]
+      },
+      {
+        "title": "The Rest",
+        "defaultExpanded": false,
+        "fields": [
+          "*"
+        ]
+      }
+    ]
   }
 }

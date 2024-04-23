@@ -1,14 +1,19 @@
 ﻿<Project>
   <ItemGroup>
-    <Using Include="AdaptiveExpressions.Properties" />
-    <Using Include="Telegram.Bot.Types" />
-    <Using Include="Newtonsoft.Json" />
-    <Using Include="Telegram.Bot.Types.Enums" />
-    <Using Include="Telegram.Bot.Args" />
-    <Using Include="Telegram.Bot.Requests" />
-    <Using Include="Telegram.Bot" />
-    <Using Include="Microsoft.Bot.Builder.Dialogs" />
-    <Using Include="AdaptiveExpressions.Properties.StringExpression" Alias="StrExp" />
     <Using Include="AdaptiveExpressions.Properties.IntExpression" Alias="IntExp" />
+    <Using Include="AdaptiveExpressions.Properties.StringExpression" Alias="StrExp" />
+    <Using Include="AdaptiveExpressions.Properties" />
+    <Using Include="Microsoft.Bot.Builder.Dialogs" />
+    <Using Include="Newtonsoft.Json" />
+    <Using Include="Telegram.Bot.Args" />
+    <Using Include="Telegram.Bot.Components.Converters" />
+    <Using Include="Telegram.Bot.Components.Expressions" />
+    <Using Include="Telegram.Bot.Components.Extensions" />
+    <Using Include="Telegram.Bot.Components.Middleware" />
+    <Using Include="Telegram.Bot.Components.Models" />
+    <Using Include="Telegram.Bot.Requests" />
+    <Using Include="Telegram.Bot.Types.Enums" />
+    <Using Include="Telegram.Bot.Types" />
+    <Using Include="Telegram.Bot" />
   </ItemGroup>
 </Project>

@@ -1,6 +1,6 @@
 {
   "$schema": "https://schemas.botframework.com/schemas/component/v1.0/component.schema",
-  "$role": "extends(stringExpression)",
+  "$role": "extends(expression)",
   "title": "URL or file expression",
   "description": "An absolute URL to a resource on the Web or a base64-encoded binary file.",
   "oneOf": [

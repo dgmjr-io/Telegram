@@ -2,28 +2,43 @@ using JsonSerializer = Newtonsoft.Json.JsonSerializer;
 
 namespace Telegram.Bot.Components.Converters;
 
-public class ChatIdExpressionConverter : Newtonsoft.Json.JsonConverter<StrExp>
+[CustomJsonConverter]
+public class ChatIdExpressionConverter
+    : Dgmjr.BotFramework.Converters.ExpressionConverter<ChatIdExpression, ChatId>
 {
-    public override StrExp? ReadJson(JsonReader reader, type objectType, StrExp? existingValue, bool hasExistingValue, JsonSerializer serializer)
-    {
-        if (reader.TokenType == JsonToken.Null)
-        {
-            return null;
-        }
+    //     public override ChatIdExpression? ReadJson(
+    //         JsonReader reader,
+    //         type objectType,
+    //         ChatIdExpression? existingValue,
+    //         bool hasExistingValue,
+    //         JsonSerializer serializer
+    //     )
+    //     {
+    //         if (reader.ValueType == typeof(string))
+    //         {
+    //             return new ChatIdExpression((string?)reader.Value);
+    //         }
+    //         else
+    //         {
+    //             // NOTE: This does not use the serializer because even we could deserialize here
+    //             // expression evaluation has no idea about converters.
+    //             return new ChatIdExpression(JToken.Load(reader));
+    //         }
+    //     }
 
-        var value = serializer.Deserialize<string>(reader);
-        return new StrExp(value);
-    }
-
-    public override void WriteJson(JsonWriter writer, StrExp? value, JsonSerializer serializer)
-    {
-        if (value.ExpressionText is not null)
-        {
-            serializer.Serialize(writer, value.ToString());
-        }
-        else
-        {
-            serializer.Serialize(writer, value.Value);
-        }
-    }
+    //     public override void WriteJson(
+    //         JsonWriter writer,
+    //         ChatIdExpression? value,
+    //         JsonSerializer serializer
+    //     )
+    //     {
+    //         if (value.ExpressionText is not null)
+    //         {
+    //             serializer.Serialize(writer, value.ToString());
+    //         }
+    //         else
+    //         {
+    //             serializer.Serialize(writer, value.Value);
+    //         }
+    //     }
 }

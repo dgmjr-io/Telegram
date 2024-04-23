@@ -1,89 +1,46 @@
 using AdaptiveExpressions;
 
 namespace Telegram.Bot.Components.Expressions;
+
 using JValue = Newtonsoft.Json.Linq.JValue;
 using Expression = AdaptiveExpressions.Expression;
 
-[CustomExpression(DeclarativeTypeConst)]
+[CustomExpression(KindConst)]
 public class FileExpression : ExpressionProperty<string>
 {
-    public const string DeclarativeTypeConst = Constants.Expression;
+    public const string KindConst = $"{Constants.Namespace}.{nameof(FileExpression)}";
 
     [JsonProperty("$kind")]
-    public virtual string Kind => DeclarativeTypeConst;
+    [JProp("$kind")]
+    public virtual string Kind => KindConst;
 
     //
     // Summary:
     //     Initializes a new instance of the AdaptiveExpressions.Properties.FileExpression`1
     //     class.
     public FileExpression()
-    {
-    }
+        : base(default) { }
 
-    //
-    // Summary:
-    //     Initializes a new instance of the AdaptiveExpressions.Properties.FileExpression`1
-    //     class.
-    //
-    // Parameters:
-    //   value:
-    //     value.
     public FileExpression(byte[] value)
-        : base(value)
-    {
-    }
+        : this(value as object) { }
 
-    //
-    // Summary:
-    //     Initializes a new instance of the AdaptiveExpressions.Properties.FileExpression`1
-    //     class.
-    //
-    // Parameters:
-    //   expressionOrString:
-    //     expression or string.
     public FileExpression(string expressionOrString)
-        : base(expressionOrString)
-    {
-    }
+        : base(expressionOrString) { }
 
-    //
-    // Summary:
-    //     Initializes a new instance of the AdaptiveExpressions.Properties.FileExpression`1
-    //     class.
-    //
-    // Parameters:
-    //   expression:
-    //     expression.
     public FileExpression(Expression expression)
-        : base(expression)
-    {
-    }
+        : base(expression) { }
 
-    //
-    // Summary:
-    //     Initializes a new instance of the AdaptiveExpressions.Properties.FileExpression`1
-    //     class.
-    //
-    // Parameters:
-    //   lambda:
-    //     function (data) which evaluates to object.
-    public FileExpression(Func<object, object> lambda)
-        : this(Expression.Lambda(lambda))
-    {
-    }
+    public FileExpression(Func<object, object> expression)
+        : base(Expression.Lambda(expression)) { }
 
-    //
-    // Summary:
-    //     Initializes a new instance of the AdaptiveExpressions.Properties.FileExpression`1
-    //     class.
-    //
-    // Parameters:
-    //   expressionOrValue:
-    //     expression or value.
     public FileExpression(JToken expressionOrValue)
-        : base(expressionOrValue)
-    {
-    }
+        : base(expressionOrValue) { }
+
+    public FileExpression(Color value)
+        : this(value as object) { }
+
+    public FileExpression(object value)
+        : base(value) { }
 
     //
     // Summary:
@@ -145,7 +102,7 @@ public class FileExpression : ExpressionProperty<string>
         {
             return new InputFileUrl(uri.ToString());
         }
-        else if(value is string s2)
+        else if (value is string s2)
         {
             try
             {
@@ -174,7 +131,7 @@ public class FileExpression : ExpressionProperty<string>
         {
             return;
         }
-        if (text.StartsWith('='))
+        if (text.StartsWith("="))
         {
             ExpressionText = text;
             return;

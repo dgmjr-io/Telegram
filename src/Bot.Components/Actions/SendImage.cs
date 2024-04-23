@@ -16,7 +16,17 @@ using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Components.Expressions;
 
 [CustomAction(DeclarativeTypeConst)]
-public class SendImage() : TelegramBotCustomAction(DeclarativeTypeConst)
+public class SendImage(
+    IBotTelemetryClient telemetryClient,
+    [CallerFilePath] string sourceFilePath = "",
+    [CallerLineNumber] int sourceLineNumber = 0
+)
+    : TelegramBotCustomAction<SendImage>(
+        telemetryClient,
+        DeclarativeTypeConst,
+        sourceFilePath,
+        sourceLineNumber
+    )
 {
     public new const string DeclarativeTypeConst = $"{Constants.Namespace}.{nameof(SendImage)}";
 

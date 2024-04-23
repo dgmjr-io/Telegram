@@ -1,7 +1,9 @@
 {
   "$schema": "https://schemas.botframework.com/schemas/ui/v1.0/ui.schema",
   "menu": {
-    "submenu": ["Telegram"]
+    "submenu": [
+      "Telegram"
+    ]
   },
   "form": {
     "properties": {
@@ -14,5 +16,25 @@
       "expressions",
       "user-variables"
     ]
+  },
+  "flow": {
+    "widget": "ActionCard",
+    "hideFooter": true,
+    "header": {
+      "widget": "ActionHeader",
+      "title": "Send a video",
+      "description": "Send a video to a user.",
+      "icon": "MSNVideosSolid",
+      "colors": {
+        "theme": "#070140",
+        "color": "#FFFFFF",
+        "icon": "#FFFFFF"
+      }
+    },
+    "body": {
+      "widget": "PropertyDescription",
+      "property": "=action.video",
+      "description": "(video)"
+    }
   }
 }

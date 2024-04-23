@@ -40,10 +40,27 @@
   },
   "flow": {
     "widget": "ActionCard",
-    "title": "Forward a Message",
-    "body": "=concat(\"𝗙𝗿𝗼𝗺 𝗰𝗵𝗮𝘁: \", coalesce(action.fromChatId, \"?\"), \"\n𝗠𝗲𝘀𝘀𝗮𝗴𝗲: \", coalesce(action.messageId, \"?\"), \"\n𝗧𝗼: \", coalesce(action.recipientId, \"?\"))",
+    "header": {
+      "widget": "ActionHeader",
+      "title": "Forward a Message",
+      "icon": "MailForward",
+      "colors": {
+        "theme": "#079145",
+        "color": "#FFFFFF",
+        "icon": "#FFFFFF"
+      }
+    },
+    "body": {
+      "widget": "ListOverview",
+      "items": "=[\"From chat: \" + coalesce(action.fromChatId, \"?\"), \"Message: \" + coalesce(action.messageId, \"?\"), \"To: \" + coalesce(action.recipientId, \"?\")]"
+    },
     "action": {
       "type": "Action.Submit"
+    },
+    "footer": {
+      "widget": "PropertyDescription",
+      "property": "=action.resultProperty",
+      "description": "(the forwarded message)"
     }
   }
 }

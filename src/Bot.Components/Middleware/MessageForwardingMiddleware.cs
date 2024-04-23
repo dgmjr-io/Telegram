@@ -1,4 +1,6 @@
 namespace Telegram.Bot.Components.Middleware;
+
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -6,54 +8,144 @@ using Microsoft.Bot.Schema;
 
 using Newtonsoft.Json;
 
+using NuGet.Configuration;
+
 using Telegram.Bot;
 using Telegram.Bot.Types.Enums;
 using Telegram.Bot.Types.ReplyMarkups;
-using System.Text.RegularExpressions;
 
 using Constants = Constants;
 using Convert = System.Convert;
+using IMiddleware = Microsoft.Bot.Builder.IMiddleware;
 
-public partial class MessageForwardingMiddleware(ITelegramBotClient bot, IConfiguration configuration) : IMiddleware
+public partial class MessageForwardingMiddleware(
+    ITelegramBotClient bot,
+    IConfiguration configuration,
+    IBotTelemetryClient telemetryClient,
+    MsBotUserState userState
+) : IBotMiddleware
 {
-    private readonly string _transcriptRecipient = configuration[Constants.TranscriptRecipientKey];
-    private readonly bool _forwardMessages = bool.TryParse(configuration[Constants.ForwardMessagesKey], out var fwd) && fwd;
+    private const string ConfigurationKey =
+        nameof(Telegram) + "." + nameof(Bot) + "." + nameof(Components);
+    private TelegramBotComponentSettings Settings =>
+        configuration.GetSection(ConfigurationKey).Get<TelegramBotComponentSettings>() ?? new();
+    private long TranscriptRecipient => Settings.TranscriptGroupId;
+    private bool ForwardMessages => Settings.ForwardMessages;
     private const string MessageIdRegexString = @"^(?<MessageId>(\d+))-(?<ChatId>(\d+))-.*$";
     private const string ChatId = nameof(ChatId);
     private const string MessageId = nameof(MessageId);
+    private const string TranscriptForumId = nameof(TranscriptForumId);
+    private IStatePropertyAccessor<int> _forumIdAccessor;
+
+#if NET7_0_OR_GREATER
     [GeneratedRegex(MessageIdRegexString)]
     private partial Regx MessageIdRegex();
+#else
+    private readonly Regx _messageIdRegex = new(MessageIdRegexString);
 
-    public virtual async Task OnTurnAsync(ITurnContext turnContext, NextDelegate next, CancellationToken cancellationToken = default)
+    private Regx MessageIdRegex() => _messageIdRegex;
+#endif
+
+    public virtual async Task OnTurnAsync(
+        ITurnContext turnContext,
+        NextDelegate next,
+        CancellationToken cancellationToken = default
+    )
     {
+        var telegramChannelData = DeserializeObject<TelegramChannelData>(
+            SerializeObject(turnContext.Activity.GetChannelData<TelegramChannelData>())
+        );
+        _forumIdAccessor = userState.CreateProperty<int>(TranscriptForumId);
+        var forumId = await _forumIdAccessor.GetAsync(turnContext, () => -1, cancellationToken);
+        if (forumId == -1 && ForwardMessages)
+        {
+            var forumTopic = await CreateForumTopicAsync(
+                TranscriptRecipient,
+                name: telegramChannelData.Message.From.Username
+            );
+            forumId = forumTopic.MessageThreadId;
+            await _forumIdAccessor.SetAsync(turnContext, forumId, cancellationToken);
+            await userState.SaveChangesAsync(turnContext, force: true, cancellationToken);
+        }
+
         turnContext.OnSendActivities(OnSendActivities);
         await next(cancellationToken);
     }
 
-    protected virtual async Task<ResourceResponse[]> OnSendActivities(ITurnContext turnContext, List<Activity> activities, Func<Task<ResourceResponse[]>> next)
+    protected virtual async Task<ForumTopic> CreateForumTopicAsync(ChatId chatId, string name)
     {
+        return await bot.MakeRequestAsync(
+                new CreateForumTopicRequest(chatId, name) { IconColor = new Color() }
+            )
+            .ConfigureAwait(continueOnCapturedContext: false);
+    }
+
+    protected virtual async Task<ResourceResponse[]> OnSendActivities(
+        ITurnContext turnContext,
+        List<Activity> activities,
+        Func<Task<ResourceResponse[]>> next
+    )
+    {
+        var telegramChannelData = DeserializeObject<TelegramChannelData>(
+            SerializeObject(turnContext.Activity.GetChannelData<TelegramChannelData>())
+        );
+        var forumId = await _forumIdAccessor.GetAsync(turnContext, () => -1);
         var responses = await next();
-        var matchingResponses = responses.Where(r => r.Id != null && MessageIdRegex().IsMatch(r.Id)).ToList();
-        if(_forwardMessages && !activities.Exists(a => a.Type == ActivityTypes.Trace))
+
+        var matchingResponses = responses
+            .Where(r => r.Id != null && MessageIdRegex().IsMatch(r.Id))
+            .ToList();
+        if (ForwardMessages && !activities.Exists(a => a.Type == ActivityTypes.Trace))
         {
-            if(turnContext.Activity.Type == ActivityTypes.Message && turnContext.Activity.ChannelData is not null)
+            if (
+                turnContext.Activity.Type == ActivityTypes.Message
+                && turnContext.Activity.ChannelData is not null
+            )
             {
-                var telegramChannelData = DeserializeObject<TelegramChannelData>(SerializeObject(turnContext.Activity.ChannelData));
-                await bot.ForwardMessageAsync(
-                    _transcriptRecipient,
+                telemetryClient.TrackEvent(
+                    Constants.MessageForwardingMiddleware,
+                    new StringDictionary
+                    {
+                        { Constants.MessageId, telegramChannelData.Message.MessageId.ToString() },
+                        { Constants.ChatId, telegramChannelData.Message.Chat.Id.ToString() },
+                        {
+                            Constants.MessageThreadId,
+                            telegramChannelData.Message.Chat.Id.ToString()
+                        },
+                        { Constants.TranscriptGroupId, TranscriptRecipient.ToString() }
+                    }
+                );
+                await ForwardMessageAsync(
+                    TranscriptRecipient,
                     telegramChannelData.Message.Chat.Id,
-                    Convert.ToInt32(telegramChannelData.Message.MessageId)
+                    messageId: Convert.ToInt32(telegramChannelData.Message.MessageId),
+                    messageThreadId: forumId
                 );
             }
-            foreach(var matchingResponse in matchingResponses)
+            foreach (var matchingResponse in matchingResponses)
             {
                 var match = MessageIdRegex().Match(matchingResponse.Id);
                 var messageId = Convert.ToInt32(match.Groups[MessageId].Value);
                 var chatId = Convert.ToInt64(match.Groups[ChatId].Value);
-                await bot.ForwardMessageAsync(
-                    _transcriptRecipient,
+
+                telemetryClient.TrackEvent(
+                    Constants.MessageForwardingMiddleware,
+                    new StringDictionary
+                    {
+                        { Constants.MessageId, messageId.ToString() },
+                        { Constants.ChatId, chatId.ToString() },
+                        {
+                            Constants.MessageThreadId,
+                            telegramChannelData.Message.Chat.Id.ToString()
+                        },
+                        { Constants.TranscriptGroupId, TranscriptRecipient.ToString() }
+                    }
+                );
+                await ForwardMessageAsync(
+                    TranscriptRecipient,
                     chatId,
-                    messageId
+                    messageId: messageId,
+                    messageThreadId: forumId
                 );
             }
         }
@@ -138,18 +230,44 @@ public partial class MessageForwardingMiddleware(ITelegramBotClient bot, IConfig
         //                 );
         //                 break;
         //         }
-                // if(activity.Type == ActivityTypes.Message)
-                // {
-                //     var telegramChannelData = JsonConvert.DeserializeObject<TelegramChannelData>(JsonConvert.SerializeObject(turnContext.Activity.ChannelData));
-                //     await bot.ForwardMessageAsync(
-                //         _transcriptRecipient,
-                //         new ChatId(telegramChannelData.Message.Chat.Id),
-                //         Convert.ToInt32(telegramChannelData.Message.MessageId)
-                //     );
-                // }
-            // }
+        // if(activity.Type == ActivityTypes.Message)
+        // {
+        //     var telegramChannelData = JsonConvert.DeserializeObject<TelegramChannelData>(JsonConvert.SerializeObject(turnContext.Activity.ChannelData));
+        //     await bot.ForwardMessageAsync(
+        //         _transcriptRecipient,
+        //         new ChatId(telegramChannelData.Message.Chat.Id),
+        //         Convert.ToInt32(telegramChannelData.Message.MessageId)
+        //     );
+        // }
+        // }
         // }
         return responses;
     }
 
+    private async Task ForwardMessageAsync(
+        ChatId chatId,
+        long fromChatId,
+        int messageId,
+        int messageThreadId
+    )
+    {
+        try
+        {
+            await bot.ForwardMessageAsync(chatId, fromChatId, messageId, messageThreadId);
+        }
+        // swallow the exception and log it; don't let it bork the entire thing
+        catch (Exception ex)
+        {
+            telemetryClient.TrackException(
+                ex,
+                new StringDictionary
+                {
+                    [nameof(chatId)] = chatId.ToString(),
+                    [nameof(fromChatId)] = fromChatId.ToString(),
+                    [nameof(messageId)] = messageId.ToString(),
+                    [nameof(messageThreadId)] = messageThreadId.ToString()
+                }
+            );
+        }
+    }
 }

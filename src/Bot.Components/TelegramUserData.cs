@@ -6,6 +6,8 @@ using TelegramUserDataFactory = Func<UserData>;
 
 public class UserData : INotifyPropertyChanged
 {
+    private const string PhotoUrlPlaceholder = "https://via.placeholder.com/150?text={0}";
+
     public UserData()
     {
         PropertyChanged += (sender, e) => { }; // Do nothing
@@ -49,7 +51,7 @@ public class UserData : INotifyPropertyChanged
     private string? _photoUrl;
     [JsonProperty("photo_url")]
     [JProp("photo_url")]
-    public string? PhotoUrl { get => _photoUrl; set { _photoUrl = value; OnPropertyChanged(); } }
+    public string? PhotoUrl { get => _photoUrl ?? Format(PhotoUrlPlaceholder, Username ?? Id.ToString()); set { _photoUrl = value; OnPropertyChanged(); } }
 
     private string? _biography;
     [JsonProperty("biography")]
@@ -70,7 +72,7 @@ public class UserData : INotifyPropertyChanged
 
     public static UserData FromJson(string json)
     {
-        return DeserializeObject<UserData>(json);
+        return DeserializeObject<UserData>(json) ?? NotATelegramUser;
     }
 
     public const string NotATelegramUserMessage = "Not a Telegram user";
@@ -89,10 +91,10 @@ public class UserData : INotifyPropertyChanged
     };
 }
 
-public class UserDataAccessor(UserState userState)
+public class UserDataAccessor(MsBotUserState userState)
 {
     public IStatePropertyAccessor<UserData> Accessor { get; } = userState.CreateProperty<UserData>(Telegram);
-    public UserState UserState => userState;
+    public MsBotUserState UserState => userState;
 
     public const string Telegram = "telegram";
 

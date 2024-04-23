@@ -3,7 +3,17 @@ using Telegram.Bot.Components.Expressions;
 namespace Telegram.Bot.Components.Actions;
 
 [CustomAction(DeclarativeTypeConst)]
-public class SendDocument() : TelegramBotCustomAction(DeclarativeTypeConst)
+public class SendDocument(
+    IBotTelemetryClient telemetryClient,
+    [CallerFilePath] string sourceFilePath = "",
+    [CallerLineNumber] int sourceLineNumber = 0
+)
+    : TelegramBotCustomAction<SendDocument>(
+        telemetryClient,
+        DeclarativeTypeConst,
+        sourceFilePath,
+        sourceLineNumber
+    )
 {
     public new const string DeclarativeTypeConst = $"{Constants.Namespace}.{nameof(SendDocument)}";
 
@@ -16,21 +26,33 @@ public class SendDocument() : TelegramBotCustomAction(DeclarativeTypeConst)
     [JProp("document")]
     public FileExpression Document { get; set; }
 
-    public override async Task<DialogTurnResult> BeginDialogAsync(DialogContext dc, object? options = default, CancellationToken cancellationToken = default)
+    public override async Task<DialogTurnResult> BeginDialogAsync(
+        DialogContext dc,
+        object? options = default,
+        CancellationToken cancellationToken = default
+    )
     {
         Debug.Assert(Document != null, "The document is not valid.");
         var recipientId = RecipientId.GetValue(dc.State);
         var token = BotApiToken.GetValue(dc);
         Console.WriteLine($"Sending document to {recipientId} with token {token}");
-        var message = await CallBotAsync(dc, bot => bot.SendDocumentAsync(
-            chatId: recipientId,
-            document: Document.AsInputFile(dc),
-            messageThreadId: MessageThreadId?.GetValue(dc.State),
-            caption: ParseMode.GetValue(dc.State) is ParseModeEnum.Markdown or ParseModeEnum.MarkdownV2 ? Caption.GetValue(dc.State).EscapeMarkdown() : Caption.GetValue(dc.State),
-            parseMode: ParseMode.GetValue(dc.State),
-            protectContent: ProtectContent?.GetValue(dc.State) ?? false,
-            cancellationToken: cancellationToken
-        ));
+        var message = await CallBotAsync(
+            dc,
+            bot =>
+                bot.SendDocumentAsync(
+                    chatId: recipientId,
+                    document: Document.AsInputFile(dc),
+                    messageThreadId: MessageThreadId?.GetValue(dc.State),
+                    caption: ParseMode.GetValue(dc.State)
+                        is ParseModeEnum.Markdown
+                            or ParseModeEnum.MarkdownV2
+                        ? Caption.GetValue(dc.State).EscapeMarkdown()
+                        : Caption.GetValue(dc.State),
+                    parseMode: ParseMode.GetValue(dc.State),
+                    protectContent: ProtectContent?.GetValue(dc.State) ?? false,
+                    cancellationToken: cancellationToken
+                )
+        );
 
         return await dc.EndDialogAsync(message, cancellationToken: cancellationToken);
     }

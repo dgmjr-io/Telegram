@@ -45,5 +45,35 @@
         ]
       }
     ]
+  },
+  "flow": {
+    "widget": "ActionCard",
+    "header": {
+      "widget": "ActionHeader",
+      "title": "Send Text Message",
+      "description": "Send a text message to a user.",
+      "icon": "Send",
+      "colors": {
+        "theme": "#ab0d02",
+        "color": "#FFFFFF",
+        "icon": "#FFFFFF"
+      }
+    },
+    "body": {
+      "widget": "ListOverview",
+      "items": "=[\"recipient: \" + coalesce(action.recipientId, \"?\"), \"message: \" + coalesce(action.text, \"?\")]"
+    },
+    "footer": {
+      "widget": "PropertyDescription",
+      "property": "=action.resultProperty",
+      "description": "(the sent message)",
+      "actions": [
+        {
+          "type": "Action.Submit",
+          "title": "Send",
+          "isPrimary": true
+        }
+      ]
+    }
   }
 }

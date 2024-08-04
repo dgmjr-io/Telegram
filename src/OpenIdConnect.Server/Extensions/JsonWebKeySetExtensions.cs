@@ -4,11 +4,11 @@ namespace Telegram.OpenIdConnect.Extensions;
 
 public static class JsonWebKeySetExtensions
 {
-    private static readonly Jso Jso = new Jso
-    {
-        PropertyNamingPolicy = JNaming.CamelCase,
-        WriteIndented = true
-    };
+    private static readonly Jso Jso = new()
+{
+    PropertyNamingPolicy = JNaming.CamelCase,
+    WriteIndented = true
+};
 
     public static string ToJson(this JsonWebKeySet jsonWebKeySet) =>
         Serialize(

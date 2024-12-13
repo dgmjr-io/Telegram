@@ -1,4 +1,5 @@
 ---
+
 date: 2023-07-13T05:44:46:00-05:00Z
 description: Permission is hereby granted, free of charge, to any person obtaining a copy of this software and associated documentation files, yadda, yadda, yadda...
 keywords:
@@ -21,7 +22,7 @@ license: MIT
 slug: mit-license
 title: MIT License
 type: license
----
+-------------
 
 # MIT License
 
